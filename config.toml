@@ -1,0 +1,9 @@
+[profile.dev]
+debug = true
+split-debuginfo = '...'
+debug-assertions = true
+panic = 'unwind'
+
+[term]
+verbose = false
+color = 'always'

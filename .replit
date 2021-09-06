@@ -1,0 +1,5 @@
+run = "cargo test -q welcome -- --show-output | awk '$0 ~ /:|(unning)/mg {print $0}' && echo 'alias fcc=\"./fcc\"' >> ~/.bashrc"
+
+# Should source ~/.bashrc , but does not work
+onBoot = "source ~/.bashrc"
+entrypoint = "src/main.rs"
