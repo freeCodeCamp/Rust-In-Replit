@@ -1,9 +1,17 @@
 [package]
-name = "rust-in-replit"
+name = "fcc-rust-in-replit"
 version = "0.1.0"
+authors = ["Shaun Hamilton <shauhami020@gmail.com>"]
 edition = "2018"
+include = ["src/**/*", "Cargo.toml"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
-[dependencies]
-duct = "0.13.5"
+
+[[bin]]
+name = "calculator"
+path = "./calculator/src/main.rs"
+
+[alias]
+fcc = "cargo test -q welcome -- --show-output | awk '$0 ~ /:|unning/m {print $0}'"
+s = "cargo test --bin calculator"

@@ -138,7 +138,7 @@ mod tests {
     term(&[
       task(),
       d("Run your code, using the following command\n"),
-      cmd("cargo run --bin calculator\n"),
+      cmd("\t$ cargo run --bin calculator\n"),
     ]);
     term(&[
       emph("NOTE: "),
@@ -150,6 +150,41 @@ mod tests {
     ]);
 
     next(4);
+    assert!(true);
+  }
+  #[test]
+  fn four() {
+    term(&[
+      d("\n\nVariables are declared using the "),
+      kw("let "),
+      d("keyword.\n\n"),
+    ]);
+    term(&[
+      task(),
+      d("Within the "),
+      file("main "),
+      d("function, declare a new variable, and name it "),
+      kw("myVar "),
+      d("and give it a value of "),
+      kw("\"<your_name>\""),
+      d(". Ensure to declare it before the "),
+      kw("println! "),
+      d("call, and place your name within double quotes.\n\n"),
+    ]);
+    term(&[
+      emph("NOTE; "),
+      d("Variables can also be declared using the "),
+      kw("const "),
+      d("or "),
+      kw("static "),
+      d("keywords, but we will cover these later.\n\n"),
+    ]);
+    term(&[
+      emph("HINT; "),
+      d("If you get stuck, try to follow the compiler's helpful advice\n\n"),
+    ]);
+
+    next(5);
     assert!(true);
   }
 
@@ -173,5 +208,8 @@ mod tests {
   }
   fn emph(text: &str) -> Term {
     Term::new(text, White, Italic)
+  }
+  fn kw(text: &str) -> Term {
+    Term::new(text, Green, Normal)
   }
 }
