@@ -159,6 +159,7 @@ mod tests {
       kw("let "),
       d("keyword.\n\n"),
     ]);
+    term(&[d("\tlet variable_name = value\n\n")]);
     term(&[
       task(),
       d("Within the "),
