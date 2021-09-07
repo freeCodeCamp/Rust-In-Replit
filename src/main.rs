@@ -70,11 +70,11 @@ mod tests {
     ]);
     term(&[
       d("The main tools within the Rust ecosystem are\n"), 
-      Term::new("\t- rustc", Yellow, Normal),
+      file("\t- rustc"),
       d("\tThe compiler which takes your Rust code and compiles it into binary (machine readable code)\n"),
-      Term::new("\t- rustup", Yellow, Normal),
+      file("\t- rustup"),
       d("\tThe command line utility to install and update Rust\n"),
-      Term::new("\t- cargo", Yellow, Normal),
+      file("\t- cargo"),
       d("\tThe Rust build system and package manager (we will work with this)\n\n")
     ]);
     term(&[
@@ -107,7 +107,47 @@ mod tests {
   }
   #[test]
   fn three() {
-    term(&[d("\n\n")]);
+    term(&[
+      d("\n\nThis file contains a "),
+      emph("function declaration "),
+      d("with the handle "),
+      file("main"),
+    ]);
+    term(&[
+      d("By default, rustc calls the "),
+      file("main "),
+      d("function first whenever the the executable is run.\n"),
+    ]);
+    term(&[
+      d("Something important to notice about the contents of the function is the "),
+      file("println!() "),
+      d("call.\n"),
+    ]);
+    term(&[
+      file("println "),
+      d("is a built-in "),
+      emph("macro"),
+      d(".\n"),
+    ]);
+    term(&[d("A macro is similar to a function, but can be thought of as a piece of code which writes other code.\n"), d("For now, the main differences between a function and a macro to keep in mind are\n")]);
+    term(&[
+      d("\t- Macros are called using a "),
+      emph("bang (!)\n"),
+      d("\t- Macros can take a variable number of arguments; functions in Rust cannot\n\n"),
+    ]);
+    term(&[
+      task(),
+      d("Run your code, using the following command\n"),
+      cmd("cargo run --bin calculator\n"),
+    ]);
+    term(&[
+      emph("NOTE: "),
+      d("The "),
+      cmd("--bin calculator "),
+      d("arguments are only necessary, because you are not within the "),
+      file("calculator "),
+      d("directory\n"),
+    ]);
 
     next(4);
     assert!(true);
@@ -130,5 +170,8 @@ mod tests {
   }
   fn file(text: &str) -> Term {
     Term::new(text, Yellow, Normal)
+  }
+  fn emph(text: &str) -> Term {
+    Term::new(text, White, Italic)
   }
 }
