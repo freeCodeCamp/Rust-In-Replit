@@ -395,8 +395,93 @@ mod tests {
   }
   #[test]
   fn ten() {
-    term(&[]);
+    hr();
+    term(&[
+      d("\n\nWe want to add our surname (second name) to "),
+      kw("name\n"),
+    ]);
+    term(&[
+      d("There are many ways to do this in Rust. If you try to just concatenate "),
+      kw("\" Surname\""),
+      d(" to "),
+      kw("&first_name"),
+      d(", Rust will error, because you cannot concatenate to a referenced value.\n\n"),
+      d("You could remove the "),
+      kw("&"),
+      d(", but then the second "),
+      kw("println"),
+      d(" will cause the program to panic.\n"),
+    ]);
+    term(&[
+      d("So, in order to concatenate a reference to a "),
+      kw("str (&str)"),
+      d(", the first argument needs to be "),
+      emph("owned"),
+      d(". A "),
+      kw("String"),
+      d(" can be used as an owned value with the "),
+      kw("to_owned"),
+      d(" method:\n"),
+      d("\tlet owned_string = my_string.to_owned() + \" Surname\";"),
+    ]);
+    term(&[
+      task(),
+      d("Instead of moving "),
+      kw("first_name"),
+      d(" turn it into an owned value, and concatenate your surname to it - assigning the result to "),
+      kw("name\n")
+    ]);
+    term(&[d("Run your code to see the output\n\n")]);
+
     next(11);
+    assert!(true);
+  }
+  #[test]
+  fn eleven() {
+    hr();
+    term(&[
+      d("\n\nA more idomatic way to make use of the "),
+      kw("String"),
+      d(" type, is by using the "),
+      kw("push_str"),
+      d(" method:\n"),
+      d("\tmy_string.push_str(\"a str\");\n"),
+    ]);
+    term(&[
+      task(),
+      d("Delete "),
+      kw("name"),
+      d(" as well as the first "),
+      kw("println"),
+      d(" call. Then, use the "),
+      kw("push_str"),
+      d(" method on "),
+      kw("first_name"),
+      d(" to append your surname."),
+    ]);
+    term(&[
+      d("If you run your code now, Rust will error, because "),
+      kw("first_name"),
+      d(" is not "),
+      emph("mutable"),
+      d(".\n\n"),
+      task(),
+      d("Make "),
+      kw("first_name"),
+      d(" mutable, by using the "),
+      kw("mut"),
+      d(" keyword:\n"),
+      d("\tlet mut my_var = String::from(\"I am mutable!\");"),
+    ]);
+
+    next(12);
+    assert!(true);
+  }
+  #[test]
+  fn twelve() {
+    hr();
+
+    next(13);
     assert!(true);
   }
 
