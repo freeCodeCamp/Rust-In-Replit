@@ -27,11 +27,11 @@ mod tests {
     ]);
     term(&[d("So, be sure to keep an eye on this area.\n\n")]);
     term(&[Term::new("NOTE: ", Red, Normal), Term::new("If your session with Replit disconnects (timeout or refresh), you will need to run the following in the prompt:\n", Yellow, Underline)]);
-    term(&[cmd("\t$ source ~/.bashrc\n")]);
+    term(&[cmd("\t$ source ~/.bashrc\n"), cmd("\t$ chmod +x fcc\n")]);
     term(&[d(
       "To get your first lesson, type the following in the prompt:\n",
     )]);
-    term(&[cmd("\t$ source ~/.bashrc\n")]);
+    term(&[cmd("\t$ source ~/.bashrc\n"), cmd("\t$ chmod +x fcc\n")]);
     term(&[cmd("\t$ fcc 1\n")]);
     term(&[
       d("If at any point you need a reminder, click the "),
@@ -49,6 +49,10 @@ mod tests {
     term(&[
       cmd("\t$ source ~/.bashrc"),
       d("\t- refreshes the Nix prompt to use custom freeCodeCamp settings\n"),
+    ]);
+    term(&[
+      cmd("\t$ chmod +x fcc"),
+      d("\t- gives the shell permission to run the fcc binary\n"),
     ]);
     term(&[
       cmd("\t$ fcc <n>"),
@@ -302,7 +306,7 @@ mod tests {
       d(" which is available on the "),
       kw("String"),
       emph(" struct:\n"),
-      cmd("\tString::from(\"my &str\")\n"),
+      cmd("\tlet example = String::from(\"Hello, Camper!\")\n"),
     ]);
     term(&[d(
       "Do not worry about understanding all these new terms just yet\n\n",
