@@ -421,8 +421,8 @@ mod tests {
       kw("String"),
       d(" can be used as an owned value with the "),
       kw("to_owned"),
-      d(" method:\n"),
-      d("\tlet owned_string = my_string.to_owned() + \" Surname\";"),
+      d(" method:\n\n"),
+      d("\tlet owned_string = my_string.to_owned() + \" Surname\";\n"),
     ]);
     term(&[
       task(),
@@ -470,8 +470,8 @@ mod tests {
       kw("first_name"),
       d(" mutable, by using the "),
       kw("mut"),
-      d(" keyword:\n"),
-      d("\tlet mut my_var = String::from(\"I am mutable!\");"),
+      d(" keyword:\n\n"),
+      d("\tlet mut my_var = String::from(\"I am mutable!\");\n"),
     ]);
 
     next(12);
@@ -480,8 +480,106 @@ mod tests {
   #[test]
   fn twelve() {
     hr();
+    term(&[
+      d("\n\nSo far, you have learnt about the "),
+      kw("str"),
+      d(", and "),
+      kw("String"),
+      d(" types, as well as about references. If you have not accidentally used single quotes ('), you may not have noticed that, so far, everything to do with strings use double quotes (\").\n\n"),
+      d("This is because there is a third standard type called "),
+      kw("char"),
+      d(".\n")
+    ]);
+    term(&[
+      d("A "),
+      kw("char"),
+      d(" is a "),
+      emph("USV (Unicode Scalar Value)"),
+      d(", which is represented in unicode with values like "),
+      kw("U+221E"),
+      d(" - the unicode for '∞'.\n"),
+    ]);
+    term(&[
+      d("Strings can be thought of as collections or arrays of "),
+      kw("char"),
+      d("s.\n\n"),
+      task(),
+      d("Remove all of your code from within your "),
+      file("main"),
+      d(" function. Then, declare a new variable "),
+      kw("first"),
+      d(", and assign it the first letter of your first name - "),
+      kw("first"),
+      d(" should be type "),
+      kw("&str\n"),
+    ]);
+    term(&[
+      task(),
+      d("Print to the console the value of the "),
+      kw(".len()"),
+      d(" method, and the value of "),
+      kw("first.chars().count()\n\n"),
+      d("Run your code to see the output.\n"),
+    ]);
 
     next(13);
+    assert!(true);
+  }
+  #[test]
+  fn thirteen() {
+    hr();
+    term(&[
+      d("\n\nYou should see "),
+      Term::new("1 1", Red, Normal),
+      d(" output in the console. The "),
+      kw("len"),
+      d(" method returns the length in bytes for the "),
+      kw("str"),
+      d(". The "),
+      kw("chars"),
+      d(" method returns an iterator over the "),
+      kw("char"),
+      d("s in the string slice, and the "),
+      kw("count"),
+      d(" method returns the number of elements in the iterator.\n"),
+    ]);
+    term(&[
+      task(),
+      d("Change the value of "),
+      kw("first"),
+      d(" to be a string slice of the infinity character: ∞\n\n"),
+      emph("HINT: "),
+      d("You can copy-paste the character from the above line\n\n"),
+      d("Re-run your code, and see the output.\n"),
+    ]);
+
+    next(14);
+    assert!(true);
+  }
+  #[test]
+  fn fourteen() {
+    hr();
+    term(&[
+      d("\n\nYou should see "),
+      Term::new("3 1", Red, Normal),
+      d(" output in the console.\n"),
+      d("This is because the "),
+      file("'∞'"),
+      d(" char takes up 3 bytes in length.\n"),
+    ]);
+    term(&[
+      task(),
+      d("Feel free to play around with these new methods, as well as get an idea of what values different strings produce\n")
+    ]);
+
+    next(15);
+    assert!(true);
+  }
+  #[test]
+  fn fifteen() {
+    hr();
+
+    next(16);
     assert!(true);
   }
 
