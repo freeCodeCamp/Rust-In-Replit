@@ -78,6 +78,7 @@ mod tests {
   #[test]
   fn one() {
     hr();
+    n(1);
     term(&[
       d("\n\nFollow the instructions given in "),
       Term::new("this console", Green, Bold),
@@ -104,6 +105,7 @@ mod tests {
   #[test]
   fn two() {
     hr();
+    n(2);
     term(&[
       d("\n\nYou have just created a new Rust crate within the "),
       file("calculator/ "),
@@ -124,6 +126,7 @@ mod tests {
   #[test]
   fn three() {
     hr();
+    n(3);
     term(&[
       d("\n\nThis file contains a "),
       emph("function declaration "),
@@ -172,6 +175,7 @@ mod tests {
   #[test]
   fn four() {
     hr();
+    n(4);
     term(&[
       d("\n\nVariables are declared using the "),
       kw("let "),
@@ -214,6 +218,7 @@ mod tests {
   #[test]
   fn five() {
     hr();
+    n(5);
     term(&[d(
       "\n\nAbove, you might notice the rustc compiler is giving two suggestions for your code.\n",
     )]);
@@ -239,6 +244,7 @@ mod tests {
   #[test]
   fn six() {
     hr();
+    n(6);
     term(&[
       d("\n\nThe compiler is still giving us a warning about "),
       kw("first_name "),
@@ -271,6 +277,7 @@ mod tests {
   #[test]
   fn seven() {
     hr();
+    n(7);
     term(&[
       d("\n\nThe type of "),
       kw("first_name"),
@@ -318,6 +325,7 @@ mod tests {
   #[test]
   fn eight() {
     hr();
+    n(8);
     term(&[
       d("\n\n"),
       task(),
@@ -338,6 +346,7 @@ mod tests {
   #[test]
   fn nine() {
     hr();
+    n(9);
     term(&[
       d("\n\n"),
       task(),
@@ -396,6 +405,7 @@ mod tests {
   #[test]
   fn ten() {
     hr();
+    n(10);
     term(&[
       d("\n\nWe want to add our surname (second name) to "),
       kw("name\n"),
@@ -439,6 +449,7 @@ mod tests {
   #[test]
   fn eleven() {
     hr();
+    n(11);
     term(&[
       d("\n\nA more idomatic way to make use of the "),
       kw("String"),
@@ -480,6 +491,7 @@ mod tests {
   #[test]
   fn twelve() {
     hr();
+    n(12);
     term(&[
       d("\n\nSo far, you have learnt about the "),
       kw("str"),
@@ -528,6 +540,7 @@ mod tests {
   #[test]
   fn thirteen() {
     hr();
+    n(13);
     term(&[
       d("\n\nYou should see "),
       Term::new("1 1", Red, Normal),
@@ -559,6 +572,7 @@ mod tests {
   #[test]
   fn fourteen() {
     hr();
+    n(14);
     term(&[
       d("\n\nYou should see "),
       Term::new("3 1", Red, Normal),
@@ -578,6 +592,7 @@ mod tests {
   #[test]
   fn fifteen() {
     hr();
+    n(15);
 
     next(16);
     assert!(true);
@@ -610,5 +625,8 @@ mod tests {
   }
   fn hr() {
     term(&[d("--fcc--")]);
+  }
+  fn n(num: usize) {
+    term(&[Term::new(&format!("LESSON #{}", num), Green, Bold)]);
   }
 }
