@@ -38,7 +38,15 @@ mod tests {
       Term::new("Run", Green, Normal),
       d(" button. Or, type the following in the prompt:\n"),
     ]);
-    term(&[cmd("\t$ fcc help\n")]);
+    term(&[cmd("\t$ fcc help\n\n")]);
+    term(&[
+      d("If at any point you get stuck, you can either:\n"),
+      d("\t- Reset your code with: "),
+      cmd("$ fcc reset <n>\n"),
+      d("\t- View the answer to the code with: "),
+      cmd("$ fcc solution <n>\n"),
+    ]);
+
     hr();
     assert!(true);
   }
@@ -57,6 +65,14 @@ mod tests {
     term(&[
       cmd("\t$ fcc <n>"),
       d("\t- shows the instructions for the nth lesson\n"),
+    ]);
+    term(&[
+      cmd("\t$ fcc test <n>"),
+      d("\t- runs the node tests for the nth lesson\n"),
+    ]);
+    term(&[
+      cmd("\t$ fcc reset <n>"),
+      d("\t- resets the code to the beginning of the nth lesson\n"),
     ]);
     term(&[
       cmd("\t$ cargo run --bin calculator"),
@@ -210,6 +226,11 @@ mod tests {
     term(&[
       emph("HINT: "),
       d("If you get stuck, try to follow the compiler's helpful advice.\n\n"),
+    ]);
+    term(&[
+      task(),
+      d("You can see if you are on the right track, by running:\n"),
+      cmd("\t$ fcc test 4\n"),
     ]);
 
     next(5);
