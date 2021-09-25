@@ -627,6 +627,6 @@ mod tests {
     term(&[d("--fcc--")]);
   }
   fn n(num: usize) {
-    term(&[Term::new(&format!("LESSON #{}", num), Green, Bold)]);
+    term(&[Term::new(&format!("\nLESSON #{}", num), Green, Underline)]);
   }
 }
