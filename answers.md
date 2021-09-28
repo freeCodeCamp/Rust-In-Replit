@@ -104,7 +104,7 @@ fn main() {
 
 ```rust
 fn main() {
-  let first_name = String::from("Quincy");
+  let first_name = String::from("Tom");
   let name = &first_name;
   println!("Hello, {}!", name);
   println!("Hello, {}!", first_name);
@@ -126,3 +126,36 @@ fn main() {
   println!("Hello, {}!", first_name);
 }
 ```
+
+- You should use the `.push_str()` method.
+- `\.push_str\(`
+- You should push your surname to `first_name`.
+- `first_name\.push_str\(\s*"\w+"\s*\)`
+- You should make `first_name` mutable with `let mut first_name = ...`
+- `let\s+mut\s+first_name\s*=`
+
+## 12
+
+```rust
+fn main() {
+  let mut first_name = String::from("Nicholas");
+  first_name.push_str(" Carrigan");
+  println!("Hello, {}!", first_name);
+}
+```
+
+## 13
+
+```rust
+fn main() {
+  let first = "T";
+  println!("{} {}", first.len(), first.chars().count());
+}
+```
+
+- You should declare a variable named `first`.
+- `let\s+first`
+- You should assign `first` a single character in double quotes.
+- `first\s*=\s*"\w"`
+- You should print the length of `first` and the number of characters in `first`. Example Output: `1 1`
+- `getCommandOutput(1\s*1);`

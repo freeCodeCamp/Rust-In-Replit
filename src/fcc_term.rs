@@ -54,6 +54,7 @@ pub enum Colours {
   Turquoise = 14,
   Yellow = 11,
   White = 255,
+  Purple = 183,
 }
 
 impl Copy for Styles {}

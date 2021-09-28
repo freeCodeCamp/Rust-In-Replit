@@ -6,7 +6,7 @@ fn main() {}
 mod tests {
   use super::fcc_term;
   use fcc_term::{term, Colours, Styles, Term};
-  use Colours::{Green, Pink, Red, Turquoise, White, Yellow};
+  use Colours::{Green, Pink, Purple, Red, Turquoise, White, Yellow};
   use Styles::{Bold, Italic, Normal, Underline};
 
   #[test]
@@ -130,7 +130,7 @@ mod tests {
     term(&[
       d("Cargo has created the boilerplate for a 'Hello World'.\n\n"),
       task(),
-      d("Navigate to the "),
+      d("Open the "),
       file("calculator/src/main.rs "),
       d("file.\n\n"),
       d("This is the default file Cargo used for your application binary.\n\n"),
@@ -152,7 +152,7 @@ mod tests {
     term(&[
       d("By default, rustc calls the "),
       file("main "),
-      d("function first whenever the the executable is run.\n"),
+      d("function first whenever the executable is run.\n"),
     ]);
     term(&[
       d("Something important to notice about the contents of the function is the "),
@@ -195,9 +195,9 @@ mod tests {
     term(&[
       d("\n\nVariables are declared using the "),
       kw("let "),
-      d("keyword.\n\n"),
+      d("keyword.\n"),
     ]);
-    term(&[d("\tlet variable_name = value\n\n")]);
+    term(&[code("\tlet variable_name = value\n\n")]);
     term(&[
       task(),
       d("Within the "),
@@ -258,7 +258,12 @@ mod tests {
       emph("PascalCase "),
       d("is used for types, traits, and enums (we will cover these later).\n\n"),
     ]);
+    term(&[
+      task(),
+      d("Re-run your code. You should only have one warning, now.\n"),
+    ]);
 
+    test(5);
     next(6);
     assert!(true);
   }
@@ -276,7 +281,7 @@ mod tests {
       d("Fix that, by changing the "),
       kw("println! "),
       d("call to be\n"),
-      cmd("\tprintln!(\"Hello, {}!\", first_name);\n\n"),
+      code("\tprintln!(\"Hello, {}!\", first_name);\n\n"),
     ]);
     term(&[
       d("The '{}' are replaced with the value of the arguments. There are many things you can do with "),
@@ -289,9 +294,10 @@ mod tests {
     ]);
     term(&[
       d("Run your code to see the output with:\n"),
-      cmd("\t$ cargo run --bin calculator\n\n"),
+      cmd("\t$ cargo run --bin calculator\n"),
     ]);
 
+    test(6);
     next(7);
     assert!(true);
   }
@@ -334,12 +340,13 @@ mod tests {
       d(" which is available on the "),
       kw("String"),
       emph(" struct:\n"),
-      cmd("\tlet example = String::from(\"Hello, Camper!\")\n"),
+      code("\tlet example = String::from(\"Hello, Camper!\")\n"),
     ]);
     term(&[d(
       "Do not worry about understanding all these new terms just yet\n\n",
     )]);
 
+    test(7);
     next(8);
     assert!(true);
   }
@@ -361,6 +368,7 @@ mod tests {
       d(" call with your newly created variable.\n\n"),
     ]);
 
+    test(8);
     next(9);
     assert!(true);
   }
@@ -386,7 +394,7 @@ mod tests {
       kw("println"),
       d(" call tries to use the "),
       kw("first_name"),
-      d(" variable. However, this variable is no longer availble, as it was "),
+      d(" variable. However, this variable is no longer available, as it was "),
       emph("moved"),
       d(" into "),
       kw("name\n"),
@@ -406,8 +414,8 @@ mod tests {
       d(" value. Here is an example:\n"),
     ]);
     term(&[
-      d("\tlet value = String::from(\"\");\n"),
-      d("\tlet referenced_value = &value;\n"),
+      code("\tlet value = String::from(\"\");\n"),
+      code("\tlet referenced_value = &value;\n"),
     ]);
     term(&[
       d("This prevents "),
@@ -420,6 +428,7 @@ mod tests {
       kw("referenced_value\n\n"),
     ]);
 
+    test(9);
     next(10);
     assert!(true);
   }
@@ -428,7 +437,7 @@ mod tests {
     hr();
     n(10);
     term(&[
-      d("\n\nWe want to add our surname (second name) to "),
+      d("\n\nYou want to add your surname (second name) to "),
       kw("name\n"),
     ]);
     term(&[
@@ -453,17 +462,18 @@ mod tests {
       d(" can be used as an owned value with the "),
       kw("to_owned"),
       d(" method:\n\n"),
-      d("\tlet owned_string = my_string.to_owned() + \" Surname\";\n"),
+      code("\tlet owned_string = my_string.to_owned() + \" Surname\";\n"),
     ]);
     term(&[
       task(),
       d("Instead of moving "),
       kw("first_name"),
-      d(" turn it into an owned value, and concatenate your surname to it - assigning the result to "),
+      d(", turn it into an owned value, and concatenate your surname to it - assigning the result to "),
       kw("name\n")
     ]);
     term(&[d("Run your code to see the output\n\n")]);
 
+    test(10);
     next(11);
     assert!(true);
   }
@@ -472,12 +482,12 @@ mod tests {
     hr();
     n(11);
     term(&[
-      d("\n\nA more idomatic way to make use of the "),
+      d("\n\nA more idiomatic way to make use of the "),
       kw("String"),
       d(" type, is by using the "),
       kw("push_str"),
-      d(" method:\n"),
-      d("\tmy_string.push_str(\"a str\");\n"),
+      d(" method:\n\n"),
+      code("\tmy_string.push_str(\"a str\");\n"),
     ]);
     term(&[
       task(),
@@ -503,7 +513,7 @@ mod tests {
       d(" mutable, by using the "),
       kw("mut"),
       d(" keyword:\n\n"),
-      d("\tlet mut my_var = String::from(\"I am mutable!\");\n"),
+      code("\tlet mut my_var = String::from(\"I am mutable!\");\n"),
     ]);
 
     next(12);
@@ -550,7 +560,9 @@ mod tests {
       task(),
       d("Print to the console the value of the "),
       kw(".len()"),
-      d(" method, and the value of "),
+      d(" method on "),
+      kw("first"),
+      d(" and the value of "),
       kw("first.chars().count()\n\n"),
       d("Run your code to see the output.\n"),
     ]);
@@ -635,6 +647,9 @@ mod tests {
   fn cmd(text: &str) -> Term {
     Term::new(text, Turquoise, Normal)
   }
+  fn code(text: &str) -> Term {
+    Term::new(text, Purple, Normal)
+  }
   fn file(text: &str) -> Term {
     Term::new(text, Yellow, Normal)
   }
@@ -649,5 +664,11 @@ mod tests {
   }
   fn n(num: usize) {
     term(&[Term::new(&format!("\nLESSON #{}", num), Green, Underline)]);
+  }
+  fn test(num: usize) {
+    term(&[
+      d("You can check if you are on the right track by running\n"),
+      cmd(&format!("\t$ fcc test {}\n", num)),
+    ]);
   }
 }
