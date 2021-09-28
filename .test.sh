@@ -41,9 +41,6 @@ function runSwitch() {
     case "2":
       test1();
       break;
-    case "12":
-      test12();
-      break;
     default:
       runTests(STEP_TO_TEST);
     // console.log(STEP_TO_TEST);
@@ -55,27 +52,12 @@ async function test1() {
   try {
     const fileContents = await getFileContents("./calculator/src/main.rs");
     if (fileContents) {
-      console.log("Step 1 is correct.");
+      console.log("Lesson #1 is correct.");
     } else {
-      console.log("Step 1 is not correct.");
+      console.log("Lesson #1 is not correct.");
     }
-  } catch {
-    console.log("Step 1 is not correct.");
-  }
-}
-
-async function test12() {
-  try {
-    const commandOutput = await getCommandOutput("cargo run --bin calculator");
-    const re = /1\s+1/;
-
-    if (re.test(commandOutput)) {
-      console.log("Step 12 is correct.");
-    } else {
-      console.log("Step 12 is not correct.");
-    }
-  } catch {
-    console.log("Step 12 is not correct.");
+  } catch (err) {
+    console.log("Lesson #1 is not correct.");
   }
 }
 
@@ -85,7 +67,7 @@ async function runTests(lessonNumber) {
     // const camperCode = await getFileContents(`./answers.md`);
     const answers = fs.readFileSync("./answers.md", "utf-8");
     let testTexts = answers.match(
-      new RegExp(`## ${lessonNumber}\n+\`\`\`rs[^\`]+\`\`\`\n+([^#]+)`)
+      new RegExp(`## ${lessonNumber}\n+\`\`\`rust[^\`]+\`\`\`\n+([^#]+)`)
     );
 
     testTexts = testTexts[1]
@@ -93,13 +75,28 @@ async function runTests(lessonNumber) {
       .filter((x) => x.length > 1)
       .map((x) => x.trim());
 
-    for (let i = 0; i < testTexts.length / 2; i++) {
+    for (let i = 0; i < testTexts.length / 2; i += 2) {
       const text = testTexts[i];
       const test = new RegExp(testTexts[i + 1].replace(/[`]/g, ""));
-      if (test.test(camperCode)) {
+      if (testTexts[i + 1].includes("getCommandOutput")) {
+        const commandOutput = await getCommandOutput(
+          "cargo run --bin calculator"
+        );
+        const re = new RegExp(
+          testTexts[i + 1]
+            .replace(/[`]/g, "")
+            .replace(/getCommandOutput\(/, "")
+            .replace(/\)$/, "")
+        );
+        if (re.test(commandOutput)) {
+          console.log(`Lesson #${lessonNumber} is correct.`);
+        } else {
+          console.log(`\n${text}\n`);
+        }
+      } else if (test.test(camperCode)) {
         // TODO
       } else {
-        console.log(text);
+        console.log(`\n${text}\n`);
       }
     }
   } catch (e) {

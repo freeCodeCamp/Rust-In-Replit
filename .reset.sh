@@ -40,7 +40,7 @@ async function reset(lessonNumber) {
       if (err) {
         console.log(ERROR_MESSAGE);
       } else {
-        console.log("Reset Complete.");
+        r(lessonNumber);
       }
     });
   } catch {
@@ -51,11 +51,11 @@ async function reset(lessonNumber) {
 function getAnswerForLesson(lessonNumber) {
   const answers = fs.readFileSync("./answers.md", "utf8");
   const answer = answers.match(
-    new RegExp(`## ${lessonNumber}\n\n\`\`\`rs\n(.*?)\n\`\`\``, "s")
+    new RegExp(`## ${lessonNumber}\n\n\`\`\`rust\n(.*?)\n\`\`\``, "s")
   )[1];
   return answer;
 }
 
 function r(lessonNumber) {
-  console.log(`Lesson #${lessonNumber} Complete`);
+  console.log(`Lesson #${lessonNumber} reset`);
 }
