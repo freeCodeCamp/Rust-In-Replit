@@ -516,6 +516,7 @@ mod tests {
       code("\tlet mut my_var = String::from(\"I am mutable!\");\n"),
     ]);
 
+    test(11);
     next(12);
     assert!(true);
   }
@@ -567,6 +568,7 @@ mod tests {
       d("Run your code to see the output.\n"),
     ]);
 
+    test(12);
     next(13);
     assert!(true);
   }
@@ -599,6 +601,7 @@ mod tests {
       d("Re-run your code, and see the output.\n"),
     ]);
 
+    test(13);
     next(14);
     assert!(true);
   }
@@ -626,8 +629,55 @@ mod tests {
   fn fifteen() {
     hr();
     n(15);
+    term(&[
+      d("\n\nFrom this lesson on, you will be writing your code with TDD "),
+      emph("Test Driven Development"),
+      d(" in mind. That is, you will need to write your code to pass the existing tests, as well as write some tests to pass yourself.\n"),
+    ]);
+    term(&[
+      task(),
+      d("Run the following command to initialise your code with tests for the next lesson:\n"),
+      cmd("\t$ fcc reset 15\n"),
+    ]);
 
+    test(15);
     next(16);
+    assert!(true);
+  }
+  #[test]
+  fn sixteen() {
+    hr();
+    n(16);
+    term(&[
+      d("\n\nAlready included is the basic setup for tests. The "),
+      kw("#[]"),
+      d(" syntax above a declaration is how "),
+      emph("attributes"),
+      d(" are added in Rust.\n\n"),
+      kw("cfg(test)"),
+      d(" configures the "),
+      kw("test"),
+      d(" trait to the below declaration, and the "),
+      kw("#[test]"),
+      d(" syntax declares which functions are to be run as tests.\n"),
+    ]);
+    term(&[
+      task(),
+      d("At the top of the script, add a function named "),
+      kw("main"),
+      d(". Then, at the top of the "),
+      kw("tests"),
+      d(" module, import the "),
+      kw("main"),
+      d(" function, using this syntax:\n\n"),
+      code("\tuse crate::main;\n"),
+    ]);
+    term(&[
+      d("The "), kw("use"), d(" keyword, in Rust, is similar to 'import', 'require', or 'include' as in other languages.\n\n")
+    ]);
+
+    test(16);
+    next(17);
     assert!(true);
   }
 
@@ -666,9 +716,11 @@ mod tests {
     term(&[Term::new(&format!("\nLESSON #{}", num), Green, Underline)]);
   }
   fn test(num: usize) {
-    term(&[
-      d("You can check if you are on the right track by running\n"),
-      cmd(&format!("\t$ fcc test {}\n", num)),
-    ]);
+    term(&[d("You can check if you are on the right track by running:")]);
+    if num < 16 {
+      term(&[cmd(&format!("\t$ fcc test {}\n", num))]);
+    } else {
+      term(&[cmd("\t$ cargo test --bin calculator\n")]);
+    }
   }
 }

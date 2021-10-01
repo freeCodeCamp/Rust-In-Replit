@@ -22,7 +22,7 @@ if (
 ) {
   console.log(INVALID_ARGUMENT_MESSAGE);
 } else {
-  reset();
+  reset(STEP_TO_RESET);
 }
 
 async function reset(lessonNumber) {
@@ -43,7 +43,8 @@ async function reset(lessonNumber) {
         r(lessonNumber);
       }
     });
-  } catch {
+  } catch (err) {
+    console.error(err);
     console.log(ERROR_MESSAGE);
   }
 }

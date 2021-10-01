@@ -144,6 +144,13 @@ fn main() {
 }
 ```
 
+- You should declare a variable named `first`.
+- `let\s+first`
+- You should assign `first` a single character in double quotes.
+- `first\s*=\s*"\w"`
+- You should print the length of `first` and the number of characters in `first`. Example Output: `1 1`
+- `getCommandOutput(1\s*1);`
+
 ## 13
 
 ```rust
@@ -153,9 +160,76 @@ fn main() {
 }
 ```
 
-- You should declare a variable named `first`.
-- `let\s+first`
-- You should assign `first` a single character in double quotes.
-- `first\s*=\s*"\w"`
-- You should print the length of `first` and the number of characters in `first`. Example Output: `1 1`
-- `getCommandOutput(1\s*1);`
+- You should change the value of `first` to be a string slice of `∞`.
+- `first\s*=\s*"∞"`
+- Your code should print `3 1`.
+- `getCommandOutput(3\s*1);`
+
+## 14
+
+```rust
+fn main() {
+  let first = "∞";
+  println!("{} {}", first.len(), first.chars().count());
+}
+```
+
+- There are no tests for this lesson.
+- `null`
+
+## 15
+
+```rust
+
+
+#[cfg(test)]
+mod tests {
+
+  #[test]
+  fn main_exists() {
+    assert_eq!(main(), ());
+  }
+  #[test]
+  fn first_number() {
+    todo!()
+  }
+  #[test]
+  fn addition_of_integers() {
+    // TODO: Teach after having Camper split code into a new function
+    todo!();
+  }
+}
+```
+
+- You should have run the command `fcc reset 15`.
+- `mod tests`
+
+## 16
+
+```rust
+fn main() {
+
+}
+
+#[cfg(test)]
+mod tests {
+
+  #[test]
+  fn main_exists() {
+    assert_eq!(main(), ());
+  }
+  #[test]
+  fn first_number() {
+    todo!()
+  }
+  #[test]
+  fn addition_of_integers() {
+    todo!();
+  }
+}
+```
+
+- There are no Node tests for this lesson
+- `null`
+
+## 17
