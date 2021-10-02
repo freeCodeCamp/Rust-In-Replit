@@ -940,10 +940,104 @@ mod tests {
   fn twentyfive() {
     hr();
     n(25);
-    term(&[]);
+    term(&[
+      d("\n\nInstead of returning a result of '0', when an invalid operator is used, it might make more sense to panic the application.\n\n"),
+      d("The "),
+      kw("panic"),
+      d(" macro does just that, and it accepts a reference to a string slice as an argument, which can contain a message to panic with.\n")
+    ]);
+    term(&[
+      task(),
+      d("Panic from your code, when an invalid operator is used.\n"),
+    ]);
 
     test(25);
     next(26);
+    assert!(true);
+  }
+  #[test]
+  fn twentysix() {
+    hr();
+    n(26);
+    term(&[
+      d("\n\nInstead of many "),
+      kw("if...else"),
+      d(" statements, you can improve your code's readability and useability with Rust's "),
+      kw("match"),
+      d(" control flow. The "),
+      kw("match"),
+      d(" operator is similar to many languages' "),
+      kw("switch"),
+      d(" statement. However, it allows pattern matching.\n\n"),
+    ]);
+    term(&[
+      d("A contrived example of an expression using the "),
+      kw("match"),
+      d(" operator:\n"),
+      code("\tlet some_variable = 't';\n"),
+      code("\tmatch some_variable {\n"),
+      code("\t  'a' => 'A',\n"),
+      code("\t  'b' => 'B',\n"),
+      code("\t  _ => 'Z',\n"),
+      code("\t}\n"),
+      d("\nAs 't' does not match 'a' or 'b', the expression returns 'Z', following the base-case denoted by the underscore.\n")
+    ]);
+    term(&[
+      task(),
+      d("Convert the if/else logic within "),
+      kw("operate"),
+      d(" to use the "),
+      kw("match"),
+      d(" operator.\n"),
+    ]);
+
+    test(26);
+    next(27);
+    assert!(true);
+  }
+  #[test]
+  fn twentyseven() {
+    hr();
+    n(27);
+    term(&[
+      d("\n\nYou should be able to use the calculator with an input like: "),
+      cmd("calculator 3 x 3\n\n"),
+      d("A "),
+      kw("match"),
+      d(" pattern can be extended using bit-wise logic like this:\n"),
+      code("\tmatch name {\n"),
+      code("\t  \"Quincy\" => \"Hello, Quincy\",\n"),
+      code("\t  \"Tom\" | \"Nich\" => \"Hello, other\",\n"),
+      code("\t  _ => panic!(\"Pattern not found\"),\n"),
+      code("\t}"),
+      d("With a "),
+      kw("name"),
+      d(" of \"Nich\", the second "),
+      kw("match"),
+      emph(" arm"),
+      d(" would be matched.\n"),
+    ]);
+    term(&[
+      task(),
+      d("Extend the multiplication arm in the "),
+      kw("match"),
+      d(" operator to match on "),
+      kw("operator"),
+      d(" values of \"x\" and \"X\".\n"),
+    ]);
+
+    test(27);
+    next(28);
+    assert!(true);
+  }
+  #[test]
+  fn twentyeight() {
+    hr();
+    n(28);
+    term(&[]);
+
+    test(28);
+    next(29);
     assert!(true);
   }
 
