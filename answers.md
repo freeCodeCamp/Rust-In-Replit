@@ -189,15 +189,6 @@ mod tests {
   fn main_exists() {
     assert_eq!(main(), ());
   }
-  #[test]
-  fn first_number() {
-    todo!()
-  }
-  #[test]
-  fn addition_of_integers() {
-    // TODO: Teach after having Camper split code into a new function
-    todo!();
-  }
 }
 ```
 
@@ -218,14 +209,6 @@ mod tests {
   fn main_exists() {
     assert_eq!(main(), ());
   }
-  #[test]
-  fn first_number() {
-    todo!()
-  }
-  #[test]
-  fn addition_of_integers() {
-    todo!();
-  }
 }
 ```
 
@@ -233,3 +216,170 @@ mod tests {
 - `null`
 
 ## 17
+
+```rust
+fn main() {
+
+}
+
+#[cfg(test)]
+mod tests {
+  use crate::main;
+  #[test]
+  fn main_returns_24() {
+    assert_eq!(main(), 24);
+  }
+}
+```
+
+- There are no Node tests for this lesson
+- `null`
+
+## 18
+
+```rust
+fn main() -> usize {
+  24
+}
+
+#[cfg(test)]
+mod tests {
+  use crate::main;
+  #[test]
+  #[should_panic]
+  fn main_panics_with_i() {
+    assert_eq!(main() as usize as f32, main() as f32);
+  }
+  #[test]
+  fn main_returns_f() {
+    assert_eq!(main() as f32, 24.5);
+  }
+}
+```
+
+- There are no Node tests for this lesson
+- `null`
+
+## 19
+
+```rust
+fn main() -> f32 {
+  24.5
+}
+
+
+
+
+#[cfg(test)]
+mod tests {
+  use crate::main;
+
+  #[test]
+  #[should_panic]
+  fn main_panics_with_i() {
+    assert_eq!(main() as usize as f32, main() as f32);
+  }
+  #[test]
+  fn main_returns_f() {
+    assert_eq!(main() as f32, 24.5);
+  }
+
+  #[test]
+  fn output_expects_four_args() {
+    let out = output(-10, "+", 10, 0);
+    assert_eq!(out, ());
+  }
+}
+```
+
+- There are no Node tests for this lesson
+- `null`
+
+## 20
+
+```rust
+fn main() -> f32 {
+  24.5
+}
+
+fn output(first_number: i32, operator: &str, second_number: i32, result: i32) {
+
+}
+
+#[cfg(test)]
+mod tests {
+  use crate::main;
+  use crate::output;
+  #[test]
+  #[should_panic]
+  fn main_panics_with_i() {
+    assert_eq!(main() as usize as f32, main() as f32);
+  }
+  #[test]
+  fn main_returns_f() {
+    assert_eq!(main() as f32, 24.5);
+  }
+
+  #[test]
+  fn output_expects_four_args() {
+    let out = output(-10, "+", 10, 0);
+    assert_eq!(out, ());
+  }
+}
+```
+
+- There are no Node tests for this lesson
+- `null`
+
+## 21
+
+```rust
+
+```
+
+- There are no Node tests for this lesson
+- `null`
+
+## Final
+
+```rust
+fn main() {
+  let mut args = std::env::args();
+  let first_number = args.nth(1).unwrap();
+  let operator = args.nth(0).unwrap();
+  let second_number = args.nth(0).unwrap();
+
+  let first = first_number.parse::<i32>().unwrap();
+  let second = second_number.parse::<i32>().unwrap();
+  let result = operate(operator.as_str(), first, second);
+
+  let output = output(first, operator, second, result);
+  println!("{}", output);
+}
+
+fn output(first_number: i32, operator: &str, second_number: i32, result: i32) -> String {
+  format!(
+    "{} {} {} = {}",
+    first_number, operator, second_number, result
+  )
+}
+
+fn operate(operator: &str, first_number: i32, second_number: i32) -> i32 {
+  match operator {
+    "+" => first_number + second_number,
+    "-" => first_number - second_number,
+    "/" => first_number / second_number,
+    "*" | "X" | "x" => first_number * second_number,
+    _ => 0,
+  }
+}
+
+#[cfg(test)]
+mod tests {
+  use crate::operate;
+  #[test]
+  fn adition_of_integers() {
+    assert_eq!(operate("+", 1, 1), 2);
+  }
+}
+```

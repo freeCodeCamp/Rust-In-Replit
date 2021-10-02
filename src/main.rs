@@ -680,6 +680,129 @@ mod tests {
     next(17);
     assert!(true);
   }
+  #[test]
+  fn seventeen() {
+    hr();
+    n(17);
+    term(&[
+      d("\n\nAs you might notice from the tests, functions without explicit returns return an empty "),
+      kw("tuple"),
+      d(". Tuples are represented with parentheses () - why the test asserts the return of "),
+      kw("main"),
+      d(" is "),
+      kw("()\n")
+    ]);
+    term(&[
+      d("There are two ways to return. Using the "),
+      kw("return"),
+      d(" keyword, or by leaving off the semi-colon.\n\n"),
+      d("Functions returning anything other than an empty tuple need to be explicitly typed:\n"),
+      code("\tfn my_func() -> String {\n"),
+      code("\t  let my_string = String::from(\"Nich\");\n"),
+      code("\t  my_string\n"),
+      code("\t}\n\n"),
+    ]);
+    term(&[
+      task(),
+      d("Pass the test, by returning 24 from "),
+      kw("main"),
+      d(", and type the return of the function with the type "),
+      kw("usize\n\n"),
+    ]);
+    term(&[
+      kw("usize"),
+      d(" is the default type for a positive integer. The "),
+      kw("u"),
+      d(" stands for "),
+      emph("unsigned"),
+      d(", and "),
+      kw("size"),
+      d(" describes the bit-size of the system. This is commonly either 64- or 32- bit systems.\n\n"),
+    ]);
+
+    test(17);
+    next(18);
+    assert!(true);
+  }
+  #[test]
+  fn eighteen() {
+    hr();
+    n(18);
+    term(&[
+      d("\n\nThere are many types of number, in Rust:\n"),
+      d("\t- Unsigned Integers: "),
+      kw("u8, u16, u32, u64, usize, u128\n"),
+      d("\t- Signed Integer: "),
+      kw("i8, i16, i32, i64, isize, i128\n"),
+      d("\t- Float: "),
+      kw("f32, f64\n"),
+    ]);
+    term(&[
+      d("Unsigned integers only represent positive whole numbers.\n"),
+      d("Signed integers represent both positive and negative whole numbers.\n"),
+      d("Floats only represent positive and negative fractions.\n"),
+    ]);
+    term(&[
+      task(),
+      d("Pass the tests, by changing the number and return type of the "),
+      kw("main"),
+      d(" function.\n\n"),
+      emph("NOTE: "),
+      d("The first test include the "),
+      kw("should_panic"),
+      d(" trait. This means, the code should error out."),
+    ]);
+
+    test(18);
+    next(19);
+    assert!(true);
+  }
+  #[test]
+  fn nineteen() {
+    hr();
+    n(19);
+    term(&[
+      d("\n\nYou want your calculator to be used on the command line like:\n"),
+      cmd("\t$ calculator <first_number> <operator> <second_number>\n\n"),
+      d("With an output like:\n"),
+      cmd("\t$ <first_number> <operator> <second_number> = <result>\n\n"),
+      d("Example:\n"),
+      cmd("\t$ calcualtor 1 + 1\n"),
+      cmd("\t$ 1 + 1 = 2\n"),
+    ]);
+    term(&[
+      task(),
+      d("Create a new function named "),
+      kw("output"),
+      d(" which accepts 4 arguments. The first, third, and fourth arguments should be signed integers, and the second argument should be a reference to a string slice.\n"),
+    ]);
+    term(&[
+      emph("HINT: "),
+      d("Do not forget to import the new function into the "),
+      kw("tests"),
+      d(" module.\n"),
+    ]);
+    term(&[
+      d("Here is an example function with typed arguments:\n"),
+      code("\tfn example(first_arg: usize, second_arg: String) -> &str {\n"),
+      code("\t  \"I return a a reference to a string slice\"\n"),
+      code("\t}\n"),
+    ]);
+
+    test(19);
+    next(20);
+    assert!(true);
+  }
+  #[test]
+  fn twenty() {
+    hr();
+    n(20);
+    term(&[]);
+
+    test(20);
+    next(21);
+    assert!(true);
+  }
 
   fn d(text: &str) -> Term {
     Term::default(text)
