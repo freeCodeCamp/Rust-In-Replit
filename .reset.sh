@@ -8,7 +8,7 @@ const execute = util.promisify(require("child_process").exec);
 
 const ARGS = process.argv;
 const STEP_TO_RESET = ARGS[2];
-const NUMBER_OF_STEPS = 15;
+const NUMBER_OF_STEPS = 30;
 const INVALID_ARGUMENT_MESSAGE = `You should provide the lesson number you want to reset to as the only argument.\nExample \`fcc reset 1\` will reset your progress to the beginning of step 1.\n\nThere are ${NUMBER_OF_STEPS} steps.`;
 const NO_RESET_MESSAGE = `There isn't an available reset for lesson ${STEP_TO_RESET}.`;
 const ERROR_MESSAGE = "An error occurred trying to reset your progress.";

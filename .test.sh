@@ -22,7 +22,7 @@ const getFileContents = async (file) => {
 // CONST
 const ARGS = process.argv;
 const STEP_TO_TEST = ARGS[2];
-const NUMBER_OF_STEPS = 15;
+const NUMBER_OF_STEPS = 30;
 const INVALID_ARGUMENT_MESSAGE = `You should provide the step number you want to test as the only argument. Example \`node test 1\`. There are ${NUMBER_OF_STEPS} steps.`;
 const NO_TEST_MESSAGE = `There isn't an available test for step ${STEP_TO_TEST}.`;
 

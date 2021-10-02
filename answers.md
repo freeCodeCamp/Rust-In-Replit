@@ -321,9 +321,9 @@ mod tests {
   }
 
   #[test]
-  fn output_expects_four_args() {
+  fn output_returns_the_correct_string() {
     let out = output(-10, "+", 10, 0);
-    assert_eq!(out, ());
+    assert_eq!(out, String::from("-10 + 10 = 0"));
   }
 }
 ```
@@ -334,7 +334,37 @@ mod tests {
 ## 21
 
 ```rust
+fn main() -> f32 {
+  24.5
+}
 
+fn output(first_number: i32, operator: &str, second_number: i32, result: i32) -> String {
+  format!(
+    "{} {} {} = {}",
+    first_number, operator, second_number, result
+  )
+}
+
+#[cfg(test)]
+mod tests {
+  use crate::main;
+  use crate::output;
+  #[test]
+  #[should_panic]
+  fn main_panics_with_i() {
+    assert_eq!(main() as usize as f32, main() as f32);
+  }
+  #[test]
+  fn main_returns_f() {
+    assert_eq!(main() as f32, 24.5);
+  }
+
+  #[test]
+  fn output_expects_four_args() {
+    let out = output(-10, "+", 10, 0);
+    assert_eq!(out, String::from("-10 + 10 = 0"));
+  }
+}
 ```
 
 - There are no Node tests for this lesson

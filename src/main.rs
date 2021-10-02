@@ -797,10 +797,41 @@ mod tests {
   fn twenty() {
     hr();
     n(20);
-    term(&[]);
+    term(&[
+      d("\n\nNow, to get "),
+      kw("output"),
+      d(" to return the correct output, you are going to use the "),
+      kw("format"),
+      d(" macro.\n"),
+    ]);
+    term(&[
+      d("The "),
+      kw("format"),
+      d(" macro works almost identically to the "),
+      kw("println"),
+      d(" macro, you have been using. Except, instead of printing the output to the console, it returns the output as a "),
+      kw("String\n"),
+    ]);
+    term(&[
+      task(),
+      d("Use the "),
+      kw("format"),
+      d(" macro to return an output following this format:\n"),
+      cmd("\t<first_number> <operator> <second_number> = <result>"),
+    ]);
 
     test(20);
     next(21);
+    assert!(true);
+  }
+  #[test]
+  fn twentyone() {
+    hr();
+    n(21);
+    term(&[]);
+
+    test(21);
+    next(22);
     assert!(true);
   }
 
