@@ -334,8 +334,8 @@ mod tests {
 ## 21
 
 ```rust
-fn main() -> f32 {
-  24.5
+fn main() {
+
 }
 
 fn output(first_number: i32, operator: &str, second_number: i32, result: i32) -> String {
@@ -350,13 +350,8 @@ mod tests {
   use crate::main;
   use crate::output;
   #[test]
-  #[should_panic]
-  fn main_panics_with_i() {
-    assert_eq!(main() as usize as f32, main() as f32);
-  }
-  #[test]
-  fn main_returns_f() {
-    assert_eq!(main() as f32, 24.5);
+  fn main_returns_empty_tuple() {
+    assert_eq!(main(), ());
   }
 
   #[test]
@@ -367,8 +362,248 @@ mod tests {
 }
 ```
 
+- You should print to the console any valid output.
+- `getCommandOutput(-?\d+ [\+\-\*\\\/xX] -?\d+ = -?\d)`
+
+## 22
+
+```rust
+fn main() {
+
+  println!("{}", output(10, "+", 10, 0));
+}
+
+fn output(first_number: i32, operator: &str, second_number: i32, result: i32) -> String {
+  format!(
+    "{} {} {} = {}",
+    first_number, operator, second_number, result
+  )
+}
+
+#[cfg(test)]
+mod tests {
+  use crate::main;
+  use crate::output;
+  #[test]
+  fn main_returns_empty_tuple() {
+    assert_eq!(main(), ());
+  }
+
+  #[test]
+  fn output_expects_four_args() {
+    let out = output(-10, "+", 10, 0);
+    assert_eq!(out, String::from("-10 + 10 = 0"));
+  }
+}
+```
+
+- You should declare a variable named `first_number`.
+- `let first_number`
+- You should declare a variable named `second_number`.
+- `let second_number`
+- You should declare a variable named `operator`.
+- `let operator`
+
+## 23
+
+```rust
+fn main() {
+  let first_number = 1;
+  let operator = "-";
+  let second_number = 10;
+
+  println!("{}", output(first_number, operator, second_number, 0));
+}
+
+fn output(first_number: i32, operator: &str, second_number: i32, result: i32) -> String {
+  format!(
+    "{} {} {} = {}",
+    first_number, operator, second_number, result
+  )
+}
+
+
+
+#[cfg(test)]
+mod tests {
+  use crate::main;
+  use crate::output;
+
+  #[test]
+  fn main_returns_empty_tuple() {
+    assert_eq!(main(), ());
+  }
+
+  #[test]
+  fn output_expects_four_args() {
+    let out = output(-10, "+", 10, 0);
+    assert_eq!(out, String::from("-10 + 10 = 0"));
+  }
+
+  #[test]
+  fn operate_expects_three_args() {
+    let op = operate("-", -5, 200);
+    assert_eq!(op, ());
+  }
+}
+```
+
 - There are no Node tests for this lesson
 - `null`
+
+## 24
+
+```rust
+fn main() {
+  let first_number = 1;
+  let operator = "-";
+  let second_number = 10;
+
+  println!("{}", output(first_number, operator, second_number, 0));
+}
+
+fn output(first_number: i32, operator: &str, second_number: i32, result: i32) -> String {
+  format!(
+    "{} {} {} = {}",
+    first_number, operator, second_number, result
+  )
+}
+
+fn operate(operator: &str, first_number: i32, second_number: i32) {
+
+}
+
+#[cfg(test)]
+mod tests {
+  use crate::main;
+  use crate::output;
+  use crate::operate;
+  #[test]
+  fn main_returns_empty_tuple() {
+    assert_eq!(main(), ());
+  }
+
+  #[test]
+  fn output_expects_four_args() {
+    let out = output(-10, "+", 10, 0);
+    assert_eq!(out, String::from("-10 + 10 = 0"));
+  }
+
+  #[test]
+  fn operate_handles_addition() {
+    let op = operate("+", -5, 200);
+    assert_eq!(op, 195);
+  }
+  #[test]
+  fn operate_handles_subtraction() {
+    let op = operate("-", -12, -12);
+    assert_eq!(op, 0);
+  }
+  #[test]
+  fn operate_handles_division() {
+    let op = operate("/", -12, -1);
+    assert_eq!(op, 12);
+  }
+  #[test]
+  fn operate_handles_multiplication() {
+    let op = operate("*", -12, -2);
+    assert_eq!(op, 24);
+  }
+  #[test]
+  fn operate_returns_zero_on_invalid_op() {
+    let op = operate("invalid", 1, 1);
+    assert_eq!(op, 0);
+  }
+}
+```
+
+- There are no Node tests for this lesson
+- `null`
+
+## 25
+
+```rust
+fn main() {
+  let first_number = 1;
+  let operator = "-";
+  let second_number = 10;
+
+  println!("{}", output(first_number, operator, second_number, 0));
+}
+
+fn output(first_number: i32, operator: &str, second_number: i32, result: i32) -> String {
+  format!(
+    "{} {} {} = {}",
+    first_number, operator, second_number, result
+  )
+}
+
+fn operate(operator: &str, first_number: i32, second_number: i32) {
+  if operator == "+" {
+    first_number + second_number
+  } else if operator == "-" {
+    first_number - second_number
+  } else if operator == "/" {
+    first_number / second_number
+  } else if operator == "*" {
+    first_number * second_number
+  } else {
+    0
+  }
+}
+
+#[cfg(test)]
+mod tests {
+  use crate::main;
+  use crate::output;
+  use crate::operate;
+  #[test]
+  fn main_returns_empty_tuple() {
+    assert_eq!(main(), ());
+  }
+
+  #[test]
+  fn output_expects_four_args() {
+    let out = output(-10, "+", 10, 0);
+    assert_eq!(out, String::from("-10 + 10 = 0"));
+  }
+
+  #[test]
+  fn operate_handles_addition() {
+    let op = operate("+", -5, 200);
+    assert_eq!(op, 195);
+  }
+  #[test]
+  fn operate_handles_subtraction() {
+    let op = operate("-", -12, -12);
+    assert_eq!(op, 0);
+  }
+  #[test]
+  fn operate_handles_division() {
+    let op = operate("/", -12, -1);
+    assert_eq!(op, 12);
+  }
+  #[test]
+  fn operate_handles_multiplication() {
+    let op = operate("*", -12, -2);
+    assert_eq!(op, 24);
+  }
+  #[test]
+  #[should_panic]
+  fn operate_panics_on_invalid_op() {
+    operate("invalid", 1, 1);
+  }
+}
+```
+
+- There are no Node tests for this lesson
+- `null`
+
+## 26
+
+```rust
+
+```
 
 ## Final
 

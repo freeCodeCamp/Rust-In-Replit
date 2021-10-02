@@ -828,10 +828,122 @@ mod tests {
   fn twentyone() {
     hr();
     n(21);
-    term(&[]);
+    term(&[
+      d("\n\n"),
+      task(),
+      d("Within the "),
+      kw("main"),
+      d(" function, print to the console the result of calling "),
+      kw("output"),
+      d(" with any valid arguments.\n"),
+    ]);
 
     test(21);
     next(22);
+    assert!(true);
+  }
+  #[test]
+  fn twentytwo() {
+    hr();
+    n(22);
+    term(&[
+      d("\n\n"),
+      task(),
+      d("Within the "),
+      kw("main"),
+      d(" function, declare three variables: "),
+      kw("first_number"),
+      d(", "),
+      kw("operator"),
+      d(", and "),
+      kw("second_number\n\n"),
+      d("Then, assign them valid values, and pass them as arguments within the "),
+      kw("output"),
+      d(" call.\n"),
+    ]);
+
+    test(22);
+    next(23);
+    assert!(true);
+  }
+  #[test]
+  fn twentythree() {
+    hr();
+    n(23);
+    term(&[
+      d("\n\nYou may have noticed what is printed to the console is not correct. You need to perform an operation on the input numbers, to fix this.\n")
+    ]);
+    term(&[
+      task(),
+      d("Declare a new function named "),
+      kw("operate"),
+      d(" which accepts, in order, the "),
+      kw("operator"),
+      d(", "),
+      kw("first_number"),
+      d(", and "),
+      kw("second_number\n"),
+    ]);
+    term(&[
+      emph("HINT: "),
+      d("Remember to import the function into the "),
+      kw("tests"),
+      d(" module.\n"),
+    ]);
+
+    test(23);
+    next(24);
+    assert!(true);
+  }
+  #[test]
+  fn twentyfour() {
+    hr();
+    n(24);
+    term(&[
+      d("\n\nYou want to be able to perform the four basic operations: addition, subtraction, division, and multiplication.\n\n"),
+      task(),
+      d("Use multiple "),
+      kw("if"),
+      d(" statements to compare the cases where "),
+      kw("operator"),
+      d(" is one of: "),
+      kw("\"+\" \"-\" \"*\" \"/\"\n\n"),
+      d("An "), kw("if"), d(" statement follows this syntax:\n"),
+      code("\tif my_var == \"my str\" {\n"),
+      code("\t  // Do stuff\n"),
+      code("\t} else if my_var == \"something else\" {\n"),
+      code("\t  // Do more stuff\n"),
+      code("\t} else {\n"),
+      code("\t  // Finally...\n"),
+      code("\t}")
+    ]);
+    term(&[
+      task(),
+      d("Return the result of the operation on "),
+      kw("first_number"),
+      d(" and "),
+      kw("second_number"),
+      d(", to pass the tests.\n"),
+    ]);
+    term(&[
+      emph("HINT: "),
+      d("Remember to include an "),
+      kw("else"),
+      d(" clause.\n"),
+    ]);
+
+    test(24);
+    next(25);
+    assert!(true);
+  }
+  #[test]
+  fn twentyfive() {
+    hr();
+    n(25);
+    term(&[]);
+
+    test(25);
+    next(26);
     assert!(true);
   }
 
@@ -871,10 +983,13 @@ mod tests {
   }
   fn test(num: usize) {
     term(&[d("You can check if you are on the right track by running:")]);
-    if num < 16 {
-      term(&[cmd(&format!("\t$ fcc test {}\n", num))]);
-    } else {
-      term(&[cmd("\t$ cargo test --bin calculator\n")]);
+    match num {
+      1..=15 | 21 | 22 => {
+        term(&[cmd(&format!("\t$ fcc test {}\n", num))]);
+      }
+      _ => {
+        term(&[cmd("\t$ cargo test --bin calculator\n")]);
+      }
     }
   }
 }
