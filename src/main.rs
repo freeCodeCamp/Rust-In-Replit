@@ -1034,10 +1034,177 @@ mod tests {
   fn twentyeight() {
     hr();
     n(28);
-    term(&[]);
+    term(&[
+      d("\n\nCurrently, the "),
+      kw("result"),
+      d(" argument for "),
+      kw("output"),
+      d(" is hard-coded.\n"),
+    ]);
+    term(&[
+      task(),
+      d("Within "),
+      kw("main"),
+      d(", declare a new variable named "),
+      kw("result"),
+      d(", and assign it a value of calling "),
+      kw("operate"),
+      d(" with the first three variables. Then, pass "),
+      kw("result"),
+      d(" as the fourth argument to "),
+      kw("output"),
+      d(".\n"),
+    ]);
 
     test(28);
     next(29);
+    assert!(true);
+  }
+  #[test]
+  fn twentynine() {
+    hr();
+    n(29);
+    term(&[
+      d("\n\nYou want this application to read values from command line arguments. Rust's standard library has an environment module which provides access to arguments passed through the CLI.\n")
+    ]);
+    term(&[
+      d("Modules in the standard library are accessed using the following syntax:\n"),
+      code("\tuse std::*;\n\n"),
+      d("This imports all modules within the standard library. However, you only need one.\n"),
+    ]);
+    term(&[
+      task(),
+      d("At the root of the script, use the above syntax to import "),
+      Term::new("only", White, Bold),
+      d(" the "),
+      kw("env"),
+      d(" module from the standard library.\n"),
+    ]);
+
+    test(29);
+    next(30);
+    assert!(true);
+  }
+  #[test]
+  fn thirty() {
+    hr();
+    n(30);
+    term(&[
+      d("\n\nNow that the "), kw("env"), d(" module has been brought into scope, you can reference its Structs, Enums, and Functions.\n")
+    ]);
+    term(&[
+      task(),
+      d("At the top of "),
+      kw("main"),
+      d(" declare a new variable named "),
+      kw("args"),
+      d(", and assign it the value of calling the "),
+      kw("args"),
+      d(" function, which exists within the "),
+      kw("env"),
+      d(" module.\n"),
+    ]);
+    term(&[
+      emph("HINT: "),
+      d("Remember, accessing a function within a module uses the '::' syntax.\n"),
+    ]);
+
+    test(30);
+    next(31);
+    assert!(true);
+  }
+  #[test]
+  fn thirtyone() {
+    hr();
+    n(31);
+    term(&[
+      d("\n\n"),
+      task(),
+      d("To get an idea of what "),
+      kw("args"),
+      d(" contains, print its value to the console.\n"),
+    ]);
+    term(&[
+      emph("HINT: "),
+      d("Remember, follow the compiler's helpful advice, if you are struggling to print the value.\n")
+    ]);
+
+    test(31);
+    next(32);
+    assert!(true);
+  }
+  #[test]
+  fn thirtytwo() {
+    hr();
+    n(32);
+    term(&[
+      d("\n\nWithout passing any arguments when running the crate, the value of "),
+      kw("args"),
+      d(" still contains one argument - the relative path of the binary.\n"),
+    ]);
+    term(&[
+      task(),
+      d("See the different values of "),
+      kw("args"),
+      d(" by running commands like:\n"),
+      cmd("\t$ cargo run --bin calculator -- 1 + 2\n"),
+    ]);
+
+    test(32);
+    next(33);
+    assert!(true);
+  }
+  #[test]
+  fn thirtythree() {
+    hr();
+    n(33);
+    term(&[
+      d("\n\nIn order to access the a specific argument in "),
+      kw("args"),
+      d(", you can use the "),
+      kw("nth"),
+      d(" method.\n"),
+      d("The "), kw("nth"), d(" method accepts one numeric argument (n) to access the next 'nth' argument - using 0-based indexing.\n")
+    ]);
+    term(&[
+      task(),
+      d("Change the "),
+      kw("args"),
+      d(" println to print the first argument to the console.\n"),
+    ]);
+    term(&[
+      emph("HINT: "),
+      d("Remember to follow the compiler's helpful advice, if you get stuck.\n"),
+    ]);
+
+    test(33);
+    next(34);
+    assert!(true);
+  }
+  #[test]
+  fn thirtyfour() {
+    hr();
+    n(34);
+    term(&[
+      d(
+        "\n\nIf you followed the compiler's advice, in the previous lesson, you needed to delcare ",
+      ),
+      kw("args"),
+      d(" as mutable. This is because the "),
+      kw("nth"),
+      d(" method mutably iterates over the elements"),
+    ]);
+    term(&[
+      task(),
+      d("Remove the println for 'args'. Then, change "),
+      kw("first_number, operator"),
+      d(", and "),
+      kw("second_number"),
+      d(" to be the first, second, and third 'args' respectfully."),
+    ]);
+
+    test(34);
+    next(35);
     assert!(true);
   }
 
@@ -1078,7 +1245,7 @@ mod tests {
   fn test(num: usize) {
     term(&[d("You can check if you are on the right track by running:")]);
     match num {
-      1..=15 | 21 | 22 => {
+      1..=15 | 21 | 22 | 28 | 29 | 31 => {
         term(&[cmd(&format!("\t$ fcc test {}\n", num))]);
       }
       _ => {
