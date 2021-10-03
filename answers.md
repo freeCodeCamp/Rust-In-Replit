@@ -747,6 +747,7 @@ mod tests {
     let op = operate("x", -12, 2);
     assert_eq!(op, -24);
   }
+  #[test]
   fn operate_handles_multiplcaiton_cap_x() {
     let op = operate("X", -12, 2);
     assert_eq!(op, -24);
@@ -831,6 +832,7 @@ mod tests {
     let op = operate("x", -12, 2);
     assert_eq!(op, -24);
   }
+  #[test]
   fn operate_handles_multiplcaiton_cap_x() {
     let op = operate("X", -12, 2);
     assert_eq!(op, -24);
@@ -921,6 +923,7 @@ mod tests {
     let op = operate("x", -12, 2);
     assert_eq!(op, -24);
   }
+  #[test]
   fn operate_handles_multiplcaiton_cap_x() {
     let op = operate("X", -12, 2);
     assert_eq!(op, -24);
@@ -1011,6 +1014,7 @@ mod tests {
     let op = operate("x", -12, 2);
     assert_eq!(op, -24);
   }
+  #[test]
   fn operate_handles_multiplcaiton_cap_x() {
     let op = operate("X", -12, 2);
     assert_eq!(op, -24);
@@ -1103,6 +1107,7 @@ mod tests {
     let op = operate("x", -12, 2);
     assert_eq!(op, -24);
   }
+  #[test]
   fn operate_handles_multiplcaiton_cap_x() {
     let op = operate("X", -12, 2);
     assert_eq!(op, -24);
@@ -1194,6 +1199,7 @@ mod tests {
     let op = operate("x", -12, 2);
     assert_eq!(op, -24);
   }
+  #[test]
   fn operate_handles_multiplcaiton_cap_x() {
     let op = operate("X", -12, 2);
     assert_eq!(op, -24);
@@ -1282,6 +1288,7 @@ mod tests {
     let op = operate("x", -12, 2);
     assert_eq!(op, -24);
   }
+  #[test]
   fn operate_handles_multiplcaiton_cap_x() {
     let op = operate("X", -12, 2);
     assert_eq!(op, -24);
@@ -1375,6 +1382,7 @@ mod tests {
     let op = operate("x", -12, 2);
     assert_eq!(op, -24);
   }
+  #[test]
   fn operate_handles_multiplcaiton_cap_x() {
     let op = operate("X", -12, 2);
     assert_eq!(op, -24);
@@ -1387,21 +1395,29 @@ mod tests {
 }
 ```
 
-## Final
+- You should assign `args.nth(0)` to `first_number`.
+- `let\s+first_number\s*=\s*args.nth(0)`
+- You should assign `args.nth(1)` to `operator`.
+- `let\s+operator\s*=\s*args.nth(1)`
+- You should assign `args.nth(2)` to `second_number`.
+- `let\s+second_number\s*=\s*args.nth(2)`
+
+## 35
 
 ```rust
+use std::env;
+
 fn main() {
-  let mut args = std::env::args();
-  let first_number = args.nth(1).unwrap();
-  let operator = args.nth(0).unwrap();
-  let second_number = args.nth(0).unwrap();
+  let mut args = env::args();
 
-  let first = first_number.parse::<i32>().unwrap();
-  let second = second_number.parse::<i32>().unwrap();
-  let result = operate(operator.as_str(), first, second);
+  let first_number = args.nth(0);
+  let operator = args.nth(1);
+  let second_number = args.nth(2);
 
-  let output = output(first, operator, second, result);
-  println!("{}", output);
+  println!("{:?}, {:?}, {:?}", first_number, operator, second_number);
+  // let result = operate(operator, first_number, second_number);
+
+  // println!("{}", output(first_number, operator, second_number, result));
 }
 
 fn output(first_number: i32, operator: &str, second_number: i32, result: i32) -> String {
@@ -1417,16 +1433,732 @@ fn operate(operator: &str, first_number: i32, second_number: i32) -> i32 {
     "-" => first_number - second_number,
     "/" => first_number / second_number,
     "*" | "X" | "x" => first_number * second_number,
-    _ => 0,
+    _ => panic!("Invalid operator used."),
   }
 }
 
 #[cfg(test)]
 mod tests {
+  use crate::main;
+  use crate::output;
   use crate::operate;
   #[test]
-  fn adition_of_integers() {
-    assert_eq!(operate("+", 1, 1), 2);
+  fn main_returns_empty_tuple() {
+    assert_eq!(main(), ());
+  }
+
+  #[test]
+  fn output_expects_four_args() {
+    let out = output(-10, "+", 10, 0);
+    assert_eq!(out, String::from("-10 + 10 = 0"));
+  }
+
+  #[test]
+  fn operate_handles_addition() {
+    let op = operate("+", -5, 200);
+    assert_eq!(op, 195);
+  }
+  #[test]
+  fn operate_handles_subtraction() {
+    let op = operate("-", -12, -12);
+    assert_eq!(op, 0);
+  }
+  #[test]
+  fn operate_handles_division() {
+    let op = operate("/", -12, -1);
+    assert_eq!(op, 12);
+  }
+  #[test]
+  fn operate_handles_multiplication() {
+    let op = operate("*", -12, -2);
+    assert_eq!(op, 24);
+  }
+  #[test]
+  fn operate_handles_multiplication_x() {
+    let op = operate("x", -12, 2);
+    assert_eq!(op, -24);
+  }
+  #[test]
+  fn operate_handles_multiplcaiton_cap_x() {
+    let op = operate("X", -12, 2);
+    assert_eq!(op, -24);
+  }
+  #[test]
+  #[should_panic]
+  fn operate_panics_on_invalid_op() {
+    operate("invalid", 1, 1);
   }
 }
 ```
+
+- You should unwrap `first_number` with `args.nth(0).unwrap()`.
+- `let\s+first_number\s*=\s*args.nth(0).unwrap()`
+- You should unwrap `operator` with `args.nth(1).unwrap()`.
+- `let\s+operator\s*=\s*args.nth(1).unwrap()`
+- You should unwrap `second_number` with `args.nth(2).unwrap()`.
+- `let\s+second_number\s*=\s*args.nth(2).unwrap()`
+
+## 36
+
+```rust
+use std::env;
+
+fn main() {
+  let mut args = env::args();
+
+  let first_number = args.nth(0).unwrap();
+  let operator = args.nth(1).unwrap();
+  let second_number = args.nth(2).unwrap();
+
+  println!("{:?}, {:?}, {:?}", first_number, operator, second_number);
+  // let result = operate(operator, first_number, second_number);
+
+  // println!("{}", output(first_number, operator, second_number, result));
+}
+
+fn output(first_number: i32, operator: &str, second_number: i32, result: i32) -> String {
+  format!(
+    "{} {} {} = {}",
+    first_number, operator, second_number, result
+  )
+}
+
+fn operate(operator: &str, first_number: i32, second_number: i32) -> i32 {
+  match operator {
+    "+" => first_number + second_number,
+    "-" => first_number - second_number,
+    "/" => first_number / second_number,
+    "*" | "X" | "x" => first_number * second_number,
+    _ => panic!("Invalid operator used."),
+  }
+}
+
+#[cfg(test)]
+mod tests {
+  use crate::main;
+  use crate::output;
+  use crate::operate;
+  #[test]
+  fn main_returns_empty_tuple() {
+    assert_eq!(main(), ());
+  }
+
+  #[test]
+  fn output_expects_four_args() {
+    let out = output(-10, "+", 10, 0);
+    assert_eq!(out, String::from("-10 + 10 = 0"));
+  }
+
+  #[test]
+  fn operate_handles_addition() {
+    let op = operate("+", -5, 200);
+    assert_eq!(op, 195);
+  }
+  #[test]
+  fn operate_handles_subtraction() {
+    let op = operate("-", -12, -12);
+    assert_eq!(op, 0);
+  }
+  #[test]
+  fn operate_handles_division() {
+    let op = operate("/", -12, -1);
+    assert_eq!(op, 12);
+  }
+  #[test]
+  fn operate_handles_multiplication() {
+    let op = operate("*", -12, -2);
+    assert_eq!(op, 24);
+  }
+  #[test]
+  fn operate_handles_multiplication_x() {
+    let op = operate("x", -12, 2);
+    assert_eq!(op, -24);
+  }
+  #[test]
+  fn operate_handles_multiplcaiton_cap_x() {
+    let op = operate("X", -12, 2);
+    assert_eq!(op, -24);
+  }
+  #[test]
+  #[should_panic]
+  fn operate_panics_on_invalid_op() {
+    operate("invalid", 1, 1);
+  }
+}
+```
+
+- There are no Node tests for this lesson.
+- `null`
+
+## 37
+
+```rust
+use std::env;
+
+fn main() {
+  let mut args = env::args();
+
+  let first_number = args.nth(0).unwrap();
+  let operator = args.nth(1).unwrap();
+  let second_number = args.nth(2).unwrap();
+
+  println!("{:?}, {:?}, {:?}", first_number, operator, second_number);
+  // let result = operate(operator, first_number, second_number);
+
+  // println!("{}", output(first_number, operator, second_number, result));
+}
+
+fn output(first_number: i32, operator: &str, second_number: i32, result: i32) -> String {
+  format!(
+    "{} {} {} = {}",
+    first_number, operator, second_number, result
+  )
+}
+
+fn operate(operator: &str, first_number: i32, second_number: i32) -> i32 {
+  match operator {
+    "+" => first_number + second_number,
+    "-" => first_number - second_number,
+    "/" => first_number / second_number,
+    "*" | "X" | "x" => first_number * second_number,
+    _ => panic!("Invalid operator used."),
+  }
+}
+
+#[cfg(test)]
+mod tests {
+  use crate::main;
+  use crate::output;
+  use crate::operate;
+  #[test]
+  fn main_returns_empty_tuple() {
+    assert_eq!(main(), ());
+  }
+
+  #[test]
+  fn output_expects_four_args() {
+    let out = output(-10, "+", 10, 0);
+    assert_eq!(out, String::from("-10 + 10 = 0"));
+  }
+
+  #[test]
+  fn operate_handles_addition() {
+    let op = operate("+", -5, 200);
+    assert_eq!(op, 195);
+  }
+  #[test]
+  fn operate_handles_subtraction() {
+    let op = operate("-", -12, -12);
+    assert_eq!(op, 0);
+  }
+  #[test]
+  fn operate_handles_division() {
+    let op = operate("/", -12, -1);
+    assert_eq!(op, 12);
+  }
+  #[test]
+  fn operate_handles_multiplication() {
+    let op = operate("*", -12, -2);
+    assert_eq!(op, 24);
+  }
+  #[test]
+  fn operate_handles_multiplication_x() {
+    let op = operate("x", -12, 2);
+    assert_eq!(op, -24);
+  }
+  #[test]
+  fn operate_handles_multiplcaiton_cap_x() {
+    let op = operate("X", -12, 2);
+    assert_eq!(op, -24);
+  }
+  #[test]
+  #[should_panic]
+  fn operate_panics_on_invalid_op() {
+    operate("invalid", 1, 1);
+  }
+}
+```
+
+- There are no Node tests for this lesson.
+- `null`
+
+## 38
+
+```rust
+use std::env;
+
+fn main() {
+  let mut args = env::args();
+
+  let first_number = args.nth(1).unwrap();
+  let operator = args.nth(0).unwrap();
+  let second_number = args.nth(0).unwrap();
+
+  println!("{:?}, {:?}, {:?}", first_number, operator, second_number);
+  // let result = operate(operator, first_number, second_number);
+
+  // println!("{}", output(first_number, operator, second_number, result));
+}
+
+fn output(first_number: i32, operator: &str, second_number: i32, result: i32) -> String {
+  format!(
+    "{} {} {} = {}",
+    first_number, operator, second_number, result
+  )
+}
+
+fn operate(operator: &str, first_number: i32, second_number: i32) -> i32 {
+  match operator {
+    "+" => first_number + second_number,
+    "-" => first_number - second_number,
+    "/" => first_number / second_number,
+    "*" | "X" | "x" => first_number * second_number,
+    _ => panic!("Invalid operator used."),
+  }
+}
+
+#[cfg(test)]
+mod tests {
+  use crate::main;
+  use crate::output;
+  use crate::operate;
+  #[test]
+  fn main_returns_empty_tuple() {
+    assert_eq!(main(), ());
+  }
+
+  #[test]
+  fn output_expects_four_args() {
+    let out = output(-10, "+", 10, 0);
+    assert_eq!(out, String::from("-10 + 10 = 0"));
+  }
+
+  #[test]
+  fn operate_handles_addition() {
+    let op = operate("+", -5, 200);
+    assert_eq!(op, 195);
+  }
+  #[test]
+  fn operate_handles_subtraction() {
+    let op = operate("-", -12, -12);
+    assert_eq!(op, 0);
+  }
+  #[test]
+  fn operate_handles_division() {
+    let op = operate("/", -12, -1);
+    assert_eq!(op, 12);
+  }
+  #[test]
+  fn operate_handles_multiplication() {
+    let op = operate("*", -12, -2);
+    assert_eq!(op, 24);
+  }
+  #[test]
+  fn operate_handles_multiplication_x() {
+    let op = operate("x", -12, 2);
+    assert_eq!(op, -24);
+  }
+  #[test]
+  fn operate_handles_multiplcaiton_cap_x() {
+    let op = operate("X", -12, 2);
+    assert_eq!(op, -24);
+  }
+  #[test]
+  #[should_panic]
+  fn operate_panics_on_invalid_op() {
+    operate("invalid", 1, 1);
+  }
+}
+```
+
+- You should import the `Args` struct from the `std::env` module with `use std::env::Args`.
+- `use\s+std::env::Args`
+- You should annotate `args` with the type `Args`.
+- `let\s+args:\s*Args`
+- You should annotate `first_number` with the type `String`.
+- `let\s+first_number:\s*String`
+- You should annotate `operator` with the type `String`.
+- `let\s+operator:\s*String`
+- You should annotate `second_number` with the type `String`.
+- `let\s+second_number:\s*String`
+
+## 39
+
+```rust
+use std::env;
+use std::env::Args;
+
+fn main() {
+  let mut args: Args = env::args();
+
+  let first_number: String = args.nth(1).unwrap();
+  let operator: String = args.nth(0).unwrap();
+  let second_number: String = args.nth(0).unwrap();
+
+  println!("{:?}, {:?}, {:?}", first_number, operator, second_number);
+  // let result = operate(operator, first_number, second_number);
+
+  // println!("{}", output(first_number, operator, second_number, result));
+}
+
+fn output(first_number: i32, operator: &str, second_number: i32, result: i32) -> String {
+  format!(
+    "{} {} {} = {}",
+    first_number, operator, second_number, result
+  )
+}
+
+fn operate(operator: &str, first_number: i32, second_number: i32) -> i32 {
+  match operator {
+    "+" => first_number + second_number,
+    "-" => first_number - second_number,
+    "/" => first_number / second_number,
+    "*" | "X" | "x" => first_number * second_number,
+    _ => panic!("Invalid operator used."),
+  }
+}
+
+#[cfg(test)]
+mod tests {
+  use crate::main;
+  use crate::output;
+  use crate::operate;
+  #[test]
+  fn main_returns_empty_tuple() {
+    assert_eq!(main(), ());
+  }
+
+  #[test]
+  fn output_expects_four_args() {
+    let out = output(-10, "+", 10, 0);
+    assert_eq!(out, String::from("-10 + 10 = 0"));
+  }
+
+  #[test]
+  fn operate_handles_addition() {
+    let op = operate("+", -5, 200);
+    assert_eq!(op, 195);
+  }
+  #[test]
+  fn operate_handles_subtraction() {
+    let op = operate("-", -12, -12);
+    assert_eq!(op, 0);
+  }
+  #[test]
+  fn operate_handles_division() {
+    let op = operate("/", -12, -1);
+    assert_eq!(op, 12);
+  }
+  #[test]
+  fn operate_handles_multiplication() {
+    let op = operate("*", -12, -2);
+    assert_eq!(op, 24);
+  }
+  #[test]
+  fn operate_handles_multiplication_x() {
+    let op = operate("x", -12, 2);
+    assert_eq!(op, -24);
+  }
+  #[test]
+  fn operate_handles_multiplcaiton_cap_x() {
+    let op = operate("X", -12, 2);
+    assert_eq!(op, -24);
+  }
+  #[test]
+  #[should_panic]
+  fn operate_panics_on_invalid_op() {
+    operate("invalid", 1, 1);
+  }
+}
+```
+
+- You should combine both imports into a single import statement with `use std::env::{args, Args};`.
+- `use\s+std::env::{args, Args};`
+
+## 40
+
+```rust
+use std::env::{args, Args};
+
+fn main() {
+  let mut args: Args = args();
+
+  let first_number: String = args.nth(1).unwrap();
+  let operator: String = args.nth(0).unwrap();
+  let second_number: String = args.nth(0).unwrap();
+
+
+
+  println!("{:?}, {:?}, {:?}", first_number, operator, second_number);
+  // let result = operate(operator, first_number, second_number);
+
+  // println!("{}", output(first_number, operator, second_number, result));
+}
+
+fn output(first_number: i32, operator: &str, second_number: i32, result: i32) -> String {
+  format!(
+    "{} {} {} = {}",
+    first_number, operator, second_number, result
+  )
+}
+
+fn operate(operator: &str, first_number: i32, second_number: i32) -> i32 {
+  match operator {
+    "+" => first_number + second_number,
+    "-" => first_number - second_number,
+    "/" => first_number / second_number,
+    "*" | "X" | "x" => first_number * second_number,
+    _ => panic!("Invalid operator used."),
+  }
+}
+
+#[cfg(test)]
+mod tests {
+  use crate::main;
+  use crate::output;
+  use crate::operate;
+  #[test]
+  fn main_returns_empty_tuple() {
+    assert_eq!(main(), ());
+  }
+
+  #[test]
+  fn output_expects_four_args() {
+    let out = output(-10, "+", 10, 0);
+    assert_eq!(out, String::from("-10 + 10 = 0"));
+  }
+
+  #[test]
+  fn operate_handles_addition() {
+    let op = operate("+", -5, 200);
+    assert_eq!(op, 195);
+  }
+  #[test]
+  fn operate_handles_subtraction() {
+    let op = operate("-", -12, -12);
+    assert_eq!(op, 0);
+  }
+  #[test]
+  fn operate_handles_division() {
+    let op = operate("/", -12, -1);
+    assert_eq!(op, 12);
+  }
+  #[test]
+  fn operate_handles_multiplication() {
+    let op = operate("*", -12, -2);
+    assert_eq!(op, 24);
+  }
+  #[test]
+  fn operate_handles_multiplication_x() {
+    let op = operate("x", -12, 2);
+    assert_eq!(op, -24);
+  }
+  #[test]
+  fn operate_handles_multiplcaiton_cap_x() {
+    let op = operate("X", -12, 2);
+    assert_eq!(op, -24);
+  }
+  #[test]
+  #[should_panic]
+  fn operate_panics_on_invalid_op() {
+    operate("invalid", 1, 1);
+  }
+}
+```
+
+- You should declare a variable named `first`.
+- `let\s+first`
+- You should declare a variable named `second`.
+- `let\s+second`
+- You should assign `first_number.parse::<i32>().unwrap()` to `first`.
+- `first_number.parse::<i32>().unwrap()`
+- You should assign `second_number.parse::<i32>().unwrap()` to `second`.
+- `second_number.parse::<i32>().unwrap()`
+
+## 41
+
+```rust
+use std::env::{args, Args};
+
+fn main() {
+  let mut args: Args = args();
+
+  let first_number: String = args.nth(1).unwrap();
+  let operator: String = args.nth(0).unwrap();
+  let second_number: String = args.nth(0).unwrap();
+
+  let first = first_number.parse::<i32>().unwrap();
+  let second = second_number.parse::<i32>().unwrap();
+
+  println!("{:?}, {:?}, {:?}", first, operator, second);
+  // let result = operate(operator, first_number, second_number);
+
+  // println!("{}", output(first_number, operator, second_number, result));
+}
+
+fn output(first_number: i32, operator: &str, second_number: i32, result: i32) -> String {
+  format!(
+    "{} {} {} = {}",
+    first_number, operator, second_number, result
+  )
+}
+
+fn operate(operator: &str, first_number: i32, second_number: i32) -> i32 {
+  match operator {
+    "+" => first_number + second_number,
+    "-" => first_number - second_number,
+    "/" => first_number / second_number,
+    "*" | "X" | "x" => first_number * second_number,
+    _ => panic!("Invalid operator used."),
+  }
+}
+
+#[cfg(test)]
+mod tests {
+  use crate::main;
+  use crate::output;
+  use crate::operate;
+  #[test]
+  fn main_returns_empty_tuple() {
+    assert_eq!(main(), ());
+  }
+
+  #[test]
+  fn output_expects_four_args() {
+    let out = output(-10, "+", 10, 0);
+    assert_eq!(out, String::from("-10 + 10 = 0"));
+  }
+
+  #[test]
+  fn operate_handles_addition() {
+    let op = operate("+", -5, 200);
+    assert_eq!(op, 195);
+  }
+  #[test]
+  fn operate_handles_subtraction() {
+    let op = operate("-", -12, -12);
+    assert_eq!(op, 0);
+  }
+  #[test]
+  fn operate_handles_division() {
+    let op = operate("/", -12, -1);
+    assert_eq!(op, 12);
+  }
+  #[test]
+  fn operate_handles_multiplication() {
+    let op = operate("*", -12, -2);
+    assert_eq!(op, 24);
+  }
+  #[test]
+  fn operate_handles_multiplication_x() {
+    let op = operate("x", -12, 2);
+    assert_eq!(op, -24);
+  }
+  #[test]
+  fn operate_handles_multiplcaiton_cap_x() {
+    let op = operate("X", -12, 2);
+    assert_eq!(op, -24);
+  }
+  #[test]
+  #[should_panic]
+  fn operate_panics_on_invalid_op() {
+    operate("invalid", 1, 1);
+  }
+}
+```
+
+- There are no Node tests for this lesson.
+- `null`
+
+## 42
+
+```rust
+use std::env::{args, Args};
+
+fn main() {
+  let mut args: Args = args();
+
+  let first_number: String = args.nth(1).unwrap();
+  let operator: String = args.nth(0).unwrap();
+  let second_number: String = args.nth(0).unwrap();
+
+  let first = first_number.parse::<i32>().unwrap();
+  let second = second_number.parse::<i32>().unwrap();
+  let result = operate(&operator, first, second);
+
+  println!("{}", output(first, &operator, second, result));
+}
+
+fn output(first_number: i32, operator: &str, second_number: i32, result: i32) -> String {
+  format!(
+    "{} {} {} = {}",
+    first_number, operator, second_number, result
+  )
+}
+
+fn operate(operator: &str, first_number: i32, second_number: i32) -> i32 {
+  match operator {
+    "+" => first_number + second_number,
+    "-" => first_number - second_number,
+    "/" => first_number / second_number,
+    "*" | "X" | "x" => first_number * second_number,
+    _ => panic!("Invalid operator used."),
+  }
+}
+
+#[cfg(test)]
+mod tests {
+  use crate::main;
+  use crate::output;
+  use crate::operate;
+  #[test]
+  fn main_returns_empty_tuple() {
+    assert_eq!(main(), ());
+  }
+
+  #[test]
+  fn output_expects_four_args() {
+    let out = output(-10, "+", 10, 0);
+    assert_eq!(out, String::from("-10 + 10 = 0"));
+  }
+
+  #[test]
+  fn operate_handles_addition() {
+    let op = operate("+", -5, 200);
+    assert_eq!(op, 195);
+  }
+  #[test]
+  fn operate_handles_subtraction() {
+    let op = operate("-", -12, -12);
+    assert_eq!(op, 0);
+  }
+  #[test]
+  fn operate_handles_division() {
+    let op = operate("/", -12, -1);
+    assert_eq!(op, 12);
+  }
+  #[test]
+  fn operate_handles_multiplication() {
+    let op = operate("*", -12, -2);
+    assert_eq!(op, 24);
+  }
+  #[test]
+  fn operate_handles_multiplication_x() {
+    let op = operate("x", -12, 2);
+    assert_eq!(op, -24);
+  }
+  #[test]
+  fn operate_handles_multiplcaiton_cap_x() {
+    let op = operate("X", -12, 2);
+    assert_eq!(op, -24);
+  }
+  #[test]
+  #[should_panic]
+  fn operate_panics_on_invalid_op() {
+    operate("invalid", 1, 1);
+  }
+}
+```
+
+- This is the final lesson. Congrats!
+- `null`

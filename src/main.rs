@@ -698,9 +698,10 @@ mod tests {
       d(" keyword, or by leaving off the semi-colon.\n\n"),
       d("Functions returning anything other than an empty tuple need to be explicitly typed:\n"),
       code("\tfn my_func() -> String {\n"),
-      code("\t  let my_string = String::from(\"Nich\");\n"),
+      code("\t  let my_string: String = String::from(\"Nich\");\n"),
       code("\t  my_string\n"),
-      code("\t}\n\n"),
+      code("\t}\n"),
+      emph("Note: The above has been explicitly typed, for clarity.\n"),
     ]);
     term(&[
       task(),
@@ -1200,12 +1201,234 @@ mod tests {
       kw("first_number, operator"),
       d(", and "),
       kw("second_number"),
-      d(" to be the first, second, and third 'args' respectfully."),
+      d(" to be equal to the first, second, and third "),
+      kw("args"),
+      d(" respectfully."),
     ]);
 
     test(34);
     next(35);
     assert!(true);
+  }
+  #[test]
+  fn thirtyfive() {
+    hr();
+    n(35);
+    term(&[
+      d("\n\nSome code has been commented out, so that the program compiles.\n\nIf you run the code now, you will see the output contains:\n"),
+      cmd("\t$ Some(\"target/debug/calculator\"), None, None\n\n"),
+      d("This is because "), kw("nth"), d(" does not return the value directly, but, instead, returns the value wrapped in an "), kw("Option"), d(".\n\n"),
+      d("An "), kw("Option"), d(" is a type that includes either "), kw("Some"), d(" wrapped around a value, or "), kw("None"), d(" if the value does not exist.\n\n"),
+      d("In order to use the value wrapped in "), kw("Some"), d(", the "), kw("Option"), d(" can be "), emph("unwrapped:\n"),
+      code("\tlet my_option: Option<String> = env::args().nth(0);\n"),
+      code("\tlet my_value: String = my_option.unwrap();\n")
+    ]);
+    term(&[
+      task(),
+      d("Unwrap the "),
+      kw("first_number"),
+      d(", "),
+      kw("operator"),
+      d(", and "),
+      kw("second_number"),
+      d(" variables at their declaration, and run your code to see what happens.\n"),
+    ]);
+
+    test(35);
+    next(36);
+    assert!(true);
+  }
+  #[test]
+  fn thirtysix() {
+    hr();
+    n(36);
+    term(&[
+      d("\n\nCurrently, running the application with:\n"),
+      cmd("\t$ cargo run --bin calculator\n"),
+      d("Causes a panic. This is because trying to unwrapping a value where "), kw("None"), d(" exists is undefined behaviour.\n\n"),
+      d("There are ways to handle errors more gracefully, but, for now, be sure to call your application with enough arguments:\n"),
+      cmd("\t$ cargo run --bin calculator -- 1 + 2\n")
+    ]);
+    term(&[
+      task(),
+      d(
+        "Run your code again, but keep adding arguments after the '--', until there is no panic.\n",
+      ),
+    ]);
+
+    next(37);
+    assert!(true);
+  }
+  #[test]
+  fn thirtyseven() {
+    hr();
+    n(37);
+    term(&[
+      d("\n\nCurrently, 5 arguments are needed, to prevent the application from panicking. It looks like you are only trying to unwrap the 3rd element, though?\n\n"),
+      d("Actually, due to "),
+      kw("nth"),
+      d(" mutably iterating over "),
+      kw("args"),
+      d(", after accessing the first element, it is removed. So, trying to access the second element afterwards is equivalent to having originally tried to access the third.\n")
+    ]);
+    term(&[
+      task(),
+      d("Change the arguments passed to "),
+      kw("nth"),
+      d(" so that the correct elements are accessed.\n\n"),
+      emph("HINT: "),
+      d("Remember, the first element is the relative path to the binary - not the first_number."),
+    ]);
+
+    term(&[
+      d("Running `"),
+      cmd("cargo run --bin calculator -- 1 + 2`"),
+      d(" should output: \"1\", \"+\", \"2\"\n"),
+    ]);
+    next(38);
+    assert!(true);
+  }
+  #[test]
+  fn thirtyeight() {
+    hr();
+    n(38);
+    term(&[
+      d("\n\nIt can be useful to explicitly annotate your variables' types. You have already seen examples of this, but here is one more:\n"),
+      code("\tlet my_var: &str = \"Mrugesh\";\n")
+    ]);
+    term(&[
+      task(),
+      d("Type-annotate your "),
+      kw("args"),
+      d(", "),
+      kw("first_number"),
+      d(", "),
+      kw("operator"),
+      d(", and "),
+      kw("second_number"),
+      d(" variables.\n"),
+    ]);
+    term(&[
+      emph("HINT: "),
+      d("Give something the incorrect type, and follow the compiler's advice to correct it. You will need to import a type from the "),
+      kw("env"),
+      d(" module.\n"),
+    ]);
+
+    test(38);
+    next(39);
+    assert!(true);
+  }
+  #[test]
+  fn thirtynine() {
+    hr();
+    n(39);
+    term(&[
+      d("\n\nInstead of writing unecessary imports, you can combine them with the following syntax:\n"),
+      code("\tuse std::env::{var, Vars};\n"),
+      d("The above imports the "),
+      kw("var"), d(" function, and the "),
+      kw("Vars"), d(" struct"), d(" from the "),
+      kw("env"), d(" module, in the standard library.\n")
+    ]);
+    term(&[
+      task(),
+      d("Use one import statement to import both the "),
+      kw("args"),
+      d(" function, as well as the "),
+      kw("Args"),
+      d(" struct.\n"),
+    ]);
+
+    test(39);
+    next(40);
+    assert!(true);
+  }
+  #[test]
+  fn forty() {
+    hr();
+    n(40);
+    term(&[
+      d("\n\nNow, you need to fix the issue of "),
+      kw("operate"),
+      d(" and "),
+      kw("output"),
+      d(" expecting "),
+      kw("i32"),
+      d(" and "),
+      kw("&str"),
+      d(" type inputs.\n\n"),
+      d("This can be acheived with the "),
+      kw("parse"),
+      d(" method, which exists on the "),
+      kw("String"),
+      d(" type.\n"),
+    ]);
+    term(&[
+      d("The "),
+      kw("parse"),
+      d(" method converts a "),
+      kw("String"),
+      d(" into a given type. The type can be given using "),
+      emph("turbofish"),
+      d(" syntax:\n"),
+      code("\tlet my_string_number: String = String::from(\"Kris\");\n"),
+      code("\tlet my_number_option: Option<usize> = my_string_number::<usize>();\n"),
+      code("\tlet my_number: usize = my_number_option.unwrap();\n"),
+    ]);
+    term(&[
+      task(),
+      d("Within main, declare two new variables - "),
+      kw("first"),
+      d(" and "),
+      kw("second"),
+      d(" - and use turbofish syntax to assign the parsed and unwrapped values of "),
+      kw("first_number"),
+      d(" and "),
+      kw("second_number"),
+      d(" respectfully. Then, replace "),
+      kw("first_number"),
+      d(" and "),
+      kw("second_number"),
+      d(" with "),
+      kw("first"),
+      d(" and "),
+      kw("second"),
+      d(" in the println call.\n"),
+    ]);
+
+    test(40);
+    next(41);
+    assert!(true);
+  }
+  #[test]
+  fn fortyone() {
+    hr();
+    n(41);
+    term(&[
+      d("\n\n"),
+      task(),
+      d("Finally, uncomment the commented-out code, and make the necessary adjustments to allow the code to compile.\n\n"),
+      d("Be sure to follow the compiler's hints to get the code compiling. Then, remove the first "), kw("println"), d(" call so there is only one output.")
+    ]);
+
+    term(&[
+      d("You can ensure the output is correct by running:\n"),
+      cmd("\t$ cargo run --bin calculator -- 1 + -1\n"),
+    ]);
+    next(42);
+    assert!(true);
+  }
+  #[test]
+  fn fortytwo() {
+    hr();
+    term(&[
+      Term::new("Well Done!", Green, Underline),
+      d("\n\nCongratulations. You have completed the "), code("freeCodeCamp - Rust in Replit - CLI Calculator"), d(" project.\n\n"),
+      d("You are welcome to extend your current project - perhaps, to accept multiple operations.\n\n"),
+      d("TODO: What now??")
+    ]);
+    hr();
   }
 
   fn d(text: &str) -> Term {
@@ -1245,7 +1468,7 @@ mod tests {
   fn test(num: usize) {
     term(&[d("You can check if you are on the right track by running:")]);
     match num {
-      1..=15 | 21 | 22 | 28 | 29 | 31 => {
+      1..=15 | 21 | 22 | 28 | 29 | 31 | 34 | 35 | 38 | 39 | 40 => {
         term(&[cmd(&format!("\t$ fcc test {}\n", num))]);
       }
       _ => {
