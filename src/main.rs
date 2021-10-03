@@ -75,6 +75,10 @@ mod tests {
       d("\t- resets the code to the beginning of the nth lesson\n"),
     ]);
     term(&[
+      cmd("\t$ fcc solution <n>"),
+      d("\t- shows the solution for the nth lesson\n"),
+    ]);
+    term(&[
       cmd("\t$ cargo run --bin calculator"),
       d("\t- runs the "),
       file("calculator/src/main.rs "),
@@ -225,7 +229,7 @@ mod tests {
     ]);
     term(&[
       emph("HINT: "),
-      d("If you get stuck, try to follow the compiler's helpful advice.\n\n"),
+      d("If you get stuck, try to follow the compiler's helpful advice.\n"),
     ]);
     term(&[
       task(),
@@ -246,17 +250,17 @@ mod tests {
     term(&[
       task(),
       d("Follow the compiler's advice to convert the variable name into "),
-      emph("snake_case.\n\n"),
+      emph("snake_case.\n"),
     ]);
     term(&[
       d("It is convention in Rust to use snake_case for\n"),
-      d("\t- Variable names\n\t- Function names\n\t- File names\n\n"),
+      d("\t- Variable names\n\t- Function names\n\t- File names\n"),
     ]);
     term(&[
       emph("SCREAMING_SNAKE_CASE "),
       d("is used for constants and statics. Lastly, "),
       emph("PascalCase "),
-      d("is used for types, traits, and enums (we will cover these later).\n\n"),
+      d("is used for types, traits, and enums (we will cover these later).\n"),
     ]);
     term(&[
       task(),
@@ -281,7 +285,7 @@ mod tests {
       d("Fix that, by changing the "),
       kw("println! "),
       d("call to be\n"),
-      code("\tprintln!(\"Hello, {}!\", first_name);\n\n"),
+      code("\tprintln!(\"Hello, {}!\", first_name);\n"),
     ]);
     term(&[
       d("The '{}' are replaced with the value of the arguments. There are many things you can do with "),
@@ -290,7 +294,7 @@ mod tests {
       d("\t- https://doc.rust-lang.org/rust-by-example/hello/print.html\n\n"),
       d("This is what makes the "),
       kw("println "),
-      d("macro an excellent tool to debug your code.\n\n")
+      d("macro an excellent tool to debug your code.\n")
     ]);
     term(&[
       d("Run your code to see the output with:\n"),
@@ -321,7 +325,7 @@ mod tests {
       d("An important aspect of the Rust langauge is "),
       emph("ownership"),
       d(". That is, memory use and allocation."),
-      d("\nThe concept of ownership will come up, throughout this course.\n\n"),
+      d("\nThe concept of ownership will come up, throughout this course.\n"),
     ]);
     term(&[
       d("Another common type is "),
@@ -343,7 +347,7 @@ mod tests {
       code("\tlet example = String::from(\"Hello, Camper!\")\n"),
     ]);
     term(&[d(
-      "Do not worry about understanding all these new terms just yet\n\n",
+      "Do not worry about understanding all these new terms just yet\n",
     )]);
 
     test(7);
@@ -365,7 +369,7 @@ mod tests {
       kw("first_name"),
       d(" to it. Then, replace the second argument in the "),
       kw("println"),
-      d(" call with your newly created variable.\n\n"),
+      d(" call with your newly created variable.\n"),
     ]);
 
     test(8);
@@ -382,7 +386,7 @@ mod tests {
       d("Copy the current "),
       kw("println"),
       d(" call, and place it immediately after the first. Then, replace the second argument with "),
-      kw("first_name\n\n"),
+      kw("first_name\n"),
     ]);
     term(&[
       d("If you try to run your code now, your app will panic."),
@@ -749,9 +753,9 @@ mod tests {
       kw("main"),
       d(" function.\n\n"),
       emph("NOTE: "),
-      d("The first test include the "),
+      d("The first test includes the "),
       kw("should_panic"),
-      d(" trait. This means, the code should error out."),
+      d(" trait. This means, the code should error out.\n"),
     ]);
 
     test(18);
@@ -786,7 +790,7 @@ mod tests {
     term(&[
       d("Here is an example function with typed arguments:\n"),
       code("\tfn example(first_arg: usize, second_arg: String) -> &str {\n"),
-      code("\t  \"I return a a reference to a string slice\"\n"),
+      code("\t  \"I return a reference to a string slice\"\n"),
       code("\t}\n"),
     ]);
 

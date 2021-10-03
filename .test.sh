@@ -94,7 +94,7 @@ async function runTests(lessonNumber) {
           console.log(`\n${text}\n`);
         }
       } else if (test.test(camperCode)) {
-        // TODO
+        console.log("\nAll tests pass!\n");
       } else {
         console.log(`\n${text}\n`);
       }

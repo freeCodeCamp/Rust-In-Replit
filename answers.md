@@ -31,6 +31,8 @@ fn main() {
 ```
 
 - You should declare a variable `firstName` and give it a value of your first name within double quotes.
+- `let\s+firstName\s*=\s*\"\w+\"\s*`
+- You should follow the compiler's advice to add a semi-colon at the end.
 - `let\s+firstName\s*=\s*\"\w+\"\s*;`
 
 ## 5
@@ -43,7 +45,7 @@ fn main() {
 ```
 
 - You should have a variable `first_name` and give it a value of your first name within double quotes.
-- `let\s+first_name\s*=\*+\"\w+\"\s*;`
+- `let\s+first_name\s*=\s*"\w+"\s*;`
 
 ## 6
 
@@ -198,9 +200,6 @@ mod tests {
 ## 16
 
 ```rust
-fn main() {
-
-}
 
 #[cfg(test)]
 mod tests {
