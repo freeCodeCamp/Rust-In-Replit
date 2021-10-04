@@ -700,11 +700,11 @@ mod tests {
       d("There are two ways to return. Using the "),
       kw("return"),
       d(" keyword, or by leaving off the semi-colon.\n\n"),
-      d("Functions returning anything other than an empty tuple need to be explicitly typed:\n"),
+      d("Functions returning anything other than an empty tuple need to be explicitly typed:\n\n"),
       code("\tfn my_func() -> String {\n"),
       code("\t  let my_string: String = String::from(\"Nich\");\n"),
       code("\t  my_string\n"),
-      code("\t}\n"),
+      code("\t}\n\n"),
       emph("Note: The above has been explicitly typed, for clarity.\n"),
     ]);
     term(&[
@@ -788,7 +788,7 @@ mod tests {
       d(" module.\n"),
     ]);
     term(&[
-      d("Here is an example function with typed arguments:\n"),
+      d("Here is an example function with typed arguments:\n\n"),
       code("\tfn example(first_arg: usize, second_arg: String) -> &str {\n"),
       code("\t  \"I return a reference to a string slice\"\n"),
       code("\t}\n"),
@@ -913,14 +913,14 @@ mod tests {
       kw("operator"),
       d(" is one of: "),
       kw("\"+\" \"-\" \"*\" \"/\"\n\n"),
-      d("An "), kw("if"), d(" statement follows this syntax:\n"),
+      d("An "), kw("if"), d(" statement follows this syntax:\n\n"),
       code("\tif my_var == \"my str\" {\n"),
       code("\t  // Do stuff\n"),
       code("\t} else if my_var == \"something else\" {\n"),
       code("\t  // Do more stuff\n"),
       code("\t} else {\n"),
       code("\t  // Finally...\n"),
-      code("\t}")
+      code("\t}\n")
     ]);
     term(&[
       task(),
@@ -978,7 +978,7 @@ mod tests {
     term(&[
       d("A contrived example of an expression using the "),
       kw("match"),
-      d(" operator:\n"),
+      d(" operator:\n\n"),
       code("\tlet some_variable = 't';\n"),
       code("\tmatch some_variable {\n"),
       code("\t  'a' => 'A',\n"),
@@ -1009,12 +1009,12 @@ mod tests {
       cmd("calculator 3 x 3\n\n"),
       d("A "),
       kw("match"),
-      d(" pattern can be extended using bit-wise logic like this:\n"),
+      d(" pattern can be extended using bit-wise logic like this:\n\n"),
       code("\tmatch name {\n"),
       code("\t  \"Quincy\" => \"Hello, Quincy\",\n"),
       code("\t  \"Tom\" | \"Nich\" => \"Hello, other\",\n"),
       code("\t  _ => panic!(\"Pattern not found\"),\n"),
-      code("\t}"),
+      code("\t}\n\n"),
       d("With a "),
       kw("name"),
       d(" of \"Nich\", the second "),
@@ -1073,7 +1073,7 @@ mod tests {
       d("\n\nYou want this application to read values from command line arguments. Rust's standard library has an environment module which provides access to arguments passed through the CLI.\n")
     ]);
     term(&[
-      d("Modules in the standard library are accessed using the following syntax:\n"),
+      d("Modules in the standard library are accessed using the following syntax:\n\n"),
       code("\tuse std::*;\n\n"),
       d("This imports all modules within the standard library. However, you only need one.\n"),
     ]);
@@ -1223,7 +1223,7 @@ mod tests {
       cmd("\t$ Some(\"target/debug/calculator\"), None, None\n\n"),
       d("This is because "), kw("nth"), d(" does not return the value directly, but, instead, returns the value wrapped in an "), kw("Option"), d(".\n\n"),
       d("An "), kw("Option"), d(" is a type that includes either "), kw("Some"), d(" wrapped around a value, or "), kw("None"), d(" if the value does not exist.\n\n"),
-      d("In order to use the value wrapped in "), kw("Some"), d(", the "), kw("Option"), d(" can be "), emph("unwrapped:\n"),
+      d("In order to use the value wrapped in "), kw("Some"), d(", the "), kw("Option"), d(" can be "), emph("unwrapped:\n\n"),
       code("\tlet my_option: Option<String> = env::args().nth(0);\n"),
       code("\tlet my_value: String = my_option.unwrap();\n")
     ]);
@@ -1297,7 +1297,7 @@ mod tests {
     hr();
     n(38);
     term(&[
-      d("\n\nIt can be useful to explicitly annotate your variables' types. You have already seen examples of this, but here is one more:\n"),
+      d("\n\nIt can be useful to explicitly annotate your variables' types. You have already seen examples of this, but here is one more:\n\n"),
       code("\tlet my_var: &str = \"Mrugesh\";\n")
     ]);
     term(&[
@@ -1328,8 +1328,8 @@ mod tests {
     hr();
     n(39);
     term(&[
-      d("\n\nInstead of writing unecessary imports, you can combine them with the following syntax:\n"),
-      code("\tuse std::env::{var, Vars};\n"),
+      d("\n\nInstead of writing unecessary imports, you can combine them with the following syntax:\n\n"),
+      code("\tuse std::env::{var, Vars};\n\n"),
       d("The above imports the "),
       kw("var"), d(" function, and the "),
       kw("Vars"), d(" struct"), d(" from the "),
@@ -1375,7 +1375,7 @@ mod tests {
       kw("String"),
       d(" into a given type. The type can be given using "),
       emph("turbofish"),
-      d(" syntax:\n"),
+      d(" syntax:\n\n"),
       code("\tlet my_string_number: String = String::from(\"Kris\");\n"),
       code("\tlet my_number_option: Option<usize> = my_string_number::<usize>();\n"),
       code("\tlet my_number: usize = my_number_option.unwrap();\n"),
