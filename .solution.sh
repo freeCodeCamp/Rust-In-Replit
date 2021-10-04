@@ -32,6 +32,12 @@ async function solution(lessonNumber) {
     }
 
     const answer = getAnswerForLesson(lessonNumber);
+
+    if (lessonNumber - 1 >= 16) {
+      console.log(
+        "NOTE: The solution for this step might not pass the `cargo` tests.\n\n"
+      );
+    }
     console.log(`Solution for lesson #${lessonNumber - 1}\n`);
     console.log(answer);
   } catch (err) {
