@@ -71,13 +71,14 @@ async function runTests(lessonNumber) {
     );
 
     testTexts = testTexts[1]
-      .split("-")
+      .split(/\n-/)
       .filter((x) => x.length > 1)
       .map((x) => x.trim());
 
-    for (let i = 0; i < testTexts.length / 2; i += 2) {
+    const numTests = testTexts.length / 2;
+    let c = 0;
+    for (let i = 0; i < numTests; i += 2) {
       const text = testTexts[i];
-      const test = new RegExp(testTexts[i + 1].replace(/[`]/g, ""));
       if (testTexts[i + 1].includes("getCommandOutput")) {
         const commandOutput = await getCommandOutput(
           "cargo run --bin calculator"
@@ -89,15 +90,21 @@ async function runTests(lessonNumber) {
             .replace(/\)$/, "")
         );
         if (re.test(commandOutput)) {
-          console.log(`Lesson #${lessonNumber} is correct.`);
+          c++;
+          // console.log(`Lesson #${lessonNumber} is correct.`);
         } else {
           console.log(`\n${text}\n`);
         }
-      } else if (test.test(camperCode)) {
+      } else if (
+        new RegExp(testTexts[i + 1].replace(/[`]/g, "")).test(camperCode)
+      ) {
         console.log("\nAll tests pass!\n");
       } else {
         console.log(`\n${text}\n`);
       }
+    }
+    if (c === numTests) {
+      console.log(`Lesson #${lessonNumber} is correct.`);
     }
   } catch (e) {
     console.log("An error has occurred");
