@@ -73,11 +73,11 @@ async function runTests(lessonNumber) {
     testTexts = testTexts[1]
       .split(/\n-/)
       .filter((x) => x.length > 1)
-      .map((x) => x.trim());
+      .map((x) => x.trim().replace(/^- /, ""));
 
     const numTests = testTexts.length / 2;
     let c = 0;
-    for (let i = 0; i < numTests; i += 2) {
+    for (let i = 0; i < numTests * 2; i += 2) {
       const text = testTexts[i];
       if (testTexts[i + 1].includes("getCommandOutput")) {
         const commandOutput = await getCommandOutput(
