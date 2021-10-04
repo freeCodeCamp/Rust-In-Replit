@@ -57,7 +57,7 @@ fn main() {
 ```
 
 - You should change the `println!` call to `println!("Hello, {}!", first_name)`.
-- `println!("Hello,\s*{}!",\s*first_name)\s*;`
+- `println!\("Hello,\s*{}!",\s*first_name\)\s*;`
 
 ## 7
 
@@ -83,7 +83,7 @@ fn main() {
 - You should declare a variable `name` and assign it the value of `first_name`.
 - `let\s+name\s*=\s*first_name\s*;`
 - You should replace the second argument of `println!` with `name`.
-- `println!("Hello, {}!",\*name)\s*;`
+- `println!\("Hello,\s*{}!",\*name\)\s*;`
 
 ## 9
 
@@ -96,9 +96,9 @@ fn main() {
 ```
 
 - You should have two `println!` calls immediately after one another.
-- `println!("Hello, {}!",\s*\w+)\s*;\s*println!("Hello, {}!",\s*\w+)\s*;`
+- `println!\("Hello,\s*{}!",\s*\w+\)\s*;\s*println!\("Hello,\s*{}!",\s*\w+\)\s*;`
 - You should have the first `println!` use `name` and the second `println!` use `first_name`.
-- `println!("Hello, {}!",\s*name)\s*;\s*println!("Hello, {}!",\s*first_name)\s*;`
+- `println!\("Hello,\s*{}!",\s*name\)\s*;\s*println!\("Hello,\s*{}!",\s*first_name\)\s*;`
 - You should reference `first_name` when assigning it to `name`, by using `&first_name`.
 - `let\s+name\s*=\s*&first_name\s*;`
 
@@ -114,9 +114,9 @@ fn main() {
 ```
 
 - You should not turn `first_name` into an owned value with `.to_owned()`.
-- `first_name\.to_owned()`
+- `first_name\.to_owned\(\)`
 - You should concatenate your surname to the owned `first_name`.
-- `first_name\.to_owned()\s*+\s*"\w+"`
+- `first_name\.to_owned\(\)\s*+\s*"\w+"`
 
 ## 11
 
@@ -1029,7 +1029,7 @@ mod tests {
 - You should declare a new variable named `args`
 - `let\s+args`
 - You should assign `args` a value of `env::args()`
-- `=\s*env::args()`
+- `=\s*env::args\(\)`
 
 ## 31
 
@@ -1211,6 +1211,9 @@ mod tests {
 }
 ```
 
+- There are no Node tests for this lesson.
+- `null`
+
 ## 33
 
 ```rust
@@ -1301,7 +1304,7 @@ mod tests {
 ```
 
 - You should access the first (`0`) element of the `env::args()` iterator.
-- `args\.nth(0)`
+- `args\.nth\(0\)`
 - You should declare `args` as mutable with `let mut args =...`
 - `let\s+mut\s+args`
 
@@ -1395,11 +1398,11 @@ mod tests {
 ```
 
 - You should assign `args.nth(0)` to `first_number`.
-- `let\s+first_number\s*=\s*args.nth(0)`
+- `let\s+first_number\s*=\s*args\.nth\(0\)`
 - You should assign `args.nth(1)` to `operator`.
-- `let\s+operator\s*=\s*args.nth(1)`
+- `let\s+operator\s*=\s*args\.nth\(1\)`
 - You should assign `args.nth(2)` to `second_number`.
-- `let\s+second_number\s*=\s*args.nth(2)`
+- `let\s+second_number\s*=\s*args\.nth\(2\)`
 
 ## 35
 
@@ -1491,11 +1494,11 @@ mod tests {
 ```
 
 - You should unwrap `first_number` with `args.nth(0).unwrap()`.
-- `let\s+first_number\s*=\s*args.nth(0).unwrap()`
+- `let\s+first_number\s*=\s*args\.nth\(0\)\.unwrap\(\)`
 - You should unwrap `operator` with `args.nth(1).unwrap()`.
-- `let\s+operator\s*=\s*args.nth(1).unwrap()`
+- `let\s+operator\s*=\s*args\.nth\(1\)\.unwrap\(\)`
 - You should unwrap `second_number` with `args.nth(2).unwrap()`.
-- `let\s+second_number\s*=\s*args.nth(2).unwrap()`
+- `let\s+second_number\s*=\s*args\.nth\(2\)\.unwrap\(\)`
 
 ## 36
 
@@ -1872,7 +1875,7 @@ mod tests {
 ```
 
 - You should combine both imports into a single import statement with `use std::env::{args, Args};`.
-- `use\s+std::env::{args, Args};`
+- `use\s+std::env::\{args, Args\};`
 
 ## 40
 
@@ -1970,9 +1973,9 @@ mod tests {
 - You should declare a variable named `second`.
 - `let\s+second`
 - You should assign `first_number.parse::<i32>().unwrap()` to `first`.
-- `first_number.parse::<i32>().unwrap()`
+- `first_number\.parse::<i32>\(\)\.unwrap\(\)`
 - You should assign `second_number.parse::<i32>().unwrap()` to `second`.
-- `second_number.parse::<i32>().unwrap()`
+- `second_number\.parse::<i32>\(\)\.unwrap\(\)`
 
 ## 41
 
