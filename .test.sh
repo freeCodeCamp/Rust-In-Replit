@@ -98,7 +98,8 @@ async function runTests(lessonNumber) {
       } else if (
         new RegExp(testTexts[i + 1].replace(/[`]/g, "")).test(camperCode)
       ) {
-        console.log("\nAll tests pass!\n");
+        c++;
+        // console.log("\nAll tests pass!\n");
       } else {
         console.log(`\n${text}\n`);
       }
