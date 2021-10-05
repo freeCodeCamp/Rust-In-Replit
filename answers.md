@@ -116,7 +116,7 @@ fn main() {
 - You should not turn `first_name` into an owned value with `.to_owned()`.
 - `first_name\.to_owned\(\)`
 - You should concatenate your surname to the owned `first_name`.
-- `first_name\.to_owned\(\)\s*+\s*"\w+"`
+- `first_name\.to_owned\(\)\s*+\s*"[\s\w]+"`
 
 ## 11
 
@@ -132,7 +132,7 @@ fn main() {
 - You should use the `.push_str()` method.
 - `\.push_str\(`
 - You should push your surname to `first_name`.
-- `first_name\.push_str\(\s*"\w+"\s*\)`
+- `first_name\.push_str\(\s*"[\s\w]+"\s*\)`
 - You should make `first_name` mutable with `let mut first_name = ...`
 - `let\s+mut\s+first_name\s*=`
 
@@ -151,7 +151,7 @@ fn main() {
 - You should assign `first` a single character in double quotes.
 - `first\s*=\s*"\w"`
 - You should print the length of `first` and the number of characters in `first`. Example Output: `1 1`
-- `getCommandOutput(1\s*1)`
+- `getCommandOutput(\s*1\s*1\s*)`
 
 ## 13
 
@@ -165,7 +165,7 @@ fn main() {
 - You should change the value of `first` to be a string slice of `∞`.
 - `first\s*=\s*"∞"`
 - Your code should print `3 1`.
-- `getCommandOutput(3\s*1)`
+- `getCommandOutput(\s*3\s*1\s*)`
 
 ## 14
 
@@ -1776,7 +1776,7 @@ mod tests {
 - You should import the `Args` struct from the `std::env` module with `use std::env::Args`.
 - `use\s+std::env::Args`
 - You should annotate `args` with the type `Args`.
-- `let\s+args:\s*Args`
+- `let\s+mut\s+args:\s*Args`
 - You should annotate `first_number` with the type `String`.
 - `let\s+first_number:\s*String`
 - You should annotate `operator` with the type `String`.

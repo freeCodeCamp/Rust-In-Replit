@@ -491,6 +491,7 @@ mod tests {
       d(" type, is by using the "),
       kw("push_str"),
       d(" method:\n\n"),
+      code("\tlet mut my_string = String::from(\"String\");\n"),
       code("\tmy_string.push_str(\"a str\");\n"),
     ]);
     term(&[
@@ -503,7 +504,7 @@ mod tests {
       kw("push_str"),
       d(" method on "),
       kw("first_name"),
-      d(" to append your surname."),
+      d(" to append your surname.\n"),
     ]);
     term(&[
       d("If you run your code now, Rust will error, because "),
