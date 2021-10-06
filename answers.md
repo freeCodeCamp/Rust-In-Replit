@@ -3,6 +3,7 @@
 ## 2
 
 ```rust
+// Lesson #2
 fn main() {
   println!("Hello, world!");
 }
@@ -14,6 +15,7 @@ fn main() {
 ## 3
 
 ```rust
+// Lesson #3
 fn main() {
   println!("Hello, world!");
 }
@@ -25,6 +27,7 @@ fn main() {
 ## 4
 
 ```rust
+// Lesson #4
 fn main() {
   println!("Hello, world!");
 }
@@ -38,6 +41,7 @@ fn main() {
 ## 5
 
 ```rust
+// Lesson #5
 fn main() {
   let firstName = "Quincy";
   println!("Hello, world!");
@@ -50,6 +54,7 @@ fn main() {
 ## 6
 
 ```rust
+// Lesson #6
 fn main() {
   let first_name = "Quincy";
   println!("Hello, world!");
@@ -62,6 +67,7 @@ fn main() {
 ## 7
 
 ```rust
+// Lesson #7
 fn main() {
   let first_name = "Quincy";
   println!("Hello, {}!", first_name);
@@ -74,6 +80,7 @@ fn main() {
 ## 8
 
 ```rust
+// Lesson #8
 fn main() {
   let first_name = String::from("Quincy");
   println!("Hello, {}!", first_name);
@@ -88,6 +95,7 @@ fn main() {
 ## 9
 
 ```rust
+// Lesson #9
 fn main() {
   let first_name = String::from("Quincy");
   let name = first_name;
@@ -105,6 +113,7 @@ fn main() {
 ## 10
 
 ```rust
+// Lesson #10
 fn main() {
   let first_name = String::from("Tom");
   let name = &first_name;
@@ -121,6 +130,7 @@ fn main() {
 ## 11
 
 ```rust
+// Lesson #11
 fn main() {
   let first_name = String::from("Quincy");
   let name = first_name.to_owned() + " Larson";
@@ -139,6 +149,7 @@ fn main() {
 ## 12
 
 ```rust
+// Lesson #12
 fn main() {
   let mut first_name = String::from("Nicholas");
   first_name.push_str(" Carrigan");
@@ -156,6 +167,7 @@ fn main() {
 ## 13
 
 ```rust
+// Lesson #13
 fn main() {
   let first = "T";
   println!("{} {}", first.len(), first.chars().count());
@@ -170,6 +182,7 @@ fn main() {
 ## 14
 
 ```rust
+// Lesson #14
 fn main() {
   let first = "∞";
   println!("{} {}", first.len(), first.chars().count());
@@ -182,6 +195,7 @@ fn main() {
 ## 15
 
 ```rust
+// Lesson #15
 
 
 #[cfg(test)]
@@ -200,6 +214,7 @@ mod tests {
 ## 16
 
 ```rust
+// Lesson #16
 
 #[cfg(test)]
 mod tests {
@@ -217,6 +232,7 @@ mod tests {
 ## 17
 
 ```rust
+// Lesson #17
 fn main() {
 
 }
@@ -237,6 +253,7 @@ mod tests {
 ## 18
 
 ```rust
+// Lesson #18
 fn main() -> usize {
   24
 }
@@ -262,6 +279,7 @@ mod tests {
 ## 19
 
 ```rust
+// Lesson #19
 fn main() -> f32 {
   24.5
 }
@@ -297,6 +315,7 @@ mod tests {
 ## 20
 
 ```rust
+// Lesson #20
 fn main() -> f32 {
   24.5
 }
@@ -333,6 +352,7 @@ mod tests {
 ## 21
 
 ```rust
+// Lesson #21
 fn main() {
 
 }
@@ -367,6 +387,7 @@ mod tests {
 ## 22
 
 ```rust
+// Lesson #22
 fn main() {
 
   println!("{}", output(10, "+", 10, 0));
@@ -406,6 +427,7 @@ mod tests {
 ## 23
 
 ```rust
+// Lesson #23
 fn main() {
   let first_number = 1;
   let operator = "-";
@@ -453,6 +475,7 @@ mod tests {
 ## 24
 
 ```rust
+// Lesson #24
 fn main() {
   let first_number = 1;
   let operator = "-";
@@ -522,6 +545,7 @@ mod tests {
 ## 25
 
 ```rust
+// Lesson #25
 fn main() {
   let first_number = 1;
   let operator = "-";
@@ -601,6 +625,7 @@ mod tests {
 ## 26
 
 ```rust
+// Lesson #26
 fn main() {
   let first_number = 1;
   let operator = "-";
@@ -680,6 +705,7 @@ mod tests {
 ## 27
 
 ```rust
+// Lesson #27
 fn main() {
   let first_number = 1;
   let operator = "-";
@@ -765,6 +791,7 @@ mod tests {
 ## 28
 
 ```rust
+// Lesson #28
 fn main() {
   let first_number = 1;
   let operator = "-";
@@ -852,6 +879,7 @@ mod tests {
 ## 29
 
 ```rust
+// Lesson #29
 
 
 fn main() {
@@ -941,6 +969,7 @@ mod tests {
 ## 30
 
 ```rust
+// Lesson #30
 use std::env;
 
 fn main() {
@@ -1034,6 +1063,7 @@ mod tests {
 ## 31
 
 ```rust
+// Lesson #31
 use std::env;
 
 fn main() {
@@ -1125,6 +1155,7 @@ mod tests {
 ## 32
 
 ```rust
+// Lesson #32
 use std::env;
 
 fn main() {
@@ -1217,6 +1248,7 @@ mod tests {
 ## 33
 
 ```rust
+// Lesson #33
 use std::env;
 
 fn main() {
@@ -1311,6 +1343,7 @@ mod tests {
 ## 34
 
 ```rust
+// Lesson #34
 use std::env;
 
 fn main() {
@@ -1407,6 +1440,7 @@ mod tests {
 ## 35
 
 ```rust
+// Lesson #35
 use std::env;
 
 fn main() {
@@ -1503,6 +1537,7 @@ mod tests {
 ## 36
 
 ```rust
+// Lesson #36
 use std::env;
 
 fn main() {
@@ -1595,6 +1630,7 @@ mod tests {
 ## 37
 
 ```rust
+// Lesson #37
 use std::env;
 
 fn main() {
@@ -1687,6 +1723,7 @@ mod tests {
 ## 38
 
 ```rust
+// Lesson #38
 use std::env;
 
 fn main() {
@@ -1787,6 +1824,7 @@ mod tests {
 ## 39
 
 ```rust
+// Lesson #39
 use std::env;
 use std::env::Args;
 
@@ -1880,6 +1918,7 @@ mod tests {
 ## 40
 
 ```rust
+// Lesson #40
 use std::env::{args, Args};
 
 fn main() {
@@ -1980,6 +2019,7 @@ mod tests {
 ## 41
 
 ```rust
+// Lesson #41
 use std::env::{args, Args};
 
 fn main() {
@@ -2075,6 +2115,7 @@ mod tests {
 ## 42
 
 ```rust
+// Lesson #42
 use std::env::{args, Args};
 
 fn main() {
