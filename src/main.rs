@@ -1198,7 +1198,7 @@ mod tests {
       kw("args"),
       d(" as mutable. This is because the "),
       kw("nth"),
-      d(" method mutably iterates over the elements"),
+      d(" method mutably iterates over the elements\n"),
     ]);
     term(&[
       task(),
@@ -1208,7 +1208,7 @@ mod tests {
       kw("second_number"),
       d(" to be equal to the first, second, and third "),
       kw("args"),
-      d(" respectfully."),
+      d(" respectfully.\n"),
     ]);
 
     test(34);
@@ -1378,7 +1378,7 @@ mod tests {
       emph("turbofish"),
       d(" syntax:\n\n"),
       code("\tlet my_string_number: String = String::from(\"Kris\");\n"),
-      code("\tlet my_number_option: Option<usize> = my_string_number::<usize>();\n"),
+      code("\tlet my_number_option: Option<usize> = my_string_number.parse::<usize>();\n"),
       code("\tlet my_number: usize = my_number_option.unwrap();\n"),
     ]);
     term(&[

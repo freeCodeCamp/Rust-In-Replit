@@ -90,7 +90,7 @@ fn main() {
 - You should declare a variable `name` and assign it the value of `first_name`.
 - `let\s+name\s*=\s*first_name\s*;`
 - You should replace the second argument of `println!` with `name`.
-- `println!\("Hello,\s*{}!",\*name\)\s*;`
+- `println!\("Hello,\s*{}!",\s*name\)\s*;`
 
 ## 9
 
@@ -125,7 +125,7 @@ fn main() {
 - You should not turn `first_name` into an owned value with `.to_owned()`.
 - `first_name\.to_owned\(\)`
 - You should concatenate your surname to the owned `first_name`.
-- `first_name\.to_owned\(\)\s*+\s*"[\s\w]+"`
+- `first_name\.to_owned\(\)\s*\+\s*"[\s\w]+"`
 
 ## 11
 
