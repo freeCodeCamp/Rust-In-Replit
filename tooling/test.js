@@ -1,6 +1,3 @@
-#!/usr/bin/env node
-// Run the file with `node test <argument>` in the terminal
-
 // IMPORTS
 const fs = require("fs");
 const util = require("util");
