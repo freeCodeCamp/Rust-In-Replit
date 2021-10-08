@@ -1,6 +1,2 @@
 run = "cargo test --bin fcc -q welcome -- --show-output | sed -n '/--fcc--/, /--fcc--/{ /--fcc--/! p }' && echo 'alias fcc=\"./fcc\"' >> ~/.bashrc"
 language = "rust"
-
-# Should source ~/.bashrc , but does not work
-onBoot = "source ~/.bashrc"
-entrypoint = "src/main.rs"
