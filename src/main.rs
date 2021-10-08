@@ -173,7 +173,7 @@ mod tests {
     term(&[
       d("\t- Macros are called using a "),
       emph("bang (!)\n"),
-      d("\t- Macros can take a variable number of arguments; functions in Rust cannot\n\n"),
+      d("\t- Macros can take a variable number of arguments; functions in Rust cannot\n"),
     ]);
     term(&[
       task(),
