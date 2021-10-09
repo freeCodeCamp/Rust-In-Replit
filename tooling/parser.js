@@ -9,6 +9,7 @@ const TEST_MARKER = "### --tests--";
  * Gets all content within a lesson
  * @param {string} file - The relative path to the
  * @param {number} lessonNumber - The author of the book.
+ * @returns {string} The content of the lesson
  */
 export default function getLessonFromFile(file, lessonNumber) {
   const fileContent = fs.readFileSync(file, "utf8");
@@ -21,6 +22,7 @@ export default function getLessonFromFile(file, lessonNumber) {
 /**
  * Gets the description of the lesson
  * @param {string} lesson - The lesson content
+ * @returns {string} The description of the lesson
  */
 export function getLessonDescription(lesson) {
   const description = lesson.match(
@@ -32,6 +34,7 @@ export function getLessonDescription(lesson) {
 /**
  * Gets the seed of the lesson
  * @param {string} lesson - The lesson content
+ * @returns {string} The seed of the lesson
  */
 export function getLessonSeed(lesson) {
   const seed = lesson.match(
@@ -43,6 +46,7 @@ export function getLessonSeed(lesson) {
 /**
  * Gets the tests of the lesson
  * @param {string} lesson - The lesson content
+ * @returns {string} The tests of the lesson
  */
 export function getLessonTests(lesson) {
   const tests = lesson.match(new RegExp(`${TEST_MARKER}\n(.*)`, "s"))?.[1];

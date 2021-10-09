@@ -12,6 +12,8 @@ export default async function switchAlias(project) {
     );
     if (stderr) {
       console.error(stderr);
+    } else {
+      console.log(`Successfully switched to project: ${project}\n`);
     }
   } catch (error) {
     console.log(

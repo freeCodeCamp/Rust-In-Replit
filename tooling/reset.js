@@ -1,8 +1,7 @@
-#!/usr/bin/env node
-// Run the file with `node reset <argument>` in the terminal
+import getLessonFromFile, { getLessonSeed } from "./parser";
 
-const fs = require("fs");
-const util = require("util");
+import fs from "fs";
+import util from "util";
 
 const execute = util.promisify(require("child_process").exec);
 
@@ -28,8 +27,9 @@ export default async function reset(project, lessonNumber) {
       return r(lessonNumber);
     }
 
-    const answer = getAnswerForLesson(answerFile, lessonNumber);
-    fs.writeFile(rustFile, answer, function (err) {
+    const lesson = getLessonFromFile(answerFile, lessonNumber);
+    const seed = getLessonSeed(lesson);
+    fs.writeFile(rustFile, seed, function (err) {
       if (err) {
         console.log(ERROR_MESSAGE);
       } else {
@@ -40,14 +40,6 @@ export default async function reset(project, lessonNumber) {
     console.error(err);
     console.log(ERROR_MESSAGE);
   }
-}
-
-function getAnswerForLesson(answerFile, lessonNumber) {
-  const answers = fs.readFileSync(answerFile, "utf8");
-  const answer = answers.match(
-    new RegExp(`## ${lessonNumber}\n\n\`\`\`rust\n(.*?)\n\`\`\``, "s")
-  )[1];
-  return answer;
 }
 
 function r(lessonNumber) {

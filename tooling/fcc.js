@@ -10,6 +10,7 @@
 // *fcc test <n>        - Runs the regex tests for the nth lesson
 
 import switchAlias from "./switch";
+import runLesson from "./lesson";
 
 const ARGS = process.argv;
 const CURRENT_PROJECT = ARGS[2];
@@ -35,7 +36,7 @@ if (
     case "switch":
       if (CURRENT_PROJECT === ARGS[4]) {
         console.log("Already on project " + CURRENT_PROJECT);
-      } else if (["cli-calculator", "image-combiner"].includes(ARGS[4])) {
+      } else if (!["cli-calculator", "image-combiner"].includes(ARGS[4])) {
         console.log(
           "Project " +
             ARGS[4] +
@@ -57,7 +58,7 @@ if (
       console.log(help());
   }
 } else if (!isNaN(Number(ARGS[3]))) {
-  runLesson(Number(ARGS[3]));
+  runLesson(CURRENT_PROJECT, Number(ARGS[3]));
 } else {
   console.log("Invalid arguments\n");
   console.log(help());
