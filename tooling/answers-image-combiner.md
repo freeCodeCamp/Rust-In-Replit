@@ -50,7 +50,10 @@ Text
 ### --seed--
 
 ```rust
-
+// Lesson #3
+fn main() {
+  println!("{}", "Hello, world!");
+}
 ```
 
 ### --tests--

@@ -12,7 +12,7 @@ async function reset(project, lessonNumber) {
     project === "cli-calculator"
       ? "../calculator/src/main.rs"
       : "../combiner/src/main.rs";
-  const answerFile = `./answers-${project}.md`;
+  const answerFile = `./tooling/answers-${project}.md`;
   try {
     if (lessonNumber === 1) {
       await execute(

@@ -12,6 +12,7 @@
 const switchAlias = require("./switch");
 const runLesson = require("./lesson");
 const runSolution = require("./solution");
+const runTests = require("./test");
 
 const ARGS = process.argv;
 const CURRENT_PROJECT = ARGS[2];
@@ -53,6 +54,9 @@ if (
       break;
     case "solution":
       runSolution(CURRENT_PROJECT, Number(ARGS[4]));
+      break;
+    case "test":
+      runTests(CURRENT_PROJECT, Number(ARGS[4]));
       break;
     default:
       console.log("Invalid argument\n");
