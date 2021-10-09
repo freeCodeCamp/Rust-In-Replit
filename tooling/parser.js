@@ -38,7 +38,7 @@ function getLessonDescription(lesson) {
  */
 function getLessonSeed(lesson) {
   const seed = lesson.match(
-    new RegExp(`${SEED_MARKER}\n(.*)\n${TEST_MARKER}`, "s")
+    new RegExp(`${SEED_MARKER}\n(.*?)\n${TEST_MARKER}`, "s")
   )?.[1];
   return seed;
 }

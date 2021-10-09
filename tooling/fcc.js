@@ -49,10 +49,10 @@ if (
       }
       break;
     case "reset":
-      resetLesson(CURRENT_PROJECT, ARGS[4]);
+      resetLesson(CURRENT_PROJECT, Number(ARGS[4]));
       break;
     case "solution":
-      runSolution(CURRENT_PROJECT, ARGS[4]);
+      runSolution(CURRENT_PROJECT, Number(ARGS[4]));
       break;
     default:
       console.log("Invalid argument\n");
