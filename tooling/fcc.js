@@ -9,8 +9,9 @@
 // fcc switch <project> - Switches between the lessons for <project>
 // *fcc test <n>        - Runs the regex tests for the nth lesson
 
-import switchAlias from "./switch";
-import runLesson from "./lesson";
+const switchAlias = require("./switch");
+const runLesson = require("./lesson");
+const runSolution = require("./solution");
 
 const ARGS = process.argv;
 const CURRENT_PROJECT = ARGS[2];
@@ -51,7 +52,7 @@ if (
       resetLesson(CURRENT_PROJECT, ARGS[4]);
       break;
     case "solution":
-      printSolution(CURRENT_PROJECT, ARGS[4]);
+      runSolution(CURRENT_PROJECT, ARGS[4]);
       break;
     default:
       console.log("Invalid argument\n");

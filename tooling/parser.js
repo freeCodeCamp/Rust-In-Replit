@@ -1,5 +1,5 @@
 // This file contains the parser for the markdown lessons
-import fs from "fs";
+const fs = require("fs");
 
 const DESCRIPTION_MARKER = "### --description--";
 const SEED_MARKER = "### --seed--";
@@ -11,7 +11,7 @@ const TEST_MARKER = "### --tests--";
  * @param {number} lessonNumber - The author of the book.
  * @returns {string} The content of the lesson
  */
-export default function getLessonFromFile(file, lessonNumber) {
+function getLessonFromFile(file, lessonNumber) {
   const fileContent = fs.readFileSync(file, "utf8");
   const lesson = fileContent.match(
     new RegExp(`## ${lessonNumber}\n(.*?)\n## ${lessonNumber + 1}`, "s")
@@ -24,7 +24,7 @@ export default function getLessonFromFile(file, lessonNumber) {
  * @param {string} lesson - The lesson content
  * @returns {string} The description of the lesson
  */
-export function getLessonDescription(lesson) {
+function getLessonDescription(lesson) {
   const description = lesson.match(
     new RegExp(`${DESCRIPTION_MARKER}\n(.*)\n${SEED_MARKER}`, "s")
   )?.[1];
@@ -36,7 +36,7 @@ export function getLessonDescription(lesson) {
  * @param {string} lesson - The lesson content
  * @returns {string} The seed of the lesson
  */
-export function getLessonSeed(lesson) {
+function getLessonSeed(lesson) {
   const seed = lesson.match(
     new RegExp(`${SEED_MARKER}\n(.*)\n${TEST_MARKER}`, "s")
   )?.[1];
@@ -48,7 +48,14 @@ export function getLessonSeed(lesson) {
  * @param {string} lesson - The lesson content
  * @returns {string} The tests of the lesson
  */
-export function getLessonTests(lesson) {
+function getLessonTests(lesson) {
   const tests = lesson.match(new RegExp(`${TEST_MARKER}\n(.*)`, "s"))?.[1];
   return tests;
 }
+
+module.exports = {
+  getLessonFromFile,
+  getLessonDescription,
+  getLessonSeed,
+  getLessonTests,
+};

@@ -1,13 +1,13 @@
-import getLessonFromFile, { getLessonSeed } from "./parser";
+const { getLessonFromFile, getLessonSeed } = require("./parser");
 
-import fs from "fs";
-import util from "util";
+const fs = require("fs");
+const util = require("util");
 
 const execute = util.promisify(require("child_process").exec);
 
 const ERROR_MESSAGE = "An error occurred trying to reset your progress.";
 
-export default async function reset(project, lessonNumber) {
+async function reset(project, lessonNumber) {
   const rustFile =
     project === "cli-calculator"
       ? "../calculator/src/main.rs"
@@ -45,3 +45,5 @@ export default async function reset(project, lessonNumber) {
 function r(lessonNumber) {
   console.log(`Lesson #${lessonNumber} reset`);
 }
+
+module.exports = reset;

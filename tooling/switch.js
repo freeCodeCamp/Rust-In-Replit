@@ -5,14 +5,19 @@ const util = require("util");
 const execute = util.promisify(require("child_process").exec);
 
 // Set alias based on project argv
-export default async function switchAlias(project) {
+async function switchAlias(project) {
   try {
     const { stdout, stderr } = await execute(
-      `echo 'alias fcc="node ./tooling/fcc.js ${project}" >> ~/.bashrc`
+      `echo 'alias fcc="node ./tooling/fcc.js ${project}"' >> ~/.bashrc`
     );
     if (stderr) {
       console.error(stderr);
     } else {
+      const { stderr } = await execute(`source ~/.bashrc`);
+      if (stderr) {
+        console.error(stderr);
+        console.log("\nYou will need to manually source the `bashrc` file\n");
+      }
       console.log(`Successfully switched to project: ${project}\n`);
     }
   } catch (error) {
@@ -22,3 +27,5 @@ export default async function switchAlias(project) {
     console.error(error);
   }
 }
+
+module.exports = switchAlias;
