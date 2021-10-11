@@ -29,10 +29,7 @@ if (ARGS.length < 4) {
   console.log(help());
 }
 
-if (
-  isNaN(Number(ARGS[3])) &&
-  (ARGS[3] === "switch" || !isNaN(Number(ARGS[4])))
-) {
+if (isNaN(Number(ARGS[3]))) {
   switch (ARGS[3]) {
     case "help":
     case "--help":
@@ -44,9 +41,7 @@ if (
         console.log("Already on project " + CURRENT_PROJECT);
       } else if (!["cli-calculator", "image-combiner"].includes(ARGS[4])) {
         console.log(
-          "Project " +
-            ARGS[4] +
-            " does not exist. Here are the available projects:\n"
+          `Project '${ARGS[4]}' does not exist. Here are the available projects:\n`
         );
         console.log("\tcli-calculator\n\timage-combiner\n");
       } else {
