@@ -26,12 +26,15 @@ mod tests {
       d("to read majority of the instructions, throughout this course."),
     ]);
     term(&[d("So, be sure to keep an eye on this area.\n\n")]);
-    term(&[Term::new("NOTE: ", Red, Normal), Term::new("If your session with Replit disconnects (timeout or refresh), you will need to run the following in the prompt:\n", Yellow, Underline)]);
-    term(&[cmd("\t$ source ~/.bashrc\n"), cmd("\t$ chmod +x fcc\n")]);
+    term(&[Term::new("NOTE: ", Red, Normal), Term::new("If your session with Replit disconnects (timeout or refresh), you will need to click the RUN button, and run the following in the prompt:\n", Yellow, Underline)]);
+    term(&[cmd("\t$ source ~/.bashrc\n")]);
     term(&[d(
       "To get your first lesson, type the following in the prompt:\n",
     )]);
-    term(&[cmd("\t$ source ~/.bashrc\n"), cmd("\t$ chmod +x fcc\n")]);
+    term(&[
+      cmd("\t$ source ~/.bashrc\n"),
+      cmd("\t$ chmod +x ./tooling/fcc\n"),
+    ]);
     term(&[cmd("\t$ fcc 1\n")]);
     term(&[
       d("If at any point you need a reminder, click the "),
@@ -59,8 +62,12 @@ mod tests {
       d("\t- refreshes the Nix prompt to use custom freeCodeCamp settings\n"),
     ]);
     term(&[
-      cmd("\t$ chmod +x fcc"),
-      d("\t- gives the shell permission to run the fcc binary\n"),
+      cmd("\t$ chmod +x ./tooling/fcc.js"),
+      d("\t- gives the shell permission to run the fcc Node module\n"),
+    ]);
+    term(&[
+      cmd("\t$ chmod +x ./tooling/fcc"),
+      d("\t- gives the shell permission to run the fcc binary used for the 'cli-calculator' project\n"),
     ]);
     term(&[
       cmd("\t$ fcc <n>"),
@@ -79,9 +86,13 @@ mod tests {
       d("\t- shows the solution for the nth lesson\n"),
     ]);
     term(&[
-      cmd("\t$ cargo run --bin calculator"),
+      cmd("\t$ fcc switch <project>"),
+      d("\t- switch between the available project lessons\n"),
+    ]);
+    term(&[
+      cmd("\t$ cargo run --bin <project>"),
       d("\t- runs the "),
-      file("calculator/src/main.rs "),
+      file("project/src/main.rs "),
       d("binary\n"),
     ]);
     term(&[
@@ -173,7 +184,7 @@ mod tests {
     term(&[
       d("\t- Macros are called using a "),
       emph("bang (!)\n"),
-      d("\t- Macros can take a variable number of arguments; functions in Rust cannot\n\n"),
+      d("\t- Macros can take a variable number of arguments; functions in Rust cannot\n"),
     ]);
     term(&[
       task(),
