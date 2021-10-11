@@ -2,6 +2,8 @@
 const fs = require("fs");
 const util = require("util");
 
+const { getLessonFromFile, getLessonTests } = require("./parser.js");
+
 const execute = util.promisify(require("child_process").exec);
 const readFile = util.promisify(fs.readFile);
 

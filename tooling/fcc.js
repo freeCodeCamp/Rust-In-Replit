@@ -9,10 +9,14 @@
 // fcc switch <project> - Switches between the lessons for <project>
 // *fcc test <n>        - Runs the regex tests for the nth lesson
 
+const util = require("util");
+const execute = util.promisify(require("child_process").exec);
+
 const switchAlias = require("./switch");
 const runLesson = require("./lesson");
 const runSolution = require("./solution");
 const runTests = require("./test");
+const resetLesson = require("./reset");
 
 const ARGS = process.argv;
 const CURRENT_PROJECT = ARGS[2];
@@ -63,6 +67,16 @@ if (
       console.log(help());
   }
 } else if (!isNaN(Number(ARGS[3]))) {
+  if (CURRENT_PROJECT === "cli-calculator") {
+    (async () => {
+      const { stdout, stderr } = await execute(`./tooling/fcc ${ARGS[3]}`);
+      if (stderr) {
+        console.log(stderr);
+      } else {
+        console.log(stdout);
+      }
+    })();
+  }
   runLesson(CURRENT_PROJECT, Number(ARGS[3]));
 } else {
   console.log("Invalid arguments\n");

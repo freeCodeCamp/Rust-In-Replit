@@ -1,6 +1,5 @@
 // This file switches the alias of `fcc='node ./tooling/fcc.js <project>'`
 
-const fs = require("fs");
 const util = require("util");
 const execute = util.promisify(require("child_process").exec);
 

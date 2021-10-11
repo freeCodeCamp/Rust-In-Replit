@@ -44,6 +44,16 @@ function getLessonSeed(lesson) {
 }
 
 /**
+ * Removes the Markdown from the seed
+ * @param {string} seed - The seed content
+ * @returns {string} The seed without the markdown
+ */
+function removeMarkdownFromSeed(seed) {
+  const seedWithoutMarkdown = seed.replace(/\n```rust\n/g, "");
+  return seedWithoutMarkdown.replace(/```/g, "");
+}
+
+/**
  * Gets the tests of the lesson
  * @param {string} lesson - The lesson content
  * @returns {string} The tests of the lesson
@@ -57,5 +67,6 @@ module.exports = {
   getLessonFromFile,
   getLessonDescription,
   getLessonSeed,
+  removeMarkdownFromSeed,
   getLessonTests,
 };
