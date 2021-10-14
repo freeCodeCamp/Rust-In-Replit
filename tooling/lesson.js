@@ -4,20 +4,23 @@ const { getLessonFromFile, getLessonDescription } = require("./parser");
 function runLesson(project, lessonNumber) {
   const answerFile = `./tooling/answers-${project}.md`;
   const lesson = getLessonFromFile(answerFile, lessonNumber);
-  const description = getLessonDescription(lesson)
-    .replace("Task:", `${Colour.FgMagenta}Task:${Colour.Reset}`)
-    .replace(
-      /```(rust|bash)\n(.+?)```\n/s,
-      `${Colour.FgCyan}$2${Colour.Reset}`
-    );
   if (project === "image-combiner") {
+    const description = getLessonDescription(lesson)
+      .replace("Task:", `${Colour.FgMagenta}Task:${Colour.Reset}`)
+      .replace(
+        /```(rust|bash)\n(.+?)```\n/s,
+        `${Colour.FgCyan}$2${Colour.Reset}`
+      )
+      .replace(/`([^`]+)`/g, `${Colour.FgBlue}$1${Colour.Reset}`);
     console.log(
       `\n${Colour.Underscore + Colour.FgGreen}LESSON #${lessonNumber}${
         Colour.Reset
       }\n`
     );
+    console.log(description);
+  } else {
+    console.log(getLessonDescription(lesson));
   }
-  console.log(description);
 }
 
 module.exports = runLesson;

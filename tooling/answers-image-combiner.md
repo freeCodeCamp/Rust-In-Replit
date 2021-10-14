@@ -6,7 +6,7 @@
 
 Start by creating a new crate called `combiner`.
 
-Run `fcc test 1` to see if you completed the task correctly.
+Run `fcc test 1` to see if you correctly completed the task.
 
 ### --seed--
 
@@ -34,7 +34,7 @@ In this project, you will be creating a CLI (combiner) which expects three argum
 
 The first two arguments are the paths to the images you want to combine. The third argument is the path to the output image.
 
-Task: Run `cargo run --bin combiner` to see if your application is set up correctly.
+Task: Run `cargo run --bin combiner` to see if your application is correctly set up.
 
 You should see `Hello, world!` printed to the console.
 
@@ -56,7 +56,11 @@ fn main() {
 
 ### --description--
 
-Text
+To make use of command line arguments, you will need to use the `std::env` module.
+
+Task: Define a function called `get_nth_arg` which takes a `usize` and returns a `String`.
+
+Run `cargo test --bin combiner` to see if you correctly completed the task.
 
 ### --seed--
 
@@ -65,12 +69,39 @@ Text
 fn main() {
   println!("Hello, world!");
 }
+
+#[cfg(test)]
+mod tests {
+
+  #[test]
+  fn get_nth_arg_is_defined() {
+    let _ = get_nth_arg;
+    assert!(true, "If this test panics, get_nth_arg is not defined.");
+  }
+  #[test]
+  #[should_panic]
+  fn get_nth_arg_panics_on_call() {
+    assert_eq!(get_nth_arg(0), String::from("Some String"));
+  }
+}
 ```
 
 ### --tests--
 
 - Run `cargo test --bin combiner` to see if you completed the task correctly.
 - `null`
+
+## 4
+
+### --description--
+
+### --seed--
+
+```rust
+
+```
+
+### --tests--
 
 ## Final
 
