@@ -34,7 +34,7 @@ In this project, you will be creating a CLI (combiner) which expects three argum
 
 The first two arguments are the paths to the images you want to combine. The third argument is the path to the output image.
 
-Task: Run `cargo run --bin combiner` to see if your application is correctly set up.
+Task: Open `combiner/src/main.rs` and run `cargo run --bin combiner` to see if your application is correctly set up.
 
 You should see `Hello, world!` printed to the console.
 
@@ -55,8 +55,6 @@ fn main() {
 ## 3
 
 ### --description--
-
-To make use of command line arguments, you will need to use the `std::env` module.
 
 Task: Define a function called `get_nth_arg` which takes one `usize` argument.
 
@@ -96,10 +94,45 @@ mod tests {
 
 ### --description--
 
+To make use of command line arguments, you will need to use the `std::env` module.
+
+Task: Within `get_nth_arg`, return the value of calling the `nth` method on the `args` function with the argument `n`.
+
+Run `cargo test --bin combiner` to see if you correctly completed the task.
+
 ### --seed--
 
 ```rust
+// Lesson #4
+fn main() {
+  println!("Hello, world!");
+}
 
+fn get_nth_arg(n: usize) {
+}
+
+#[cfg(test)]
+mod tests {
+  use crate::get_nth_arg;
+
+  #[test]
+  fn get_nth_arg_takes_usize() {
+    let _ = get_nth_arg(0usize);
+    assert!(true, "Your get_nth_arg function should take a usize argument.");
+  }
+  #[test]
+  fn get_nth_arg_returns_string() {
+    let val = get_nth_arg(0);
+    println!("{}", val);
+    assert!(reg_with_con(r"target/debug/deps", val));
+  }
+
+  fn reg_with_con(regex: &str, file_contents: String) -> bool {
+    use regex::Regex;
+
+    Regex::new(regex).unwrap().is_match(&file_contents)
+  }
+}
 ```
 
 ### --tests--
