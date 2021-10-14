@@ -23,9 +23,8 @@ mod tests {
     term(&[
       d("You will be using this console "),
       Term::new("(or the Shell) ", White, Italic),
-      d("to read majority of the instructions, throughout this course."),
+      d("to read majority of the instructions, throughout this course.\n"),
     ]);
-    term(&[d("So, be sure to keep an eye on this area.\n\n")]);
     term(&[Term::new("NOTE: ", Red, Normal), Term::new("If your session with Replit disconnects (timeout or refresh), you will need to click the RUN button, and run the following in the prompt:\n", Yellow, Underline)]);
     term(&[cmd("\t$ source ~/.bashrc\n")]);
     term(&[d(
@@ -37,9 +36,9 @@ mod tests {
     ]);
     term(&[cmd("\t$ fcc 1\n")]);
     term(&[
-      d("If at any point you need a reminder, click the "),
+      d("You can click the "),
       Term::new("Run", Green, Normal),
-      d(" button. Or, type the following in the prompt:\n"),
+      d(" button at any time to get back to this screen.\n\nOnce the course is set up, you can get help and see options by running:\n"),
     ]);
     term(&[cmd("\t$ fcc help\n\n")]);
     term(&[
@@ -111,22 +110,17 @@ mod tests {
     hr();
     n(1);
     term(&[
-      d("\n\nFollow the instructions given in "),
-      Term::new("this console", Green, Bold),
-      d(" to complete the lessons.\n"),
-    ]);
-    term(&[
-      d("The main tools within the Rust ecosystem are:\n"), 
+      d("\n\nThe main tools within the Rust ecosystem are:\n"), 
       file("\t- rustc"),
       d("\tThe compiler which takes your Rust code and compiles it into binary (machine readable code)\n"),
       file("\t- rustup"),
       d("\tThe command line utility to install and update Rust\n"),
       file("\t- cargo"),
-      d("\tThe Rust build system and package manager (we will work with this)\n\n")
+      d("\tThe Rust build system and package manager (you will work with this)\n\n")
     ]);
     term(&[
       task(),
-      d("Create a new Rust crate, by running the following command in the prompt:\n"),
+      d("Create a new Rust crate by running the following command in the prompt:\n"),
       cmd("\t$ cargo new calculator\n\n"),
     ]);
 
@@ -170,17 +164,15 @@ mod tests {
       d("function first whenever the executable is run.\n"),
     ]);
     term(&[
-      d("Something important to notice about the contents of the function is the "),
-      file("println!() "),
-      d("call.\n"),
-    ]);
-    term(&[
       file("println "),
       d("is a built-in "),
       emph("macro"),
       d(".\n"),
     ]);
-    term(&[d("A macro is similar to a function, but can be thought of as a piece of code which writes other code.\n"), d("For now, the main differences between a function and a macro to keep in mind are:\n")]);
+    term(&[
+      d("A macro is similar to a function, but can be thought of as a piece of code which writes other code.\n"),
+      d("For now, the main differences between a function and a macro to keep in mind are:\n")
+    ]);
     term(&[
       d("\t- Macros are called using a "),
       emph("bang (!)\n"),
@@ -228,10 +220,10 @@ mod tests {
     term(&[
       emph("NOTE: "),
       d("Variables can also be declared using the "),
-      kw("const "),
-      d("or "),
-      kw("static "),
-      d("keywords, but we will cover these later.\n\n"),
+      kw("const"),
+      d(" or "),
+      kw("static"),
+      d(" keywords.\n"),
     ]);
     term(&[
       task(),
@@ -242,12 +234,8 @@ mod tests {
       emph("HINT: "),
       d("If you get stuck, try to follow the compiler's helpful advice.\n"),
     ]);
-    term(&[
-      task(),
-      d("You can see if you are on the right track, by running:\n"),
-      cmd("\t$ fcc test 4\n"),
-    ]);
 
+    test(4);
     next(5);
     assert!(true);
   }
@@ -276,7 +264,7 @@ mod tests {
     term(&[
       task(),
       d("Re-run your code. You should only have one warning, now.\n"),
-    ]);
+    ]); // Split task into new lesson just to get Camper to review compiler message
 
     test(5);
     next(6);
@@ -287,7 +275,7 @@ mod tests {
     hr();
     n(6);
     term(&[
-      d("\n\nThe compiler is still giving us a warning about "),
+      d("\n\nThe compiler is still giving you a warning about "),
       kw("first_name "),
       d("being an unused variable.\n"),
     ]);
@@ -299,13 +287,14 @@ mod tests {
       code("\tprintln!(\"Hello, {}!\", first_name);\n"),
     ]);
     term(&[
-      d("The '{}' are replaced with the value of the arguments. There are many things you can do with "),
+      d("The '{}' are replaced with the value of the arguments."),
+      d("\nThere are many things you can do with "), // From here, split into new lesson
       kw("println"),
       d(". Look at the Rust by Example docs, and play around with your code:\n"),
       d("\t- https://doc.rust-lang.org/rust-by-example/hello/print.html\n\n"),
       d("This is what makes the "),
       kw("println "),
-      d("macro an excellent tool to debug your code.\n")
+      d("macro an excellent tool to debug your code.\n"),
     ]);
     term(&[
       d("Run your code to see the output with:\n"),
@@ -357,9 +346,6 @@ mod tests {
       emph(" struct:\n"),
       code("\tlet example = String::from(\"Hello, Camper!\")\n"),
     ]);
-    term(&[d(
-      "Do not worry about understanding all these new terms just yet\n",
-    )]);
 
     test(7);
     next(8);
@@ -398,7 +384,9 @@ mod tests {
       kw("println"),
       d(" call, and place it immediately after the first. Then, replace the second argument with "),
       kw("first_name\n"),
-    ]);
+    ]); // Split from here into 9.1
+        // 9.1 Task: Run your code. Your will see an error.
+        // 9.2
     term(&[
       d("If you try to run your code now, your app will panic."),
       emph(" Panicking"),
@@ -424,7 +412,7 @@ mod tests {
     ]);
     term(&[
       task(),
-      d("Do this, by adding the reference symbol mentioned in lesson 7 to the beginning of the "),
+      d("Do this, by adding the reference symbol to the beginning of the "),
       kw("name"),
       d(" value. Here is an example:\n"),
     ]);
@@ -440,8 +428,10 @@ mod tests {
       d(", and, instead, uses a reference to the value of "),
       kw("value"),
       d(" in "),
-      kw("referenced_value\n\n"),
+      kw("referenced_value.\n\n"),
     ]);
+
+    // 9.3 task: run your code. you should not see the error anymore.
 
     test(9);
     next(10);
@@ -453,7 +443,8 @@ mod tests {
     n(10);
     term(&[
       d("\n\nYou want to add your surname (second name) to "),
-      kw("name\n"),
+      kw("name"),
+      d(".\n"),
     ]);
     term(&[
       d("There are many ways to do this in Rust. If you try to just concatenate "),
@@ -468,7 +459,7 @@ mod tests {
       d(" will cause the program to panic.\n"),
     ]);
     term(&[
-      d("So, in order to concatenate a reference to a "),
+      d("In order to concatenate a reference to a "),
       kw("str (&str)"),
       d(", the first argument needs to be "),
       emph("owned"),
@@ -484,11 +475,10 @@ mod tests {
       d("Instead of moving "),
       kw("first_name"),
       d(", turn it into an owned value, and concatenate your surname to it - assigning the result to "),
-      kw("name\n")
+      kw("name"), d(".\n")
     ]);
-    term(&[d("Run your code to see the output\n\n")]);
+    term(&[d("Run your code. If it compiles and prints the two lines, you have completed the lesson correctly. If not, use the output to debug and fix your code.\n")]);
 
-    test(10);
     next(11);
     assert!(true);
   }
@@ -517,6 +507,13 @@ mod tests {
       kw("first_name"),
       d(" to append your surname.\n"),
     ]);
+    // test(11)
+    // 11.1 Task: Run your code. You should see an error
+    // test(11.1)
+    // 11.2 Your code did not work, because first_name is not mutable
+    // Task: Use the hints from the compiler to make first_name mutable
+    // test(11.2)
+    // 11.3 Task: Run your code again to make sure the errors are gone.
     term(&[
       d("If you run your code now, Rust will error, because "),
       kw("first_name"),
@@ -1455,7 +1452,7 @@ mod tests {
   }
   fn next(num: usize) {
     term(&[
-      d("When you are done, type the following for the next lesson\n"),
+      d("When you are done, type the following for the next lesson:\n"),
       Term::new(format!("\t$ fcc {}\n", num).as_str(), Turquoise, Normal),
     ]);
     hr();
@@ -1482,7 +1479,9 @@ mod tests {
     term(&[Term::new(&format!("\nLESSON #{}", num), Green, Underline)]);
   }
   fn test(num: usize) {
-    term(&[d("You can check if you are on the right track by running:")]);
+    term(&[d(
+      "You can see if you completed the lesson correctly by running:",
+    )]);
     match num {
       1..=15 | 21 | 22 | 28 | 29 | 31 | 34 | 35 | 38 | 39 | 40 => {
         term(&[cmd(&format!("\t$ fcc test {}\n", num))]);
