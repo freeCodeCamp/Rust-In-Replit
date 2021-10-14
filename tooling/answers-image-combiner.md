@@ -58,7 +58,7 @@ fn main() {
 
 To make use of command line arguments, you will need to use the `std::env` module.
 
-Task: Define a function called `get_nth_arg` which takes a `usize` and returns a `String`.
+Task: Define a function called `get_nth_arg` which takes one `usize` argument.
 
 Run `cargo test --bin combiner` to see if you correctly completed the task.
 
@@ -79,16 +79,17 @@ mod tests {
     assert!(true, "If this test panics, get_nth_arg is not defined.");
   }
   #[test]
-  #[should_panic]
-  fn get_nth_arg_panics_on_call() {
-    assert_eq!(get_nth_arg(0), String::from("Some String"));
+  fn get_nth_arg_takes_usize() {
+    assert_eq!(get_nth_arg(0usize), (), "Your get_nth_arg function should take a usize argument.");
   }
 }
 ```
 
 ### --tests--
 
-- Run `cargo test --bin combiner` to see if you completed the task correctly.
+- Run `cargo test --bin combiner` to see if you correctly completed the task.
+- `null`
+- Remember to import the function into the `tests` module.
 - `null`
 
 ## 4
