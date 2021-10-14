@@ -21,9 +21,11 @@ async function switchAlias(project) {
     }
   } catch (error) {
     console.log(
-      "\nAn error has occured trying to switch the chosen project:\n\n"
+      "\nAn error has occured trying to switch to the chosen project:\n"
     );
-    console.error(error);
+    console.log(
+      "Please run the following command:\n\t$ source ~/.bashrc\n\nThen, you should be able to access the lessons with:\n\t$ fcc 1\n"
+    );
   }
 }
 

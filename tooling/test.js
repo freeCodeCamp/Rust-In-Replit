@@ -24,7 +24,14 @@ async function runTests(project, lessonNumber) {
       project === "cli-calculator"
         ? "./calculator/src/main.rs"
         : "./combiner/src/main.rs";
-    const camperCode = await getFileContents(camperCodeFile);
+    let camperCode = "";
+    try {
+      camperCode = await getFileContents(camperCodeFile);
+    } catch (err) {
+      return console.log(
+        "\nIt looks like you have not created a new crate with:\n\t$ cargo new <crate_name>\n"
+      );
+    }
     const answerFile = `./tooling/answers-${project}.md`;
     const lesson = getLessonFromFile(answerFile, lessonNumber);
     let testTexts = getLessonTests(lesson);
