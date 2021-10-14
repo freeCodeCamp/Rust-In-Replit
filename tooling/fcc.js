@@ -71,9 +71,10 @@ if (isNaN(Number(ARGS[3]))) {
         console.log(stdout);
       }
     })();
+  } else {
+    resetLesson(CURRENT_PROJECT, Number(ARGS[3]));
   }
   runLesson(CURRENT_PROJECT, Number(ARGS[3]));
-  resetLesson(CURRENT_PROJECT, Number(ARGS[3]));
 } else {
   console.log("Invalid arguments\n");
   console.log(help());

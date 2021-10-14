@@ -6,12 +6,17 @@ function runLesson(project, lessonNumber) {
   const lesson = getLessonFromFile(answerFile, lessonNumber);
   const description = getLessonDescription(lesson)
     .replace("Task:", `${Colour.FgMagenta}Task:${Colour.Reset}`)
-    .replace(/```(rust|bash)\n(.+?)```/s, `${Colour.FgCyan}$2${Colour.Reset}`);
-  console.log(
-    `\n${Colour.Underscore + Colour.FgGreen}LESSON #${lessonNumber}${
-      Colour.Reset
-    }\n`
-  );
+    .replace(
+      /```(rust|bash)\n(.+?)```\n/s,
+      `${Colour.FgCyan}$2${Colour.Reset}`
+    );
+  if (project === "image-combiner") {
+    console.log(
+      `\n${Colour.Underscore + Colour.FgGreen}LESSON #${lessonNumber}${
+        Colour.Reset
+      }\n`
+    );
+  }
   console.log(description);
 }
 
