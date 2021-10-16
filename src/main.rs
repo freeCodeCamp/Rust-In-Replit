@@ -142,7 +142,7 @@ mod tests {
       d("Open the "),
       file("calculator/src/main.rs "),
       d("file.\n\n"),
-      d("This is the default file Cargo used for your application binary.\n\n"),
+      d("This is the default file Cargo uses for your application binary.\n\n"),
     ]);
 
     next(3);
@@ -261,10 +261,6 @@ mod tests {
       emph("PascalCase "),
       d("is used for types, traits, and enums (we will cover these later).\n"),
     ]);
-    term(&[
-      task(),
-      d("Re-run your code. You should only have one warning, now.\n"),
-    ]); // Split task into new lesson just to get Camper to review compiler message
 
     test(5);
     next(6);
@@ -274,6 +270,18 @@ mod tests {
   fn six() {
     hr();
     n(6);
+    term(&[
+      task(),
+      d("Re-run your code. You should only have one warning, now.\n"),
+    ]);
+
+    next(7);
+    assert!(true);
+  }
+  #[test]
+  fn seven() {
+    hr();
+    n(7);
     term(&[
       d("\n\nThe compiler is still giving you a warning about "),
       kw("first_name "),
@@ -286,9 +294,17 @@ mod tests {
       d("call to be\n"),
       code("\tprintln!(\"Hello, {}!\", first_name);\n"),
     ]);
+    term(&[d("The '{}' are replaced with the value of the arguments.")]);
+    test(7);
+    next(8);
+    assert!(true);
+  }
+  #[test]
+  fn eight() {
+    hr();
+    n(8);
     term(&[
-      d("The '{}' are replaced with the value of the arguments."),
-      d("\nThere are many things you can do with "), // From here, split into new lesson
+      d("\nThere are many things you can do with "),
       kw("println"),
       d(". Look at the Rust by Example docs, and play around with your code:\n"),
       d("\t- https://doc.rust-lang.org/rust-by-example/hello/print.html\n\n"),
@@ -297,18 +313,18 @@ mod tests {
       d("macro an excellent tool to debug your code.\n"),
     ]);
     term(&[
+      task(),
       d("Run your code to see the output with:\n"),
       cmd("\t$ cargo run --bin calculator\n"),
     ]);
 
-    test(6);
-    next(7);
+    next(9);
     assert!(true);
   }
   #[test]
-  fn seven() {
+  fn nine() {
     hr();
-    n(7);
+    n(9);
     term(&[
       d("\n\nThe type of "),
       kw("first_name"),
@@ -347,14 +363,14 @@ mod tests {
       code("\tlet example = String::from(\"Hello, Camper!\")\n"),
     ]);
 
-    test(7);
-    next(8);
+    test(9);
+    next(10);
     assert!(true);
   }
   #[test]
-  fn eight() {
+  fn ten() {
     hr();
-    n(8);
+    n(10);
     term(&[
       d("\n\n"),
       task(),
@@ -369,14 +385,14 @@ mod tests {
       d(" call with your newly created variable.\n"),
     ]);
 
-    test(8);
-    next(9);
+    test(10);
+    next(11);
     assert!(true);
   }
   #[test]
-  fn nine() {
+  fn eleven() {
     hr();
-    n(9);
+    n(11);
     term(&[
       d("\n\n"),
       task(),
@@ -384,11 +400,29 @@ mod tests {
       kw("println"),
       d(" call, and place it immediately after the first. Then, replace the second argument with "),
       kw("first_name\n"),
-    ]); // Split from here into 9.1
-        // 9.1 Task: Run your code. Your will see an error.
-        // 9.2
+    ]);
+    test(11);
+    next(12);
+    assert!(true);
+  }
+  #[test]
+  fn twelve() {
+    hr();
+    n(12);
     term(&[
-      d("If you try to run your code now, your app will panic."),
+      d("\n\n"),
+      task(),
+      d("Run your code. You will see an error.\n"),
+    ]);
+    next(13);
+    assert!(true);
+  }
+  #[test]
+  fn thirteen() {
+    hr();
+    n(13);
+    term(&[
+      d("Your app panicked."),
       emph(" Panicking"),
       d(" is Rust's way of throwing an error a.k.a. 'erroring out'."),
     ]);
@@ -431,16 +465,27 @@ mod tests {
       kw("referenced_value.\n\n"),
     ]);
 
-    // 9.3 task: run your code. you should not see the error anymore.
-
-    test(9);
-    next(10);
+    test(13);
+    next(14);
     assert!(true);
   }
   #[test]
-  fn ten() {
+  fn fourteen() {
     hr();
-    n(10);
+    n(14);
+    term(&[
+      d("\n\n"),
+      task(),
+      d("Run your code. You should not see the error anymore.\n"),
+    ]);
+
+    next(15);
+    assert!(true);
+  }
+  #[test]
+  fn fifteen() {
+    hr();
+    n(15);
     term(&[
       d("\n\nYou want to add your surname (second name) to "),
       kw("name"),
@@ -479,13 +524,13 @@ mod tests {
     ]);
     term(&[d("Run your code. If it compiles and prints the two lines, you have completed the lesson correctly. If not, use the output to debug and fix your code.\n")]);
 
-    next(11);
+    next(16);
     assert!(true);
   }
   #[test]
-  fn eleven() {
+  fn sixteen() {
     hr();
-    n(11);
+    n(16);
     term(&[
       d("\n\nA more idiomatic way to make use of the "),
       kw("String"),
@@ -507,36 +552,60 @@ mod tests {
       kw("first_name"),
       d(" to append your surname.\n"),
     ]);
-    // test(11)
-    // 11.1 Task: Run your code. You should see an error
-    // test(11.1)
-    // 11.2 Your code did not work, because first_name is not mutable
-    // Task: Use the hints from the compiler to make first_name mutable
-    // test(11.2)
-    // 11.3 Task: Run your code again to make sure the errors are gone.
-    term(&[
-      d("If you run your code now, Rust will error, because "),
-      kw("first_name"),
-      d(" is not "),
-      emph("mutable"),
-      d(".\n\n"),
-      task(),
-      d("Make "),
-      kw("first_name"),
-      d(" mutable, by using the "),
-      kw("mut"),
-      d(" keyword:\n\n"),
-      code("\tlet mut my_var = String::from(\"I am mutable!\");\n"),
-    ]);
 
-    test(11);
-    next(12);
+    test(16);
+    next(17);
     assert!(true);
   }
   #[test]
-  fn twelve() {
+  fn seventeen() {
     hr();
-    n(12);
+    n(17);
+    term(&[d("\n\n"), task(), d("Run your code. It should panic.\n")]);
+
+    next(18);
+    assert!(true);
+  }
+  #[test]
+  fn eighteen() {
+    hr();
+    n(18);
+    term(&[
+      d("\n\nYour code panicked, because "),
+      kw("first_name"),
+      d(" is not "),
+      emph("mutable"),
+      d(".\n"),
+    ]);
+    term(&[
+      task(),
+      d("Use the hints from the compiler to make "),
+      kw("first_name"),
+      d(" mutable.\n"),
+    ]);
+
+    test(18);
+    next(19);
+    assert!(true);
+  }
+  #[test]
+  fn nineteen() {
+    hr();
+    n(19);
+    term(&[
+      d("\n\n"),
+      task(),
+      d("Run your code again to make sure it compiles without error.\n"),
+    ]);
+
+    next(20);
+    assert!(true);
+  }
+
+  #[test]
+  fn twenty() {
+    hr();
+    n(20);
     term(&[
       d("\n\nSo far, you have learnt about the "),
       kw("str"),
@@ -570,6 +639,15 @@ mod tests {
       d(" should be type "),
       kw("&str\n"),
     ]);
+
+    test(20);
+    next(21);
+    assert!(true);
+  }
+  #[test]
+  fn twentyone() {
+    hr();
+    n(21);
     term(&[
       task(),
       d("Print to the console the value of the "),
@@ -578,17 +656,18 @@ mod tests {
       kw("first"),
       d(" and the value of "),
       kw("first.chars().count()\n\n"),
-      d("Run your code to see the output.\n"),
+      d("Run your code to see the output. If it runs and prints "),
+      cmd("'1 1'"),
+      d(", you have correctly completed the lesson.\n"),
     ]);
 
-    test(12);
-    next(13);
+    next(22);
     assert!(true);
   }
   #[test]
-  fn thirteen() {
+  fn twentytwo() {
     hr();
-    n(13);
+    n(22);
     term(&[
       d("\n\nYou should see "),
       Term::new("1 1", Red, Normal),
@@ -611,17 +690,18 @@ mod tests {
       d(" to be a string slice of the infinity character: ∞\n\n"),
       emph("HINT: "),
       d("You can copy-paste the character from the above line\n\n"),
-      d("Re-run your code, and see the output.\n"),
+      d("Run your code to see the output. If it runs and prints "),
+      cmd("'3 1'"),
+      d(", you have correctly completed the lesson.\n"),
     ]);
 
-    test(13);
-    next(14);
+    next(23);
     assert!(true);
   }
   #[test]
-  fn fourteen() {
+  fn twentythree() {
     hr();
-    n(14);
+    n(23);
     term(&[
       d("\n\nYou should see "),
       Term::new("3 1", Red, Normal),
@@ -635,13 +715,14 @@ mod tests {
       d("Feel free to play around with these new methods, as well as get an idea of what values different strings produce\n")
     ]);
 
-    next(15);
+    next(24);
     assert!(true);
   }
   #[test]
-  fn fifteen() {
+  fn twentyfour() {
+    // 15
     hr();
-    n(15);
+    n(24);
     term(&[
       d("\n\nFrom this lesson on, you will be writing your code with TDD "),
       emph("Test Driven Development"),
@@ -650,17 +731,18 @@ mod tests {
     term(&[
       task(),
       d("Run the following command to initialise your code with tests for the next lesson:\n"),
-      cmd("\t$ fcc reset 15\n"),
+      cmd("\t$ fcc reset 24\n"),
     ]);
 
-    test(15);
-    next(16);
+    test(24);
+    next(25);
     assert!(true);
   }
   #[test]
-  fn sixteen() {
+  fn twentyfive() {
+    // 16
     hr();
-    n(16);
+    n(25);
     term(&[
       d("\n\nAlready included is the basic setup for tests. The "),
       kw("#[]"),
@@ -686,17 +768,19 @@ mod tests {
       code("\tuse crate::main;\n"),
     ]);
     term(&[
-      d("The "), kw("use"), d(" keyword, in Rust, is similar to 'import', 'require', or 'include' as in other languages.\n\n")
+      d("The "),
+      kw("use"),
+      d(" keyword, in Rust, is similar to 'import', 'require', or 'include' as in other languages.\n")
     ]);
 
-    test(16);
-    next(17);
+    test(25);
+    next(26);
     assert!(true);
   }
   #[test]
-  fn seventeen() {
+  fn twentysix() {
     hr();
-    n(17);
+    n(26);
     term(&[
       d("\n\nAs you might notice from the tests, functions without explicit returns return an empty "),
       kw("tuple"),
@@ -731,17 +815,17 @@ mod tests {
       emph("unsigned"),
       d(", and "),
       kw("size"),
-      d(" describes the bit-size of the system. This is commonly either 64- or 32- bit systems.\n\n"),
+      d(" describes the bit-size of the system. This is commonly either 64- or 32- bit systems.\n"),
     ]);
 
-    test(17);
-    next(18);
+    test(26);
+    next(27);
     assert!(true);
   }
   #[test]
-  fn eighteen() {
+  fn twentyseven() {
     hr();
-    n(18);
+    n(27);
     term(&[
       d("\n\nThere are many types of number, in Rust:\n"),
       d("\t- Unsigned Integers: "),
@@ -767,14 +851,14 @@ mod tests {
       d(" trait. This means, the code should error out.\n"),
     ]);
 
-    test(18);
-    next(19);
+    test(27);
+    next(28);
     assert!(true);
   }
   #[test]
-  fn nineteen() {
+  fn twentyeight() {
     hr();
-    n(19);
+    n(28);
     term(&[
       d("\n\nYou want your calculator to be used on the command line like:\n"),
       cmd("\t$ calculator <first_number> <operator> <second_number>\n\n"),
@@ -803,14 +887,14 @@ mod tests {
       code("\t}\n"),
     ]);
 
-    test(19);
-    next(20);
+    test(28);
+    next(29);
     assert!(true);
   }
   #[test]
-  fn twenty() {
+  fn twentynine() {
     hr();
-    n(20);
+    n(29);
     term(&[
       d("\n\nNow, to get "),
       kw("output"),
@@ -834,14 +918,14 @@ mod tests {
       cmd("\t<first_number> <operator> <second_number> = <result>"),
     ]);
 
-    test(20);
-    next(21);
+    test(29);
+    next(30);
     assert!(true);
   }
   #[test]
-  fn twentyone() {
+  fn thirty() {
     hr();
-    n(21);
+    n(30);
     term(&[
       d("\n\n"),
       task(),
@@ -852,14 +936,14 @@ mod tests {
       d(" with any valid arguments.\n"),
     ]);
 
-    test(21);
-    next(22);
+    test(30);
+    next(31);
     assert!(true);
   }
   #[test]
-  fn twentytwo() {
+  fn thirtyone() {
     hr();
-    n(22);
+    n(31);
     term(&[
       d("\n\n"),
       task(),
@@ -876,14 +960,14 @@ mod tests {
       d(" call.\n"),
     ]);
 
-    test(22);
-    next(23);
+    test(31);
+    next(32);
     assert!(true);
   }
   #[test]
-  fn twentythree() {
+  fn thirtytwo() {
     hr();
-    n(23);
+    n(32);
     term(&[
       d("\n\nYou may have noticed what is printed to the console is not correct. You need to perform an operation on the input numbers, to fix this.\n")
     ]);
@@ -905,14 +989,14 @@ mod tests {
       d(" module.\n"),
     ]);
 
-    test(23);
-    next(24);
+    test(32);
+    next(33);
     assert!(true);
   }
   #[test]
-  fn twentyfour() {
+  fn thirtythree() {
     hr();
-    n(24);
+    n(33);
     term(&[
       d("\n\nYou want to be able to perform the four basic operations: addition, subtraction, division, and multiplication.\n\n"),
       task(),
@@ -946,14 +1030,14 @@ mod tests {
       d(" clause.\n"),
     ]);
 
-    test(24);
-    next(25);
+    test(33);
+    next(34);
     assert!(true);
   }
   #[test]
-  fn twentyfive() {
+  fn thirtyfour() {
     hr();
-    n(25);
+    n(34);
     term(&[
       d("\n\nInstead of returning a result of '0', when an invalid operator is used, it might make more sense to panic the application.\n\n"),
       d("The "),
@@ -965,14 +1049,14 @@ mod tests {
       d("Panic from your code, when an invalid operator is used.\n"),
     ]);
 
-    test(25);
-    next(26);
+    test(34);
+    next(35);
     assert!(true);
   }
   #[test]
-  fn twentysix() {
+  fn thirtyfive() {
     hr();
-    n(26);
+    n(35);
     term(&[
       d("\n\nInstead of many "),
       kw("if...else"),
@@ -1005,14 +1089,14 @@ mod tests {
       d(" operator.\n"),
     ]);
 
-    test(26);
-    next(27);
+    test(35);
+    next(36);
     assert!(true);
   }
   #[test]
-  fn twentyseven() {
+  fn thirtysix() {
     hr();
-    n(27);
+    n(36);
     term(&[
       d("\n\nYou should be able to use the calculator with an input like: "),
       cmd("calculator 3 x 3\n\n"),
@@ -1040,14 +1124,14 @@ mod tests {
       d(" values of \"x\" and \"X\".\n"),
     ]);
 
-    test(27);
-    next(28);
+    test(36);
+    next(37);
     assert!(true);
   }
   #[test]
-  fn twentyeight() {
+  fn thirtyseven() {
     hr();
-    n(28);
+    n(37);
     term(&[
       d("\n\nCurrently, the "),
       kw("result"),
@@ -1070,14 +1154,14 @@ mod tests {
       d(".\n"),
     ]);
 
-    test(28);
-    next(29);
+    test(37);
+    next(38);
     assert!(true);
   }
   #[test]
-  fn twentynine() {
+  fn thirtyeight() {
     hr();
-    n(29);
+    n(38);
     term(&[
       d("\n\nYou want this application to read values from command line arguments. Rust's standard library has an environment module which provides access to arguments passed through the CLI.\n")
     ]);
@@ -1095,14 +1179,14 @@ mod tests {
       d(" module from the standard library.\n"),
     ]);
 
-    test(29);
-    next(30);
+    test(38);
+    next(39);
     assert!(true);
   }
   #[test]
-  fn thirty() {
+  fn thirtynine() {
     hr();
-    n(30);
+    n(39);
     term(&[
       d("\n\nNow that the "), kw("env"), d(" module has been brought into scope, you can reference its Structs, Enums, and Functions.\n")
     ]);
@@ -1123,14 +1207,14 @@ mod tests {
       d("Remember, accessing a function within a module uses the '::' syntax.\n"),
     ]);
 
-    test(30);
-    next(31);
+    test(39);
+    next(40);
     assert!(true);
   }
   #[test]
-  fn thirtyone() {
+  fn forty() {
     hr();
-    n(31);
+    n(40);
     term(&[
       d("\n\n"),
       task(),
@@ -1143,14 +1227,14 @@ mod tests {
       d("Remember, follow the compiler's helpful advice, if you are struggling to print the value.\n")
     ]);
 
-    test(31);
-    next(32);
+    test(40);
+    next(41);
     assert!(true);
   }
   #[test]
-  fn thirtytwo() {
+  fn fortyone() {
     hr();
-    n(32);
+    n(41);
     term(&[
       d("\n\nWithout passing any arguments when running the crate, the value of "),
       kw("args"),
@@ -1164,14 +1248,14 @@ mod tests {
       cmd("\t$ cargo run --bin calculator -- 1 + 2\n"),
     ]);
 
-    test(32);
-    next(33);
+    test(41);
+    next(42);
     assert!(true);
   }
   #[test]
-  fn thirtythree() {
+  fn fortytwo() {
     hr();
-    n(33);
+    n(42);
     term(&[
       d("\n\nIn order to access the a specific argument in "),
       kw("args"),
@@ -1191,14 +1275,14 @@ mod tests {
       d("Remember to follow the compiler's helpful advice, if you get stuck.\n"),
     ]);
 
-    test(33);
-    next(34);
+    test(42);
+    next(43);
     assert!(true);
   }
   #[test]
-  fn thirtyfour() {
+  fn fortythree() {
     hr();
-    n(34);
+    n(43);
     term(&[
       d(
         "\n\nIf you followed the compiler's advice, in the previous lesson, you needed to delcare ",
@@ -1219,14 +1303,14 @@ mod tests {
       d(" respectfully.\n"),
     ]);
 
-    test(34);
-    next(35);
+    test(43);
+    next(44);
     assert!(true);
   }
   #[test]
-  fn thirtyfive() {
+  fn fortyfour() {
     hr();
-    n(35);
+    n(44);
     term(&[
       d("\n\nSome code has been commented out, so that the program compiles.\n\nIf you run the code now, you will see the output contains:\n"),
       cmd("\t$ Some(\"target/debug/calculator\"), None, None\n\n"),
@@ -1247,14 +1331,14 @@ mod tests {
       d(" variables at their declaration, and run your code to see what happens.\n"),
     ]);
 
-    test(35);
-    next(36);
+    test(44);
+    next(45);
     assert!(true);
   }
   #[test]
-  fn thirtysix() {
+  fn fortyfive() {
     hr();
-    n(36);
+    n(45);
     term(&[
       d("\n\nCurrently, running the application with:\n"),
       cmd("\t$ cargo run --bin calculator\n"),
@@ -1269,13 +1353,13 @@ mod tests {
       ),
     ]);
 
-    next(37);
+    next(46);
     assert!(true);
   }
   #[test]
-  fn thirtyseven() {
+  fn fortysix() {
     hr();
-    n(37);
+    n(46);
     term(&[
       d("\n\nCurrently, 5 arguments are needed, to prevent the application from panicking. It looks like you are only trying to unwrap the 3rd element, though?\n\n"),
       d("Actually, due to "),
@@ -1298,13 +1382,13 @@ mod tests {
       cmd("cargo run --bin calculator -- 1 + 2`"),
       d(" should output: \"1\", \"+\", \"2\"\n"),
     ]);
-    next(38);
+    next(47);
     assert!(true);
   }
   #[test]
-  fn thirtyeight() {
+  fn fortyseven() {
     hr();
-    n(38);
+    n(47);
     term(&[
       d("\n\nIt can be useful to explicitly annotate your variables' types. You have already seen examples of this, but here is one more:\n\n"),
       code("\tlet my_var: &str = \"Mrugesh\";\n")
@@ -1328,14 +1412,14 @@ mod tests {
       d(" module.\n"),
     ]);
 
-    test(38);
-    next(39);
+    test(47);
+    next(48);
     assert!(true);
   }
   #[test]
-  fn thirtynine() {
+  fn fortyeight() {
     hr();
-    n(39);
+    n(48);
     term(&[
       d("\n\nInstead of writing unecessary imports, you can combine them with the following syntax:\n\n"),
       code("\tuse std::env::{var, Vars};\n\n"),
@@ -1353,14 +1437,14 @@ mod tests {
       d(" struct.\n"),
     ]);
 
-    test(39);
-    next(40);
+    test(48);
+    next(49);
     assert!(true);
   }
   #[test]
-  fn forty() {
+  fn fortynine() {
     hr();
-    n(40);
+    n(49);
     term(&[
       d("\n\nNow, you need to fix the issue of "),
       kw("operate"),
@@ -1410,14 +1494,14 @@ mod tests {
       d(" in the println call.\n"),
     ]);
 
-    test(40);
-    next(41);
+    test(49);
+    next(50);
     assert!(true);
   }
   #[test]
-  fn fortyone() {
+  fn fifty() {
     hr();
-    n(41);
+    n(50);
     term(&[
       d("\n\n"),
       task(),
@@ -1429,17 +1513,89 @@ mod tests {
       d("You can ensure the output is correct by running:\n"),
       cmd("\t$ cargo run --bin calculator -- 1 + -1\n"),
     ]);
-    next(42);
+    next(51);
     assert!(true);
   }
   #[test]
-  fn fortytwo() {
+  fn fiftyone() {
+    hr();
+    n(51);
+    term(&[
+      d("\n\nCurrently, the calculator only accepts integers as inputs.\n\n"),
+      task(),
+      d("Change all the necessary types to allow the calculator to accept floating point numbers as well.\n")
+    ]);
+
+    test(51);
+    next(52);
+    assert!(true);
+  }
+  #[test]
+  fn fiftytwo() {
+    hr();
+    n(52);
+    term(&[
+      d("\n\nYou have completed the code for your binary. Now, you need to compile and ship it to be used.\n")
+    ]);
+    term(&[
+      task(),
+      d("Run the following command to build your code into a binary:\n"),
+      cmd("\t$ cargo build --bin calculator\n\n"),
+      d("If you see no errors, you have successfully completed the lesson.\n"),
+    ]);
+    next(53);
+    assert!(true);
+  }
+  #[test]
+  fn fiftythree() {
+    hr();
+    n(53);
+    term(&[
+      d("\n\nCargo has just compiled your code into the "),
+      file("target/debug"),
+      d(" directory.\n\n"),
+      task(),
+      d("Run your application, using the following command:\n"),
+      cmd("\t$ target/debug/calculator 1 + 2\n\n"),
+      d("If you see the output "),
+      cmd("'1 + 2 = 3'"),
+      d(" you have successfully completed the lesson.\n"),
+    ]);
+    next(54);
+    assert!(true);
+  }
+  #[test]
+  fn fiftyfour() {
+    hr();
+    n(54);
+    term(&[
+      d("\n\nThe Rust compiler often compiles with incredible optimisations. However, you need to specify for Cargo to build a "), emph("release build"), d(" of your code, in order to get the most out of it.\n")
+    ]);
+    term(&[
+      task(),
+      d("Rebuild your application, this time using the "),
+      kw("release"),
+      d("nflag:\n"),
+      cmd("\t$ cargo build --release --bin calculator\n"),
+    ]);
+    term(&[
+      d("You should be able to locate your optimised binary within the "),
+      file("target/release"),
+      d(" directory.\n"),
+    ]);
+    next(55);
+    assert!(true);
+  }
+  #[test]
+  fn fiftyfive() {
     hr();
     term(&[
       Term::new("Well Done!", Green, Underline),
       d("\n\nCongratulations. You have completed the "), code("freeCodeCamp - Rust in Replit - CLI Calculator"), d(" project.\n\n"),
       d("You are welcome to extend your current project - perhaps, to accept multiple operations.\n\n"),
-      d("TODO: What now??")
+      task(),
+      d("Run the following command to begin the next project:\n"),
+      cmd("\t$ fcc switch image-combiner\n\n")
     ]);
     hr();
   }
