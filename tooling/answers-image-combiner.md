@@ -123,7 +123,6 @@ mod tests {
   #[test]
   fn get_nth_arg_returns_string() {
     let val = get_nth_arg(0);
-    println!("{}", val);
     assert!(reg_with_con(r"target/debug/deps", val));
   }
 
@@ -133,6 +132,117 @@ mod tests {
     Regex::new(regex).unwrap().is_match(&file_contents)
   }
 }
+```
+
+### --tests--
+
+- Remember to use
+- `null`
+
+## 5
+
+### --description--
+
+### --seed--
+
+```rust
+// Lesson #5
+```
+
+### --tests--
+
+## 6
+
+### --description--
+
+### --seed--
+
+```rust
+// Lesson #6
+```
+
+### --tests--
+
+## 7
+
+### --description--
+
+### --seed--
+
+```rust
+// Lesson #7
+```
+
+### --tests--
+
+## 8
+
+### --description--
+
+### --seed--
+
+```rust
+// Lesson #8
+```
+
+### --tests--
+
+## 9
+
+### --description--
+
+### --seed--
+
+```rust
+// Lesson #9
+```
+
+### --tests--
+
+## 10
+
+### --description--
+
+### --seed--
+
+```rust
+// Lesson #10
+```
+
+### --tests--
+
+## 11
+
+### --description--
+
+### --seed--
+
+```rust
+// Lesson #11
+```
+
+### --tests--
+
+## 12
+
+### --description--
+
+### --seed--
+
+```rust
+// Lesson #12
+```
+
+### --tests--
+
+## 13
+
+### --description--
+
+### --seed--
+
+```rust
+// Lesson #13
 ```
 
 ### --tests--
