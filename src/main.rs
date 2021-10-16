@@ -1575,7 +1575,7 @@ mod tests {
       task(),
       d("Rebuild your application, this time using the "),
       kw("release"),
-      d("nflag:\n"),
+      d("flag:\n"),
       cmd("\t$ cargo build --release --bin calculator\n"),
     ]);
     term(&[
@@ -1592,7 +1592,7 @@ mod tests {
     term(&[
       Term::new("Well Done!", Green, Underline),
       d("\n\nCongratulations. You have completed the "), code("freeCodeCamp - Rust in Replit - CLI Calculator"), d(" project.\n\n"),
-      d("You are welcome to extend your current project - perhaps, to accept multiple operations.\n\n"),
+      d("You are welcome to extend your current project - perhaps, to accept multiple operations...\n\n"),
       task(),
       d("Run the following command to begin the next project:\n"),
       cmd("\t$ fcc switch image-combiner\n\n")
