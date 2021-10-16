@@ -142,7 +142,7 @@ mod tests {
       d("Open the "),
       file("calculator/src/main.rs "),
       d("file.\n\n"),
-      d("This is the default file Cargo used for your application binary.\n\n"),
+      d("This is the default file Cargo uses for your application binary.\n\n"),
     ]);
 
     next(3);
@@ -274,7 +274,7 @@ mod tests {
       task(),
       d("Re-run your code. You should only have one warning, now.\n"),
     ]);
-    test(6);
+
     next(7);
     assert!(true);
   }
@@ -563,7 +563,6 @@ mod tests {
     n(17);
     term(&[d("\n\n"), task(), d("Run your code. It should panic.\n")]);
 
-    test(17);
     next(18);
     assert!(true);
   }
@@ -732,7 +731,7 @@ mod tests {
     term(&[
       task(),
       d("Run the following command to initialise your code with tests for the next lesson:\n"),
-      cmd("\t$ fcc reset 15\n"),
+      cmd("\t$ fcc reset 24\n"),
     ]);
 
     test(24);
@@ -769,7 +768,9 @@ mod tests {
       code("\tuse crate::main;\n"),
     ]);
     term(&[
-      d("The "), kw("use"), d(" keyword, in Rust, is similar to 'import', 'require', or 'include' as in other languages.\n")
+      d("The "),
+      kw("use"),
+      d(" keyword, in Rust, is similar to 'import', 'require', or 'include' as in other languages.\n")
     ]);
 
     test(25);
@@ -1518,11 +1519,83 @@ mod tests {
   #[test]
   fn fiftyone() {
     hr();
+    n(51);
+    term(&[
+      d("\n\nCurrently, the calculator only accepts integers as inputs.\n\n"),
+      task(),
+      d("Change all the necessary types to allow the calculator to accept floating point numbers as well.\n")
+    ]);
+
+    test(51);
+    next(52);
+    assert!(true);
+  }
+  #[test]
+  fn fiftytwo() {
+    hr();
+    n(52);
+    term(&[
+      d("\n\nYou have completed the code for your binary. Now, you need to compile and ship it to be used.\n")
+    ]);
+    term(&[
+      task(),
+      d("Run the following command to build your code into a binary:\n"),
+      cmd("\t$ cargo build --bin calculator\n\n"),
+      d("If you see no errors, you have successfully completed the lesson.\n"),
+    ]);
+    next(53);
+    assert!(true);
+  }
+  #[test]
+  fn fiftythree() {
+    hr();
+    n(53);
+    term(&[
+      d("\n\nCargo has just compiled your code into the "),
+      file("target/debug"),
+      d(" directory.\n\n"),
+      task(),
+      d("Run your application, using the following command:\n"),
+      cmd("\t$ target/debug/calculator 1 + 2\n\n"),
+      d("If you see the output "),
+      cmd("'1 + 2 = 3'"),
+      d(" you have successfully completed the lesson.\n"),
+    ]);
+    next(54);
+    assert!(true);
+  }
+  #[test]
+  fn fiftyfour() {
+    hr();
+    n(54);
+    term(&[
+      d("\n\nThe Rust compiler often compiles with incredible optimisations. However, you need to specify for Cargo to build a "), emph("release build"), d(" of your code, in order to get the most out of it.\n")
+    ]);
+    term(&[
+      task(),
+      d("Rebuild your application, this time using the "),
+      kw("release"),
+      d("nflag:\n"),
+      cmd("\t$ cargo build --release --bin calculator\n"),
+    ]);
+    term(&[
+      d("You should be able to locate your optimised binary within the "),
+      file("target/release"),
+      d(" directory.\n"),
+    ]);
+    next(55);
+    assert!(true);
+  }
+  #[test]
+  fn fiftyfive() {
+    hr();
     term(&[
       Term::new("Well Done!", Green, Underline),
       d("\n\nCongratulations. You have completed the "), code("freeCodeCamp - Rust in Replit - CLI Calculator"), d(" project.\n\n"),
       d("You are welcome to extend your current project - perhaps, to accept multiple operations.\n\n"),
-      d("TODO: What now??")
+      task(),
+      d("Run the following command to begin the next project:\n"),
+      cmd("\t$ fcc switch image-combiner\n\n")
     ]);
     hr();
   }
