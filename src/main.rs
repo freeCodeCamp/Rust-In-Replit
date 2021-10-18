@@ -271,6 +271,7 @@ mod tests {
     hr();
     n(6);
     term(&[
+      d("\n\n"),
       task(),
       d("Re-run your code. You should only have one warning, now.\n"),
     ]);
@@ -294,7 +295,9 @@ mod tests {
       d("call to be\n"),
       code("\tprintln!(\"Hello, {}!\", first_name);\n"),
     ]);
-    term(&[d("The '{}' are replaced with the value of the arguments.")]);
+    term(&[d(
+      "The '{}' are replaced with the value of the arguments.\n",
+    )]);
     test(7);
     next(8);
     assert!(true);
@@ -422,9 +425,9 @@ mod tests {
     hr();
     n(13);
     term(&[
-      d("Your app panicked."),
+      d("\n\nYour app panicked."),
       emph(" Panicking"),
-      d(" is Rust's way of throwing an error a.k.a. 'erroring out'."),
+      d(" is Rust's way of throwing an error a.k.a. 'erroring out'.\n"),
     ]);
     term(&[
       d("The reason for this error is the last "),
@@ -434,7 +437,8 @@ mod tests {
       d(" variable. However, this variable is no longer available, as it was "),
       emph("moved"),
       d(" into "),
-      kw("name\n"),
+      kw("name"),
+      d(".\n"),
     ]);
     term(&[
       d("To prevent "),
@@ -649,6 +653,7 @@ mod tests {
     hr();
     n(21);
     term(&[
+      d("\n\n"),
       task(),
       d("Print to the console the value of the "),
       kw(".len()"),
@@ -915,7 +920,7 @@ mod tests {
       d("Use the "),
       kw("format"),
       d(" macro to return an output following this format:\n"),
-      cmd("\t<first_number> <operator> <second_number> = <result>"),
+      cmd("\t<first_number> <operator> <second_number> = <result>\n"),
     ]);
 
     test(29);
@@ -1248,7 +1253,6 @@ mod tests {
       cmd("\t$ cargo run --bin calculator -- 1 + 2\n"),
     ]);
 
-    test(41);
     next(42);
     assert!(true);
   }
@@ -1257,7 +1261,7 @@ mod tests {
     hr();
     n(42);
     term(&[
-      d("\n\nIn order to access the a specific argument in "),
+      d("\n\nIn order to access a specific argument in "),
       kw("args"),
       d(", you can use the "),
       kw("nth"),
@@ -1372,15 +1376,15 @@ mod tests {
       task(),
       d("Change the arguments passed to "),
       kw("nth"),
-      d(" so that the correct elements are accessed.\n\n"),
-      emph("HINT: "),
-      d("Remember, the first element is the relative path to the binary - not the first_number."),
-    ]);
-
-    term(&[
+      d(" so that the correct elements are accessed. "),
       d("Running `"),
       cmd("cargo run --bin calculator -- 1 + 2`"),
       d(" should output: \"1\", \"+\", \"2\"\n"),
+    ]);
+
+    term(&[
+      emph("HINT: "),
+      d("Remember, the first element is the relative path to the binary - not the first_number."),
     ]);
     next(47);
     assert!(true);
@@ -1506,7 +1510,9 @@ mod tests {
       d("\n\n"),
       task(),
       d("Finally, uncomment the commented-out code, and make the necessary adjustments to allow the code to compile.\n\n"),
-      d("Be sure to follow the compiler's hints to get the code compiling. Then, remove the first "), kw("println"), d(" call so there is only one output.")
+      d("Be sure to follow the compiler's hints to get the code compiling. Then, remove the first "),
+      kw("println"),
+      d(" call so there is only one output.\n")
     ]);
 
     term(&[
@@ -1574,7 +1580,7 @@ mod tests {
     term(&[
       task(),
       d("Rebuild your application, this time using the "),
-      kw("release"),
+      kw("release "),
       d("flag:\n"),
       cmd("\t$ cargo build --release --bin calculator\n"),
     ]);
@@ -1639,7 +1645,7 @@ mod tests {
       "You can see if you completed the lesson correctly by running:",
     )]);
     match num {
-      1..=15 | 21 | 22 | 28 | 29 | 31 | 34 | 35 | 38 | 39 | 40 => {
+      1..=24 | 30 | 31 | 35 | 37 | 38 | 39 | 40 | 42 | 43 | 44 | 47 | 48 | 49 => {
         term(&[cmd(&format!("\t$ fcc test {}\n", num))]);
       }
       _ => {

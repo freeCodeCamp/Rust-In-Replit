@@ -9,8 +9,17 @@ const readFile = util.promisify(fs.readFile);
 
 // HELPER FUNCTIONS
 const getCommandOutput = async function (command) {
-  const { stdout } = await execute(command, { cwd: ".", shell: "/bin/bash" });
-  return stdout;
+  let output = "";
+  try {
+    const { stdout } = await execute(command, {
+      cwd: ".",
+      shell: "/bin/bash",
+    });
+    output = stdout;
+  } catch (err) {
+    console.log(output);
+  }
+  return output;
 };
 
 const getFileContents = async (file) => {
@@ -34,23 +43,23 @@ async function runTests(project, lessonNumber) {
     }
     const answerFile = `./tooling/answers-${project}.md`;
     const lesson = getLessonFromFile(answerFile, lessonNumber);
-    let testTexts = getLessonTests(lesson);
+    const testTexts = getLessonTests(lesson);
 
-    testTexts = testTexts[1]
+    const testTextsArr = testTexts
       .split(/\n-/)
       .filter((x) => x.length > 1)
       .map((x) => x.trim().replace(/^- /, ""));
 
-    const numTests = testTexts.length / 2;
+    const numTests = testTextsArr.length / 2;
     let c = 0;
     for (let i = 0; i < numTests * 2; i += 2) {
-      const text = testTexts[i];
-      if (testTexts[i + 1].includes("getCommandOutput")) {
+      const text = testTextsArr[i];
+      if (testTextsArr[i + 1].includes("getCommandOutput")) {
         const commandOutput = await getCommandOutput(
           "cargo run --bin calculator"
         );
         const re = new RegExp(
-          testTexts[i + 1]
+          testTextsArr[i + 1]
             .replace(/[`]/g, "")
             .replace(/getCommandOutput\(/, "")
             .replace(/\)$/, "")
@@ -61,12 +70,12 @@ async function runTests(project, lessonNumber) {
           console.log(`\n${text}\n`);
         }
         // Feature for seeing if all Cargo tests pass
-      } else if (testTexts[i + 1].includes("getTestOutput")) {
+      } else if (testTextsArr[i + 1].includes("getTestOutput")) {
         const commandOutput = await getCommandOutput(
           "cargo test --bin calculator"
         );
         const re = new RegExp(
-          testTexts[i + 1]
+          testTextsArr[i + 1]
             .replace(/[`]/g, "")
             .replace(/getTestOutput\(/, "")
             .replace(/\)$/, "")
@@ -77,10 +86,9 @@ async function runTests(project, lessonNumber) {
           console.log(`\n${text}\n`);
         }
       } else if (
-        new RegExp(testTexts[i + 1].replace(/[`]/g, "")).test(camperCode)
+        new RegExp(testTextsArr[i + 1].replace(/[`]/g, "")).test(camperCode)
       ) {
         c++;
-        // console.log("\nAll tests pass!\n");
       } else {
         console.log(`\n${text}\n`);
       }

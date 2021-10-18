@@ -82,11 +82,23 @@ if (isNaN(Number(ARGS[3]))) {
 
 function help() {
   return `
+  source ~/.bashrc     - Reloads the bashrc file
+  chmod +x tooling/fcc - Gives the shell permission to run the fcc binary
+
+  ---
+
   fcc <n>              - Runs the nth lesson
   fcc reset <n>        - Resets the nth lesson
   fcc solution <n>     - Prints the solution for the nth lesson
   fcc help             - Prints this help message
   fcc switch <project> - Switches between the lessons for <project>
-  *fcc test <n>        - Runs the regex tests for the nth lesson
+  fcc test <n>         - Runs the regex tests for the nth lesson
+
+  ---
+
+  cargo run --bin <project> - Runs the <project>/src/main.rs binary
+
+  https://doc.rust-lang.org/std/index.html       - Rust documentation
+  https://doc.rust-lang.org/book/title-page.html - Rust book
   `;
 }

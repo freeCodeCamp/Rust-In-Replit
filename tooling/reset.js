@@ -38,7 +38,7 @@ async function resetLesson(project, lessonNumber) {
       if (err) {
         console.log(ERROR_MESSAGE);
       } else {
-        r(lessonNumber);
+        // r(lessonNumber);
       }
     });
   } catch (err) {

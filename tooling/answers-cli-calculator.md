@@ -399,7 +399,7 @@ fn main() {
 ### --seed--
 
 ```rust
-// Lesson #19
+// Lesson #20
 fn main() {
   let mut first_name = String::from("Nicholas");
   first_name.push_str(" Carrigan");
@@ -421,6 +421,7 @@ fn main() {
 ### --seed--
 
 ```rust
+// Lesson #21
 fn main() {
   let first = "T";
 }
@@ -432,6 +433,10 @@ fn main() {
 - `getCommandOutput(\s*1\s*1\s*)`
 
 ## 22
+
+### --description--
+
+### --seed--
 
 ```rust
 // Lesson #22
@@ -746,6 +751,8 @@ mod tests {
 - `let second_number`
 - You should declare a variable named `operator`.
 - `let operator`
+- You should call `ouput` with the variables you just declared.
+- `output\(\s*first_number\s*,\s*operator\s*,\s*second_number`
 
 ## 32
 
@@ -851,8 +858,8 @@ mod tests {
   }
   #[test]
   fn operate_handles_subtraction() {
-    let op = operate("-", -12, -12);
-    assert_eq!(op, 0);
+    let op = operate("-", -10, -12);
+    assert_eq!(op, 2);
   }
   #[test]
   fn operate_handles_division() {
@@ -1048,6 +1055,8 @@ mod tests {
 
 - You should use the `match` operator.
 - `match`
+- You should still pass all tests.
+- `getTestOutput(7 passed)`
 
 ## 36
 
@@ -2568,7 +2577,7 @@ mod tests {
   #[test]
   fn output_accepts_floating_point_numbers() {
     let out = output(-10.0, "+", 10.0, 0.0);
-    assert_eq!(out, String::from("-10.0 + 10.0 = 0.0"));
+    assert_eq!(out, String::from("-10 + 10 = 0"));
   }
   #[test]
   fn operate_accepts_floating_point_numbers() {
@@ -2585,32 +2594,32 @@ mod tests {
   #[test]
   fn operate_handles_addition() {
     let op = operate("+", -5.0, 200.0);
-    assert_eq!(op, 195);
+    assert_eq!(op, 195.0);
   }
   #[test]
   fn operate_handles_subtraction() {
     let op = operate("-", -12.0, -12.0);
-    assert_eq!(op, 0);
+    assert_eq!(op, 0.0);
   }
   #[test]
   fn operate_handles_division() {
     let op = operate("/", -12.0, -1.0);
-    assert_eq!(op, 12);
+    assert_eq!(op, 12.0);
   }
   #[test]
   fn operate_handles_multiplication() {
     let op = operate("*", -12.0, -2.0);
-    assert_eq!(op, 24);
+    assert_eq!(op, 24.0);
   }
   #[test]
   fn operate_handles_multiplication_x() {
     let op = operate("x", -12.0, 2.0);
-    assert_eq!(op, -24);
+    assert_eq!(op, -24.0);
   }
   #[test]
   fn operate_handles_multiplcaiton_cap_x() {
     let op = operate("X", -12.0, 2.0);
-    assert_eq!(op, -24);
+    assert_eq!(op, -24.0);
   }
   #[test]
   #[should_panic]
