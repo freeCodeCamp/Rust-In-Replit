@@ -20,7 +20,7 @@ fn main() {
 ### --tests--
 
 - You should see a new directory `combiner` created in the root.
-- `null`
+- `Hello, world!`
 
 ## 2
 

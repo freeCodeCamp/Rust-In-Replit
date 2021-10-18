@@ -18,6 +18,9 @@ function runLesson(project, lessonNumber) {
       }\n`
     );
     console.log(description);
+    console.log(
+      `When you are done, type the following for the next lesson:\n\t${Colour.FgCyan}$ fcc ${lessonNumber}${Colour.Reset}\n`
+    );
   } else {
     console.log(getLessonDescription(lesson));
   }
