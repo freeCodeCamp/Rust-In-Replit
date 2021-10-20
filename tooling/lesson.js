@@ -11,7 +11,8 @@ function runLesson(project, lessonNumber) {
         /```(rust|bash)\n(.+?)```\n/s,
         `${Colour.FgCyan}$2${Colour.Reset}`
       )
-      .replace(/`([^`]+)`/g, `${Colour.FgBlue}$1${Colour.Reset}`);
+      .replace(/`([^`]+)`/g, `${Colour.FgBlue}$1${Colour.Reset}`)
+      .replace(/\*\*([^\*]+)\*\*/g, `${Colour.Bright}$1${Colour.Reset}`);
     console.log(
       `\n${Colour.Underscore + Colour.FgGreen}LESSON #${lessonNumber}${
         Colour.Reset
@@ -19,7 +20,9 @@ function runLesson(project, lessonNumber) {
     );
     console.log(description);
     console.log(
-      `When you are done, type the following for the next lesson:\n\t${Colour.FgCyan}$ fcc ${lessonNumber}${Colour.Reset}\n`
+      `When you are done, type the following for the next lesson:\n\t${
+        Colour.FgCyan
+      }$ fcc ${lessonNumber + 1}${Colour.Reset}\n`
     );
   } else {
     console.log(getLessonDescription(lesson));
