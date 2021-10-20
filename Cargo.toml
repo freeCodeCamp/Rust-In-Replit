@@ -18,6 +18,3 @@ path = "./calculator/src/main.rs"
 [[bin]]
 name = "combiner"
 path = "./combiner/src/main.rs"
-
-[dependencies]
-regex = "1.5.4"
