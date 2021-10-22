@@ -1750,6 +1750,16 @@ mod tests {
 
 ### --description--
 
+Tuples can be destructured into variables like this:
+
+```rust
+  let (x, y, z) = (1, 2, 3);
+```
+
+Task: Within `main`, destructure the tuple returned from `find_image_from_path` into the variables `image_1` and `image_1_format`. You should call `find_image_from_path` with the value of the `image_1` field of `args`.
+
+Run `cargo test --bin combiner`. You should see an error.
+
 ### --seed--
 
 ```rust
@@ -1781,6 +1791,38 @@ mod tests {
       find_image_from_path("./images/fcc_glyph.png".to_string());
     assert_eq!(image_format, ImageFormat::Png);
   }
+  #[test]
+  fn find_image_from_path_called_with_args() {
+    if let Some((file_contents, _)) = return_file_in_src("main.rs").split_once("#[cfg(test)]") {
+      assert!(reg_with_con(
+        r"find_image_from_path\(args.image_1\)",
+        file_contents
+      ));
+    }
+  }
+  #[test]
+  fn tuple_destructured() {
+    if let Some((file_contents, _)) = return_file_in_src("main.rs").split_once("#[cfg(test)]") {
+      assert!(reg_with_con(
+        r"let\s+\(\s*image_1\s*,\s*image_1_format\s*\)",
+        file_contents
+      ));
+    }
+  }
+
+  fn reg_with_con(regex: &str, file_contents: &str) -> bool {
+    use regex::Regex;
+
+    Regex::new(regex).unwrap().is_match(file_contents)
+  }
+  fn return_file_in_src(filename: &str) -> String {
+    use std::fs::read_to_string;
+
+    match read_to_string(String::from("combiner/src/") + filename) {
+      Ok(file_contents) => file_contents,
+      Err(_) => String::from("File does not exist"),
+    }
+  }
 }
 
 ```
@@ -1791,10 +1833,86 @@ mod tests {
 
 ### --description--
 
+Your code has an error, because the `image_1` field on `args` is not public. So, it may not be used across modules.
+
+Task: Within `args.rs`, change all the `Args` struct's fields to be public.
+
+Run `cargo test --bin combiner` to see if you correctly completed the task.
+
 ### --seed--
 
 ```rust
 // Lesson #33
+mod args;
+
+use args::Args;
+use image::{io::Reader, DynamicImage, ImageFormat};
+
+fn main() {
+  let args = Args::new();
+  println!("{:?}", args);
+
+  let (image_1, image_1_format) = find_image_from_path(args.image_1);
+}
+
+fn find_image_from_path(path: String) -> (DynamicImage, ImageFormat) {
+  let image_reader = Reader::open(path).unwrap();
+  let image_format = image_reader.format().unwrap();
+  let image = image_reader.decode().unwrap();
+  (image, image_format)
+}
+
+#[cfg(test)]
+mod tests {
+  use super::*;
+  #[test]
+  fn find_image_from_path_returns_a_tuple() {
+    use image::{DynamicImage, ImageFormat};
+    let (_image, image_format): (DynamicImage, ImageFormat) =
+      find_image_from_path("./images/fcc_glyph.png".to_string());
+    assert_eq!(image_format, ImageFormat::Png);
+  }
+  #[test]
+  fn find_image_from_path_called_with_args() {
+    if let Some((file_contents, _)) = return_file_in_src("main.rs").split_once("#[cfg(test)]") {
+      assert!(reg_with_con(
+        r"find_image_from_path\(args.image_1\)",
+        file_contents
+      ));
+    }
+  }
+  #[test]
+  fn tuple_destructured() {
+    if let Some((file_contents, _)) = return_file_in_src("main.rs").split_once("#[cfg(test)]") {
+      assert!(reg_with_con(
+        r"let\s+\(\s*image_1\s*,\s*image_1_format\s*\)",
+        file_contents
+      ));
+    }
+  }
+  #[test]
+  fn all_args_struct_fields_public() {
+    let file_contents = return_file_in_src("args.rs");
+    assert!(reg_with_con(r"pub\s+image_1:\s*String", &file_contents));
+    assert!(reg_with_con(r"pub\s+image_2:\s*String", &file_contents));
+    assert!(reg_with_con(r"pub\s+output:\s*String", &file_contents));
+  }
+
+  fn reg_with_con(regex: &str, file_contents: &str) -> bool {
+    use regex::Regex;
+
+    Regex::new(regex).unwrap().is_match(file_contents)
+  }
+  fn return_file_in_src(filename: &str) -> String {
+    use std::fs::read_to_string;
+
+    match read_to_string(String::from("combiner/src/") + filename) {
+      Ok(file_contents) => file_contents,
+      Err(_) => String::from("File does not exist"),
+    }
+  }
+}
+
 ```
 
 ### --tests--
@@ -1803,10 +1921,76 @@ mod tests {
 
 ### --description--
 
+Task: Within `main`, destructure the tuple returned from `find_image_from_path` into the variables `image_2` and `image_2_format`. You should call `find_image_from_path` with the value of the `image_2` field of `args`.
+
+Run `cargo test --bin combiner` to see if you correctly completed the task.
+
 ### --seed--
 
 ```rust
 // Lesson #34
+mod args;
+
+use args::Args;
+use image::{io::Reader, DynamicImage, ImageFormat};
+
+fn main() {
+  let args = Args::new();
+  println!("{:?}", args);
+
+  let (image_1, image_1_format) = find_image_from_path(args.image_1);
+}
+
+fn find_image_from_path(path: String) -> (DynamicImage, ImageFormat) {
+  let image_reader = Reader::open(path).unwrap();
+  let image_format = image_reader.format().unwrap();
+  let image = image_reader.decode().unwrap();
+  (image, image_format)
+}
+
+#[cfg(test)]
+mod tests {
+  use super::*;
+  #[test]
+  fn find_image_from_path_returns_a_tuple() {
+    use image::{DynamicImage, ImageFormat};
+    let (_image, image_format): (DynamicImage, ImageFormat) =
+      find_image_from_path("./images/fcc_glyph.png".to_string());
+    assert_eq!(image_format, ImageFormat::Png);
+  }
+  #[test]
+  fn find_image_from_path_called_with_args() {
+    if let Some((file_contents, _)) = return_file_in_src("main.rs").split_once("#[cfg(test)]") {
+      assert!(reg_with_con(
+        r"find_image_from_path\(args.image_2\)",
+        file_contents
+      ));
+    }
+  }
+  #[test]
+  fn tuple_destructured() {
+    if let Some((file_contents, _)) = return_file_in_src("main.rs").split_once("#[cfg(test)]") {
+      assert!(reg_with_con(
+        r"let\s+\(\s*image_2\s*,\s*image_2_format\s*\)",
+        file_contents
+      ));
+    }
+  }
+
+  fn reg_with_con(regex: &str, file_contents: &str) -> bool {
+    use regex::Regex;
+
+    Regex::new(regex).unwrap().is_match(file_contents)
+  }
+  fn return_file_in_src(filename: &str) -> String {
+    use std::fs::read_to_string;
+
+    match read_to_string(String::from("combiner/src/") + filename) {
+      Ok(file_contents) => file_contents,
+      Err(_) => String::from("File does not exist"),
+    }
+  }
+}
 ```
 
 ### --tests--
@@ -1815,10 +1999,75 @@ mod tests {
 
 ### --description--
 
+So far, you have been dealt with a few functions which returned a `Result`. Now, you are going to create a new `Result`.
+
+A `Result` is a type that can either be `Ok` or `Err`. It is common to return an empty tuple when a function is successful, and return an error message when a function fails:
+
+```rust
+  fn function_returns_result() -> Result<(), String> {
+    if (condition) {
+      return Ok(());
+    } else {
+      return Err(String::from("Error message"));
+    }
+  }
+```
+
+Task: Within `main.rs`, convert the `main` function to return a `Result`. For now, just return an empty tuple on `Ok`, but set the return `Err` type to `String`.
+
 ### --seed--
 
 ```rust
 // Lesson #35
+mod args;
+
+use args::Args;
+use image::{io::Reader, DynamicImage, ImageFormat};
+
+fn main() {
+  let args = Args::new();
+  println!("{:?}", args);
+
+  let (image_1, image_1_format) = find_image_from_path(args.image_1);
+  let (image_2, image_2_format) = find_image_from_path(args.image_2);
+}
+
+fn find_image_from_path(path: String) -> (DynamicImage, ImageFormat) {
+  let image_reader = Reader::open(path).unwrap();
+  let image_format = image_reader.format().unwrap();
+  let image = image_reader.decode().unwrap();
+  (image, image_format)
+}
+
+#[cfg(test)]
+mod tests {
+  use super::*;
+  #[test]
+  #[should_panic]
+  fn main_returns_result() {
+    let _res: Result<(), String> = main();
+  }
+  #[test]
+  fn no_err_condition() {
+    if let Some((file_contents, _)) = return_file_in_src("main.rs").split_once("#[cfg(test)]") {
+      assert!(!reg_with_con(r"Err\(", file_contents));
+    }
+  }
+
+  fn reg_with_con(regex: &str, file_contents: &str) -> bool {
+    use regex::Regex;
+
+    Regex::new(regex).unwrap().is_match(file_contents)
+  }
+  fn return_file_in_src(filename: &str) -> String {
+    use std::fs::read_to_string;
+
+    match read_to_string(String::from("combiner/src/") + filename) {
+      Ok(file_contents) => file_contents,
+      Err(_) => String::from("File does not exist"),
+    }
+  }
+}
 ```
 
 ### --tests--
@@ -1827,10 +2076,75 @@ mod tests {
 
 ### --description--
 
+Your application will only be able to combine two images of the same type.
+
+Task: As such, if `image_1_format` is not equal to `image_2_format`, return an error message.
+
+Run `cargo test --bin combiner` to see if you correctly completed the task.
+
 ### --seed--
 
 ```rust
 // Lesson #36
+mod args;
+
+use args::Args;
+use image::{io::Reader, DynamicImage, ImageFormat};
+
+fn main() -> Result<(), String> {
+  let args = Args::new();
+  println!("{:?}", args);
+
+  let (image_1, image_1_format) = find_image_from_path(args.image_1);
+  let (image_2, image_2_format) = find_image_from_path(args.image_2);
+  Ok(())
+}
+
+fn find_image_from_path(path: String) -> (DynamicImage, ImageFormat) {
+  let image_reader = Reader::open(path).unwrap();
+  let image_format = image_reader.format().unwrap();
+  let image = image_reader.decode().unwrap();
+  (image, image_format)
+}
+
+#[cfg(test)]
+mod tests {
+  use super::*;
+  #[test]
+  #[should_panic]
+  fn main_returns_result() {
+    let _res: Result<(), String> = main();
+  }
+  #[test]
+  fn err_condition() {
+    if let Some((file_contents, _)) = return_file_in_src("main.rs").split_once("#[cfg(test)]") {
+      assert!(reg_with_con(r"Err\(", file_contents));
+    }
+  }
+  #[test]
+  fn image_format_comparision() {
+    if let Some((file_contents, _)) = return_file_in_src("main.rs").split_once("#[cfg(test)]") {
+      assert!(
+        reg_with_con(r"image_1_format\s*!=\s*image_2_format", file_contents)
+          | reg_with_con(r"image_2_format\s*!=\s*image_1_format", file_contents)
+      );
+    }
+  }
+
+  fn reg_with_con(regex: &str, file_contents: &str) -> bool {
+    use regex::Regex;
+
+    Regex::new(regex).unwrap().is_match(file_contents)
+  }
+  fn return_file_in_src(filename: &str) -> String {
+    use std::fs::read_to_string;
+
+    match read_to_string(String::from("combiner/src/") + filename) {
+      Ok(file_contents) => file_contents,
+      Err(_) => String::from("File does not exist"),
+    }
+  }
+}
 ```
 
 ### --tests--
@@ -1839,10 +2153,73 @@ mod tests {
 
 ### --description--
 
+Another error that can occur is when the two images are not the same size. Fortunately, there is a function that can be used to resize the images.
+
+Task: Start by creating a function named `standardise_size` which takes `image_1` and `image_2` as parameters.
+
+Run `cargo test --bin combiner` to see if you correctly completed the task.
+
 ### --seed--
 
 ```rust
 // Lesson #37
+mod args;
+
+use args::Args;
+use image::{io::Reader, DynamicImage, ImageFormat};
+
+fn main() -> Result<(), String> {
+  let args = Args::new();
+  println!("{:?}", args);
+
+  let (image_1, image_1_format) = find_image_from_path(args.image_1);
+  let (image_2, image_2_format) = find_image_from_path(args.image_2);
+
+  if image_1_format != image_2_format {
+    return Err(String::from("Image formats must match"));
+  }
+
+  Ok(())
+}
+
+fn find_image_from_path(path: String) -> (DynamicImage, ImageFormat) {
+  let image_reader = Reader::open(path).unwrap();
+  let image_format = image_reader.format().unwrap();
+  let image = image_reader.decode().unwrap();
+  (image, image_format)
+}
+
+#[cfg(test)]
+mod tests {
+  use super::*;
+  #[test]
+  fn standardise_size_defined() {
+    if let Some((file_contents, _)) = return_file_in_src("main.rs").split_once("#[cfg(test)]") {
+      assert!(reg_with_con(r"fn\s+standardise_size", file_contents));
+    }
+  }
+  #[test]
+  fn standardise_size_accepts_correct_args() {
+    let image_1 = DynamicImage::new_rgb8(1, 1);
+    let image_2 = DynamicImage::new_rgb8(1, 1);
+    let _res = standardise_size(image_1, image_2);
+  }
+
+  fn reg_with_con(regex: &str, file_contents: &str) -> bool {
+    use regex::Regex;
+
+    Regex::new(regex).unwrap().is_match(file_contents)
+  }
+  fn return_file_in_src(filename: &str) -> String {
+    use std::fs::read_to_string;
+
+    match read_to_string(String::from("combiner/src/") + filename) {
+      Ok(file_contents) => file_contents,
+      Err(_) => String::from("File does not exist"),
+    }
+  }
+}
+
 ```
 
 ### --tests--
@@ -1851,10 +2228,75 @@ mod tests {
 
 ### --description--
 
+To make combining the images simpler, you can resize the largest image to the size of the smallest image. In order to do this, you need to get the smallest dimensions of the two images.
+
+Task: Create a function named `get_smallest_dimensions` which takes two tuples as parameters. Each tuple should take two elements, each of type `u32`.
+
+Run `cargo test --bin combiner` to see if you correctly completed the task.
+
 ### --seed--
 
 ```rust
 // Lesson #38
+mod args;
+
+use args::Args;
+use image::{io::Reader, DynamicImage, ImageFormat};
+
+fn main() -> Result<(), String> {
+  let args = Args::new();
+  println!("{:?}", args);
+
+  let (image_1, image_1_format) = find_image_from_path(args.image_1);
+  let (image_2, image_2_format) = find_image_from_path(args.image_2);
+
+  if image_1_format != image_2_format {
+    return Err(String::from("Image formats must match"));
+  }
+
+  Ok(())
+}
+
+fn find_image_from_path(path: String) -> (DynamicImage, ImageFormat) {
+  let image_reader = Reader::open(path).unwrap();
+  let image_format = image_reader.format().unwrap();
+  let image = image_reader.decode().unwrap();
+  (image, image_format)
+}
+
+fn standardise_size(image_1: DynamicImage, image_2: DynamicImage) {}
+
+#[cfg(test)]
+mod tests {
+  use super::*;
+  #[test]
+  fn get_smallest_dimensions_defined() {
+    if let Some((file_contents, _)) = return_file_in_src("main.rs").split_once("#[cfg(test)]") {
+      assert!(reg_with_con(r"fn\s+get_smallest_dimensions", file_contents));
+    }
+  }
+  #[test]
+  fn get_smallest_dimensions_accepts_correct_args() {
+    let dim_1 = (0u32, 0u32);
+    let dim_2 = (1u32, 1u32);
+    let _res = get_smallest_dimensions(dim_1, dim_2);
+  }
+
+  fn reg_with_con(regex: &str, file_contents: &str) -> bool {
+    use regex::Regex;
+
+    Regex::new(regex).unwrap().is_match(file_contents)
+  }
+  fn return_file_in_src(filename: &str) -> String {
+    use std::fs::read_to_string;
+
+    match read_to_string(String::from("combiner/src/") + filename) {
+      Ok(file_contents) => file_contents,
+      Err(_) => String::from("File does not exist"),
+    }
+  }
+}
+
 ```
 
 ### --tests--
@@ -1863,10 +2305,88 @@ mod tests {
 
 ### --description--
 
+Within `get_smallest_dimensions`, you will need to return the dimensions with the smallest number of pixels. The number of pixels is the product of the width and height.
+
+Task: Return `dim_1` if the number of pixels in `dim_1` is less than the number of pixels in `dim_2`. Return `dim_2` otherwise.
+
+Remember, you can use dot notation to access the elements of a tuple.
+
+Run `cargo test --bin combiner` to see if you correctly completed the task.
+
 ### --seed--
 
 ```rust
 // Lesson #39
+mod args;
+
+use args::Args;
+use image::{io::Reader, DynamicImage, ImageFormat};
+
+fn main() -> Result<(), String> {
+  let args = Args::new();
+  println!("{:?}", args);
+
+  let (image_1, image_1_format) = find_image_from_path(args.image_1);
+  let (image_2, image_2_format) = find_image_from_path(args.image_2);
+
+  if image_1_format != image_2_format {
+    return Err(String::from("Image formats must match"));
+  }
+
+  Ok(())
+}
+
+fn find_image_from_path(path: String) -> (DynamicImage, ImageFormat) {
+  let image_reader = Reader::open(path).unwrap();
+  let image_format = image_reader.format().unwrap();
+  let image = image_reader.decode().unwrap();
+  (image, image_format)
+}
+
+fn standardise_size(image_1: DynamicImage, image_2: DynamicImage) {}
+
+fn get_smallest_dimensions(dim_1: (u32, u32), dim_2: (u32, u32)) {
+
+}
+
+#[cfg(test)]
+mod tests {
+  use super::*;
+  #[test]
+  fn get_smallest_dimensions_defined() {
+    if let Some((file_contents, _)) = return_file_in_src("main.rs").split_once("#[cfg(test)]") {
+      assert!(reg_with_con(r"fn\s+get_smallest_dimensions", file_contents));
+    }
+  }
+  #[test]
+  fn get_smallest_dimensions_accepts_correct_args() {
+    let dim_1 = (0u32, 0u32);
+    let dim_2 = (1u32, 1u32);
+    let _res = get_smallest_dimensions(dim_1, dim_2);
+  }
+  #[test]
+  fn get_smallest_dimensions_returns_correct_dim() {
+    let smaller_tup = (10, 10);
+    let larger_tup = (10, 11);
+    assert_eq!(get_smallest_dimensions(smaller_tup, larger_tup), (10, 10));
+    assert_eq!(get_smallest_dimensions(larger_tup, smaller_tup), (10, 10));
+  }
+
+  fn reg_with_con(regex: &str, file_contents: &str) -> bool {
+    use regex::Regex;
+
+    Regex::new(regex).unwrap().is_match(file_contents)
+  }
+  fn return_file_in_src(filename: &str) -> String {
+    use std::fs::read_to_string;
+
+    match read_to_string(String::from("combiner/src/") + filename) {
+      Ok(file_contents) => file_contents,
+      Err(_) => String::from("File does not exist"),
+    }
+  }
+}
+
 ```
 
 ### --tests--
@@ -1875,10 +2395,241 @@ mod tests {
 
 ### --description--
 
+Task: Within `standardise_size`, destructure the tuple returned from `get_smallest_dimensions` into two variables `width` and `height`. Use the return of calling the `dimensions` method on each `DynamicImage` to pass as arguments for `get_smallest_dimensions`.
+
+Hint: Follow the compiler's advice to get the dimensions of the images.
+
+Run `cargo test --bin combiner` to see if you correctly completed the task.
+
 ### --seed--
 
 ```rust
 // Lesson #40
+mod args;
+
+use args::Args;
+use image::{io::Reader, DynamicImage, ImageFormat};
+
+fn main() -> Result<(), String> {
+  let args = Args::new();
+  println!("{:?}", args);
+
+  let (image_1, image_1_format) = find_image_from_path(args.image_1);
+  let (image_2, image_2_format) = find_image_from_path(args.image_2);
+
+  if image_1_format != image_2_format {
+    return Err(String::from("Image formats must match"));
+  }
+
+  Ok(())
+}
+
+fn find_image_from_path(path: String) -> (DynamicImage, ImageFormat) {
+  let image_reader = Reader::open(path).unwrap();
+  let image_format = image_reader.format().unwrap();
+  let image = image_reader.decode().unwrap();
+  (image, image_format)
+}
+
+fn standardise_size(image_1: DynamicImage, image_2: DynamicImage) {
+
+}
+
+fn get_smallest_dimensions(dim_1: (u32, u32), dim_2: (u32, u32)) -> (u32, u32) {
+  let pix_1 = dim_1.0 * dim_1.1;
+  let pix_2 = dim_2.0 * dim_2.1;
+  return if pix_1 < pix_2 { dim_1 } else { dim_2 };
+}
+
+#[cfg(test)]
+mod tests {
+  use super::*;
+  #[test]
+  fn width_and_height_destructured() {
+    if let Some((file_contents, _)) = return_file_in_src("main.rs").split_once("#[cfg(test)]") {
+      assert!(reg_with_con(
+        r"let\s+\(\s*width\s*,\s*height\s*\)",
+        file_contents
+      ));
+    }
+  }
+  #[test]
+  fn iamge_dimensions_method_used() {
+    if let Some((file_contents, _)) = return_file_in_src("main.rs").split_once("#[cfg(test)]") {
+      assert!(reg_with_con(r"image_1\.dimensions\(\)", file_contents));
+      assert!(reg_with_con(r"image_2\.dimensions\(\)", file_contents));
+    }
+  }
+  #[test]
+  fn generic_image_view_imported() {
+    if let Some((file_contents, _)) = return_file_in_src("main.rs").split_once("#[cfg(test)]") {
+      assert!(reg_with_con(r"GenericImageView", file_contents));
+    }
+  }
+
+  fn reg_with_con(regex: &str, file_contents: &str) -> bool {
+    use regex::Regex;
+
+    Regex::new(regex).unwrap().is_match(file_contents)
+  }
+  fn return_file_in_src(filename: &str) -> String {
+    use std::fs::read_to_string;
+
+    match read_to_string(String::from("combiner/src/") + filename) {
+      Ok(file_contents) => file_contents,
+      Err(_) => String::from("File does not exist"),
+    }
+  }
+}
+```
+
+### --tests--
+
+## 41
+
+### --description--
+
+Task: Within `standardise_size`, print `width` and `height` to the console.
+
+Run `cargo test --bin combiner -- --show-output`. If you see the `'width: 10, height: 10'` printed to the console, you have successfully completed the task.
+
+### --seed--
+
+```rust
+// Lesson #41
+mod args;
+
+use args::Args;
+use image::{io::Reader, DynamicImage, GenericImageView, ImageFormat};
+
+fn main() -> Result<(), String> {
+  let args = Args::new();
+  println!("{:?}", args);
+
+  let (image_1, image_1_format) = find_image_from_path(args.image_1);
+  let (image_2, image_2_format) = find_image_from_path(args.image_2);
+
+  if image_1_format != image_2_format {
+    return Err(String::from("Image formats must match"));
+  }
+
+  Ok(())
+}
+
+fn find_image_from_path(path: String) -> (DynamicImage, ImageFormat) {
+  let image_reader = Reader::open(path).unwrap();
+  let image_format = image_reader.format().unwrap();
+  let image = image_reader.decode().unwrap();
+  (image, image_format)
+}
+
+fn standardise_size(image_1: DynamicImage, image_2: DynamicImage) {
+  let (width, height) = get_smallest_dimensions(image_1.dimensions(), image_2.dimensions());
+}
+
+fn get_smallest_dimensions(dim_1: (u32, u32), dim_2: (u32, u32)) -> (u32, u32) {
+  let pix_1 = dim_1.0 * dim_1.1;
+  let pix_2 = dim_2.0 * dim_2.1;
+  return if pix_1 < pix_2 { dim_1 } else { dim_2 };
+}
+
+#[cfg(test)]
+mod tests {
+  use super::*;
+  #[test]
+  fn width_and_height_print() {
+    let image_1 = DynamicImage::new_rgb8(10, 11);
+    let image_2 = DynamicImage::new_rgb8(10, 10);
+    let _res = standardise_size(image_1, image_2);
+  }
+
+  fn reg_with_con(regex: &str, file_contents: &str) -> bool {
+    use regex::Regex;
+
+    Regex::new(regex).unwrap().is_match(file_contents)
+  }
+  fn return_file_in_src(filename: &str) -> String {
+    use std::fs::read_to_string;
+
+    match read_to_string(String::from("combiner/src/") + filename) {
+      Ok(file_contents) => file_contents,
+      Err(_) => String::from("File does not exist"),
+    }
+  }
+}
+```
+
+### --tests--
+
+## 42
+
+### --description--
+
+### --seed--
+
+```rust
+// Lesson #42
+mod args;
+
+use args::Args;
+use image::{io::Reader, DynamicImage, GenericImageView, ImageFormat};
+
+fn main() -> Result<(), String> {
+  let args = Args::new();
+  println!("{:?}", args);
+
+  let (image_1, image_1_format) = find_image_from_path(args.image_1);
+  let (image_2, image_2_format) = find_image_from_path(args.image_2);
+
+  if image_1_format != image_2_format {
+    return Err(String::from("Image formats must match"));
+  }
+
+  Ok(())
+}
+
+fn find_image_from_path(path: String) -> (DynamicImage, ImageFormat) {
+  let image_reader = Reader::open(path).unwrap();
+  let image_format = image_reader.format().unwrap();
+  let image = image_reader.decode().unwrap();
+  (image, image_format)
+}
+
+fn standardise_size(image_1: DynamicImage, image_2: DynamicImage) {
+  let (width, height) = get_smallest_dimensions(image_1.dimensions(), image_2.dimensions());
+  println!("width: {}, height: {}\n", width, height);
+}
+
+fn get_smallest_dimensions(dim_1: (u32, u32), dim_2: (u32, u32)) -> (u32, u32) {
+  let pix_1 = dim_1.0 * dim_1.1;
+  let pix_2 = dim_2.0 * dim_2.1;
+  return if pix_1 < pix_2 { dim_1 } else { dim_2 };
+}
+
+#[cfg(test)]
+mod tests {
+  use super::*;
+  #[test]
+  fn width_and_height_print() {
+    let image_1 = DynamicImage::new_rgb8(10, 11);
+    let image_2 = DynamicImage::new_rgb8(10, 10);
+    let _res = standardise_size(image_1, image_2);
+  }
+
+  fn reg_with_con(regex: &str, file_contents: &str) -> bool {
+    use regex::Regex;
+
+    Regex::new(regex).unwrap().is_match(file_contents)
+  }
+  fn return_file_in_src(filename: &str) -> String {
+    use std::fs::read_to_string;
+
+    match read_to_string(String::from("combiner/src/") + filename) {
+      Ok(file_contents) => file_contents,
+      Err(_) => String::from("File does not exist"),
+    }
+  }
+}
 ```
 
 ### --tests--
