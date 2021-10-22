@@ -247,8 +247,8 @@ mod tests {
 
 - You should create a new variable called `args`.
 - `let args`
-- You should assign `args` the value of `Args::new()`.
-- `let\s+args\s*=\s*Args::new()`
+- You should assign `args` the value of `Args {}`.
+- `let\s+args\s*=\s*Args\s*\{\};`
 
 ## 7
 
@@ -1047,7 +1047,7 @@ mod tests {
 
 ### --description--
 
-Task: Move the `Args` struct and implementation, and the `get_nth_arg` function to the `args.rs` file. Then, uncomment the content within the `main` function so your app compiles.
+Task: Move the `Args` struct and implementation, and the `get_nth_arg` function to the `args.rs` file. Then, comment out the content within the `main` function so your app compiles.
 
 Run `cargo test --bin combiner` to see if you correctly completed the task.
 
@@ -1389,6 +1389,16 @@ mod tests {
 
 ### --description--
 
+In order to encode and decode the images, you will use the `image` crate.
+
+Task: Within the root `Cargo.toml`, add the following to the `dependencies` section:
+
+```rust
+image = "0.23.14"
+```
+
+Run `cargo test --bin combiner` to see if you correctly completed the task.
+
 ### --seed--
 
 ```rust
@@ -1405,18 +1415,202 @@ fn main() {
 #[cfg(test)]
 mod tests {
   #[test]
-  fn main_declares_args_as_module() {
-    let file_contents = return_file_in_src("main.rs");
-    assert!(reg_with_con("(\n|^)mod args;", &file_contents));
+  fn image_crate_is_in_root_cargo_toml() {
+    use image;
+    assert!(true, "If there is an error, the crate has not been correctly added")
   }
+}
+```
 
+### --tests--
+
+## 26
+
+### --description--
+
+Task: Within `main.rs`, defined a function named `find_image_from_path` that takes a `String` as an argument.
+
+Run `cargo test --bin combiner` to see if you correctly completed the task.
+
+### --seed--
+
+```rust
+// Lesson #26
+mod args;
+use args::Args;
+
+fn main() {
+  let args = Args::new();
+  println!("{:?}", args);
+}
+
+
+#[cfg(test)]
+mod tests {
+  use super::*;
   #[test]
-  fn args_dot_rs_declares_new_as_pub() {
-    let file_contents = return_file_in_src("args.rs");
-    assert!(reg_with_con("pub fn new()", &file_contents));
+  fn find_image_from_path_is_defined() {
+    assert_eq!(find_image_from_path("".to_string()), ());
+  }
+}
+```
+
+### --tests--
+
+## 27
+
+### --description--
+
+Task: Import the `Reader` struct from `image::io`, and, within `find_image_from_path`, assign the unwrapped value of the `Reader::open` function, passing `path` as the argument, to a variable named `image_reader`. Then, return `image_reader`.
+
+Hint: Follow the compiler's advice, and import the necessary types.
+
+Run `cargo test --bin combiner` to see if you correctly completed the task.
+
+### --seed--
+
+```rust
+// Lesson #27
+mod args;
+use args::Args;
+
+fn main() {
+  let args = Args::new();
+  println!("{:?}", args);
+}
+
+fn find_image_from_path(path: String) {
+
+}
+
+#[cfg(test)]
+mod tests {
+  use super::*;
+  #[test]
+  fn find_image_from_path_returns_reader() {
+    use std::{fs::File, io::BufReader};
+    let _image_reader: Reader<BufReader<File>> =
+      find_image_from_path("./images/fcc_glyph.png".to_string());
+  }
+}
+```
+
+### --tests--
+
+## 28
+
+### --description--
+
+Task: Within `find_image_from_path`, assign the unwrapped value of the `format` method on `image_reader` to a variable named `image_format`, and return it.
+
+Hint: Follow the compiler's advice, and import the necessary types.
+
+Run `cargo test --bin combiner` to see if you correctly completed the task.
+
+### --seed--
+
+```rust
+// Lesson #28
+mod args;
+use std::{fs::File, io::BufReader};
+
+use args::Args;
+use image::io::Reader;
+
+fn main() {
+  let args = Args::new();
+  println!("{:?}", args);
+}
+
+fn find_image_from_path(path: String) -> Reader<BufReader<File>> {
+  let image_reader = Reader::open(path).unwrap();
+  image_reader
+}
+
+#[cfg(test)]
+mod tests {
+  use super::*;
+  #[test]
+  fn find_image_from_path_returns_format() {
+    use image::ImageFormat;
+    let image_format: ImageFormat = find_image_from_path("./images/fcc_glyph.png".to_string());
+    assert_eq!(ImageFormat::Png, image_format);
+  }
+  #[test]
+  fn image_reader_var_declared() {
+    let file_contents = return_file_in_src("main.rs");
+    assert!(reg_with_con(r"let\s+image_reader", file_contents));
+  }
+  #[test]
+  fn image_format_var_declared() {
+    let file_contents = return_file_in_src("main.rs");
+    assert!(reg_with_con(r"let\s+image_format", file_contents));
   }
 
-  fn reg_with_con(regex: &str, file_contents: &String) -> bool {
+  fn reg_with_con(regex: &str, file_contents: String) -> bool {
+    use regex::Regex;
+
+    Regex::new(regex).unwrap().is_match(&file_contents)
+  }
+  fn return_file_in_src(filename: &str) -> String {
+    use std::fs::read_to_string;
+
+    match read_to_string(String::from("combiner/src/") + filename) {
+      Ok(file_contents) => file_contents,
+      Err(_) => String::from("File does not exist"),
+    }
+  }
+}
+```
+
+### --tests--
+
+## 29
+
+### --description--
+
+Task: Remove the unused imports from `main.rs`.
+
+Run `cargo test --bin combiner` to see if you correctly completed the task.
+
+### --seed--
+
+```rust
+// Lesson #29
+mod args;
+use std::{fs::File, io::BufReader};
+
+use args::Args;
+use image::{io::Reader, ImageFormat};
+
+fn main() {
+  let args = Args::new();
+  println!("{:?}", args);
+}
+
+fn find_image_from_path(path: String) -> ImageFormat {
+  let image_reader = Reader::open(path).unwrap();
+  let image_format = image_reader.format().unwrap();
+  image_format
+}
+
+#[cfg(test)]
+mod tests {
+  use super::*;
+  #[test]
+  fn find_image_from_path_returns_format() {
+    use image::ImageFormat;
+    let image_format: ImageFormat = find_image_from_path("./images/fcc_glyph.png".to_string());
+    assert_eq!(ImageFormat::Png, image_format);
+  }
+  #[test]
+  fn std_lib_not_imported() {
+    if let Some((file_contents, _)) = return_file_in_src("main.rs").split_once("#[cfg(test)]") {
+      assert!(!reg_with_con(r"use\s+std::", file_contents));
+    }
+  }
+
+  fn reg_with_con(regex: &str, file_contents: &str) -> bool {
     use regex::Regex;
 
     Regex::new(regex).unwrap().is_match(file_contents)
@@ -1430,6 +1624,261 @@ mod tests {
     }
   }
 }
+```
+
+### --tests--
+
+## 30
+
+### --description--
+
+So far, you have not decoded the image. The `Reader` has a `decode` method which returns a `DynamicImage` in a `Result`.
+
+Task: Within `find_image_from_path`, assign the unwrapped value of the `decode` method on `image_reader` to a variable named `image`. Then, return `image`.
+
+Hint: Follow the compiler's advice, and import the necessary types.
+
+Run `cargo test --bin combiner` to see if you correctly completed the task.
+
+### --seed--
+
+```rust
+// Lesson #30
+mod args;
+
+use args::Args;
+use image::{io::Reader, ImageFormat};
+
+fn main() {
+  let args = Args::new();
+  println!("{:?}", args);
+}
+
+fn find_image_from_path(path: String) -> ImageFormat {
+  let image_reader = Reader::open(path).unwrap();
+  let image_format = image_reader.format().unwrap();
+  image_format
+}
+
+#[cfg(test)]
+mod tests {
+  use super::*;
+  #[test]
+  fn find_image_from_path_returns_image() {
+    use image::DynamicImage;
+    let _image: DynamicImage = find_image_from_path("./images/fcc_glyph.png".to_string());
+  }
+  #[test]
+  fn image_var_declared() {
+    if let Some((file_contents, _)) = return_file_in_src("main.rs").split_once("#[cfg(test)]") {
+      assert!(reg_with_con(r"let image", file_contents));
+    }
+  }
+
+  fn reg_with_con(regex: &str, file_contents: &str) -> bool {
+    use regex::Regex;
+
+    Regex::new(regex).unwrap().is_match(file_contents)
+  }
+  fn return_file_in_src(filename: &str) -> String {
+    use std::fs::read_to_string;
+
+    match read_to_string(String::from("combiner/src/") + filename) {
+      Ok(file_contents) => file_contents,
+      Err(_) => String::from("File does not exist"),
+    }
+  }
+}
+```
+
+### --tests--
+
+## 31
+
+### --description--
+
+You have learnt about the empty tuple type `()`. Now, you will use a tuple to return multiple values. Unlike other types, a tuple can contain more than one type.
+
+```rust
+  // The Vec type can only contain one type.
+  let my_vec = vec![1u8, 2u16, 3u32];
+  // Tuples can contain multiple types.
+  let my_tuple = (1u8, 2u16, 3u32);
+```
+
+Task: From `find_image_from_path`, return a tuple containing the `DynamicImage` and `ImageFormat` of the image, in that order.
+
+Run `cargo test --bin combiner` to see if you correctly completed the task.
+
+### --seed--
+
+```rust
+// Lesson #31
+mod args;
+
+use args::Args;
+use image::{io::Reader, DynamicImage, ImageFormat};
+
+fn main() {
+  let args = Args::new();
+  println!("{:?}", args);
+}
+
+fn find_image_from_path(path: String) -> DynamicImage {
+  let image_reader = Reader::open(path).unwrap();
+  let image_format = image_reader.format().unwrap();
+  let image = image_reader.decode().unwrap();
+  image
+}
+
+#[cfg(test)]
+mod tests {
+  use super::*;
+  #[test]
+  fn find_image_from_path_returns_a_tuple() {
+    use image::{DynamicImage, ImageFormat};
+    let (_image, image_format): (DynamicImage, ImageFormat) =
+      find_image_from_path("./images/fcc_glyph.png".to_string());
+    assert_eq!(image_format, ImageFormat::Png);
+  }
+}
+```
+
+### --tests--
+
+## 32
+
+### --description--
+
+### --seed--
+
+```rust
+// Lesson #32
+mod args;
+
+use args::Args;
+use image::{io::Reader, DynamicImage, ImageFormat};
+
+fn main() {
+  let args = Args::new();
+  println!("{:?}", args);
+}
+
+fn find_image_from_path(path: String) -> (DynamicImage, ImageFormat) {
+  let image_reader = Reader::open(path).unwrap();
+  let image_format = image_reader.format().unwrap();
+  let image = image_reader.decode().unwrap();
+  (image, image_format)
+}
+
+#[cfg(test)]
+mod tests {
+  use super::*;
+  #[test]
+  fn find_image_from_path_returns_a_tuple() {
+    use image::{DynamicImage, ImageFormat};
+    let (_image, image_format): (DynamicImage, ImageFormat) =
+      find_image_from_path("./images/fcc_glyph.png".to_string());
+    assert_eq!(image_format, ImageFormat::Png);
+  }
+}
+
+```
+
+### --tests--
+
+## 33
+
+### --description--
+
+### --seed--
+
+```rust
+// Lesson #33
+```
+
+### --tests--
+
+## 34
+
+### --description--
+
+### --seed--
+
+```rust
+// Lesson #34
+```
+
+### --tests--
+
+## 35
+
+### --description--
+
+### --seed--
+
+```rust
+// Lesson #35
+```
+
+### --tests--
+
+## 36
+
+### --description--
+
+### --seed--
+
+```rust
+// Lesson #36
+```
+
+### --tests--
+
+## 37
+
+### --description--
+
+### --seed--
+
+```rust
+// Lesson #37
+```
+
+### --tests--
+
+## 38
+
+### --description--
+
+### --seed--
+
+```rust
+// Lesson #38
+```
+
+### --tests--
+
+## 39
+
+### --description--
+
+### --seed--
+
+```rust
+// Lesson #39
+```
+
+### --tests--
+
+## 40
+
+### --description--
+
+### --seed--
+
+```rust
+// Lesson #40
 ```
 
 ### --tests--
