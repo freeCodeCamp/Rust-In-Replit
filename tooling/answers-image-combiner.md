@@ -3323,6 +3323,31 @@ fn get_smallest_dimensions(dim_1: (u32, u32), dim_2: (u32, u32)) -> (u32, u32) {
   let pix_2 = dim_2.0 * dim_2.1;
   return if pix_1 < pix_2 { dim_1 } else { dim_2 };
 }
+
+#[cfg(test)]
+mod tests {
+  use super::*;
+  #[test]
+  fn floating_image_struct_width() {
+    let float = FloatingImage::new(1u32, 2u32, "test".to_string());
+    assert_eq!(float.width, 1);
+  }
+  #[test]
+  fn floating_image_struct_height() {
+    let float = FloatingImage::new(0u32, 10u32, "test".to_string());
+    assert_eq!(float.height, 10);
+  }
+  #[test]
+  fn floating_image_struct_name() {
+    let float = FloatingImage::new(0u32, 0u32, "output".to_string());
+    assert_eq!(float.name, String::from("output"));
+  }
+  #[test]
+  fn floating_image_struct_data() {
+    let float = FloatingImage::new(0u32, 0u32, "test".to_string());
+    assert_eq!(float.data.capacity(), 3_655_744);
+  }
+}
 ```
 
 ### --tests--
@@ -3331,10 +3356,128 @@ fn get_smallest_dimensions(dim_1: (u32, u32), dim_2: (u32, u32)) -> (u32, u32) {
 
 ### --description--
 
+Task: Within `main`, declare a new variable `output` using the `new` function of the `FloatingImage` struct. Use the `width` and `height` methods of the `image_1` variable for the first two arguments, and the `output` field of the `args` variable for the third argument.
+
+Run `cargo test --bin combiner` to see if you correctly completed the task.
+
 ### --seed--
 
 ```rust
 // Lesson #50
+mod args;
+
+use args::Args;
+use image::{
+  imageops::FilterType::Triangle, io::Reader, DynamicImage, GenericImageView, ImageFormat,
+};
+
+fn main() -> Result<(), String> {
+  let args = Args::new();
+  println!("{:?}", args);
+
+  let (image_1, image_1_format) = find_image_from_path(args.image_1);
+  let (image_2, image_2_format) = find_image_from_path(args.image_2);
+
+  if image_1_format != image_2_format {
+    return Err(String::from("Image formats must match"));
+  }
+
+  let (image_1, image_2) = standardise_size(image_1, image_2);
+
+  Ok(())
+}
+
+struct FloatingImage {
+  width: u32,
+  height: u32,
+  data: Vec<u8>,
+  name: String,
+}
+
+impl FloatingImage {
+  fn new(width: u32, height: u32, name: String) -> Self {
+    let buffer_capacity = 3_655_744;
+    let buffer: Vec<u8> = Vec::with_capacity(buffer_capacity);
+    FloatingImage {
+      width,
+      height,
+      data: buffer,
+      name,
+    }
+  }
+}
+
+fn find_image_from_path(path: String) -> (DynamicImage, ImageFormat) {
+  let image_reader = Reader::open(path).unwrap();
+  let image_format = image_reader.format().unwrap();
+  let image = image_reader.decode().unwrap();
+  (image, image_format)
+}
+
+fn standardise_size(image_1: DynamicImage, image_2: DynamicImage) -> (DynamicImage, DynamicImage) {
+  let (width, height) = get_smallest_dimensions(image_1.dimensions(), image_2.dimensions());
+  println!("width: {}, height: {}\n", width, height);
+  if image_2.dimensions() == (width, height) {
+    (image_1.resize_exact(width, height, Triangle), image_2)
+  } else {
+    (image_1, image_2.resize_exact(width, height, Triangle))
+  }
+}
+
+fn get_smallest_dimensions(dim_1: (u32, u32), dim_2: (u32, u32)) -> (u32, u32) {
+  let pix_1 = dim_1.0 * dim_1.1;
+  let pix_2 = dim_2.0 * dim_2.1;
+  return if pix_1 < pix_2 { dim_1 } else { dim_2 };
+}
+
+#[cfg(test)]
+mod tests {
+  use super::*;
+  #[test]
+  fn floating_image_struct_width() {
+    let float = FloatingImage::new(1u32, 2u32, "test".to_string());
+    assert_eq!(float.width, 1);
+  }
+  #[test]
+  fn floating_image_struct_height() {
+    let float = FloatingImage::new(0u32, 10u32, "test".to_string());
+    assert_eq!(float.height, 10);
+  }
+  #[test]
+  fn floating_image_struct_name() {
+    let float = FloatingImage::new(0u32, 0u32, "output".to_string());
+    assert_eq!(float.name, String::from("output"));
+  }
+  #[test]
+  fn floating_image_struct_data() {
+    let float = FloatingImage::new(0u32, 0u32, "test".to_string());
+    assert_eq!(float.data.capacity(), 3_655_744);
+  }
+  #[test]
+  fn output_var_declared() {
+    if let Some((file_contents, _)) = return_file_in_src("main.rs").split_once("#[cfg(test)]") {
+      assert!(reg_with_con(r"let\s+output", file_contents));
+      assert!(reg_with_con(
+        r"FloatingImage::new\(\s*image_1\.width\(\)\s*,\s*image_1\.height\(\)\s*,\s*args\.output",
+        file_contents
+      ));
+    }
+  }
+
+  fn reg_with_con(regex: &str, file_contents: &str) -> bool {
+    use regex::Regex;
+
+    Regex::new(regex).unwrap().is_match(file_contents)
+  }
+  fn return_file_in_src(filename: &str) -> String {
+    use std::fs::read_to_string;
+
+    match read_to_string(String::from("combiner/src/") + filename) {
+      Ok(file_contents) => file_contents,
+      Err(_) => String::from("File does not exist"),
+    }
+  }
+}
 ```
 
 ### --tests--
@@ -3343,10 +3486,92 @@ fn get_smallest_dimensions(dim_1: (u32, u32), dim_2: (u32, u32)) -> (u32, u32) {
 
 ### --description--
 
+Task: Define a function named `combine_images` which takes two `DynamicImage`s as arguments.
+
+Run `cargo test --bin combiner` to see if you correctly completed the task.
+
 ### --seed--
 
 ```rust
 // Lesson #51
+mod args;
+
+use args::Args;
+use image::{
+  imageops::FilterType::Triangle, io::Reader, DynamicImage, GenericImageView, ImageFormat,
+};
+
+fn main() -> Result<(), String> {
+  let args = Args::new();
+  println!("{:?}", args);
+
+  let (image_1, image_1_format) = find_image_from_path(args.image_1);
+  let (image_2, image_2_format) = find_image_from_path(args.image_2);
+
+  if image_1_format != image_2_format {
+    return Err(String::from("Image formats must match"));
+  }
+
+  let (image_1, image_2) = standardise_size(image_1, image_2);
+  let output = FloatingImage::new(image_1.width(), image_1.height(), args.output);
+
+  Ok(())
+}
+
+struct FloatingImage {
+  width: u32,
+  height: u32,
+  data: Vec<u8>,
+  name: String,
+}
+
+impl FloatingImage {
+  fn new(width: u32, height: u32, name: String) -> Self {
+    let buffer_capacity = 3_655_744;
+    let buffer: Vec<u8> = Vec::with_capacity(buffer_capacity);
+    FloatingImage {
+      width,
+      height,
+      data: buffer,
+      name,
+    }
+  }
+}
+
+fn find_image_from_path(path: String) -> (DynamicImage, ImageFormat) {
+  let image_reader = Reader::open(path).unwrap();
+  let image_format = image_reader.format().unwrap();
+  let image = image_reader.decode().unwrap();
+  (image, image_format)
+}
+
+fn standardise_size(image_1: DynamicImage, image_2: DynamicImage) -> (DynamicImage, DynamicImage) {
+  let (width, height) = get_smallest_dimensions(image_1.dimensions(), image_2.dimensions());
+  println!("width: {}, height: {}\n", width, height);
+  if image_2.dimensions() == (width, height) {
+    (image_1.resize_exact(width, height, Triangle), image_2)
+  } else {
+    (image_1, image_2.resize_exact(width, height, Triangle))
+  }
+}
+
+fn get_smallest_dimensions(dim_1: (u32, u32), dim_2: (u32, u32)) -> (u32, u32) {
+  let pix_1 = dim_1.0 * dim_1.1;
+  let pix_2 = dim_2.0 * dim_2.1;
+  return if pix_1 < pix_2 { dim_1 } else { dim_2 };
+}
+
+#[cfg(test)]
+mod tests {
+  use super::*;
+  #[test]
+  fn combine_images_defined() {
+    let image_1 = DynamicImage::new_bgr8(10, 10);
+    let image_2 = DynamicImage::new_bgr8(10, 10);
+    let img = combine_images(image_1, image_2);
+    assert_eq!(img, ());
+  }
+}
 ```
 
 ### --tests--
@@ -3355,10 +3580,87 @@ fn get_smallest_dimensions(dim_1: (u32, u32), dim_2: (u32, u32)) -> (u32, u32) {
 
 ### --description--
 
+In order to process the images, you will convert them into a vector of RGBA pixels. The pixels are stored as `u8`s, because their values are between 0 and 255.
+
+The `DynamicImage` struct implements the `to_rgba8` method, which returns an `ImageBuffer` containing a `Vec<u8>`, and the `ImageBuffer` implements the `to_vec` method, which returns the `Vec<u8>`.
+
+Task: Within `combine_images`, declare a variable `vec_1`, and use the above methods to assign the `Vec<u8>` to it. Return `vec_1`.
+
+Run TEACH ATTRIBUTE TO ALLOW DEAD_CODE
+
 ### --seed--
 
 ```rust
 // Lesson #52
+mod args;
+
+use args::Args;
+use image::{
+  imageops::FilterType::Triangle, io::Reader, DynamicImage, GenericImageView, ImageFormat,
+};
+
+fn main() -> Result<(), String> {
+  let args = Args::new();
+  println!("{:?}", args);
+
+  let (image_1, image_1_format) = find_image_from_path(args.image_1);
+  let (image_2, image_2_format) = find_image_from_path(args.image_2);
+
+  if image_1_format != image_2_format {
+    return Err(String::from("Image formats must match"));
+  }
+
+  let (image_1, image_2) = standardise_size(image_1, image_2);
+  let output = FloatingImage::new(image_1.width(), image_1.height(), args.output);
+
+  Ok(())
+}
+
+struct FloatingImage {
+  width: u32,
+  height: u32,
+  data: Vec<u8>,
+  name: String,
+}
+
+impl FloatingImage {
+  fn new(width: u32, height: u32, name: String) -> Self {
+    let buffer_capacity = 3_655_744;
+    let buffer: Vec<u8> = Vec::with_capacity(buffer_capacity);
+    FloatingImage {
+      width,
+      height,
+      data: buffer,
+      name,
+    }
+  }
+}
+
+fn find_image_from_path(path: String) -> (DynamicImage, ImageFormat) {
+  let image_reader = Reader::open(path).unwrap();
+  let image_format = image_reader.format().unwrap();
+  let image = image_reader.decode().unwrap();
+  (image, image_format)
+}
+
+fn standardise_size(image_1: DynamicImage, image_2: DynamicImage) -> (DynamicImage, DynamicImage) {
+  let (width, height) = get_smallest_dimensions(image_1.dimensions(), image_2.dimensions());
+  println!("width: {}, height: {}\n", width, height);
+  if image_2.dimensions() == (width, height) {
+    (image_1.resize_exact(width, height, Triangle), image_2)
+  } else {
+    (image_1, image_2.resize_exact(width, height, Triangle))
+  }
+}
+
+fn get_smallest_dimensions(dim_1: (u32, u32), dim_2: (u32, u32)) -> (u32, u32) {
+  let pix_1 = dim_1.0 * dim_1.1;
+  let pix_2 = dim_2.0 * dim_2.1;
+  return if pix_1 < pix_2 { dim_1 } else { dim_2 };
+}
+
+fn combine_images(image_1: DynamicImage, image_2: DynamicImage) {}
+
 ```
 
 ### --tests--
