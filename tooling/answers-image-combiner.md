@@ -1461,16 +1461,19 @@ mod tests {
 
 ### --description--
 
-Task: Import the `Reader` struct from `image::io`, and, within `find_image_from_path`, assign the unwrapped value of the `Reader::open` function, passing `path` as the argument, to a variable named `image_reader`. Then, return `image_reader`.
+The compiler is showing a warning that the `find_image_from_path` function is unused. This is going to become annoying, over the course of this project. Fortunately, you can enable global attributes to suppress the warning.
 
-Hint: Follow the compiler's advice, and import the necessary types.
+Global attributs use the syntax `#![feature(feature_name)]`, and should be placed at the top of the file.
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+Task: Within `main.rs`, use the `allow` feature to globally enable `unused_variables` and `dead_code`.
+
+Run `cargo test --bin combiner`. If you no longer see the warning, you have successfully completed this lesson.
 
 ### --seed--
 
 ```rust
 // Lesson #27
+#![allow(unused_variables, dead_code)]
 mod args;
 use args::Args;
 
@@ -1501,7 +1504,7 @@ mod tests {
 
 ### --description--
 
-Task: Within `find_image_from_path`, assign the unwrapped value of the `format` method on `image_reader` to a variable named `image_format`, and return it.
+Task: Import the `Reader` struct from `image::io`, and, within `find_image_from_path`, assign the unwrapped value of the `Reader::open` function, passing `path` as the argument, to a variable named `image_reader`. Then, return `image_reader`.
 
 Hint: Follow the compiler's advice, and import the necessary types.
 
@@ -1511,6 +1514,48 @@ Run `cargo test --bin combiner` to see if you correctly completed the task.
 
 ```rust
 // Lesson #28
+#![allow(unused_variables, dead_code)]
+mod args;
+use args::Args;
+
+fn main() {
+  let args = Args::new();
+  println!("{:?}", args);
+}
+
+fn find_image_from_path(path: String) {
+
+}
+
+#[cfg(test)]
+mod tests {
+  use super::*;
+  #[test]
+  fn find_image_from_path_returns_reader() {
+    use std::{fs::File, io::BufReader};
+    let _image_reader: Reader<BufReader<File>> =
+      find_image_from_path("./images/fcc_glyph.png".to_string());
+  }
+}
+```
+
+### --tests--
+
+## 29
+
+### --description--
+
+Task: Within `find_image_from_path`, assign the unwrapped value of the `format` method on `image_reader` to a variable named `image_format`, and return it.
+
+Hint: Follow the compiler's advice, and import the necessary types.
+
+Run `cargo test --bin combiner` to see if you correctly completed the task.
+
+### --seed--
+
+```rust
+// Lesson #29
+#![allow(unused_variables, dead_code)]
 mod args;
 use std::{fs::File, io::BufReader};
 
@@ -1565,7 +1610,7 @@ mod tests {
 
 ### --tests--
 
-## 29
+## 30
 
 ### --description--
 
@@ -1576,7 +1621,8 @@ Run `cargo test --bin combiner` to see if you correctly completed the task.
 ### --seed--
 
 ```rust
-// Lesson #29
+// Lesson #30
+#![allow(unused_variables, dead_code)]
 mod args;
 use std::{fs::File, io::BufReader};
 
@@ -1628,7 +1674,7 @@ mod tests {
 
 ### --tests--
 
-## 30
+## 31
 
 ### --description--
 
@@ -1643,7 +1689,8 @@ Run `cargo test --bin combiner` to see if you correctly completed the task.
 ### --seed--
 
 ```rust
-// Lesson #30
+// Lesson #31
+#![allow(unused_variables, dead_code)]
 mod args;
 
 use args::Args;
@@ -1693,7 +1740,7 @@ mod tests {
 
 ### --tests--
 
-## 31
+## 32
 
 ### --description--
 
@@ -1713,7 +1760,8 @@ Run `cargo test --bin combiner` to see if you correctly completed the task.
 ### --seed--
 
 ```rust
-// Lesson #31
+// Lesson #32
+#![allow(unused_variables, dead_code)]
 mod args;
 
 use args::Args;
@@ -1746,7 +1794,7 @@ mod tests {
 
 ### --tests--
 
-## 32
+## 33
 
 ### --description--
 
@@ -1763,7 +1811,8 @@ Run `cargo test --bin combiner`. You should see an error.
 ### --seed--
 
 ```rust
-// Lesson #32
+// Lesson #33
+#![allow(unused_variables, dead_code)]
 mod args;
 
 use args::Args;
@@ -1829,7 +1878,7 @@ mod tests {
 
 ### --tests--
 
-## 33
+## 34
 
 ### --description--
 
@@ -1842,7 +1891,8 @@ Run `cargo test --bin combiner` to see if you correctly completed the task.
 ### --seed--
 
 ```rust
-// Lesson #33
+// Lesson #34
+#![allow(unused_variables, dead_code)]
 mod args;
 
 use args::Args;
@@ -1917,7 +1967,7 @@ mod tests {
 
 ### --tests--
 
-## 34
+## 35
 
 ### --description--
 
@@ -1928,7 +1978,8 @@ Run `cargo test --bin combiner` to see if you correctly completed the task.
 ### --seed--
 
 ```rust
-// Lesson #34
+// Lesson #35
+#![allow(unused_variables, dead_code)]
 mod args;
 
 use args::Args;
@@ -1995,7 +2046,7 @@ mod tests {
 
 ### --tests--
 
-## 35
+## 36
 
 ### --description--
 
@@ -2018,7 +2069,8 @@ Task: Within `main.rs`, convert the `main` function to return a `Result`. For no
 ### --seed--
 
 ```rust
-// Lesson #35
+// Lesson #36
+#![allow(unused_variables, dead_code)]
 mod args;
 
 use args::Args;
@@ -2072,7 +2124,7 @@ mod tests {
 
 ### --tests--
 
-## 36
+## 37
 
 ### --description--
 
@@ -2085,7 +2137,8 @@ Run `cargo test --bin combiner` to see if you correctly completed the task.
 ### --seed--
 
 ```rust
-// Lesson #36
+// Lesson #37
+#![allow(unused_variables, dead_code)]
 mod args;
 
 use args::Args;
@@ -2149,7 +2202,7 @@ mod tests {
 
 ### --tests--
 
-## 37
+## 38
 
 ### --description--
 
@@ -2162,7 +2215,8 @@ Run `cargo test --bin combiner` to see if you correctly completed the task.
 ### --seed--
 
 ```rust
-// Lesson #37
+// Lesson #38
+#![allow(unused_variables, dead_code)]
 mod args;
 
 use args::Args;
@@ -2224,7 +2278,7 @@ mod tests {
 
 ### --tests--
 
-## 38
+## 39
 
 ### --description--
 
@@ -2237,7 +2291,8 @@ Run `cargo test --bin combiner` to see if you correctly completed the task.
 ### --seed--
 
 ```rust
-// Lesson #38
+// Lesson #39
+#![allow(unused_variables, dead_code)]
 mod args;
 
 use args::Args;
@@ -2301,7 +2356,7 @@ mod tests {
 
 ### --tests--
 
-## 39
+## 40
 
 ### --description--
 
@@ -2316,7 +2371,8 @@ Run `cargo test --bin combiner` to see if you correctly completed the task.
 ### --seed--
 
 ```rust
-// Lesson #39
+// Lesson #40
+#![allow(unused_variables, dead_code)]
 mod args;
 
 use args::Args;
@@ -2391,7 +2447,7 @@ mod tests {
 
 ### --tests--
 
-## 40
+## 41
 
 ### --description--
 
@@ -2404,7 +2460,8 @@ Run `cargo test --bin combiner` to see if you correctly completed the task.
 ### --seed--
 
 ```rust
-// Lesson #40
+// Lesson #41
+#![allow(unused_variables, dead_code)]
 mod args;
 
 use args::Args;
@@ -2485,7 +2542,7 @@ mod tests {
 
 ### --tests--
 
-## 41
+## 42
 
 ### --description--
 
@@ -2496,7 +2553,8 @@ Run `cargo test --bin combiner -- --show-output`. If you see the `'width: 10, he
 ### --seed--
 
 ```rust
-// Lesson #41
+// Lesson #42
+#![allow(unused_variables, dead_code)]
 mod args;
 
 use args::Args;
@@ -2561,7 +2619,7 @@ mod tests {
 
 ### --tests--
 
-## 42
+## 43
 
 ### --description--
 
@@ -2572,7 +2630,8 @@ Run `cargo test --bin combiner` to see if you correctly completed the task.
 ### --seed--
 
 ```rust
-// Lesson #42
+// Lesson #43
+#![allow(unused_variables, dead_code)]
 mod args;
 
 use args::Args;
@@ -2653,7 +2712,7 @@ mod tests {
 
 ### --tests--
 
-## 43
+## 44
 
 ### --description--
 
@@ -2670,7 +2729,8 @@ Run `cargo test --bin combiner` to see if you correctly completed the task.
 ### --seed--
 
 ```rust
-// Lesson #43
+// Lesson #44
+#![allow(unused_variables, dead_code)]
 mod args;
 
 use args::Args;
@@ -2737,7 +2797,7 @@ mod tests {
 
 ### --tests--
 
-## 44
+## 45
 
 ### --description--
 
@@ -2748,7 +2808,8 @@ Run `cargo test --bin combiner` to see if you correctly completed the task.
 ### --seed--
 
 ```rust
-// Lesson #44
+// Lesson #45
+#![allow(unused_variables, dead_code)]
 mod args;
 
 use args::Args;
@@ -2832,7 +2893,7 @@ mod tests {
 
 ### --tests--
 
-## 45
+## 46
 
 ### --description--
 
@@ -2852,7 +2913,8 @@ Run `cargo test --bin combiner` to see if you correctly completed the task.
 ### --seed--
 
 ```rust
-// Lesson #45
+// Lesson #46
+#![allow(unused_variables, dead_code)]
 mod args;
 
 use args::Args;
@@ -2922,7 +2984,7 @@ mod tests {
 
 ### --tests--
 
-## 46
+## 47
 
 ### --description--
 
@@ -2933,7 +2995,8 @@ Run `cargo test --bin combiner` to see if you correctly completed the task.
 ### --seed--
 
 ```rust
-// Lesson #46
+// Lesson #47
+#![allow(unused_variables, dead_code)]
 mod args;
 
 use args::Args;
@@ -3000,7 +3063,7 @@ mod tests {
 
 ### --tests--
 
-## 47
+## 48
 
 ### --description--
 
@@ -3020,7 +3083,8 @@ Run `cargo test --bin combiner` to see if you correctly completed the task.
 ### --seed--
 
 ```rust
-// Lesson #47
+// Lesson #48
+#![allow(unused_variables, dead_code)]
 mod args;
 
 use args::Args;
@@ -3124,7 +3188,7 @@ mod tests {
 
 ### --tests--
 
-## 48
+## 49
 
 ### --description--
 
@@ -3139,7 +3203,8 @@ Run `cargo test --bin combiner` to see if you correctly completed the task.
 ### --seed--
 
 ```rust
-// Lesson #48
+// Lesson #49
+#![allow(unused_variables, dead_code)]
 mod args;
 
 use args::Args;
@@ -3252,7 +3317,7 @@ mod tests {
 
 ### --tests--
 
-## 49
+## 50
 
 ### --description--
 
@@ -3263,7 +3328,8 @@ Run `cargo test --bin combiner` to see if you correctly completed the task.
 ### --seed--
 
 ```rust
-// Lesson #49
+// Lesson #50
+#![allow(unused_variables, dead_code)]
 mod args;
 
 use args::Args;
@@ -3352,7 +3418,7 @@ mod tests {
 
 ### --tests--
 
-## 50
+## 51
 
 ### --description--
 
@@ -3363,7 +3429,8 @@ Run `cargo test --bin combiner` to see if you correctly completed the task.
 ### --seed--
 
 ```rust
-// Lesson #50
+// Lesson #51
+#![allow(unused_variables, dead_code)]
 mod args;
 
 use args::Args;
@@ -3482,7 +3549,7 @@ mod tests {
 
 ### --tests--
 
-## 51
+## 52
 
 ### --description--
 
@@ -3493,7 +3560,8 @@ Run `cargo test --bin combiner` to see if you correctly completed the task.
 ### --seed--
 
 ```rust
-// Lesson #51
+// Lesson #52
+#![allow(unused_variables, dead_code)]
 mod args;
 
 use args::Args;
@@ -3576,7 +3644,7 @@ mod tests {
 
 ### --tests--
 
-## 52
+## 53
 
 ### --description--
 
@@ -3591,7 +3659,8 @@ Run TEACH ATTRIBUTE TO ALLOW DEAD_CODE
 ### --seed--
 
 ```rust
-// Lesson #52
+// Lesson #53
+#![allow(unused_variables, dead_code)]
 mod args;
 
 use args::Args;
@@ -3665,18 +3734,6 @@ fn combine_images(image_1: DynamicImage, image_2: DynamicImage) {}
 
 ### --tests--
 
-## 53
-
-### --description--
-
-### --seed--
-
-```rust
-// Lesson #53
-```
-
-### --tests--
-
 ## 54
 
 ### --description--
@@ -3685,6 +3742,7 @@ fn combine_images(image_1: DynamicImage, image_2: DynamicImage) {}
 
 ```rust
 // Lesson #54
+#![allow(unused_variables, dead_code)]
 ```
 
 ### --tests--
@@ -3697,6 +3755,7 @@ fn combine_images(image_1: DynamicImage, image_2: DynamicImage) {}
 
 ```rust
 // Lesson #55
+#![allow(unused_variables, dead_code)]
 ```
 
 ### --tests--
@@ -3709,6 +3768,7 @@ fn combine_images(image_1: DynamicImage, image_2: DynamicImage) {}
 
 ```rust
 // Lesson #56
+#![allow(unused_variables, dead_code)]
 ```
 
 ### --tests--
@@ -3721,6 +3781,7 @@ fn combine_images(image_1: DynamicImage, image_2: DynamicImage) {}
 
 ```rust
 // Lesson #57
+#![allow(unused_variables, dead_code)]
 ```
 
 ### --tests--
@@ -3733,6 +3794,7 @@ fn combine_images(image_1: DynamicImage, image_2: DynamicImage) {}
 
 ```rust
 // Lesson #58
+#![allow(unused_variables, dead_code)]
 ```
 
 ### --tests--
@@ -3745,6 +3807,7 @@ fn combine_images(image_1: DynamicImage, image_2: DynamicImage) {}
 
 ```rust
 // Lesson #59
+#![allow(unused_variables, dead_code)]
 ```
 
 ### --tests--
@@ -3757,6 +3820,20 @@ fn combine_images(image_1: DynamicImage, image_2: DynamicImage) {}
 
 ```rust
 // Lesson #60
+#![allow(unused_variables, dead_code)]
+```
+
+### --tests--
+
+## 61
+
+### --description--
+
+### --seed--
+
+```rust
+// Lesson #61
+#![allow(unused_variables, dead_code)]
 ```
 
 ### --tests--
@@ -3974,4 +4051,4 @@ mod tests {
 
 ### --tests--
 
-## 100
+## 06
