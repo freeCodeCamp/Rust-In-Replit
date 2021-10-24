@@ -12,7 +12,8 @@ function runLesson(project, lessonNumber) {
         `${Colour.FgCyan}$2${Colour.Reset}`
       )
       .replace(/`([^`]+)`/g, `${Colour.FgBlue}$1${Colour.Reset}`)
-      .replace(/\*\*([^\*]+)\*\*/g, `${Colour.Bright}$1${Colour.Reset}`);
+      .replace(/\*\*([^\*]+)\*\*/g, `${Colour.Bright}$1${Colour.Reset}`)
+      .replace(/_([^_]+)_/g, `${Colour.Italic}$1${Colour.Reset}`);
     console.log(
       `\n${Colour.Underscore + Colour.FgGreen}LESSON #${lessonNumber}${
         Colour.Reset
@@ -35,6 +36,7 @@ const Colour = {
   Reset: "\x1b[0m",
   Bright: "\x1b[1m",
   Dim: "\x1b[2m",
+  Italic: "\x1b[3m",
   Underscore: "\x1b[4m",
   Blink: "\x1b[5m",
   Reverse: "\x1b[7m",
