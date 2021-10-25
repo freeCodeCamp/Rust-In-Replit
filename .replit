@@ -1,2 +1,15 @@
 run = "cargo test --bin fcc -q welcome -- --show-output | sed -n '/--fcc--/, /--fcc--/{ /--fcc--/! p }' && echo 'alias fcc=\"node ./tooling/fcc.js cli-calculator\"' >> ~/.bashrc"
 language = "rust"
+
+
+[packager]
+language = "rust"
+
+[packager.features]
+packageSearch = true
+
+[languages.rust]
+pattern = "**/*.rs"
+
+[languages.rust.languageServer]
+start = "rust-analyzer"
