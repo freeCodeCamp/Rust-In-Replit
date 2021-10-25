@@ -5109,6 +5109,32 @@ mod tests {
   fn alternate_pixles_not_infinite() {
     let _a = alternate_pixels(vec![1, 2, 3], vec![3, 2, 1]);
   }
+  #[test]
+  fn i_incremented_by_four() {
+    if let Some((file_contents, _)) = return_file_in_src("main.rs").split_once("#[cfg(test)]") {
+      assert!(reg_with_con(
+        r"i\s*\+=\s*4",
+        file_contents
+      ) | reg_with_con(
+        r"i\s*=\s*i\s*\+\s*4",
+        file_contents
+      ));
+    }
+  }
+
+  fn reg_with_con(regex: &str, file_contents: &str) -> bool {
+    use regex::Regex;
+
+    Regex::new(regex).unwrap().is_match(file_contents)
+  }
+  fn return_file_in_src(filename: &str) -> String {
+    use std::fs::read_to_string;
+
+    match read_to_string(String::from("combiner/src/") + filename) {
+      Ok(file_contents) => file_contents,
+      Err(_) => String::from("File does not exist"),
+    }
+  }
 }
 ```
 
@@ -5261,6 +5287,10 @@ mod tests {
 
 ### --description--
 
+The error is saying the `vec_1` value is moved into `set_rgba` on the first iteration of the loop. So, on the second iteration, when the `while` condition is supposed to evaluate `i < vec_1.len()`, `vec_1` is not in scope to be used.
+
+Task: Within `alternate_pixels`, fix the issue, by passing a reference to `vec_1` to `set_rgba`, and fix the necessary type annotations.
+
 ### --seed--
 
 ```rust
@@ -5363,6 +5393,26 @@ fn set_rgba(vec: Vec<u8>, start: usize, end: usize) -> Vec<u8> {
   rgba
 }
 
+#[cfg(test)]
+mod tests {
+  use super::*;
+  #[test]
+  fn alternate_pixles_not_infinite() {
+    let _a = alternate_pixels(vec![1, 2, 3, 4], vec![4, 3, 2, 1]);
+  }
+  #[test]
+  fn alternate_pixels_returns_spliced_data() {
+    let vec_1 = vec![0, 2, 4, 6];
+    let vec_2 = vec![1, 3, 5, 7];
+    let a = alternate_pixels(vec_1, vec_2);
+    assert_eq!(a, vec![0, 2, 4, 6]);
+  }
+  #[test]
+  fn set_rgba_expects_vec_ref() {
+    let a = set_rgba(&vec![1, 2, 3, 4], 2, 3);
+    assert_eq!(a, vec![3, 4]);
+  }
+}
 ```
 
 ### --tests--
@@ -5371,10 +5421,146 @@ fn set_rgba(vec: Vec<u8>, start: usize, end: usize) -> Vec<u8> {
 
 ### --description--
 
+Currently, `alternate_pixels` is splicing every RGBA set from `vec_1` into `combined_data`. However, you want every second set to be from `vec_2`. To achieve this, you can uuse the remainder operator:
+
+```rust
+  let mut my_vec = vec![0u8; 6];
+  for i in 0..6 {
+    if i % 2 == 0 {
+      my_vec[i] = 2
+    } else {
+      my_vec[i] = 1
+    }
+  }
+  assert_eq!(my_vec, vec![2, 1, 2, 1, 2, 1]);
+```
+
+Task: Within `alternate_pixels`, use the remainder operator to splice every second set of RGBA values from `vec_2` into `combined_data`.
+
+Run `cargo test --bin combiner` to see if you correctly completed this task.
+
 ### --seed--
 
 ```rust
 // Lesson #67
+#![allow(unused_variables, dead_code)]
+mod args;
+
+use args::Args;
+use image::{
+  imageops::FilterType::Triangle, io::Reader, DynamicImage, GenericImageView, ImageFormat,
+};
+
+fn main() -> Result<(), String> {
+  let args = Args::new();
+  println!("{:?}", args);
+
+  let (image_1, image_1_format) = find_image_from_path(args.image_1);
+  let (image_2, image_2_format) = find_image_from_path(args.image_2);
+
+  if image_1_format != image_2_format {
+    return Err(String::from("Image formats must match"));
+  }
+
+  let (image_1, image_2) = standardise_size(image_1, image_2);
+  let output = FloatingImage::new(image_1.width(), image_1.height(), args.output);
+
+  Ok(())
+}
+
+struct FloatingImage {
+  width: u32,
+  height: u32,
+  data: Vec<u8>,
+  name: String,
+}
+
+impl FloatingImage {
+  fn new(width: u32, height: u32, name: String) -> Self {
+    let buffer_capacity = 3_655_744;
+    let buffer: Vec<u8> = Vec::with_capacity(buffer_capacity);
+    FloatingImage {
+      width,
+      height,
+      data: buffer,
+      name,
+    }
+  }
+}
+
+fn find_image_from_path(path: String) -> (DynamicImage, ImageFormat) {
+  let image_reader = Reader::open(path).unwrap();
+  let image_format = image_reader.format().unwrap();
+  let image = image_reader.decode().unwrap();
+  (image, image_format)
+}
+
+fn standardise_size(image_1: DynamicImage, image_2: DynamicImage) -> (DynamicImage, DynamicImage) {
+  let (width, height) = get_smallest_dimensions(image_1.dimensions(), image_2.dimensions());
+  println!("width: {}, height: {}\n", width, height);
+  if image_2.dimensions() == (width, height) {
+    (image_1.resize_exact(width, height, Triangle), image_2)
+  } else {
+    (image_1, image_2.resize_exact(width, height, Triangle))
+  }
+}
+
+fn get_smallest_dimensions(dim_1: (u32, u32), dim_2: (u32, u32)) -> (u32, u32) {
+  let pix_1 = dim_1.0 * dim_1.1;
+  let pix_2 = dim_2.0 * dim_2.1;
+  return if pix_1 < pix_2 { dim_1 } else { dim_2 };
+}
+
+fn combine_images(image_1: DynamicImage, image_2: DynamicImage) -> Vec<u8> {
+  let vec_1 = image_1.to_rgba8().into_vec();
+  let vec_2 = image_2.to_rgba8().into_vec();
+  vec_2
+}
+
+fn alternate_pixels(vec_1: Vec<u8>, vec_2: Vec<u8>) -> Vec<u8> {
+  let mut combined_data = vec![0u8; vec_1.len()];
+
+  let mut i = 0;
+  while i < vec_1.len() {
+    combined_data.splice(i..=i + 3, set_rgba(&vec_1, i, i + 3));
+    i += 4;
+  }
+
+  combined_data
+}
+
+fn set_rgba(vec: &Vec<u8>, start: usize, end: usize) -> Vec<u8> {
+  let mut rgba = Vec::new();
+  for i in start..=end {
+    let val = match vec.get(i) {
+      Some(d) => *d,
+      None => panic!("Index out of bounds"),
+    };
+    rgba.push(val);
+  }
+  rgba
+}
+
+#[cfg(test)]
+mod tests {
+  use super::*;
+  #[test]
+  fn alternate_pixles_not_infinite() {
+    let _a = alternate_pixels(vec![1, 2, 3, 4], vec![4, 3, 2, 1]);
+  }
+  #[test]
+  fn alternate_pixels_returns_spliced_data() {
+    let vec_1 = vec![0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22];
+    let vec_2 = vec![1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23];
+    let a = alternate_pixels(vec_1, vec_2);
+    assert_eq!(a, vec![0, 2, 4, 6, 9, 11, 13, 15, 16, 18, 20, 22]);
+  }
+  #[test]
+  fn set_rgba_expects_vec_ref() {
+    let a = set_rgba(&vec![1, 2, 3, 4], 2, 3);
+    assert_eq!(a, vec![3, 4]);
+  }
+}
 ```
 
 ### --tests--
@@ -5383,10 +5569,143 @@ fn set_rgba(vec: Vec<u8>, start: usize, end: usize) -> Vec<u8> {
 
 ### --description--
 
+Task: Within `combine_images`, instead of returning `vec_2`, return the result of calling `alternate_pixels` with `vec_1` and `vec_2`.
+
+Run `cargo test --bin combiner` to see if you correctly completed this task.
+
 ### --seed--
 
 ```rust
 // Lesson #68
+#![allow(unused_variables, dead_code)]
+mod args;
+
+use args::Args;
+use image::{
+  imageops::FilterType::Triangle, io::Reader, DynamicImage, GenericImageView, ImageFormat,
+};
+
+fn main() -> Result<(), String> {
+  let args = Args::new();
+  println!("{:?}", args);
+
+  let (image_1, image_1_format) = find_image_from_path(args.image_1);
+  let (image_2, image_2_format) = find_image_from_path(args.image_2);
+
+  if image_1_format != image_2_format {
+    return Err(String::from("Image formats must match"));
+  }
+
+  let (image_1, image_2) = standardise_size(image_1, image_2);
+  let output = FloatingImage::new(image_1.width(), image_1.height(), args.output);
+
+  Ok(())
+}
+
+struct FloatingImage {
+  width: u32,
+  height: u32,
+  data: Vec<u8>,
+  name: String,
+}
+
+impl FloatingImage {
+  fn new(width: u32, height: u32, name: String) -> Self {
+    let buffer_capacity = 3_655_744;
+    let buffer: Vec<u8> = Vec::with_capacity(buffer_capacity);
+    FloatingImage {
+      width,
+      height,
+      data: buffer,
+      name,
+    }
+  }
+}
+
+fn find_image_from_path(path: String) -> (DynamicImage, ImageFormat) {
+  let image_reader = Reader::open(path).unwrap();
+  let image_format = image_reader.format().unwrap();
+  let image = image_reader.decode().unwrap();
+  (image, image_format)
+}
+
+fn standardise_size(image_1: DynamicImage, image_2: DynamicImage) -> (DynamicImage, DynamicImage) {
+  let (width, height) = get_smallest_dimensions(image_1.dimensions(), image_2.dimensions());
+  println!("width: {}, height: {}\n", width, height);
+  if image_2.dimensions() == (width, height) {
+    (image_1.resize_exact(width, height, Triangle), image_2)
+  } else {
+    (image_1, image_2.resize_exact(width, height, Triangle))
+  }
+}
+
+fn get_smallest_dimensions(dim_1: (u32, u32), dim_2: (u32, u32)) -> (u32, u32) {
+  let pix_1 = dim_1.0 * dim_1.1;
+  let pix_2 = dim_2.0 * dim_2.1;
+  return if pix_1 < pix_2 { dim_1 } else { dim_2 };
+}
+
+fn combine_images(image_1: DynamicImage, image_2: DynamicImage) -> Vec<u8> {
+  let vec_1 = image_1.to_rgba8().into_vec();
+  let vec_2 = image_2.to_rgba8().into_vec();
+  vec_2
+}
+
+fn alternate_pixels(vec_1: Vec<u8>, vec_2: Vec<u8>) -> Vec<u8> {
+  let mut combined_data = vec![0u8; vec_1.len()];
+
+  let mut i = 0;
+  while i < vec_1.len() {
+    if i % 8 == 0 {
+      combined_data.splice(i..=i + 3, set_rgba(&vec_1, i, i + 3));
+    } else {
+      combined_data.splice(i..=i + 3, set_rgba(&vec_2, i, i + 3));
+    }
+    i += 4;
+  }
+
+  combined_data
+}
+
+fn set_rgba(vec: &Vec<u8>, start: usize, end: usize) -> Vec<u8> {
+  let mut rgba = Vec::new();
+  for i in start..=end {
+    let val = match vec.get(i) {
+      Some(d) => *d,
+      None => panic!("Index out of bounds"),
+    };
+    rgba.push(val);
+  }
+  rgba
+}
+
+#[cfg(test)]
+mod tests {
+  use image::RgbaImage;
+
+  use super::*;
+  #[test]
+  fn combine_images_returns_spliced_data() {
+    let mut image_1 = RgbaImage::new(2, 2);
+    image_1.put_pixel(0, 0, image::Rgba([0, 2, 4, 6]));
+    image_1.put_pixel(1, 0, image::Rgba([8, 10, 12, 14]));
+    image_1.put_pixel(0, 1, image::Rgba([16, 18, 20, 22]));
+    image_1.put_pixel(1, 1, image::Rgba([24, 26, 28, 30]));
+    let mut image_2 = RgbaImage::new(2, 2);
+    image_2.put_pixel(0, 0, image::Rgba([1, 3, 5, 7]));
+    image_2.put_pixel(1, 0, image::Rgba([9, 11, 13, 15]));
+    image_2.put_pixel(0, 1, image::Rgba([17, 19, 21, 23]));
+    image_2.put_pixel(1, 1, image::Rgba([25, 27, 29, 31]));
+    let a = combine_images(
+      DynamicImage::ImageRgba8(image_1),
+      DynamicImage::ImageRgba8(image_2),
+    );
+    assert_eq!(
+      a,
+      vec![0, 2, 4, 6, 9, 11, 13, 15, 16, 18, 20, 22, 25, 27, 29, 31]
+    );
+  }
+}
 ```
 
 ### --tests--
@@ -5395,10 +5714,150 @@ fn set_rgba(vec: Vec<u8>, start: usize, end: usize) -> Vec<u8> {
 
 ### --description--
 
+Task: Within `main`, declare a variable `combined_data`, and assign it the value of calling `combine_images` with `image_1` and `image_2`.
+
+Run `cargo test --bin combiner` to see if you correctly completed this task.
+
 ### --seed--
 
 ```rust
 // Lesson #69
+#![allow(unused_variables, dead_code)]
+mod args;
+
+use args::Args;
+use image::{
+  imageops::FilterType::Triangle, io::Reader, DynamicImage, GenericImageView, ImageFormat,
+};
+
+fn main() -> Result<(), String> {
+  let args = Args::new();
+  println!("{:?}", args);
+
+  let (image_1, image_1_format) = find_image_from_path(args.image_1);
+  let (image_2, image_2_format) = find_image_from_path(args.image_2);
+
+  if image_1_format != image_2_format {
+    return Err(String::from("Image formats must match"));
+  }
+
+  let (image_1, image_2) = standardise_size(image_1, image_2);
+  let output = FloatingImage::new(image_1.width(), image_1.height(), args.output);
+
+  Ok(())
+}
+
+struct FloatingImage {
+  width: u32,
+  height: u32,
+  data: Vec<u8>,
+  name: String,
+}
+
+impl FloatingImage {
+  fn new(width: u32, height: u32, name: String) -> Self {
+    let buffer_capacity = 3_655_744;
+    let buffer: Vec<u8> = Vec::with_capacity(buffer_capacity);
+    FloatingImage {
+      width,
+      height,
+      data: buffer,
+      name,
+    }
+  }
+}
+
+fn find_image_from_path(path: String) -> (DynamicImage, ImageFormat) {
+  let image_reader = Reader::open(path).unwrap();
+  let image_format = image_reader.format().unwrap();
+  let image = image_reader.decode().unwrap();
+  (image, image_format)
+}
+
+fn standardise_size(image_1: DynamicImage, image_2: DynamicImage) -> (DynamicImage, DynamicImage) {
+  let (width, height) = get_smallest_dimensions(image_1.dimensions(), image_2.dimensions());
+  println!("width: {}, height: {}\n", width, height);
+  if image_2.dimensions() == (width, height) {
+    (image_1.resize_exact(width, height, Triangle), image_2)
+  } else {
+    (image_1, image_2.resize_exact(width, height, Triangle))
+  }
+}
+
+fn get_smallest_dimensions(dim_1: (u32, u32), dim_2: (u32, u32)) -> (u32, u32) {
+  let pix_1 = dim_1.0 * dim_1.1;
+  let pix_2 = dim_2.0 * dim_2.1;
+  return if pix_1 < pix_2 { dim_1 } else { dim_2 };
+}
+
+fn combine_images(image_1: DynamicImage, image_2: DynamicImage) -> Vec<u8> {
+  let vec_1 = image_1.to_rgba8().into_vec();
+  let vec_2 = image_2.to_rgba8().into_vec();
+
+  alternate_pixels(vec_1, vec_2)
+}
+
+fn alternate_pixels(vec_1: Vec<u8>, vec_2: Vec<u8>) -> Vec<u8> {
+  let mut combined_data = vec![0u8; vec_1.len()];
+
+  let mut i = 0;
+  while i < vec_1.len() {
+    if i % 8 == 0 {
+      combined_data.splice(i..=i + 3, set_rgba(&vec_1, i, i + 3));
+    } else {
+      combined_data.splice(i..=i + 3, set_rgba(&vec_2, i, i + 3));
+    }
+    i += 4;
+  }
+
+  combined_data
+}
+
+fn set_rgba(vec: &Vec<u8>, start: usize, end: usize) -> Vec<u8> {
+  let mut rgba = Vec::new();
+  for i in start..=end {
+    let val = match vec.get(i) {
+      Some(d) => *d,
+      None => panic!("Index out of bounds"),
+    };
+    rgba.push(val);
+  }
+  rgba
+}
+
+#[cfg(test)]
+mod tests {
+  use super::*;
+  #[test]
+  fn combined_data_var_declared() {
+    if let Some((file_contents, _)) = return_file_in_src("main.rs").split_once("#[cfg(test)]") {
+      assert!(reg_with_con(r"let\s+combined_data", file_contents));
+    }
+  }
+  #[test]
+  fn combine_images_func_called() {
+    if let Some((file_contents, _)) = return_file_in_src("main.rs").split_once("#[cfg(test)]") {
+      assert!(reg_with_con(
+        r"combine_images\(\s*image_1\s*,\s*image_2\s*\)",
+        file_contents
+      ));
+    }
+  }
+
+  fn reg_with_con(regex: &str, file_contents: &str) -> bool {
+    use regex::Regex;
+
+    Regex::new(regex).unwrap().is_match(file_contents)
+  }
+  fn return_file_in_src(filename: &str) -> String {
+    use std::fs::read_to_string;
+
+    match read_to_string(String::from("combiner/src/") + filename) {
+      Ok(file_contents) => file_contents,
+      Err(_) => String::from("File does not exist"),
+    }
+  }
+}
 ```
 
 ### --tests--
@@ -5407,10 +5866,269 @@ fn set_rgba(vec: Vec<u8>, start: usize, end: usize) -> Vec<u8> {
 
 ### --description--
 
+Now, you want to set the data of `combined_data` into the `output` image. To do this, you are going to define a method on `FloatingImage` to set the `data` field of `output` to the value of `combined_data`.
+
+So far, you have only implemented functions on structs. Methods are defined in a similar way, but they take an instance of the struct as their first argument:
+
+```rust
+  struct MyStruct {
+    name: String,
+  }
+  impl MyStruct {
+    fn change_name(&mut self, new_name: &str) {
+      self.name = new_name.to_string();
+    }
+  }
+
+  let mut my_struct = MyStruct { name: String::from("Shaun") };
+  assert_eq!(my_struct.name, "Shaun".to_string);
+  my_struct.change_name("Tom");
+  assert_eq!(my_struct.name, "Tom".to_string);
+```
+
+As the value of the instance of `MyStruct` needs to be changed, the method `change_name` takes a mutable reference to the instance as its first argument. _Notice the method is still only called with one argument_.
+
+Task: Implement a method `set_data` on `FloatingImage` which takes a `Vec<u8>` as an arguement.
+
+Run `cargo test --bin combiner` to see if you correctly completed this task.
+
 ### --seed--
 
 ```rust
 // Lesson #70
+#![allow(unused_variables, dead_code)]
+mod args;
+
+use args::Args;
+use image::{
+  imageops::FilterType::Triangle, io::Reader, DynamicImage, GenericImageView, ImageFormat,
+};
+
+fn main() -> Result<(), String> {
+  let args = Args::new();
+  println!("{:?}", args);
+
+  let (image_1, image_1_format) = find_image_from_path(args.image_1);
+  let (image_2, image_2_format) = find_image_from_path(args.image_2);
+
+  if image_1_format != image_2_format {
+    return Err(String::from("Image formats must match"));
+  }
+
+  let (image_1, image_2) = standardise_size(image_1, image_2);
+  let output = FloatingImage::new(image_1.width(), image_1.height(), args.output);
+
+  let combined_data = combine_images(image_1, image_2);
+  Ok(())
+}
+
+struct FloatingImage {
+  width: u32,
+  height: u32,
+  data: Vec<u8>,
+  name: String,
+}
+
+impl FloatingImage {
+  fn new(width: u32, height: u32, name: String) -> Self {
+    let buffer_capacity = 3_655_744;
+    let buffer: Vec<u8> = Vec::with_capacity(buffer_capacity);
+    FloatingImage {
+      width,
+      height,
+      data: buffer,
+      name,
+    }
+  }
+}
+
+fn find_image_from_path(path: String) -> (DynamicImage, ImageFormat) {
+  let image_reader = Reader::open(path).unwrap();
+  let image_format = image_reader.format().unwrap();
+  let image = image_reader.decode().unwrap();
+  (image, image_format)
+}
+
+fn standardise_size(image_1: DynamicImage, image_2: DynamicImage) -> (DynamicImage, DynamicImage) {
+  let (width, height) = get_smallest_dimensions(image_1.dimensions(), image_2.dimensions());
+  println!("width: {}, height: {}\n", width, height);
+  if image_2.dimensions() == (width, height) {
+    (image_1.resize_exact(width, height, Triangle), image_2)
+  } else {
+    (image_1, image_2.resize_exact(width, height, Triangle))
+  }
+}
+
+fn get_smallest_dimensions(dim_1: (u32, u32), dim_2: (u32, u32)) -> (u32, u32) {
+  let pix_1 = dim_1.0 * dim_1.1;
+  let pix_2 = dim_2.0 * dim_2.1;
+  return if pix_1 < pix_2 { dim_1 } else { dim_2 };
+}
+
+fn combine_images(image_1: DynamicImage, image_2: DynamicImage) -> Vec<u8> {
+  let vec_1 = image_1.to_rgba8().into_vec();
+  let vec_2 = image_2.to_rgba8().into_vec();
+
+  alternate_pixels(vec_1, vec_2)
+}
+
+fn alternate_pixels(vec_1: Vec<u8>, vec_2: Vec<u8>) -> Vec<u8> {
+  let mut combined_data = vec![0u8; vec_1.len()];
+
+  let mut i = 0;
+  while i < vec_1.len() {
+    if i % 8 == 0 {
+      combined_data.splice(i..=i + 3, set_rgba(&vec_1, i, i + 3));
+    } else {
+      combined_data.splice(i..=i + 3, set_rgba(&vec_2, i, i + 3));
+    }
+    i += 4;
+  }
+
+  combined_data
+}
+
+fn set_rgba(vec: &Vec<u8>, start: usize, end: usize) -> Vec<u8> {
+  let mut rgba = Vec::new();
+  for i in start..=end {
+    let val = match vec.get(i) {
+      Some(d) => *d,
+      None => panic!("Index out of bounds"),
+    };
+    rgba.push(val);
+  }
+  rgba
+}
+
+#[cfg(test)]
+mod tests {
+  use super::*;
+  #[test]
+  fn set_data_method_defined() {
+    let mut float = FloatingImage::new(1, 2, "freeCodeCamp".to_string());
+    float.set_data(vec![0u8, 1u8, 2u8]);
+  }
+}
+```
+
+### --tests--
+
+## 71
+
+### --description--
+
+### --seed--
+
+```rust
+// Lesson #71
+```
+
+### --tests--
+
+## 72
+
+### --description--
+
+### --seed--
+
+```rust
+// Lesson #72
+```
+
+### --tests--
+
+## 73
+
+### --description--
+
+### --seed--
+
+```rust
+// Lesson #73
+```
+
+### --tests--
+
+## 74
+
+### --description--
+
+### --seed--
+
+```rust
+// Lesson #74
+```
+
+### --tests--
+
+## 75
+
+### --description--
+
+### --seed--
+
+```rust
+// Lesson #75
+```
+
+### --tests--
+
+## 76
+
+### --description--
+
+### --seed--
+
+```rust
+// Lesson #76
+```
+
+### --tests--
+
+## 77
+
+### --description--
+
+### --seed--
+
+```rust
+// Lesson #77
+```
+
+### --tests--
+
+## 78
+
+### --description--
+
+### --seed--
+
+```rust
+// Lesson #78
+```
+
+### --tests--
+
+## 79
+
+### --description--
+
+### --seed--
+
+```rust
+// Lesson #79
+```
+
+### --tests--
+
+## 80
+
+### --description--
+
+### --seed--
+
+```rust
+// Lesson #80
 ```
 
 ### --tests--
