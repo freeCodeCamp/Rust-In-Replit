@@ -13,7 +13,7 @@ function runLesson(project, lessonNumber) {
       )
       .replace(/`([^`]+)`/g, `${Colour.FgBlue}$1${Colour.Reset}`)
       .replace(/\*\*([^\*]+)\*\*/g, `${Colour.Bright}$1${Colour.Reset}`)
-      .replace(/\s_([^_]+)_\s/g, `${Colour.Italic}$1${Colour.Reset}`);
+      .replace(/(\s)_([^_]+)_(\s)/g, `$1${Colour.Italic}$2${Colour.Reset}$3`);
     console.log(
       `\n${Colour.Underscore + Colour.FgGreen}LESSON #${lessonNumber}${
         Colour.Reset
