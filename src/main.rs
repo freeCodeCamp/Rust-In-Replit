@@ -565,7 +565,11 @@ mod tests {
   fn seventeen() {
     hr();
     n(17);
-    term(&[d("\n\n"), task(), d("Run your code. It should panic.\n")]);
+    term(&[
+      d("\n\n"),
+      task(),
+      d("Run your code. It should error out.\n"),
+    ]);
 
     next(18);
     assert!(true);
@@ -575,7 +579,7 @@ mod tests {
     hr();
     n(18);
     term(&[
-      d("\n\nYour code panicked, because "),
+      d("\n\nYour code errored out, because "),
       kw("first_name"),
       d(" is not "),
       emph("mutable"),
