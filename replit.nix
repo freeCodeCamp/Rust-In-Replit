@@ -1,5 +1,6 @@
 { pkgs }: {
 	deps = [
+    pkgs.nodejs
 		pkgs.rustc
 		pkgs.rustfmt
 		pkgs.cargo
