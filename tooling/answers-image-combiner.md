@@ -29,7 +29,7 @@ fn main() {
 In this project, you will be creating a CLI (combiner) which expects three arguments:
 
 ```bash
-  $ combiner image1.png image2.png output.png
+    $ combiner image1.png image2.png output.png
 ```
 
 The first two arguments are the paths to the images you want to combine. The third argument is the path to the output image.
@@ -101,8 +101,8 @@ Upcoming tests make use of an external crate called `regex`.
 Task: Open the `Cargo.toml` file in the root, and add the following lines:
 
 ```rust
-[dependencies]
-regex = "1.5.4"
+    [dependencies]
+    regex = "1.5.4"
 ```
 
 This will install the `regex` crate into your project which is used in the `reg_with_con` function. You can find out more about this crate at: https://crates.io/crates/regex
@@ -259,9 +259,9 @@ The syntax `Args {}` is a constructor for a struct named `Args`. However, we hav
 Here is an example of a struct you have already used:
 
 ```rust
-struct String {
-  vec: Vec<u8>,
-}
+    struct String {
+      vec: Vec<u8>,
+    }
 ```
 
 The `String` struct consists of a `vec` field, which is a `Vec` of `u8`s.
@@ -521,10 +521,10 @@ The compiler is telling you that you are trying to use the `println!` macro on a
 Usually, traits need to be implemented for a struct using the `impl` keyword. However, in this case, you can use the `derive` attribute to automatically implement the `Debug` trait for you:
 
 ```rust
-#[derive(Debug)]
-struct MyStruct {
-  field_1: String,
-}
+    #[derive(Debug)]
+    struct MyStruct {
+      field_1: String,
+    }
 ```
 
 Task: Implement the `Debug` trait for your `Args` struct.
@@ -569,11 +569,11 @@ mod tests {
 You may notice the `String::new()` used in `main`. The `new` function is a common constructor for structs. For `String`, it looks something like this:
 
 ```rust
-impl String {
-  fn new() -> Self {
-    String::from("")
-  }
-}
+    impl String {
+      fn new() -> Self {
+        String::from("")
+      }
+    }
 ```
 
 The above implements the `new` function for `String`. The return type is `Self`, which is the type of the struct.
@@ -916,7 +916,7 @@ Task: Change the `println` in `main` to print the value of `args`.
 Run `cargo run --bin combiner first_arg second_arg third_arg`. If you see to see the following, you correctly completed the task:
 
 ```bash
-  Args { image_1: "first_arg", image_2: "second_arg", output: "third_arg" }
+    Args { image_1: "first_arg", image_2: "second_arg", output: "third_arg" }
 ```
 
 ### --seed--
@@ -1140,7 +1140,7 @@ mod tests {
 In Rust, everything is private by default. So, in order to make a function or struct public, you can use the `pub` keyword:
 
 ```rust
-pub MyStruct {}
+    pub MyStruct {}
 ```
 
 Task: Within `args.rs` make the struct and the function public.
@@ -1212,7 +1212,7 @@ mod tests {
 In order to use the contents of an external file, it needs to be declared as a module:
 
 ```rust
-mod my_file_name
+    mod my_file_name
 ```
 
 Task: At the top of `main.rs`, declare the `args.rs` file as a module.
@@ -1394,7 +1394,7 @@ In order to encode and decode the images, you will use the `image` crate.
 Task: Within the root `Cargo.toml`, add the following to the `dependencies` section:
 
 ```rust
-image = "0.23.14"
+    image = "0.23.14"
 ```
 
 Run `cargo test --bin combiner` to see if you correctly completed the task.
@@ -1680,7 +1680,7 @@ So far, you have not decoded the image. The `Reader` has a `decode` method which
 
 Task: Within `find_image_from_path`, assign the unwrapped value of the `decode` method on `image_reader` to a variable named `image`. Then, return `image`.
 
-Hint: Follow the compiler's advice, and import the necessary types.
+_Hint:_ Follow the compiler's advice, and import the necessary types.
 
 Run `cargo test --bin combiner` to see if you correctly completed the task.
 
@@ -1745,10 +1745,10 @@ mod tests {
 You have learnt about the empty tuple type `()`. Now, you will use a tuple to return multiple values. Unlike other types, a tuple can contain more than one type.
 
 ```rust
-  // The Vec type can only contain one type.
-  let my_vec = vec![1u8, 2u16, 3u32];
-  // Tuples can contain multiple types.
-  let my_tuple = (1u8, 2u16, 3u32);
+    // The Vec type can only contain one type.
+    let my_vec = vec![1u8, 2u16, 3u32];
+    // Tuples can contain multiple types.
+    let my_tuple = (1u8, 2u16, 3u32);
 ```
 
 Task: From `find_image_from_path`, return a tuple containing the `DynamicImage` and `ImageFormat` of the image, in that order.
@@ -1799,7 +1799,7 @@ mod tests {
 Tuples can be destructured into variables like this:
 
 ```rust
-  let (x, y, z) = (1, 2, 3);
+    let (x, y, z) = (1, 2, 3);
 ```
 
 Task: Within `main`, destructure the tuple returned from `find_image_from_path` into the variables `image_1` and `image_1_format`. You should call `find_image_from_path` with the value of the `image_1` field of `args`.
@@ -2053,13 +2053,13 @@ So far, you have been dealt with a few functions which returned a `Result`. Now,
 A `Result` is a type that can either be `Ok` or `Err`. It is common to return an empty tuple when a function is successful, and return an error message when a function fails:
 
 ```rust
-  fn function_returns_result() -> Result<(), String> {
-    if (condition) {
-      return Ok(());
-    } else {
-      return Err(String::from("Error message"));
+    fn function_returns_result() -> Result<(), String> {
+      if (condition) {
+        return Ok(());
+      } else {
+        return Err(String::from("Error message"));
+      }
     }
-  }
 ```
 
 Task: Within `main.rs`, convert the `main` function to return a `Result`. For now, just return an empty tuple on `Ok`, but set the return `Err` type to `String`.
@@ -2451,7 +2451,7 @@ mod tests {
 
 Task: Within `standardise_size`, destructure the tuple returned from `get_smallest_dimensions` into two variables `width` and `height`. Use the return of calling the `dimensions` method on each `DynamicImage` to pass as arguments for `get_smallest_dimensions`.
 
-Hint: Follow the compiler's advice to get the dimensions of the images.
+_Hint:_ Follow the compiler's advice to get the dimensions of the images.
 
 Run `cargo test --bin combiner` to see if you correctly completed the task.
 
@@ -2717,7 +2717,7 @@ mod tests {
 Instead of returning the images unchanged, you should resize the larger image. You can use the `resize_exact` method which exists on the `DynamicImage` struct. The `resize_exact` method takes the form:
 
 ```rust
-  image_to_resize.resize_exact(new_width: u32, new_height: u32, filter: image::imageops::FilterType);
+    image_to_resize.resize_exact(new_width: u32, new_height: u32, filter: image::imageops::FilterType);
 ```
 
 Task: Within `standardise_size`, resize the correct image variable to the correct dimensions, using the `Triangle` filter.
@@ -2900,10 +2900,10 @@ To handle the output, a temporary struct can be created to hold the meta data fo
 Task: Create a struct called `FloatingImage` that has the following fields:
 
 ```rust
-  width: u32,
-  height: u32,
-  data: Vec<u8>,
-  name: String,
+    width: u32,
+    height: u32,
+    data: Vec<u8>,
+    name: String,
 ```
 
 Run `cargo test --bin combiner` to see if you correctly completed the task.
@@ -3070,8 +3070,8 @@ In order to efficiently write the combined image data to the output image, you n
 Large images can have a large amount of data, so you can take advantage of Rust's easy-to-read numbering, which separates the number into groups of three digits:
 
 ```rust
-  let difficult_to_read_number = 1325364955;
-  let easy_to_read_number = 1_325_364_955;
+    let difficult_to_read_number = 1325364955;
+    let easy_to_read_number = 1_325_364_955;
 ```
 
 Task: Within `new`, declare a variable named `buffer_capacity`, and assign it the value of `3655744` using the easy-to-read number.
@@ -3194,7 +3194,7 @@ Now that you have a buffer size, you need to create a buffer of `Vec<u8>`. The `
 
 Task: Within `new`, declare a variable named `buffer`, and assign it the value of calling the `with_capacity` function with `buffer_capacity`.
 
-Hint: Follow the compiler's advice to explicity type the `buffer` variable.
+_Hint:_ Follow the compiler's advice to explicity type the `buffer` variable.
 
 Run `cargo test --bin combiner` to see if you correctly completed the task.
 
@@ -3958,9 +3958,9 @@ mod tests {
 You will need to store the combined image pixel data in a variable. To create this variable, you can use the `vec` macro, providing the type and length of the vector:
 
 ```rust
-  let my_vec = vec![10u8; 5];
-  assert_eq!(my_vec.len(), 5);
-  assert_eq!(my_vec, [10, 10, 10, 10, 10]);
+    let my_vec = vec![10u8; 5];
+    assert_eq!(my_vec.len(), 5);
+    assert_eq!(my_vec, [10, 10, 10, 10, 10]);
 ```
 
 Task: Within `alternate_pixels`, declare a variable `combined_data`, and use the `vec` macro to create a `Vec<u8>` of `0` the same length as `vec_1`. Return `combined_data`.
@@ -4076,9 +4076,9 @@ mod tests {
 To iterate over the pixels in the vectors, you will use a `while` loop. A `while` loop follows this syntax:
 
 ```rust
-  while condition {
-    // Do stuff
-  }
+    while condition {
+      // Do stuff
+    }
 ```
 
 Where `condition` is a boolean expression that evaluates to `true` or `false`.
@@ -4469,9 +4469,9 @@ mod tests {
 To iterate over a range of values, you can use a `for...in` loop with the _right-inclusive range literal_ operator:
 
 ```rust
-  for i in 1..=5 {
-    println!("{}", i);
-  }
+    for i in 1..=5 {
+      println!("{}", i);
+    }
 ```
 
 The `=` within the range literal is the _right-inclusive_ range operator, meaning the end is included.
@@ -4595,9 +4595,9 @@ mod tests {
 Sometimes, retirieving a value from within a vector causes a panic, because the index is out of bounds. To avoid this, you can use the `get` method on a vector:
 
 ```rust
-  let my_vec = vec![1, 2, 3];
-  assert_eq!(my_vec.get(0), Some(&1));
-  assert_eq!(my_vec.get(3), None);
+    let my_vec = vec![1, 2, 3];
+    assert_eq!(my_vec.get(0), Some(&1));
+    assert_eq!(my_vec.get(3), None);
 ```
 
 The `get` method returns a reference to the value at the given index, or `None` if the index is out of bounds.
@@ -4853,7 +4853,7 @@ mod tests {
 
 The error comes about, because the type of `val` is `&u8` - a reference to an 8-bit unsigned integer. However, the type of `vec` should be `Vec<u8>`, not `Vec<&u8>`.
 
-To fix this, the value returned from the `get` method can be _dereferenced_. A dereference is done by annotating the value with `*`.:
+To fix this, the value returned from the `get` method can be _dereferenced_ . A dereference is done by annotating the value with `*`.:
 
 ```rust
     let x = 5;
@@ -4991,11 +4991,11 @@ mod tests {
 Currently, the `while` loop has the potential to run forever, when `vec` contains any elements. You can fix this by incrementing `i` on each iteration of the loop. Here are some common ways to increment an integer:
 
 ```rust
-  let mut a = 0;
-  a += 1;
-  a++;
-  a = a + 1;
-  assert_eq!(a, 3);
+    let mut a = 0;
+    a += 1;
+    a++;
+    a = a + 1;
+    assert_eq!(a, 3);
 ```
 
 Task: Within `alternate_pixels`, in the `while` loop, increment `i` by `4`.
@@ -5147,10 +5147,10 @@ mod tests {
 You have a `Vec<u8>` of `0`s, and two `Vec<u8>`s of `0-255`. To replace one slice of a vector and with another, you can use the `splice` method:
 
 ```rust
-  let original_vec = vec![0, 1, 2, 3];
-  let mut vec_to_change = vec![0u8; 4];
-  vec_to_change.splice(2..4, original_vec[2..4].iter().cloned());
-  assert_eq!(vec_to_change, vec![0, 0, 2, 3]);
+    let original_vec = vec![0, 1, 2, 3];
+    let mut vec_to_change = vec![0u8; 4];
+    vec_to_change.splice(2..4, original_vec[2..4].iter().cloned());
+    assert_eq!(vec_to_change, vec![0, 0, 2, 3]);
 ```
 
 The `splice` method takes two arguments: the range of the vector to replace, and the values to replace it with.
@@ -5424,15 +5424,15 @@ mod tests {
 Currently, `alternate_pixels` is splicing every RGBA set from `vec_1` into `combined_data`. However, you want every second set to be from `vec_2`. To achieve this, you can uuse the remainder operator:
 
 ```rust
-  let mut my_vec = vec![0u8; 6];
-  for i in 0..6 {
-    if i % 2 == 0 {
-      my_vec[i] = 2
-    } else {
-      my_vec[i] = 1
+    let mut my_vec = vec![0u8; 6];
+    for i in 0..6 {
+      if i % 2 == 0 {
+        my_vec[i] = 2
+      } else {
+        my_vec[i] = 1
+      }
     }
-  }
-  assert_eq!(my_vec, vec![2, 1, 2, 1, 2, 1]);
+    assert_eq!(my_vec, vec![2, 1, 2, 1, 2, 1]);
 ```
 
 Task: Within `alternate_pixels`, use the remainder operator to splice every second set of RGBA values from `vec_2` into `combined_data`.
@@ -5871,22 +5871,22 @@ Now, you want to set the data of `combined_data` into the `output` image. To do 
 So far, you have only implemented functions on structs. Methods are defined in a similar way, but they take an instance of the struct as their first argument:
 
 ```rust
-  struct MyStruct {
-    name: String,
-  }
-  impl MyStruct {
-    fn change_name(&mut self, new_name: &str) {
-      self.name = new_name.to_string();
+    struct MyStruct {
+      name: String,
     }
-  }
+    impl MyStruct {
+      fn change_name(&mut self, new_name: &str) {
+        self.name = new_name.to_string();
+      }
+    }
 
-  let mut my_struct = MyStruct { name: String::from("Shaun") };
-  assert_eq!(my_struct.name, "Shaun".to_string);
-  my_struct.change_name("Tom");
-  assert_eq!(my_struct.name, "Tom".to_string);
+    let mut my_struct = MyStruct { name: String::from("Shaun") };
+    assert_eq!(my_struct.name, "Shaun".to_string);
+    my_struct.change_name("Tom");
+    assert_eq!(my_struct.name, "Tom".to_string);
 ```
 
-As the value of the instance of `MyStruct` needs to be changed, the method `change_name` takes a mutable reference to the instance as its first argument. _Notice the method is still only called with one argument_.
+As the value of the instance of `MyStruct` needs to be changed, the method `change_name` takes a mutable reference to the instance as its first argument. _Notice the method is still only called with one argument_ .
 
 Task: Implement a method `set_data` on `FloatingImage` which takes a `Vec<u8>` as an arguement.
 
@@ -6019,6 +6019,8 @@ mod tests {
 
 Task: Within `set_data`, set the instance's `data` field to be equal to the value of the `data` argument. Then, return an `Ok` result with an empty tuple as a response.
 
+Run `cargo test --bin combiner` to see if you correctly completed this task.
+
 ### --seed--
 
 ```rust
@@ -6150,21 +6152,21 @@ mod tests {
 To handle errors more clearly, you can create an _enum_ to represent the possible errors that can occur:
 
 ```rust
-  enum MyErrors {
-    BrainTooTired,
-    TimeOfDay(String)
-    CoffeeCupEmpty,
-  }
-
-  fn work() -> Result<(), MyErrors> {
-    match state {
-      "missing semi-colon" => Err(MyErrors::BrainTooTired),
-      "06:00" => Err(MyErrors::TImeOfDay("It's too early to work".to_string())),
-      "22:00" => Err(MyErrors::TimeOfDay("It's too late to work".to_string())),
-      "empty" => Err(MyErrors::CoffeeCupEmpty),
-      _ => Ok(()),
+    enum MyErrors {
+      BrainTooTired,
+      TimeOfDay(String)
+      CoffeeCupEmpty,
     }
-  }
+
+    fn work() -> Result<(), MyErrors> {
+      match state {
+        "missing semi-colon" => Err(MyErrors::BrainTooTired),
+        "06:00" => Err(MyErrors::TImeOfDay("It's too early to work".to_string())),
+        "22:00" => Err(MyErrors::TimeOfDay("It's too late to work".to_string())),
+        "empty" => Err(MyErrors::CoffeeCupEmpty),
+        _ => Ok(()),
+      }
+    }
 ```
 
 Enums can be used as both values as well as types. You have already encountered the `Option` enum.
@@ -6307,8 +6309,8 @@ Task: Derive the `Debug` trait for the `ImageDataErrors` enum.
 Run `cargo test --bin combiner -- --show-output`. You should see the following printed to the console:
 
 ```bash
-  BufferTooSmall
-  DifferentImageFormats
+    BufferTooSmall
+    DifferentImageFormats
 ```
 
 ### --seed--
@@ -6920,22 +6922,22 @@ mod tests {
 The compiler is giving you a warning that you are not using the `Result` returned from calling `set_data`. You could panic on the error using the `unwrap` method. However, as the error is being handled with an enum, you can propagate the error by using the _error propagation_ operator:
 
 ```rust
-enum MyError {
-  Oops
-}
-fn first() -> Result<(), MyError> {
-  Err(MyError::Oops)
-}
-fn second() -> Result<(), MyError> {
-  first()?
-}
-fn last() -> String {
-  match second() {
-    Ok(_) => "Ok".to_string(),
-    Err(_) => "Err".to_string(),
-  }
-}
-assert_eq!(last(), "Err".to_string());
+    enum MyError {
+      Oops
+    }
+    fn first() -> Result<(), MyError> {
+      Err(MyError::Oops)
+    }
+    fn second() -> Result<(), MyError> {
+      first()?
+    }
+    fn last() -> String {
+      match second() {
+        Ok(_) => "Ok".to_string(),
+        Err(_) => "Err".to_string(),
+      }
+    }
+    assert_eq!(last(), "Err".to_string());
 ```
 
 Using the `?` operator allows the `MyError` to propagate to the caller.
@@ -7111,7 +7113,7 @@ mod tests {
 Finally, you can save the new image to a file. The `image` crate has a `save_buffer_with_format` function taking the following form:
 
 ```rust
-  fn save_buffer_with_format(path: AsRef<Path>, buf: &[u8], width: u32, height: u32, color: image::ColorType, format: image::ImageFormat) -> image::ImageResult<()>;
+    fn save_buffer_with_format(path: AsRef<Path>, buf: &[u8], width: u32, height: u32, color: image::ColorType, format: image::ImageFormat) -> image::ImageResult<()>;
 ```
 
 Seeing as `AsRef` is implemented for `String`, an argument of type `String` can be used for the `path`.
@@ -7261,6 +7263,176 @@ mod tests {
 
 ### --description--
 
+Task: Build a release version of your `combiner` CLI.
+
+Run `cargo test --bin combiner` to see if you correctly completed the task.
+
+### --seed--
+
+```rust
+// Lesson #79
+#![allow(unused_variables, dead_code)]
+mod args;
+
+use args::Args;
+use image::{
+  imageops::FilterType::Triangle, io::Reader, DynamicImage, GenericImageView, ImageFormat,
+};
+
+fn main() -> Result<(), ImageDataErrors> {
+  let args = Args::new();
+  println!("{:?}", args);
+
+  let (image_1, image_1_format) = find_image_from_path(args.image_1);
+  let (image_2, image_2_format) = find_image_from_path(args.image_2);
+
+  if image_1_format != image_2_format {
+    return Err(ImageDataErrors::DifferentImageFormats);
+  }
+
+  let (image_1, image_2) = standardise_size(image_1, image_2);
+  let mut output = FloatingImage::new(image_1.width(), image_1.height(), args.output);
+
+  let combined_data = combine_images(image_1, image_2);
+
+  output.set_data(combined_data)?;
+
+  image::save_buffer_with_format(
+    output.name,
+    &output.data,
+    output.width,
+    output.height,
+    image::ColorType::Rgba8,
+    image_1_format,
+  )
+  .unwrap();
+  Ok(())
+}
+
+#[derive(Debug)]
+enum ImageDataErrors {
+  BufferTooSmall,
+  DifferentImageFormats,
+}
+
+struct FloatingImage {
+  width: u32,
+  height: u32,
+  data: Vec<u8>,
+  name: String,
+}
+
+impl FloatingImage {
+  fn new(width: u32, height: u32, name: String) -> Self {
+    let buffer_capacity = 3_655_744;
+    let buffer: Vec<u8> = Vec::with_capacity(buffer_capacity);
+    FloatingImage {
+      width,
+      height,
+      data: buffer,
+      name,
+    }
+  }
+  fn set_data(&mut self, data: Vec<u8>) -> Result<(), ImageDataErrors> {
+    if data.len() > self.data.capacity() {
+      return Err(ImageDataErrors::BufferTooSmall);
+    }
+    self.data = data;
+    Ok(())
+  }
+}
+
+fn find_image_from_path(path: String) -> (DynamicImage, ImageFormat) {
+  let image_reader = Reader::open(path).unwrap();
+  let image_format = image_reader.format().unwrap();
+  let image = image_reader.decode().unwrap();
+  (image, image_format)
+}
+
+fn standardise_size(image_1: DynamicImage, image_2: DynamicImage) -> (DynamicImage, DynamicImage) {
+  let (width, height) = get_smallest_dimensions(image_1.dimensions(), image_2.dimensions());
+  println!("width: {}, height: {}\n", width, height);
+  if image_2.dimensions() == (width, height) {
+    (image_1.resize_exact(width, height, Triangle), image_2)
+  } else {
+    (image_1, image_2.resize_exact(width, height, Triangle))
+  }
+}
+
+fn get_smallest_dimensions(dim_1: (u32, u32), dim_2: (u32, u32)) -> (u32, u32) {
+  let pix_1 = dim_1.0 * dim_1.1;
+  let pix_2 = dim_2.0 * dim_2.1;
+  return if pix_1 < pix_2 { dim_1 } else { dim_2 };
+}
+
+fn combine_images(image_1: DynamicImage, image_2: DynamicImage) -> Vec<u8> {
+  let vec_1 = image_1.to_rgba8().into_vec();
+  let vec_2 = image_2.to_rgba8().into_vec();
+
+  alternate_pixels(vec_1, vec_2)
+}
+
+fn alternate_pixels(vec_1: Vec<u8>, vec_2: Vec<u8>) -> Vec<u8> {
+  let mut combined_data = vec![0u8; vec_1.len()];
+
+  let mut i = 0;
+  while i < vec_1.len() {
+    if i % 8 == 0 {
+      combined_data.splice(i..=i + 3, set_rgba(&vec_1, i, i + 3));
+    } else {
+      combined_data.splice(i..=i + 3, set_rgba(&vec_2, i, i + 3));
+    }
+    i += 4;
+  }
+
+  combined_data
+}
+
+fn set_rgba(vec: &Vec<u8>, start: usize, end: usize) -> Vec<u8> {
+  let mut rgba = Vec::new();
+  for i in start..=end {
+    let val = match vec.get(i) {
+      Some(d) => *d,
+      None => panic!("Index out of bounds"),
+    };
+    rgba.push(val);
+  }
+  rgba
+}
+
+#[cfg(test)]
+mod tests {
+  #[test]
+  fn release_build_built() {
+    let a = return_file("./target/release/combiner.d");
+    assert!(!reg_with_con(r"File does not exist", &a));
+  }
+
+  fn reg_with_con(regex: &str, file_contents: &str) -> bool {
+    use regex::Regex;
+
+    Regex::new(regex).unwrap().is_match(file_contents)
+  }
+  fn return_file(filename: &str) -> String {
+    use std::fs::read_to_string;
+
+    match read_to_string(filename) {
+      Ok(file_contents) => file_contents,
+      Err(_) => String::from("File does not exist"),
+    }
+  }
+}
+```
+
+### --tests--
+
+- You can use the `cargo build --bin combiner --release` command to build the binary.
+- `null`
+
+## 80
+
+### --description--
+
 Congratulations on finishing the **Rust in Replit** course!
 
 You may now play around with your code and your new command line tool to make combined images of your own.
@@ -7268,7 +7440,7 @@ You may now play around with your code and your new command line tool to make co
 ### --seed--
 
 ```rust
-// Lesson #79
+// Lesson #80
 #![allow(unused_variables, dead_code)]
 mod args;
 
