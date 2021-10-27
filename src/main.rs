@@ -120,7 +120,7 @@ mod tests {
     ]);
     term(&[
       task(),
-      d("Create a new Rust crate by running the following command in the prompt:\n"),
+      d("Create a new Rust project by running the following command in the prompt:\n"),
       cmd("\t$ cargo new calculator\n\n"),
     ]);
 
@@ -132,7 +132,7 @@ mod tests {
     hr();
     n(2);
     term(&[
-      d("\n\nYou have just created a new Rust crate within the "),
+      d("\n\nYou have just created a new Rust project within the "),
       file("calculator/ "),
       d("directory.\n"),
     ]);
