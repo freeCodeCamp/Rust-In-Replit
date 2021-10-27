@@ -425,11 +425,7 @@ mod tests {
     hr();
     n(13);
     term(&[
-      d("\n\nYour app panicked."),
-      emph(" Panicking"),
-      d(" is Rust's way of throwing an error a.k.a. 'erroring out'.\n"),
-    ]);
-    term(&[
+      d("\n\nYour app errored out. "),
       d("The reason for this error is the last "),
       kw("println"),
       d(" call tries to use the "),
