@@ -611,7 +611,7 @@ mod tests {
 
   #[test]
   fn output_expects_four_args() {
-    let out = output(-10, "+", 10, 0);
+    let out = output(-10, '+', 10, 0);
     assert_eq!(out, ());
   }
 }
@@ -634,7 +634,7 @@ fn main() -> f32 {
   24.5
 }
 
-fn output(first_number: i32, operator: &str, second_number: i32, result: i32) {
+fn output(first_number: i32, operator: char, second_number: i32, result: i32) {
 
 }
 
@@ -654,7 +654,7 @@ mod tests {
 
   #[test]
   fn output_returns_the_correct_string() {
-    let out = output(-10, "+", 10, 0);
+    let out = output(-10, '+', 10, 0);
     assert_eq!(out, String::from("-10 + 10 = 0"));
   }
 }
@@ -677,7 +677,7 @@ fn main() {
 
 }
 
-fn output(first_number: i32, operator: &str, second_number: i32, result: i32) -> String {
+fn output(first_number: i32, operator: char, second_number: i32, result: i32) -> String {
   format!(
     "{} {} {} = {}",
     first_number, operator, second_number, result
@@ -695,7 +695,7 @@ mod tests {
 
   #[test]
   fn output_expects_four_args() {
-    let out = output(-10, "+", 10, 0);
+    let out = output(-10, '+', 10, 0);
     assert_eq!(out, String::from("-10 + 10 = 0"));
   }
 }
@@ -716,10 +716,10 @@ mod tests {
 // Lesson #31
 fn main() {
 
-  println!("{}", output(10, "+", 10, 0));
+  println!("{}", output(10, '+', 10, 0));
 }
 
-fn output(first_number: i32, operator: &str, second_number: i32, result: i32) -> String {
+fn output(first_number: i32, operator: char, second_number: i32, result: i32) -> String {
   format!(
     "{} {} {} = {}",
     first_number, operator, second_number, result
@@ -737,7 +737,7 @@ mod tests {
 
   #[test]
   fn output_expects_four_args() {
-    let out = output(-10, "+", 10, 0);
+    let out = output(-10, '+', 10, 0);
     assert_eq!(out, String::from("-10 + 10 = 0"));
   }
 }
@@ -764,13 +764,13 @@ mod tests {
 // Lesson #32
 fn main() {
   let first_number = 1;
-  let operator = "-";
+  let operator = '-';
   let second_number = 10;
 
   println!("{}", output(first_number, operator, second_number, 0));
 }
 
-fn output(first_number: i32, operator: &str, second_number: i32, result: i32) -> String {
+fn output(first_number: i32, operator: char, second_number: i32, result: i32) -> String {
   format!(
     "{} {} {} = {}",
     first_number, operator, second_number, result
@@ -791,13 +791,13 @@ mod tests {
 
   #[test]
   fn output_expects_four_args() {
-    let out = output(-10, "+", 10, 0);
+    let out = output(-10, '+', 10, 0);
     assert_eq!(out, String::from("-10 + 10 = 0"));
   }
 
   #[test]
   fn operate_expects_three_args() {
-    let op = operate("-", -5, 200);
+    let op = operate('-', -5, 200);
     assert_eq!(op, ());
   }
 }
@@ -818,20 +818,20 @@ mod tests {
 // Lesson #33
 fn main() {
   let first_number = 1;
-  let operator = "-";
+  let operator = '-';
   let second_number = 10;
 
   println!("{}", output(first_number, operator, second_number, 0));
 }
 
-fn output(first_number: i32, operator: &str, second_number: i32, result: i32) -> String {
+fn output(first_number: i32, operator: char, second_number: i32, result: i32) -> String {
   format!(
     "{} {} {} = {}",
     first_number, operator, second_number, result
   )
 }
 
-fn operate(operator: &str, first_number: i32, second_number: i32) {
+fn operate(operator: char, first_number: i32, second_number: i32) {
 
 }
 
@@ -847,33 +847,33 @@ mod tests {
 
   #[test]
   fn output_expects_four_args() {
-    let out = output(-10, "+", 10, 0);
+    let out = output(-10, '+', 10, 0);
     assert_eq!(out, String::from("-10 + 10 = 0"));
   }
 
   #[test]
   fn operate_handles_addition() {
-    let op = operate("+", -5, 200);
+    let op = operate('+', -5, 200);
     assert_eq!(op, 195);
   }
   #[test]
   fn operate_handles_subtraction() {
-    let op = operate("-", -10, -12);
+    let op = operate('-', -10, -12);
     assert_eq!(op, 2);
   }
   #[test]
   fn operate_handles_division() {
-    let op = operate("/", -12, -1);
+    let op = operate('/', -12, -1);
     assert_eq!(op, 12);
   }
   #[test]
   fn operate_handles_multiplication() {
-    let op = operate("*", -12, -2);
+    let op = operate('*', -12, -2);
     assert_eq!(op, 24);
   }
   #[test]
   fn operate_returns_zero_on_invalid_op() {
-    let op = operate("invalid", 1, 1);
+    let op = operate('a', 1, 1);
     assert_eq!(op, 0);
   }
 }
@@ -894,27 +894,27 @@ mod tests {
 // Lesson #34
 fn main() {
   let first_number = 1;
-  let operator = "-";
+  let operator = '-';
   let second_number = 10;
 
   println!("{}", output(first_number, operator, second_number, 0));
 }
 
-fn output(first_number: i32, operator: &str, second_number: i32, result: i32) -> String {
+fn output(first_number: i32, operator: char, second_number: i32, result: i32) -> String {
   format!(
     "{} {} {} = {}",
     first_number, operator, second_number, result
   )
 }
 
-fn operate(operator: &str, first_number: i32, second_number: i32) -> i32 {
-  if operator == "+" {
+fn operate(operator: char, first_number: i32, second_number: i32) -> i32 {
+  if operator == '+' {
     first_number + second_number
-  } else if operator == "-" {
+  } else if operator == '-' {
     first_number - second_number
-  } else if operator == "/" {
+  } else if operator == '/' {
     first_number / second_number
-  } else if operator == "*" {
+  } else if operator == '*' {
     first_number * second_number
   } else {
     0
@@ -933,34 +933,34 @@ mod tests {
 
   #[test]
   fn output_expects_four_args() {
-    let out = output(-10, "+", 10, 0);
+    let out = output(-10, '+', 10, 0);
     assert_eq!(out, String::from("-10 + 10 = 0"));
   }
 
   #[test]
   fn operate_handles_addition() {
-    let op = operate("+", -5, 200);
+    let op = operate('+', -5, 200);
     assert_eq!(op, 195);
   }
   #[test]
   fn operate_handles_subtraction() {
-    let op = operate("-", -12, -12);
+    let op = operate('-', -12, -12);
     assert_eq!(op, 0);
   }
   #[test]
   fn operate_handles_division() {
-    let op = operate("/", -12, -1);
+    let op = operate('/', -12, -1);
     assert_eq!(op, 12);
   }
   #[test]
   fn operate_handles_multiplication() {
-    let op = operate("*", -12, -2);
+    let op = operate('*', -12, -2);
     assert_eq!(op, 24);
   }
   #[test]
   #[should_panic]
   fn operate_panics_on_invalid_op() {
-    operate("invalid", 1, 1);
+    operate('a', 1, 1);
   }
 }
 ```
@@ -980,27 +980,27 @@ mod tests {
 // Lesson #35
 fn main() {
   let first_number = 1;
-  let operator = "-";
+  let operator = '-';
   let second_number = 10;
 
   println!("{}", output(first_number, operator, second_number, 0));
 }
 
-fn output(first_number: i32, operator: &str, second_number: i32, result: i32) -> String {
+fn output(first_number: i32, operator: char, second_number: i32, result: i32) -> String {
   format!(
     "{} {} {} = {}",
     first_number, operator, second_number, result
   )
 }
 
-fn operate(operator: &str, first_number: i32, second_number: i32) -> i32 {
-  if operator == "+" {
+fn operate(operator: char, first_number: i32, second_number: i32) -> i32 {
+  if operator == '+' {
     first_number + second_number
-  } else if operator == "-" {
+  } else if operator == '-' {
     first_number - second_number
-  } else if operator == "/" {
+  } else if operator == '/' {
     first_number / second_number
-  } else if operator == "*" {
+  } else if operator == '*' {
     first_number * second_number
   } else {
     panic!("Invalid operator used.");
@@ -1019,34 +1019,34 @@ mod tests {
 
   #[test]
   fn output_expects_four_args() {
-    let out = output(-10, "+", 10, 0);
+    let out = output(-10, '+', 10, 0);
     assert_eq!(out, String::from("-10 + 10 = 0"));
   }
 
   #[test]
   fn operate_handles_addition() {
-    let op = operate("+", -5, 200);
+    let op = operate('+', -5, 200);
     assert_eq!(op, 195);
   }
   #[test]
   fn operate_handles_subtraction() {
-    let op = operate("-", -12, -12);
+    let op = operate('-', -12, -12);
     assert_eq!(op, 0);
   }
   #[test]
   fn operate_handles_division() {
-    let op = operate("/", -12, -1);
+    let op = operate('/', -12, -1);
     assert_eq!(op, 12);
   }
   #[test]
   fn operate_handles_multiplication() {
-    let op = operate("*", -12, -2);
+    let op = operate('*', -12, -2);
     assert_eq!(op, 24);
   }
   #[test]
   #[should_panic]
   fn operate_panics_on_invalid_op() {
-    operate("invalid", 1, 1);
+    operate('a', 1, 1);
   }
 }
 ```
@@ -1068,25 +1068,25 @@ mod tests {
 // Lesson #36
 fn main() {
   let first_number = 1;
-  let operator = "-";
+  let operator = '-';
   let second_number = 10;
 
   println!("{}", output(first_number, operator, second_number, 0));
 }
 
-fn output(first_number: i32, operator: &str, second_number: i32, result: i32) -> String {
+fn output(first_number: i32, operator: char, second_number: i32, result: i32) -> String {
   format!(
     "{} {} {} = {}",
     first_number, operator, second_number, result
   )
 }
 
-fn operate(operator: &str, first_number: i32, second_number: i32) -> i32 {
+fn operate(operator: char, first_number: i32, second_number: i32) -> i32 {
   match operator {
-    "+" => first_number + second_number,
-    "-" => first_number - second_number,
-    "/" => first_number / second_number,
-    "*" => first_number * second_number,
+    '+' => first_number + second_number,
+    '-' => first_number - second_number,
+    '/' => first_number / second_number,
+    '*' => first_number * second_number,
     _ => panic!("Invalid operator used."),
   }
 }
@@ -1103,44 +1103,44 @@ mod tests {
 
   #[test]
   fn output_expects_four_args() {
-    let out = output(-10, "+", 10, 0);
+    let out = output(-10, '+', 10, 0);
     assert_eq!(out, String::from("-10 + 10 = 0"));
   }
 
   #[test]
   fn operate_handles_addition() {
-    let op = operate("+", -5, 200);
+    let op = operate('+', -5, 200);
     assert_eq!(op, 195);
   }
   #[test]
   fn operate_handles_subtraction() {
-    let op = operate("-", -12, -12);
+    let op = operate('-', -12, -12);
     assert_eq!(op, 0);
   }
   #[test]
   fn operate_handles_division() {
-    let op = operate("/", -12, -1);
+    let op = operate('/', -12, -1);
     assert_eq!(op, 12);
   }
   #[test]
   fn operate_handles_multiplication() {
-    let op = operate("*", -12, -2);
+    let op = operate('*', -12, -2);
     assert_eq!(op, 24);
   }
   #[test]
   fn operate_handles_multiplication_x() {
-    let op = operate("x", -12, 2);
+    let op = operate('x', -12, 2);
     assert_eq!(op, -24);
   }
   #[test]
   fn operate_handles_multiplcaiton_cap_x() {
-    let op = operate("X", -12, 2);
+    let op = operate('X', -12, 2);
     assert_eq!(op, -24);
   }
   #[test]
   #[should_panic]
   fn operate_panics_on_invalid_op() {
-    operate("invalid", 1, 1);
+    operate('a', 1, 1);
   }
 }
 ```
@@ -1160,25 +1160,25 @@ mod tests {
 // Lesson #37
 fn main() {
   let first_number = 1;
-  let operator = "-";
+  let operator = '-';
   let second_number = 10;
 
   println!("{}", output(first_number, operator, second_number, 0));
 }
 
-fn output(first_number: i32, operator: &str, second_number: i32, result: i32) -> String {
+fn output(first_number: i32, operator: char, second_number: i32, result: i32) -> String {
   format!(
     "{} {} {} = {}",
     first_number, operator, second_number, result
   )
 }
 
-fn operate(operator: &str, first_number: i32, second_number: i32) -> i32 {
+fn operate(operator: char, first_number: i32, second_number: i32) -> i32 {
   match operator {
-    "+" => first_number + second_number,
-    "-" => first_number - second_number,
-    "/" => first_number / second_number,
-    "*" | "X" | "x" => first_number * second_number,
+    '+' => first_number + second_number,
+    '-' => first_number - second_number,
+    '/' => first_number / second_number,
+    '*' | 'X' | 'x' => first_number * second_number,
     _ => panic!("Invalid operator used."),
   }
 }
@@ -1195,44 +1195,44 @@ mod tests {
 
   #[test]
   fn output_expects_four_args() {
-    let out = output(-10, "+", 10, 0);
+    let out = output(-10, '+', 10, 0);
     assert_eq!(out, String::from("-10 + 10 = 0"));
   }
 
   #[test]
   fn operate_handles_addition() {
-    let op = operate("+", -5, 200);
+    let op = operate('+', -5, 200);
     assert_eq!(op, 195);
   }
   #[test]
   fn operate_handles_subtraction() {
-    let op = operate("-", -12, -12);
+    let op = operate('-', -12, -12);
     assert_eq!(op, 0);
   }
   #[test]
   fn operate_handles_division() {
-    let op = operate("/", -12, -1);
+    let op = operate('/', -12, -1);
     assert_eq!(op, 12);
   }
   #[test]
   fn operate_handles_multiplication() {
-    let op = operate("*", -12, -2);
+    let op = operate('*', -12, -2);
     assert_eq!(op, 24);
   }
   #[test]
   fn operate_handles_multiplication_x() {
-    let op = operate("x", -12, 2);
+    let op = operate('x', -12, 2);
     assert_eq!(op, -24);
   }
   #[test]
   fn operate_handles_multiplcaiton_cap_x() {
-    let op = operate("X", -12, 2);
+    let op = operate('X', -12, 2);
     assert_eq!(op, -24);
   }
   #[test]
   #[should_panic]
   fn operate_panics_on_invalid_op() {
-    operate("invalid", 1, 1);
+    operate('a', 1, 1);
   }
 }
 ```
@@ -1256,7 +1256,7 @@ mod tests {
 
 fn main() {
   let first_number = 1;
-  let operator = "-";
+  let operator = '-';
   let second_number = 10;
 
   let result = operate(operator, first_number, second_number);
@@ -1264,19 +1264,19 @@ fn main() {
   println!("{}", output(first_number, operator, second_number, result));
 }
 
-fn output(first_number: i32, operator: &str, second_number: i32, result: i32) -> String {
+fn output(first_number: i32, operator: char, second_number: i32, result: i32) -> String {
   format!(
     "{} {} {} = {}",
     first_number, operator, second_number, result
   )
 }
 
-fn operate(operator: &str, first_number: i32, second_number: i32) -> i32 {
+fn operate(operator: char, first_number: i32, second_number: i32) -> i32 {
   match operator {
-    "+" => first_number + second_number,
-    "-" => first_number - second_number,
-    "/" => first_number / second_number,
-    "*" | "X" | "x" => first_number * second_number,
+    '+' => first_number + second_number,
+    '-' => first_number - second_number,
+    '/' => first_number / second_number,
+    '*' | 'X' | 'x' => first_number * second_number,
     _ => panic!("Invalid operator used."),
   }
 }
@@ -1293,44 +1293,44 @@ mod tests {
 
   #[test]
   fn output_expects_four_args() {
-    let out = output(-10, "+", 10, 0);
+    let out = output(-10, '+', 10, 0);
     assert_eq!(out, String::from("-10 + 10 = 0"));
   }
 
   #[test]
   fn operate_handles_addition() {
-    let op = operate("+", -5, 200);
+    let op = operate('+', -5, 200);
     assert_eq!(op, 195);
   }
   #[test]
   fn operate_handles_subtraction() {
-    let op = operate("-", -12, -12);
+    let op = operate('-', -12, -12);
     assert_eq!(op, 0);
   }
   #[test]
   fn operate_handles_division() {
-    let op = operate("/", -12, -1);
+    let op = operate('/', -12, -1);
     assert_eq!(op, 12);
   }
   #[test]
   fn operate_handles_multiplication() {
-    let op = operate("*", -12, -2);
+    let op = operate('*', -12, -2);
     assert_eq!(op, 24);
   }
   #[test]
   fn operate_handles_multiplication_x() {
-    let op = operate("x", -12, 2);
+    let op = operate('x', -12, 2);
     assert_eq!(op, -24);
   }
   #[test]
   fn operate_handles_multiplcaiton_cap_x() {
-    let op = operate("X", -12, 2);
+    let op = operate('X', -12, 2);
     assert_eq!(op, -24);
   }
   #[test]
   #[should_panic]
   fn operate_panics_on_invalid_op() {
-    operate("invalid", 1, 1);
+    operate('a', 1, 1);
   }
 }
 ```
@@ -1354,7 +1354,7 @@ fn main() {
 
 
   let first_number = 1;
-  let operator = "-";
+  let operator = '-';
   let second_number = 10;
 
   let result = operate(operator, first_number, second_number);
@@ -1362,19 +1362,19 @@ fn main() {
   println!("{}", output(first_number, operator, second_number, result));
 }
 
-fn output(first_number: i32, operator: &str, second_number: i32, result: i32) -> String {
+fn output(first_number: i32, operator: char, second_number: i32, result: i32) -> String {
   format!(
     "{} {} {} = {}",
     first_number, operator, second_number, result
   )
 }
 
-fn operate(operator: &str, first_number: i32, second_number: i32) -> i32 {
+fn operate(operator: char, first_number: i32, second_number: i32) -> i32 {
   match operator {
-    "+" => first_number + second_number,
-    "-" => first_number - second_number,
-    "/" => first_number / second_number,
-    "*" | "X" | "x" => first_number * second_number,
+    '+' => first_number + second_number,
+    '-' => first_number - second_number,
+    '/' => first_number / second_number,
+    '*' | 'X' | 'x' => first_number * second_number,
     _ => panic!("Invalid operator used."),
   }
 }
@@ -1391,44 +1391,44 @@ mod tests {
 
   #[test]
   fn output_expects_four_args() {
-    let out = output(-10, "+", 10, 0);
+    let out = output(-10, '+', 10, 0);
     assert_eq!(out, String::from("-10 + 10 = 0"));
   }
 
   #[test]
   fn operate_handles_addition() {
-    let op = operate("+", -5, 200);
+    let op = operate('+', -5, 200);
     assert_eq!(op, 195);
   }
   #[test]
   fn operate_handles_subtraction() {
-    let op = operate("-", -12, -12);
+    let op = operate('-', -12, -12);
     assert_eq!(op, 0);
   }
   #[test]
   fn operate_handles_division() {
-    let op = operate("/", -12, -1);
+    let op = operate('/', -12, -1);
     assert_eq!(op, 12);
   }
   #[test]
   fn operate_handles_multiplication() {
-    let op = operate("*", -12, -2);
+    let op = operate('*', -12, -2);
     assert_eq!(op, 24);
   }
   #[test]
   fn operate_handles_multiplication_x() {
-    let op = operate("x", -12, 2);
+    let op = operate('x', -12, 2);
     assert_eq!(op, -24);
   }
   #[test]
   fn operate_handles_multiplcaiton_cap_x() {
-    let op = operate("X", -12, 2);
+    let op = operate('X', -12, 2);
     assert_eq!(op, -24);
   }
   #[test]
   #[should_panic]
   fn operate_panics_on_invalid_op() {
-    operate("invalid", 1, 1);
+    operate('a', 1, 1);
   }
 }
 ```
@@ -1454,7 +1454,7 @@ fn main() {
   let args = env::args();
 
   let first_number = 1;
-  let operator = "-";
+  let operator = '-';
   let second_number = 10;
 
   let result = operate(operator, first_number, second_number);
@@ -1462,19 +1462,19 @@ fn main() {
   println!("{}", output(first_number, operator, second_number, result));
 }
 
-fn output(first_number: i32, operator: &str, second_number: i32, result: i32) -> String {
+fn output(first_number: i32, operator: char, second_number: i32, result: i32) -> String {
   format!(
     "{} {} {} = {}",
     first_number, operator, second_number, result
   )
 }
 
-fn operate(operator: &str, first_number: i32, second_number: i32) -> i32 {
+fn operate(operator: char, first_number: i32, second_number: i32) -> i32 {
   match operator {
-    "+" => first_number + second_number,
-    "-" => first_number - second_number,
-    "/" => first_number / second_number,
-    "*" | "X" | "x" => first_number * second_number,
+    '+' => first_number + second_number,
+    '-' => first_number - second_number,
+    '/' => first_number / second_number,
+    '*' | 'X' | 'x' => first_number * second_number,
     _ => panic!("Invalid operator used."),
   }
 }
@@ -1491,44 +1491,44 @@ mod tests {
 
   #[test]
   fn output_expects_four_args() {
-    let out = output(-10, "+", 10, 0);
+    let out = output(-10, '+', 10, 0);
     assert_eq!(out, String::from("-10 + 10 = 0"));
   }
 
   #[test]
   fn operate_handles_addition() {
-    let op = operate("+", -5, 200);
+    let op = operate('+', -5, 200);
     assert_eq!(op, 195);
   }
   #[test]
   fn operate_handles_subtraction() {
-    let op = operate("-", -12, -12);
+    let op = operate('-', -12, -12);
     assert_eq!(op, 0);
   }
   #[test]
   fn operate_handles_division() {
-    let op = operate("/", -12, -1);
+    let op = operate('/', -12, -1);
     assert_eq!(op, 12);
   }
   #[test]
   fn operate_handles_multiplication() {
-    let op = operate("*", -12, -2);
+    let op = operate('*', -12, -2);
     assert_eq!(op, 24);
   }
   #[test]
   fn operate_handles_multiplication_x() {
-    let op = operate("x", -12, 2);
+    let op = operate('x', -12, 2);
     assert_eq!(op, -24);
   }
   #[test]
   fn operate_handles_multiplcaiton_cap_x() {
-    let op = operate("X", -12, 2);
+    let op = operate('X', -12, 2);
     assert_eq!(op, -24);
   }
   #[test]
   #[should_panic]
   fn operate_panics_on_invalid_op() {
-    operate("invalid", 1, 1);
+    operate('a', 1, 1);
   }
 }
 ```
@@ -1553,7 +1553,7 @@ fn main() {
   println!("{:?}", args);
 
   let first_number = 1;
-  let operator = "-";
+  let operator = '-';
   let second_number = 10;
 
   let result = operate(operator, first_number, second_number);
@@ -1561,19 +1561,19 @@ fn main() {
   println!("{}", output(first_number, operator, second_number, result));
 }
 
-fn output(first_number: i32, operator: &str, second_number: i32, result: i32) -> String {
+fn output(first_number: i32, operator: char, second_number: i32, result: i32) -> String {
   format!(
     "{} {} {} = {}",
     first_number, operator, second_number, result
   )
 }
 
-fn operate(operator: &str, first_number: i32, second_number: i32) -> i32 {
+fn operate(operator: char, first_number: i32, second_number: i32) -> i32 {
   match operator {
-    "+" => first_number + second_number,
-    "-" => first_number - second_number,
-    "/" => first_number / second_number,
-    "*" | "X" | "x" => first_number * second_number,
+    '+' => first_number + second_number,
+    '-' => first_number - second_number,
+    '/' => first_number / second_number,
+    '*' | 'X' | 'x' => first_number * second_number,
     _ => panic!("Invalid operator used."),
   }
 }
@@ -1590,44 +1590,44 @@ mod tests {
 
   #[test]
   fn output_expects_four_args() {
-    let out = output(-10, "+", 10, 0);
+    let out = output(-10, '+', 10, 0);
     assert_eq!(out, String::from("-10 + 10 = 0"));
   }
 
   #[test]
   fn operate_handles_addition() {
-    let op = operate("+", -5, 200);
+    let op = operate('+', -5, 200);
     assert_eq!(op, 195);
   }
   #[test]
   fn operate_handles_subtraction() {
-    let op = operate("-", -12, -12);
+    let op = operate('-', -12, -12);
     assert_eq!(op, 0);
   }
   #[test]
   fn operate_handles_division() {
-    let op = operate("/", -12, -1);
+    let op = operate('/', -12, -1);
     assert_eq!(op, 12);
   }
   #[test]
   fn operate_handles_multiplication() {
-    let op = operate("*", -12, -2);
+    let op = operate('*', -12, -2);
     assert_eq!(op, 24);
   }
   #[test]
   fn operate_handles_multiplication_x() {
-    let op = operate("x", -12, 2);
+    let op = operate('x', -12, 2);
     assert_eq!(op, -24);
   }
   #[test]
   fn operate_handles_multiplcaiton_cap_x() {
-    let op = operate("X", -12, 2);
+    let op = operate('X', -12, 2);
     assert_eq!(op, -24);
   }
   #[test]
   #[should_panic]
   fn operate_panics_on_invalid_op() {
-    operate("invalid", 1, 1);
+    operate('a', 1, 1);
   }
 }
 ```
@@ -1652,7 +1652,7 @@ fn main() {
   println!("{:?}", args);
 
   let first_number = 1;
-  let operator = "-";
+  let operator = '-';
   let second_number = 10;
 
   let result = operate(operator, first_number, second_number);
@@ -1660,19 +1660,19 @@ fn main() {
   println!("{}", output(first_number, operator, second_number, result));
 }
 
-fn output(first_number: i32, operator: &str, second_number: i32, result: i32) -> String {
+fn output(first_number: i32, operator: char, second_number: i32, result: i32) -> String {
   format!(
     "{} {} {} = {}",
     first_number, operator, second_number, result
   )
 }
 
-fn operate(operator: &str, first_number: i32, second_number: i32) -> i32 {
+fn operate(operator: char, first_number: i32, second_number: i32) -> i32 {
   match operator {
-    "+" => first_number + second_number,
-    "-" => first_number - second_number,
-    "/" => first_number / second_number,
-    "*" | "X" | "x" => first_number * second_number,
+    '+' => first_number + second_number,
+    '-' => first_number - second_number,
+    '/' => first_number / second_number,
+    '*' | 'X' | 'x' => first_number * second_number,
     _ => panic!("Invalid operator used."),
   }
 }
@@ -1689,44 +1689,44 @@ mod tests {
 
   #[test]
   fn output_expects_four_args() {
-    let out = output(-10, "+", 10, 0);
+    let out = output(-10, '+', 10, 0);
     assert_eq!(out, String::from("-10 + 10 = 0"));
   }
 
   #[test]
   fn operate_handles_addition() {
-    let op = operate("+", -5, 200);
+    let op = operate('+', -5, 200);
     assert_eq!(op, 195);
   }
   #[test]
   fn operate_handles_subtraction() {
-    let op = operate("-", -12, -12);
+    let op = operate('-', -12, -12);
     assert_eq!(op, 0);
   }
   #[test]
   fn operate_handles_division() {
-    let op = operate("/", -12, -1);
+    let op = operate('/', -12, -1);
     assert_eq!(op, 12);
   }
   #[test]
   fn operate_handles_multiplication() {
-    let op = operate("*", -12, -2);
+    let op = operate('*', -12, -2);
     assert_eq!(op, 24);
   }
   #[test]
   fn operate_handles_multiplication_x() {
-    let op = operate("x", -12, 2);
+    let op = operate('x', -12, 2);
     assert_eq!(op, -24);
   }
   #[test]
   fn operate_handles_multiplcaiton_cap_x() {
-    let op = operate("X", -12, 2);
+    let op = operate('X', -12, 2);
     assert_eq!(op, -24);
   }
   #[test]
   #[should_panic]
   fn operate_panics_on_invalid_op() {
-    operate("invalid", 1, 1);
+    operate('a', 1, 1);
   }
 }
 ```
@@ -1753,7 +1753,7 @@ fn main() {
   println!("{:?}", args.nth(0));
 
   let first_number = 1;
-  let operator = "-";
+  let operator = '-';
   let second_number = 10;
 
   let result = operate(operator, first_number, second_number);
@@ -1761,19 +1761,19 @@ fn main() {
   println!("{}", output(first_number, operator, second_number, result));
 }
 
-fn output(first_number: i32, operator: &str, second_number: i32, result: i32) -> String {
+fn output(first_number: i32, operator: char, second_number: i32, result: i32) -> String {
   format!(
     "{} {} {} = {}",
     first_number, operator, second_number, result
   )
 }
 
-fn operate(operator: &str, first_number: i32, second_number: i32) -> i32 {
+fn operate(operator: char, first_number: i32, second_number: i32) -> i32 {
   match operator {
-    "+" => first_number + second_number,
-    "-" => first_number - second_number,
-    "/" => first_number / second_number,
-    "*" | "X" | "x" => first_number * second_number,
+    '+' => first_number + second_number,
+    '-' => first_number - second_number,
+    '/' => first_number / second_number,
+    '*' | 'X' | 'x' => first_number * second_number,
     _ => panic!("Invalid operator used."),
   }
 }
@@ -1790,44 +1790,44 @@ mod tests {
 
   #[test]
   fn output_expects_four_args() {
-    let out = output(-10, "+", 10, 0);
+    let out = output(-10, '+', 10, 0);
     assert_eq!(out, String::from("-10 + 10 = 0"));
   }
 
   #[test]
   fn operate_handles_addition() {
-    let op = operate("+", -5, 200);
+    let op = operate('+', -5, 200);
     assert_eq!(op, 195);
   }
   #[test]
   fn operate_handles_subtraction() {
-    let op = operate("-", -12, -12);
+    let op = operate('-', -12, -12);
     assert_eq!(op, 0);
   }
   #[test]
   fn operate_handles_division() {
-    let op = operate("/", -12, -1);
+    let op = operate('/', -12, -1);
     assert_eq!(op, 12);
   }
   #[test]
   fn operate_handles_multiplication() {
-    let op = operate("*", -12, -2);
+    let op = operate('*', -12, -2);
     assert_eq!(op, 24);
   }
   #[test]
   fn operate_handles_multiplication_x() {
-    let op = operate("x", -12, 2);
+    let op = operate('x', -12, 2);
     assert_eq!(op, -24);
   }
   #[test]
   fn operate_handles_multiplcaiton_cap_x() {
-    let op = operate("X", -12, 2);
+    let op = operate('X', -12, 2);
     assert_eq!(op, -24);
   }
   #[test]
   #[should_panic]
   fn operate_panics_on_invalid_op() {
-    operate("invalid", 1, 1);
+    operate('a', 1, 1);
   }
 }
 ```
@@ -1864,19 +1864,19 @@ fn main() {
   // println!("{}", output(first_number, operator, second_number, result));
 }
 
-fn output(first_number: i32, operator: &str, second_number: i32, result: i32) -> String {
+fn output(first_number: i32, operator: char, second_number: i32, result: i32) -> String {
   format!(
     "{} {} {} = {}",
     first_number, operator, second_number, result
   )
 }
 
-fn operate(operator: &str, first_number: i32, second_number: i32) -> i32 {
+fn operate(operator: char, first_number: i32, second_number: i32) -> i32 {
   match operator {
-    "+" => first_number + second_number,
-    "-" => first_number - second_number,
-    "/" => first_number / second_number,
-    "*" | "X" | "x" => first_number * second_number,
+    '+' => first_number + second_number,
+    '-' => first_number - second_number,
+    '/' => first_number / second_number,
+    '*' | 'X' | 'x' => first_number * second_number,
     _ => panic!("Invalid operator used."),
   }
 }
@@ -1893,44 +1893,44 @@ mod tests {
 
   #[test]
   fn output_expects_four_args() {
-    let out = output(-10, "+", 10, 0);
+    let out = output(-10, '+', 10, 0);
     assert_eq!(out, String::from("-10 + 10 = 0"));
   }
 
   #[test]
   fn operate_handles_addition() {
-    let op = operate("+", -5, 200);
+    let op = operate('+', -5, 200);
     assert_eq!(op, 195);
   }
   #[test]
   fn operate_handles_subtraction() {
-    let op = operate("-", -12, -12);
+    let op = operate('-', -12, -12);
     assert_eq!(op, 0);
   }
   #[test]
   fn operate_handles_division() {
-    let op = operate("/", -12, -1);
+    let op = operate('/', -12, -1);
     assert_eq!(op, 12);
   }
   #[test]
   fn operate_handles_multiplication() {
-    let op = operate("*", -12, -2);
+    let op = operate('*', -12, -2);
     assert_eq!(op, 24);
   }
   #[test]
   fn operate_handles_multiplication_x() {
-    let op = operate("x", -12, 2);
+    let op = operate('x', -12, 2);
     assert_eq!(op, -24);
   }
   #[test]
   fn operate_handles_multiplcaiton_cap_x() {
-    let op = operate("X", -12, 2);
+    let op = operate('X', -12, 2);
     assert_eq!(op, -24);
   }
   #[test]
   #[should_panic]
   fn operate_panics_on_invalid_op() {
-    operate("invalid", 1, 1);
+    operate('a', 1, 1);
   }
 }
 ```
@@ -1967,19 +1967,19 @@ fn main() {
   // println!("{}", output(first_number, operator, second_number, result));
 }
 
-fn output(first_number: i32, operator: &str, second_number: i32, result: i32) -> String {
+fn output(first_number: i32, operator: char, second_number: i32, result: i32) -> String {
   format!(
     "{} {} {} = {}",
     first_number, operator, second_number, result
   )
 }
 
-fn operate(operator: &str, first_number: i32, second_number: i32) -> i32 {
+fn operate(operator: char, first_number: i32, second_number: i32) -> i32 {
   match operator {
-    "+" => first_number + second_number,
-    "-" => first_number - second_number,
-    "/" => first_number / second_number,
-    "*" | "X" | "x" => first_number * second_number,
+    '+' => first_number + second_number,
+    '-' => first_number - second_number,
+    '/' => first_number / second_number,
+    '*' | 'X' | 'x' => first_number * second_number,
     _ => panic!("Invalid operator used."),
   }
 }
@@ -1991,44 +1991,44 @@ mod tests {
 
   #[test]
   fn output_expects_four_args() {
-    let out = output(-10, "+", 10, 0);
+    let out = output(-10, '+', 10, 0);
     assert_eq!(out, String::from("-10 + 10 = 0"));
   }
 
   #[test]
   fn operate_handles_addition() {
-    let op = operate("+", -5, 200);
+    let op = operate('+', -5, 200);
     assert_eq!(op, 195);
   }
   #[test]
   fn operate_handles_subtraction() {
-    let op = operate("-", -12, -12);
+    let op = operate('-', -12, -12);
     assert_eq!(op, 0);
   }
   #[test]
   fn operate_handles_division() {
-    let op = operate("/", -12, -1);
+    let op = operate('/', -12, -1);
     assert_eq!(op, 12);
   }
   #[test]
   fn operate_handles_multiplication() {
-    let op = operate("*", -12, -2);
+    let op = operate('*', -12, -2);
     assert_eq!(op, 24);
   }
   #[test]
   fn operate_handles_multiplication_x() {
-    let op = operate("x", -12, 2);
+    let op = operate('x', -12, 2);
     assert_eq!(op, -24);
   }
   #[test]
   fn operate_handles_multiplcaiton_cap_x() {
-    let op = operate("X", -12, 2);
+    let op = operate('X', -12, 2);
     assert_eq!(op, -24);
   }
   #[test]
   #[should_panic]
   fn operate_panics_on_invalid_op() {
-    operate("invalid", 1, 1);
+    operate('a', 1, 1);
   }
 }
 ```
@@ -2061,19 +2061,19 @@ fn main() {
   // println!("{}", output(first_number, operator, second_number, result));
 }
 
-fn output(first_number: i32, operator: &str, second_number: i32, result: i32) -> String {
+fn output(first_number: i32, operator: char, second_number: i32, result: i32) -> String {
   format!(
     "{} {} {} = {}",
     first_number, operator, second_number, result
   )
 }
 
-fn operate(operator: &str, first_number: i32, second_number: i32) -> i32 {
+fn operate(operator: char, first_number: i32, second_number: i32) -> i32 {
   match operator {
-    "+" => first_number + second_number,
-    "-" => first_number - second_number,
-    "/" => first_number / second_number,
-    "*" | "X" | "x" => first_number * second_number,
+    '+' => first_number + second_number,
+    '-' => first_number - second_number,
+    '/' => first_number / second_number,
+    '*' | 'X' | 'x' => first_number * second_number,
     _ => panic!("Invalid operator used."),
   }
 }
@@ -2085,44 +2085,44 @@ mod tests {
 
   #[test]
   fn output_expects_four_args() {
-    let out = output(-10, "+", 10, 0);
+    let out = output(-10, '+', 10, 0);
     assert_eq!(out, String::from("-10 + 10 = 0"));
   }
 
   #[test]
   fn operate_handles_addition() {
-    let op = operate("+", -5, 200);
+    let op = operate('+', -5, 200);
     assert_eq!(op, 195);
   }
   #[test]
   fn operate_handles_subtraction() {
-    let op = operate("-", -12, -12);
+    let op = operate('-', -12, -12);
     assert_eq!(op, 0);
   }
   #[test]
   fn operate_handles_division() {
-    let op = operate("/", -12, -1);
+    let op = operate('/', -12, -1);
     assert_eq!(op, 12);
   }
   #[test]
   fn operate_handles_multiplication() {
-    let op = operate("*", -12, -2);
+    let op = operate('*', -12, -2);
     assert_eq!(op, 24);
   }
   #[test]
   fn operate_handles_multiplication_x() {
-    let op = operate("x", -12, 2);
+    let op = operate('x', -12, 2);
     assert_eq!(op, -24);
   }
   #[test]
   fn operate_handles_multiplcaiton_cap_x() {
-    let op = operate("X", -12, 2);
+    let op = operate('X', -12, 2);
     assert_eq!(op, -24);
   }
   #[test]
   #[should_panic]
   fn operate_panics_on_invalid_op() {
-    operate("invalid", 1, 1);
+    operate('a', 1, 1);
   }
 }
 ```
@@ -2155,19 +2155,19 @@ fn main() {
   // println!("{}", output(first_number, operator, second_number, result));
 }
 
-fn output(first_number: i32, operator: &str, second_number: i32, result: i32) -> String {
+fn output(first_number: i32, operator: char, second_number: i32, result: i32) -> String {
   format!(
     "{} {} {} = {}",
     first_number, operator, second_number, result
   )
 }
 
-fn operate(operator: &str, first_number: i32, second_number: i32) -> i32 {
+fn operate(operator: char, first_number: i32, second_number: i32) -> i32 {
   match operator {
-    "+" => first_number + second_number,
-    "-" => first_number - second_number,
-    "/" => first_number / second_number,
-    "*" | "X" | "x" => first_number * second_number,
+    '+' => first_number + second_number,
+    '-' => first_number - second_number,
+    '/' => first_number / second_number,
+    '*' | 'X' | 'x' => first_number * second_number,
     _ => panic!("Invalid operator used."),
   }
 }
@@ -2179,44 +2179,44 @@ mod tests {
 
   #[test]
   fn output_expects_four_args() {
-    let out = output(-10, "+", 10, 0);
+    let out = output(-10, '+', 10, 0);
     assert_eq!(out, String::from("-10 + 10 = 0"));
   }
 
   #[test]
   fn operate_handles_addition() {
-    let op = operate("+", -5, 200);
+    let op = operate('+', -5, 200);
     assert_eq!(op, 195);
   }
   #[test]
   fn operate_handles_subtraction() {
-    let op = operate("-", -12, -12);
+    let op = operate('-', -12, -12);
     assert_eq!(op, 0);
   }
   #[test]
   fn operate_handles_division() {
-    let op = operate("/", -12, -1);
+    let op = operate('/', -12, -1);
     assert_eq!(op, 12);
   }
   #[test]
   fn operate_handles_multiplication() {
-    let op = operate("*", -12, -2);
+    let op = operate('*', -12, -2);
     assert_eq!(op, 24);
   }
   #[test]
   fn operate_handles_multiplication_x() {
-    let op = operate("x", -12, 2);
+    let op = operate('x', -12, 2);
     assert_eq!(op, -24);
   }
   #[test]
   fn operate_handles_multiplcaiton_cap_x() {
-    let op = operate("X", -12, 2);
+    let op = operate('X', -12, 2);
     assert_eq!(op, -24);
   }
   #[test]
   #[should_panic]
   fn operate_panics_on_invalid_op() {
-    operate("invalid", 1, 1);
+    operate('a', 1, 1);
   }
 }
 ```
@@ -2258,19 +2258,19 @@ fn main() {
   // println!("{}", output(first_number, operator, second_number, result));
 }
 
-fn output(first_number: i32, operator: &str, second_number: i32, result: i32) -> String {
+fn output(first_number: i32, operator: char, second_number: i32, result: i32) -> String {
   format!(
     "{} {} {} = {}",
     first_number, operator, second_number, result
   )
 }
 
-fn operate(operator: &str, first_number: i32, second_number: i32) -> i32 {
+fn operate(operator: char, first_number: i32, second_number: i32) -> i32 {
   match operator {
-    "+" => first_number + second_number,
-    "-" => first_number - second_number,
-    "/" => first_number / second_number,
-    "*" | "X" | "x" => first_number * second_number,
+    '+' => first_number + second_number,
+    '-' => first_number - second_number,
+    '/' => first_number / second_number,
+    '*' | 'X' | 'x' => first_number * second_number,
     _ => panic!("Invalid operator used."),
   }
 }
@@ -2282,44 +2282,44 @@ mod tests {
 
   #[test]
   fn output_expects_four_args() {
-    let out = output(-10, "+", 10, 0);
+    let out = output(-10, '+', 10, 0);
     assert_eq!(out, String::from("-10 + 10 = 0"));
   }
 
   #[test]
   fn operate_handles_addition() {
-    let op = operate("+", -5, 200);
+    let op = operate('+', -5, 200);
     assert_eq!(op, 195);
   }
   #[test]
   fn operate_handles_subtraction() {
-    let op = operate("-", -12, -12);
+    let op = operate('-', -12, -12);
     assert_eq!(op, 0);
   }
   #[test]
   fn operate_handles_division() {
-    let op = operate("/", -12, -1);
+    let op = operate('/', -12, -1);
     assert_eq!(op, 12);
   }
   #[test]
   fn operate_handles_multiplication() {
-    let op = operate("*", -12, -2);
+    let op = operate('*', -12, -2);
     assert_eq!(op, 24);
   }
   #[test]
   fn operate_handles_multiplication_x() {
-    let op = operate("x", -12, 2);
+    let op = operate('x', -12, 2);
     assert_eq!(op, -24);
   }
   #[test]
   fn operate_handles_multiplcaiton_cap_x() {
-    let op = operate("X", -12, 2);
+    let op = operate('X', -12, 2);
     assert_eq!(op, -24);
   }
   #[test]
   #[should_panic]
   fn operate_panics_on_invalid_op() {
-    operate("invalid", 1, 1);
+    operate('a', 1, 1);
   }
 }
 ```
@@ -2354,19 +2354,19 @@ fn main() {
   // println!("{}", output(first_number, operator, second_number, result));
 }
 
-fn output(first_number: i32, operator: &str, second_number: i32, result: i32) -> String {
+fn output(first_number: i32, operator: char, second_number: i32, result: i32) -> String {
   format!(
     "{} {} {} = {}",
     first_number, operator, second_number, result
   )
 }
 
-fn operate(operator: &str, first_number: i32, second_number: i32) -> i32 {
+fn operate(operator: char, first_number: i32, second_number: i32) -> i32 {
   match operator {
-    "+" => first_number + second_number,
-    "-" => first_number - second_number,
-    "/" => first_number / second_number,
-    "*" | "X" | "x" => first_number * second_number,
+    '+' => first_number + second_number,
+    '-' => first_number - second_number,
+    '/' => first_number / second_number,
+    '*' | 'X' | 'x' => first_number * second_number,
     _ => panic!("Invalid operator used."),
   }
 }
@@ -2378,44 +2378,44 @@ mod tests {
 
   #[test]
   fn output_expects_four_args() {
-    let out = output(-10, "+", 10, 0);
+    let out = output(-10, '+', 10, 0);
     assert_eq!(out, String::from("-10 + 10 = 0"));
   }
 
   #[test]
   fn operate_handles_addition() {
-    let op = operate("+", -5, 200);
+    let op = operate('+', -5, 200);
     assert_eq!(op, 195);
   }
   #[test]
   fn operate_handles_subtraction() {
-    let op = operate("-", -12, -12);
+    let op = operate('-', -12, -12);
     assert_eq!(op, 0);
   }
   #[test]
   fn operate_handles_division() {
-    let op = operate("/", -12, -1);
+    let op = operate('/', -12, -1);
     assert_eq!(op, 12);
   }
   #[test]
   fn operate_handles_multiplication() {
-    let op = operate("*", -12, -2);
+    let op = operate('*', -12, -2);
     assert_eq!(op, 24);
   }
   #[test]
   fn operate_handles_multiplication_x() {
-    let op = operate("x", -12, 2);
+    let op = operate('x', -12, 2);
     assert_eq!(op, -24);
   }
   #[test]
   fn operate_handles_multiplcaiton_cap_x() {
-    let op = operate("X", -12, 2);
+    let op = operate('X', -12, 2);
     assert_eq!(op, -24);
   }
   #[test]
   #[should_panic]
   fn operate_panics_on_invalid_op() {
-    operate("invalid", 1, 1);
+    operate('a', 1, 1);
   }
 }
 ```
@@ -2457,19 +2457,19 @@ fn main() {
   // println!("{}", output(first_number, operator, second_number, result));
 }
 
-fn output(first_number: i32, operator: &str, second_number: i32, result: i32) -> String {
+fn output(first_number: i32, operator: char, second_number: i32, result: i32) -> String {
   format!(
     "{} {} {} = {}",
     first_number, operator, second_number, result
   )
 }
 
-fn operate(operator: &str, first_number: i32, second_number: i32) -> i32 {
+fn operate(operator: char, first_number: i32, second_number: i32) -> i32 {
   match operator {
-    "+" => first_number + second_number,
-    "-" => first_number - second_number,
-    "/" => first_number / second_number,
-    "*" | "X" | "x" => first_number * second_number,
+    '+' => first_number + second_number,
+    '-' => first_number - second_number,
+    '/' => first_number / second_number,
+    '*' | 'X' | 'x' => first_number * second_number,
     _ => panic!("Invalid operator used."),
   }
 }
@@ -2481,44 +2481,44 @@ mod tests {
 
   #[test]
   fn output_expects_four_args() {
-    let out = output(-10, "+", 10, 0);
+    let out = output(-10, '+', 10, 0);
     assert_eq!(out, String::from("-10 + 10 = 0"));
   }
 
   #[test]
   fn operate_handles_addition() {
-    let op = operate("+", -5, 200);
+    let op = operate('+', -5, 200);
     assert_eq!(op, 195);
   }
   #[test]
   fn operate_handles_subtraction() {
-    let op = operate("-", -12, -12);
+    let op = operate('-', -12, -12);
     assert_eq!(op, 0);
   }
   #[test]
   fn operate_handles_division() {
-    let op = operate("/", -12, -1);
+    let op = operate('/', -12, -1);
     assert_eq!(op, 12);
   }
   #[test]
   fn operate_handles_multiplication() {
-    let op = operate("*", -12, -2);
+    let op = operate('*', -12, -2);
     assert_eq!(op, 24);
   }
   #[test]
   fn operate_handles_multiplication_x() {
-    let op = operate("x", -12, 2);
+    let op = operate('x', -12, 2);
     assert_eq!(op, -24);
   }
   #[test]
   fn operate_handles_multiplcaiton_cap_x() {
-    let op = operate("X", -12, 2);
+    let op = operate('X', -12, 2);
     assert_eq!(op, -24);
   }
   #[test]
   #[should_panic]
   fn operate_panics_on_invalid_op() {
-    operate("invalid", 1, 1);
+    operate('a', 1, 1);
   }
 }
 ```
@@ -2542,29 +2542,29 @@ fn main() {
   let mut args: Args = args();
 
   let first_number: String = args.nth(1).unwrap();
-  let operator: String = args.nth(0).unwrap();
+  let operator: char = args.nth(0).unwrap().chars().next().unwrap();
   let second_number: String = args.nth(0).unwrap();
 
   let first = first_number.parse::<i32>().unwrap();
   let second = second_number.parse::<i32>().unwrap();
-  let result = operate(&operator, first, second);
+  let result = operate(operator, first, second);
 
-  println!("{}", output(first, &operator, second, result));
+  println!("{}", output(first, operator, second, result));
 }
 
-fn output(first_number: i32, operator: &str, second_number: i32, result: i32) -> String {
+fn output(first_number: i32, operator: char, second_number: i32, result: i32) -> String {
   format!(
     "{} {} {} = {}",
     first_number, operator, second_number, result
   )
 }
 
-fn operate(operator: &str, first_number: i32, second_number: i32) -> i32 {
+fn operate(operator: char, first_number: i32, second_number: i32) -> i32 {
   match operator {
-    "+" => first_number + second_number,
-    "-" => first_number - second_number,
-    "/" => first_number / second_number,
-    "*" | "X" | "x" => first_number * second_number,
+    '+' => first_number + second_number,
+    '-' => first_number - second_number,
+    '/' => first_number / second_number,
+    '*' | 'X' | 'x' => first_number * second_number,
     _ => panic!("Invalid operator used."),
   }
 }
@@ -2576,62 +2576,62 @@ mod tests {
 
   #[test]
   fn output_accepts_floating_point_numbers() {
-    let out = output(-10.0, "+", 10.0, 0.0);
+    let out = output(-10.0, '+', 10.0, 0.0);
     assert_eq!(out, String::from("-10 + 10 = 0"));
   }
   #[test]
   fn operate_accepts_floating_point_numbers() {
-    let op = operate("+", -10.5, 10.0);
+    let op = operate('+', -10.5, 10.0);
     assert_eq!(op, -0.5);
   }
 
   #[test]
   fn output_expects_four_args() {
-    let out = output(-10.0, "+", 10.0, 0.0);
+    let out = output(-10.0, '+', 10.0, 0.0);
     assert_eq!(out, String::from("-10 + 10 = 0"));
   }
 
   #[test]
   fn operate_handles_addition() {
-    let op = operate("+", -5.0, 200.0);
+    let op = operate('+', -5.0, 200.0);
     assert_eq!(op, 195.0);
   }
   #[test]
   fn operate_handles_subtraction() {
-    let op = operate("-", -12.0, -12.0);
+    let op = operate('-', -12.0, -12.0);
     assert_eq!(op, 0.0);
   }
   #[test]
   fn operate_handles_division() {
-    let op = operate("/", -12.0, -1.0);
+    let op = operate('/', -12.0, -1.0);
     assert_eq!(op, 12.0);
   }
   #[test]
   fn operate_handles_multiplication() {
-    let op = operate("*", -12.0, -2.0);
+    let op = operate('*', -12.0, -2.0);
     assert_eq!(op, 24.0);
   }
   #[test]
   fn operate_handles_multiplication_x() {
-    let op = operate("x", -12.0, 2.0);
+    let op = operate('x', -12.0, 2.0);
     assert_eq!(op, -24.0);
   }
   #[test]
   fn operate_handles_multiplcaiton_cap_x() {
-    let op = operate("X", -12.0, 2.0);
+    let op = operate('X', -12.0, 2.0);
     assert_eq!(op, -24.0);
   }
   #[test]
   #[should_panic]
   fn operate_panics_on_invalid_op() {
-    operate("invalid", 1.0, 1.0);
+    operate('a', 1.0, 1.0);
   }
 }
 ```
 
 ### --tests--
 
-- You should change the types from `i32` to `f32`.
+- Hint: You should change the types from `i32` to `f32`.
 - `null`
 
 ## 52
@@ -2648,29 +2648,29 @@ fn main() {
   let mut args: Args = args();
 
   let first_number: String = args.nth(1).unwrap();
-  let operator: String = args.nth(0).unwrap();
+  let operator: char = args.nth(0).unwrap().chars().next().unwrap();
   let second_number: String = args.nth(0).unwrap();
 
   let first = first_number.parse::<f32>().unwrap();
   let second = second_number.parse::<f32>().unwrap();
-  let result = operate(&operator, first, second);
+  let result = operate(operator, first, second);
 
-  println!("{}", output(first, &operator, second, result));
+  println!("{}", output(first, operator, second, result));
 }
 
-fn output(first_number: f32, operator: &str, second_number: f32, result: f32) -> String {
+fn output(first_number: f32, operator: char, second_number: f32, result: f32) -> String {
   format!(
     "{} {} {} = {}",
     first_number, operator, second_number, result
   )
 }
 
-fn operate(operator: &str, first_number: f32, second_number: f32) -> f32 {
+fn operate(operator: char, first_number: f32, second_number: f32) -> f32 {
   match operator {
-    "+" => first_number + second_number,
-    "-" => first_number - second_number,
-    "/" => first_number / second_number,
-    "*" | "X" | "x" => first_number * second_number,
+    '+' => first_number + second_number,
+    '-' => first_number - second_number,
+    '/' => first_number / second_number,
+    '*' | 'X' | 'x' => first_number * second_number,
     _ => panic!("Invalid operator used."),
   }
 }
@@ -2682,55 +2682,55 @@ mod tests {
 
   #[test]
   fn output_accepts_floating_point_numbers() {
-    let out = output(-10.0, "*", 10.0, 0.0);
+    let out = output(-10.0, '*', 10.0, 0.0);
     assert_eq!(out, String::from("-10 * 10 = 0"));
   }
   #[test]
   fn operate_accepts_floating_point_numbers() {
-    let op = operate("+", -10.5, 10.0);
+    let op = operate('+', -10.5, 10.0);
     assert_eq!(op, -0.5);
   }
 
   #[test]
   fn output_expects_four_args() {
-    let out = output(-10.0, "+", 10.0, 0.0);
+    let out = output(-10.0, '+', 10.0, 0.0);
     assert_eq!(out, String::from("-10 + 10 = 0"));
   }
 
   #[test]
   fn operate_handles_addition() {
-    let op = operate("+", -5.0, 200.0);
+    let op = operate('+', -5.0, 200.0);
     assert_eq!(op, 195.0);
   }
   #[test]
   fn operate_handles_subtraction() {
-    let op = operate("-", -12.0, -12.0);
+    let op = operate('-', -12.0, -12.0);
     assert_eq!(op, 0.0);
   }
   #[test]
   fn operate_handles_division() {
-    let op = operate("/", -12.0, -1.0);
+    let op = operate('/', -12.0, -1.0);
     assert_eq!(op, 12.0);
   }
   #[test]
   fn operate_handles_multiplication() {
-    let op = operate("*", -12.0, -2.0);
+    let op = operate('*', -12.0, -2.0);
     assert_eq!(op, 24.0);
   }
   #[test]
   fn operate_handles_multiplication_x() {
-    let op = operate("x", -12.0, 2.0);
+    let op = operate('x', -12.0, 2.0);
     assert_eq!(op, -24.0);
   }
   #[test]
   fn operate_handles_multiplcaiton_cap_x() {
-    let op = operate("X", -12.0, 2.0);
+    let op = operate('X', -12.0, 2.0);
     assert_eq!(op, -24.0);
   }
   #[test]
   #[should_panic]
   fn operate_panics_on_invalid_op() {
-    operate("invalid", 1.0, 1.0);
+    operate('a', 1.0, 1.0);
   }
 }
 ```
@@ -2754,29 +2754,29 @@ fn main() {
   let mut args: Args = args();
 
   let first_number: String = args.nth(1).unwrap();
-  let operator: String = args.nth(0).unwrap();
+  let operator: char = args.nth(0).unwrap().chars().next().unwrap();
   let second_number: String = args.nth(0).unwrap();
 
   let first = first_number.parse::<f32>().unwrap();
   let second = second_number.parse::<f32>().unwrap();
-  let result = operate(&operator, first, second);
+  let result = operate(operator, first, second);
 
-  println!("{}", output(first, &operator, second, result));
+  println!("{}", output(first, operator, second, result));
 }
 
-fn output(first_number: f32, operator: &str, second_number: f32, result: f32) -> String {
+fn output(first_number: f32, operator: char, second_number: f32, result: f32) -> String {
   format!(
     "{} {} {} = {}",
     first_number, operator, second_number, result
   )
 }
 
-fn operate(operator: &str, first_number: f32, second_number: f32) -> f32 {
+fn operate(operator: char, first_number: f32, second_number: f32) -> f32 {
   match operator {
-    "+" => first_number + second_number,
-    "-" => first_number - second_number,
-    "/" => first_number / second_number,
-    "*" | "X" | "x" => first_number * second_number,
+    '+' => first_number + second_number,
+    '-' => first_number - second_number,
+    '/' => first_number / second_number,
+    '*' | 'X' | 'x' => first_number * second_number,
     _ => panic!("Invalid operator used."),
   }
 }
@@ -2788,55 +2788,55 @@ mod tests {
 
   #[test]
   fn output_accepts_floating_point_numbers() {
-    let out = output(-10.0, "*", 10.0, 0.0);
+    let out = output(-10.0, '*', 10.0, 0.0);
     assert_eq!(out, String::from("-10 * 10 = 0"));
   }
   #[test]
   fn operate_accepts_floating_point_numbers() {
-    let op = operate("+", -10.5, 10.0);
+    let op = operate('+', -10.5, 10.0);
     assert_eq!(op, -0.5);
   }
 
   #[test]
   fn output_expects_four_args() {
-    let out = output(-10.0, "+", 10.0, 0.0);
+    let out = output(-10.0, '+', 10.0, 0.0);
     assert_eq!(out, String::from("-10 + 10 = 0"));
   }
 
   #[test]
   fn operate_handles_addition() {
-    let op = operate("+", -5.0, 200.0);
+    let op = operate('+', -5.0, 200.0);
     assert_eq!(op, 195.0);
   }
   #[test]
   fn operate_handles_subtraction() {
-    let op = operate("-", -12.0, -12.0);
+    let op = operate('-', -12.0, -12.0);
     assert_eq!(op, 0.0);
   }
   #[test]
   fn operate_handles_division() {
-    let op = operate("/", -12.0, -1.0);
+    let op = operate('/', -12.0, -1.0);
     assert_eq!(op, 12.0);
   }
   #[test]
   fn operate_handles_multiplication() {
-    let op = operate("*", -12.0, -2.0);
+    let op = operate('*', -12.0, -2.0);
     assert_eq!(op, 24.0);
   }
   #[test]
   fn operate_handles_multiplication_x() {
-    let op = operate("x", -12.0, 2.0);
+    let op = operate('x', -12.0, 2.0);
     assert_eq!(op, -24.0);
   }
   #[test]
   fn operate_handles_multiplcaiton_cap_x() {
-    let op = operate("X", -12.0, 2.0);
+    let op = operate('X', -12.0, 2.0);
     assert_eq!(op, -24.0);
   }
   #[test]
   #[should_panic]
   fn operate_panics_on_invalid_op() {
-    operate("invalid", 1.0, 1.0);
+    operate('a', 1.0, 1.0);
   }
 }
 ```
@@ -2860,29 +2860,29 @@ fn main() {
   let mut args: Args = args();
 
   let first_number: String = args.nth(1).unwrap();
-  let operator: String = args.nth(0).unwrap();
+  let operator: char = args.nth(0).unwrap().chars().next().unwrap();
   let second_number: String = args.nth(0).unwrap();
 
   let first = first_number.parse::<f32>().unwrap();
   let second = second_number.parse::<f32>().unwrap();
-  let result = operate(&operator, first, second);
+  let result = operate(operator, first, second);
 
-  println!("{}", output(first, &operator, second, result));
+  println!("{}", output(first, operator, second, result));
 }
 
-fn output(first_number: f32, operator: &str, second_number: f32, result: f32) -> String {
+fn output(first_number: f32, operator: char, second_number: f32, result: f32) -> String {
   format!(
     "{} {} {} = {}",
     first_number, operator, second_number, result
   )
 }
 
-fn operate(operator: &str, first_number: f32, second_number: f32) -> f32 {
+fn operate(operator: char, first_number: f32, second_number: f32) -> f32 {
   match operator {
-    "+" => first_number + second_number,
-    "-" => first_number - second_number,
-    "/" => first_number / second_number,
-    "*" | "X" | "x" => first_number * second_number,
+    '+' => first_number + second_number,
+    '-' => first_number - second_number,
+    '/' => first_number / second_number,
+    '*' | 'X' | 'x' => first_number * second_number,
     _ => panic!("Invalid operator used."),
   }
 }
@@ -2894,55 +2894,55 @@ mod tests {
 
   #[test]
   fn output_accepts_floating_point_numbers() {
-    let out = output(-10.0, "*", 10.0, 0.0);
+    let out = output(-10.0, '*', 10.0, 0.0);
     assert_eq!(out, String::from("-10 * 10 = 0"));
   }
   #[test]
   fn operate_accepts_floating_point_numbers() {
-    let op = operate("+", -10.5, 10.0);
+    let op = operate('+', -10.5, 10.0);
     assert_eq!(op, -0.5);
   }
 
   #[test]
   fn output_expects_four_args() {
-    let out = output(-10.0, "+", 10.0, 0.0);
+    let out = output(-10.0, '+', 10.0, 0.0);
     assert_eq!(out, String::from("-10 + 10 = 0"));
   }
 
   #[test]
   fn operate_handles_addition() {
-    let op = operate("+", -5.0, 200.0);
+    let op = operate('+', -5.0, 200.0);
     assert_eq!(op, 195.0);
   }
   #[test]
   fn operate_handles_subtraction() {
-    let op = operate("-", -12.0, -12.0);
+    let op = operate('-', -12.0, -12.0);
     assert_eq!(op, 0.0);
   }
   #[test]
   fn operate_handles_division() {
-    let op = operate("/", -12.0, -1.0);
+    let op = operate('/', -12.0, -1.0);
     assert_eq!(op, 12.0);
   }
   #[test]
   fn operate_handles_multiplication() {
-    let op = operate("*", -12.0, -2.0);
+    let op = operate('*', -12.0, -2.0);
     assert_eq!(op, 24.0);
   }
   #[test]
   fn operate_handles_multiplication_x() {
-    let op = operate("x", -12.0, 2.0);
+    let op = operate('x', -12.0, 2.0);
     assert_eq!(op, -24.0);
   }
   #[test]
   fn operate_handles_multiplcaiton_cap_x() {
-    let op = operate("X", -12.0, 2.0);
+    let op = operate('X', -12.0, 2.0);
     assert_eq!(op, -24.0);
   }
   #[test]
   #[should_panic]
   fn operate_panics_on_invalid_op() {
-    operate("invalid", 1.0, 1.0);
+    operate('a', 1.0, 1.0);
   }
 }
 ```
@@ -2966,29 +2966,29 @@ fn main() {
   let mut args: Args = args();
 
   let first_number: String = args.nth(1).unwrap();
-  let operator: String = args.nth(0).unwrap();
+  let operator: char = args.nth(0).unwrap().chars().next().unwrap();
   let second_number: String = args.nth(0).unwrap();
 
   let first = first_number.parse::<f32>().unwrap();
   let second = second_number.parse::<f32>().unwrap();
-  let result = operate(&operator, first, second);
+  let result = operate(operator, first, second);
 
-  println!("{}", output(first, &operator, second, result));
+  println!("{}", output(first, operator, second, result));
 }
 
-fn output(first_number: f32, operator: &str, second_number: f32, result: f32) -> String {
+fn output(first_number: f32, operator: char, second_number: f32, result: f32) -> String {
   format!(
     "{} {} {} = {}",
     first_number, operator, second_number, result
   )
 }
 
-fn operate(operator: &str, first_number: f32, second_number: f32) -> f32 {
+fn operate(operator: char, first_number: f32, second_number: f32) -> f32 {
   match operator {
-    "+" => first_number + second_number,
-    "-" => first_number - second_number,
-    "/" => first_number / second_number,
-    "*" | "X" | "x" => first_number * second_number,
+    '+' => first_number + second_number,
+    '-' => first_number - second_number,
+    '/' => first_number / second_number,
+    '*' | 'X' | 'x' => first_number * second_number,
     _ => panic!("Invalid operator used."),
   }
 }
@@ -3000,55 +3000,55 @@ mod tests {
 
   #[test]
   fn output_accepts_floating_point_numbers() {
-    let out = output(-10.0, "*", 10.0, 0.0);
+    let out = output(-10.0, '*', 10.0, 0.0);
     assert_eq!(out, String::from("-10 * 10 = 0"));
   }
   #[test]
   fn operate_accepts_floating_point_numbers() {
-    let op = operate("+", -10.5, 10.0);
+    let op = operate('+', -10.5, 10.0);
     assert_eq!(op, -0.5);
   }
 
   #[test]
   fn output_expects_four_args() {
-    let out = output(-10.0, "+", 10.0, 0.0);
+    let out = output(-10.0, '+', 10.0, 0.0);
     assert_eq!(out, String::from("-10 + 10 = 0"));
   }
 
   #[test]
   fn operate_handles_addition() {
-    let op = operate("+", -5.0, 200.0);
+    let op = operate('+', -5.0, 200.0);
     assert_eq!(op, 195.0);
   }
   #[test]
   fn operate_handles_subtraction() {
-    let op = operate("-", -12.0, -12.0);
+    let op = operate('-', -12.0, -12.0);
     assert_eq!(op, 0.0);
   }
   #[test]
   fn operate_handles_division() {
-    let op = operate("/", -12.0, -1.0);
+    let op = operate('/', -12.0, -1.0);
     assert_eq!(op, 12.0);
   }
   #[test]
   fn operate_handles_multiplication() {
-    let op = operate("*", -12.0, -2.0);
+    let op = operate('*', -12.0, -2.0);
     assert_eq!(op, 24.0);
   }
   #[test]
   fn operate_handles_multiplication_x() {
-    let op = operate("x", -12.0, 2.0);
+    let op = operate('x', -12.0, 2.0);
     assert_eq!(op, -24.0);
   }
   #[test]
   fn operate_handles_multiplcaiton_cap_x() {
-    let op = operate("X", -12.0, 2.0);
+    let op = operate('X', -12.0, 2.0);
     assert_eq!(op, -24.0);
   }
   #[test]
   #[should_panic]
   fn operate_panics_on_invalid_op() {
-    operate("invalid", 1.0, 1.0);
+    operate('a', 1.0, 1.0);
   }
 }
 ```

@@ -877,7 +877,9 @@ mod tests {
       task(),
       d("Create a new function named "),
       kw("output"),
-      d(" which accepts 4 arguments. The first, third, and fourth arguments should be signed integers, and the second argument should be a reference to a string slice.\n"),
+      d(" which accepts 4 arguments. The first, third, and fourth arguments should be signed integers, and the second argument should be a "),
+      kw("char"),
+      d(".\n"),
     ]);
     term(&[
       emph("HINT: "),
@@ -1010,7 +1012,7 @@ mod tests {
       d(" statements to compare the cases where "),
       kw("operator"),
       d(" is one of: "),
-      kw("\"+\" \"-\" \"*\" \"/\"\n\n"),
+      kw("'+' '-' '*' '/'\n\n"),
       d("An "), kw("if"), d(" statement follows this syntax:\n\n"),
       code("\tif my_var == \"my str\" {\n"),
       code("\t  // Do stuff\n"),
@@ -1126,7 +1128,7 @@ mod tests {
       kw("match"),
       d(" operator to match on "),
       kw("operator"),
-      d(" values of \"x\" and \"X\".\n"),
+      d(" values of 'x' and 'X'.\n"),
     ]);
 
     test(36);
@@ -1350,6 +1352,10 @@ mod tests {
       d("There are ways to handle errors more gracefully, but, for now, be sure to call your application with enough arguments:\n"),
       cmd("\t$ cargo run --bin calculator -- 1 + 2\n")
     ]);
+    // term(&[
+    //   task(),
+    //   d("Seeing as the type of "), kw()
+    // ]);
     term(&[
       task(),
       d(
@@ -1507,9 +1513,19 @@ mod tests {
     hr();
     n(50);
     term(&[
-      d("\n\n"),
+      d("\n\nCurrently, "),
+      kw("operator"),
+      d(" is of type "),
+      kw("String"),
+      d(" when it needs to be "),
+      kw("char"), d(". A "),
+      kw("String"), d(" can be converted into a "),
+      kw("char"), d(", using the "),
+      kw("chars"), d(" method, and unwrapping the first "),
+      kw("Option"), d(" returned by calling the "),
+      kw("next"), d(" method.\n\n"),
       task(),
-      d("Finally, uncomment the commented-out code, and make the necessary adjustments to allow the code to compile.\n\n"),
+      d("Uncomment the commented-out code, and make the necessary adjustments to allow the code to compile.\n\n"),
       d("Be sure to follow the compiler's hints to get the code compiling. Then, remove the first "),
       kw("println"),
       d(" call so there is only one output.\n")
