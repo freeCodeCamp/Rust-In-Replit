@@ -477,7 +477,7 @@ mod tests {
 
 Your code could not compile, because the `println!` macro does not know how to format the `Args` struct.
 
-Task: Follow the compiler's advice to extend the formatter.
+Task: Follow the compiler's advice to extend the formatter within the `println!`.
 
 Run `cargo test --bin combiner -- --show-output`. You should still see an error.
 
@@ -1473,7 +1473,6 @@ Run `cargo test --bin combiner`. If you no longer see the warning, you have succ
 
 ```rust
 // Lesson #27
-#![allow(unused_variables, dead_code)]
 mod args;
 use args::Args;
 
@@ -2178,6 +2177,7 @@ mod tests {
       assert!(
         reg_with_con(r"image_1_format\s*!=\s*image_2_format", file_contents)
           | reg_with_con(r"image_2_format\s*!=\s*image_1_format", file_contents)
+          | reg_with_con(r"else\s*\{\s*(return\s+)?Err\(", file_contents)
       );
     }
   }
@@ -3648,7 +3648,7 @@ mod tests {
 
 In order to process the images, you will convert them into a vector of RGBA pixels. The pixels are stored as `u8`s, because their values are between 0 and 255.
 
-The `DynamicImage` struct implements the `to_rgba8` method, which returns an `ImageBuffer` containing a `Vec<u8>`, and the `ImageBuffer` implements the `to_vec` method, which returns the `Vec<u8>`.
+The `DynamicImage` struct implements the `to_rgba8` method, which returns an `ImageBuffer` containing a `Vec<u8>`, and the `ImageBuffer` implements the `into_vec` method, which returns the `Vec<u8>`.
 
 Task: Within `combine_images`, declare a variable `vec_1`, and use the above methods to assign the `Vec<u8>` to it. Return `vec_1`.
 
@@ -5275,13 +5275,13 @@ mod tests {
 - You should not change the `while` loop condition.
 - `while\s+i\s*<\s*vec_1\.len\(\)\s*\{`
 - You should increment `i` by 4 at the end of the loop.
-- `i\s*+=\s*4;\s*\}`
+- `i\s*\+=\s*4;\s*\}`
 - You should call the `splice` method on `combined_data`.
 - `combined_data\.splice\(`
 - You should either pass the range `i..i+4` or `i..=i+3` to the `splice` method's first argument.
-- `splice\(\s*(i..i\s*+\s*4)|(i..=i\s*+\s*3)\s*,`
+- `splice\(\s*(i..i\s*\+\s*4)|(i..=i\s*\+\s*3)\s*,`
 - You should pass `set_rgba(vec_1, i, i+3)` as the second argument to `splice`.
-- `splice\(\s*(i..i+4)|(i..=i\s*+\s*3)\s*,\s*set_rgba\(\s*vec_1\s*,\s*i\s*,\s*i\s*+\s*3\s*\)\s*\)`
+- `splice\(\s*(i..i+4)|(i..=i\s*\+\s*3)\s*,\s*set_rgba\(\s*vec_1\s*,\s*i\s*,\s*i\s*\+\s*3\s*\)\s*\)`
 
 ## 66
 
