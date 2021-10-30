@@ -4592,7 +4592,7 @@ mod tests {
 
 ### --description--
 
-Sometimes, retirieving a value from within a vector causes a panic, because the index is out of bounds. To avoid this, you can use the `get` method on a vector:
+Sometimes, retrieving a value from within a vector causes a panic, because the index is out of bounds. To avoid this, you can use the `get` method on a vector:
 
 ```rust
     let my_vec = vec![1, 2, 3];
