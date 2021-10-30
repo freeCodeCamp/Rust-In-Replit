@@ -4,7 +4,7 @@
 
 ### --description--
 
-Start by creating a new crate called `combiner`.
+Start by creating a new project called `combiner`.
 
 Run `fcc test 1` to see if you correctly completed the task.
 
