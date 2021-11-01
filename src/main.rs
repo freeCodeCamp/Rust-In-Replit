@@ -30,10 +30,7 @@ mod tests {
     term(&[d(
       "To get your first lesson, type the following in the prompt:\n",
     )]);
-    term(&[
-      cmd("\t$ source ~/.bashrc\n"),
-      cmd("\t$ chmod +x ./tooling/fcc\n"),
-    ]);
+    term(&[cmd("\t$ source ~/.bashrc\n")]);
     term(&[cmd("\t$ fcc 1\n")]);
     term(&[
       d("You can click the "),
