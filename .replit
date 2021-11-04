@@ -2,6 +2,9 @@ run = "cargo test --bin fcc -q welcome -- --show-output | sed -n '/--fcc--/, /--
 language = "nix"
 
 
+[env]
+PATH = "/home/runner/${REPL_SLUG}/tooling${PATH}"
+
 [packager]
 language = "rust"
 
