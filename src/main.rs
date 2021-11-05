@@ -25,12 +25,9 @@ mod tests {
       Term::new("(or the Shell) ", White, Italic),
       d("to read majority of the instructions, throughout this course.\n"),
     ]);
-    term(&[Term::new("NOTE: ", Red, Normal), Term::new("If your session with Replit disconnects (timeout or refresh), you will need to click the RUN button, and run the following in the prompt:\n", Yellow, Underline)]);
-    term(&[cmd("\t$ source ~/.bashrc\n")]);
     term(&[d(
       "To get your first lesson, type the following in the prompt:\n",
     )]);
-    term(&[cmd("\t$ source ~/.bashrc\n")]);
     term(&[cmd("\t$ fcc 1\n")]);
     term(&[
       d("You can click the "),

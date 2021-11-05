@@ -4,7 +4,7 @@ const { getLessonFromFile, getLessonDescription } = require("./parser");
 function runLesson(project, lessonNumber) {
   const answerFile = `./tooling/answers-${project}.md`;
   const lesson = getLessonFromFile(answerFile, lessonNumber);
-  if (project === "image-combiner") {
+  if (project === "combiner") {
     const description = getLessonDescription(lesson)
       .replace("Task:", `${Colour.FgMagenta}Task:${Colour.Reset}`)
       .replace(

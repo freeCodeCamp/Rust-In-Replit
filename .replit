@@ -1,6 +1,8 @@
-run = "cargo test --bin fcc -q welcome -- --show-output | sed -n '/--fcc--/, /--fcc--/{ /--fcc--/! p }' && echo 'alias fcc=\"node ./tooling/fcc.js cli-calculator\"' >> ~/.bashrc && chmod +x tooling/fcc"
+run = "cargo test --bin fcc -q welcome -- --show-output | sed -n '/--fcc--/, /--fcc--/{ /--fcc--/! p }' && chmod +x tooling/fcc"
 language = "nix"
 
+[env]
+PATH = "/home/runner/${REPL_SLUG}/tooling${PATH}"
 
 [packager]
 language = "rust"
