@@ -29,10 +29,7 @@ const getFileContents = async (file) => {
 
 async function runTests(project, lessonNumber) {
   try {
-    const camperCodeFile =
-      project === "cli-calculator"
-        ? "./calculator/src/main.rs"
-        : "./combiner/src/main.rs";
+    const camperCodeFile = `./${project}/src/main.rs`;
     let camperCode = "";
     try {
       camperCode = await getFileContents(camperCodeFile);
@@ -56,7 +53,7 @@ async function runTests(project, lessonNumber) {
       const text = testTextsArr[i];
       if (testTextsArr[i + 1].includes("getCommandOutput")) {
         const commandOutput = await getCommandOutput(
-          "cargo run --bin calculator"
+          `cargo run --bin ${project}`
         );
         const re = new RegExp(
           testTextsArr[i + 1]
@@ -72,7 +69,7 @@ async function runTests(project, lessonNumber) {
         // Feature for seeing if all Cargo tests pass
       } else if (testTextsArr[i + 1].includes("getTestOutput")) {
         const commandOutput = await getCommandOutput(
-          "cargo test --bin calculator"
+          `cargo test --bin ${project}`
         );
         const re = new RegExp(
           testTextsArr[i + 1]

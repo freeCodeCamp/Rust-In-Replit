@@ -7,16 +7,11 @@ const execute = util.promisify(require("child_process").exec);
 async function switchAlias(project) {
   try {
     const { stdout, stderr } = await execute(
-      `echo 'alias fcc="node ./tooling/fcc.js ${project}"' >> ~/.bashrc`
+      `echo 'CURRENT_PROJECT=${project}' >> ./tooling/.meta`
     );
     if (stderr) {
       console.error(stderr);
     } else {
-      const { stderr } = await execute(`source ~/.bashrc`);
-      if (stderr) {
-        console.error(stderr);
-        console.log("\nYou will need to manually source the `bashrc` file\n");
-      }
       console.log(`Successfully switched to project: ${project}\n`);
     }
   } catch (error) {
@@ -24,7 +19,7 @@ async function switchAlias(project) {
       "\nAn error has occured trying to switch to the chosen project:\n"
     );
     console.log(
-      "Please run the following command:\n\t$ source ~/.bashrc\n\nThen, you should be able to access the lessons with:\n\t$ fcc 1\n"
+      "Please navigate to the `./tooling/.meta` file, and add the following line:\n\tCURRENT_PROJECT=<a valid project>\n\nThen, you should be able to access the lessons with:\n\t$ fcc 1\n"
     );
   }
 }
