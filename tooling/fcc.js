@@ -73,6 +73,9 @@ if (isNaN(Number(ARGS[2]))) {
         console.log(stdout);
       }
     })();
+    if (Number(ARGS[2]) > 24) {
+      resetLesson(CURRENT_PROJECT, Number(ARGS[2]));
+    }
   } else {
     resetLesson(CURRENT_PROJECT, Number(ARGS[2]));
   }
