@@ -176,7 +176,6 @@ function worderiseNumber(number) {
   let first = stringRep[0];
   let second = stringRep[1];
   let pre = prefi[first - 2];
-  console.log(pre, first, second);
   let suf = numberToName(Number(second));
   return `${pre}${suf}`;
 }
