@@ -7,7 +7,7 @@ const execute = util.promisify(require("child_process").exec);
 async function switchAlias(project) {
   try {
     const { stdout, stderr } = await execute(
-      `echo 'CURRENT_PROJECT=${project}' >> ./tooling/.meta`
+      `echo '\nCURRENT_PROJECT=${project}' >> ./tooling/.meta`
     );
     if (stderr) {
       console.error(stderr);
