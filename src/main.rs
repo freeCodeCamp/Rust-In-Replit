@@ -1611,7 +1611,7 @@ mod tests {
       d("You are welcome to extend your current project - perhaps, to accept multiple operations...\n\n"),
       task(),
       d("Run the following command to begin the next project:\n"),
-      cmd("\t$ fcc switch image-combiner\n\n")
+      cmd("\t$ fcc switch combiner\n\n")
     ]);
     hr();
   }

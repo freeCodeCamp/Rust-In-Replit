@@ -12,7 +12,9 @@ async function switchAlias(project) {
     if (stderr) {
       console.error(stderr);
     } else {
-      console.log(`Successfully switched to project: ${project}\n`);
+      console.log(
+        `Successfully switched to project: ${project}\n\nYou should be able to access the lessons with:\n\t$ fcc 1\n`
+      );
     }
   } catch (error) {
     console.log(
