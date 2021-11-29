@@ -4,6 +4,7 @@ const { getLessonFromFile, getLessonDescription } = require("./parser");
 function runLesson(project, lessonNumber) {
   const answerFile = `./tooling/answers-${project}.md`;
   const lesson = getLessonFromFile(answerFile, lessonNumber);
+  const nextLesson = getLessonFromFile(answerFile, lessonNumber + 1);
   if (project === "combiner") {
     const description = getLessonDescription(lesson)
       .replace("Task:", `${Colour.FgMagenta}Task:${Colour.Reset}`)
@@ -20,11 +21,12 @@ function runLesson(project, lessonNumber) {
       }\n`
     );
     console.log(description);
-    console.log(
-      `When you are done, type the following for the next lesson:\n\t${
-        Colour.FgCyan
-      }$ fcc ${lessonNumber + 1}${Colour.Reset}\n`
-    );
+    if (!!nextLesson) {
+      console.log(
+        `When you are done, type the following for the next lesson:\n\t${Colour.FgCyan
+        }$ fcc ${lessonNumber + 1}${Colour.Reset}\n`
+      );
+    }
   } else {
     console.log(getLessonDescription(lesson));
   }

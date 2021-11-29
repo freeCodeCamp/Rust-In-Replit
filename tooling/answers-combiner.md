@@ -7572,3 +7572,21 @@ fn set_rgba(vec: &Vec<u8>, start: usize, end: usize) -> Vec<u8> {
 ```
 
 ### --tests--
+
+- This is the final lesson. Congrats!
+- `null`
+
+## 81
+
+### --description--
+
+### --seed--
+
+```rust
+// Placeholder
+```
+
+### --tests--
+
+- Placeholder
+- `null`
