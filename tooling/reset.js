@@ -15,7 +15,8 @@ const ERROR_MESSAGE = t("reset-error");
 
 async function resetLesson(project, lessonNumber) {
   const rustFile = `./${project}/src/main.rs`;
-  const answerFile = `./tooling/locales/${LOCALE}/answers-${project}.md`;
+  const locale = LOCALE ?? "en";
+  const answerFile = `./tooling/locales/${locale}/answers-${project}.md`;
   try {
     if (lessonNumber === 1) {
       await execute(`rm -rf ../${project}`, {

@@ -3,7 +3,7 @@ const { getLessonFromFile, getLessonDescription } = require("./parser");
 const { t, LOCALE } = require("./t");
 
 function runLesson(project, lessonNumber) {
-  const locale = LOCALE;
+  const locale = LOCALE ?? "en";
   const answerFile = `./tooling/locales/${locale}/answers-${project}.md`;
   const lesson = getLessonFromFile(answerFile, lessonNumber);
   const nextLesson = getLessonFromFile(answerFile, lessonNumber + 1);

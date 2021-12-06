@@ -5,7 +5,7 @@ const LOCALE = getProjectMeta().LOCALE;
 function t(key, args = {}) {
   // Get key from ./locales/{locale}/comments.json
   // Read file and parse JSON
-  const locale = LOCALE;
+  const locale = LOCALE ?? "en";
   const comments = require(`./locales/${locale}/comments.json`);
 
   // Get value from JSON
