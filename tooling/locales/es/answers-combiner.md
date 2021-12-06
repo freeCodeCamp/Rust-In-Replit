@@ -5155,7 +5155,7 @@ You have a `Vec<u8>` of `0`s, and two `Vec<u8>`s of `0-255`. To replace one slic
 
 The `splice` method takes two arguments: the range of the vector to replace, and the values to replace it with.
 
-Task: Within `alternate_pixels`, in the `while` loop, use the `splice` method on `combine_data` from `i` to `i+3`, and use the `set_rgba` function to insert the correct values from `vec_1`.
+Task: Within `alternate_pixels`, in the `while` loop, use the `splice` method on `combined_data` from `i` to `i+3`, and use the `set_rgba` function to insert the correct values from `vec_1`.
 
 Running `cargo test --bin combiner` should produce an error. Run `fcc test 65` to see if you correctly completed the task.
 
