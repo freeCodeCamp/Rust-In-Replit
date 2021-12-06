@@ -9,8 +9,6 @@
 // fcc switch <project> - Switches between the lessons for <project>
 // *fcc test <n>        - Runs the regex tests for the nth lesson
 
-const util = require("util");
-
 const switchAlias = require("./switch");
 const runLesson = require("./lesson");
 const runSolution = require("./solution");
@@ -18,7 +16,7 @@ const runTests = require("./test");
 const resetLesson = require("./reset");
 const { t, getProjectMeta } = require("./t");
 
-const { locales } = require("./locales/conf");
+const { locales, translatedLocales } = require("./locales/conf");
 const setLocale = require("./set-locale");
 
 const ARGS = process.argv;
@@ -115,6 +113,7 @@ function help() {
   fcc help             - ${t("fcc-help")}
   fcc switch <project> - ${t("fcc-switch-project")}
   fcc test <n>         - ${t("fcc-test-n")}
+  fcc locale <locale>  - ${t("fcc-locale")}
 
   ---
 

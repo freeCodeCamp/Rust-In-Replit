@@ -20,6 +20,7 @@
   "fcc-switch-project": "Switches between the lessons for <project>",
   "fcc-test-n": "Runs the regex tests for the nth lesson",
   "fcc-help": "Prints this help message",
+  "fcc locale-locale": "Changes language to <locale>",
   "cargo-run": "Runs the <project>/src/main.rs binary",
   "rust-docs": "Rust documentation",
   "rust-book": "Rust book",
