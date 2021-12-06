@@ -10,7 +10,6 @@
 // *fcc test <n>        - Runs the regex tests for the nth lesson
 
 const util = require("util");
-const execute = util.promisify(require("child_process").exec);
 
 const switchAlias = require("./switch");
 const runLesson = require("./lesson");
@@ -20,6 +19,7 @@ const resetLesson = require("./reset");
 const { t, getProjectMeta } = require("./t");
 
 const { locales } = require("./locales/conf");
+const setLocale = require("./set-locale");
 
 const ARGS = process.argv;
 const CURRENT_PROJECT = getProjectMeta().CURRENT_PROJECT;
@@ -66,6 +66,23 @@ if (isNaN(Number(ARGS[2]))) {
     case "welcome":
       console.log(welcome());
       break;
+    case "locale":
+      if (!Object.values(translatedLocales)?.includes(ARGS[3])) {
+        console.log(`This course is not translated into ${
+          ARGS[3]
+        }, yet. Help us translate it!
+        https://contribute.freecodecamp.org/
+        
+        Available locales:
+        ${Object.values(translatedLocales).join("\n- ")}`);
+      } else {
+        setLocale(
+          Object.entries(translatedLocales)?.find(
+            ([_, val]) => val === ARGS[3]
+          )?.[0]
+        );
+      }
+      break;
     default:
       console.log(ARGS, CURRENT_PROJECT, LOCALE);
       console.log(`${t("invalid-argument")}\n`);
@@ -74,15 +91,6 @@ if (isNaN(Number(ARGS[2]))) {
   }
 } else if (!isNaN(Number(ARGS[2]))) {
   if (CURRENT_PROJECT === "calculator") {
-    (async () => {
-      const cmdToExec = getCmd(ARGS[2]);
-      const { stdout, stderr } = await execute(cmdToExec);
-      if (stderr) {
-        console.log(stderr);
-      } else {
-        console.log(stdout);
-      }
-    })();
     if (Number(ARGS[2]) > 24) {
       resetLesson(CURRENT_PROJECT, Number(ARGS[2]));
     }
@@ -93,79 +101,6 @@ if (isNaN(Number(ARGS[2]))) {
 } else {
   console.log(`${t("invalid-argument")}\n`);
   console.log(help());
-}
-
-function getCmd(lessonNumber) {
-  const numberAsString = numberToName(lessonNumber);
-  let t = `tests::${numberAsString}`;
-  return `cargo test --bin fcc -q ${t} -- --exact --show-output | sed -n '/--fcc--/, /--fcc--/{ /--fcc--/! p }'`;
-}
-
-function numberToName(number) {
-  switch (Number(number)) {
-    case 0:
-      return "";
-    case 1:
-      return "one";
-    case 2:
-      return "two";
-    case 3:
-      return "three";
-    case 4:
-      return "four";
-    case 5:
-      return "five";
-    case 6:
-      return "six";
-    case 7:
-      return "seven";
-    case 8:
-      return "eight";
-    case 9:
-      return "nine";
-    case 10:
-      return "ten";
-    case 11:
-      return "eleven";
-    case 12:
-      return "twelve";
-    case 13:
-      return "thirteen";
-    case 14:
-      return "fourteen";
-    case 15:
-      return "fifteen";
-    case 16:
-      return "sixteen";
-    case 17:
-      return "seventeen";
-    case 18:
-      return "eighteen";
-    case 19:
-      return "nineteen";
-    default:
-      return worderiseNumber(number);
-  }
-}
-
-function worderiseNumber(number) {
-  const prefi = [
-    "twenty",
-    "thirty",
-    "forty",
-    "fifty",
-    "sixty",
-    "seventy",
-    "eighty",
-    "ninety",
-  ];
-
-  let stringRep = String(number);
-  let first = stringRep[0];
-  let second = stringRep[1];
-  let pre = prefi[first - 2];
-  let suf = numberToName(Number(second));
-  return `${pre}${suf}`;
 }
 
 function help() {
