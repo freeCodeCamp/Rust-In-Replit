@@ -71,8 +71,8 @@ if (isNaN(Number(ARGS[2]))) {
         }, yet. Help us translate it!
         https://contribute.freecodecamp.org/
         
-        Available locales:
-        ${Object.values(translatedLocales).join("\n- ")}`);
+Available locales:
+\t- ${Object.values(translatedLocales).join("\n- ")}`);
       } else {
         setLocale(
           Object.entries(translatedLocales)?.find(
