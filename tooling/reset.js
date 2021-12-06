@@ -7,9 +7,11 @@ const {
 const fs = require("fs");
 const util = require("util");
 
+const t, { LOCALE } = require('./t');
+
 const execute = util.promisify(require("child_process").exec);
 
-const ERROR_MESSAGE = "An error occurred trying to reset your progress.";
+const ERROR_MESSAGE = t('reset-error');
 
 async function resetLesson(project, lessonNumber) {
   const rustFile = `./${project}/src/main.rs`;
@@ -40,7 +42,7 @@ async function resetLesson(project, lessonNumber) {
 }
 
 function r(lessonNumber) {
-  console.log(`Lesson #${lessonNumber} reset`);
+  console.log(`${t('lesson-reset', {lessonNumber})}`);
 }
 
 module.exports = resetLesson;

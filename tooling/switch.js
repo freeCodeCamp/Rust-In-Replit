@@ -2,6 +2,7 @@
 
 const util = require("util");
 const execute = util.promisify(require("child_process").exec);
+const t = require("./t");
 
 // Set alias based on project argv
 async function switchAlias(project) {
@@ -13,15 +14,19 @@ async function switchAlias(project) {
       console.error(stderr);
     } else {
       console.log(
-        `Successfully switched to project: ${project}\n\nYou should be able to access the lessons with:\n\t$ fcc 1\n`
+        `${t("switch-success", { project })}\n\n${t(
+          "access-lessons"
+        )}\n\t$ fcc 1\n`
       );
     }
   } catch (error) {
+    console.log(`\n${t("switch-error")}\n`);
     console.log(
-      "\nAn error has occured trying to switch to the chosen project:\n"
-    );
-    console.log(
-      "Please navigate to the `./tooling/.meta` file, and add the following line:\n\tCURRENT_PROJECT=<a valid project>\n\nThen, you should be able to access the lessons with:\n\t$ fcc 1\n"
+      `${t("switch-navigate", {
+        location: "./tooling/.meta",
+      })}\n\tCURRENT_PROJECT=<${t("valid-project")}>\n\n${t(
+        "access-lessons"
+      )}\n\t$ fcc 1\n`
     );
   }
 }

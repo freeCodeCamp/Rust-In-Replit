@@ -18,15 +18,23 @@ const runLesson = require("./lesson");
 const runSolution = require("./solution");
 const runTests = require("./test");
 const resetLesson = require("./reset");
+const t = require("./t");
+
+const { locales } = require("./locales/conf");
 
 const ARGS = process.argv;
 const CURRENT_PROJECT = getProjectMeta().CURRENT_PROJECT;
+const LOCALE = getProjectMeta().LOCALE;
+
+if (!locales.includes(LOCALE)) {
+  console.error(t("call-to-translate", { locale: LOCALE }));
+}
 
 if (ARGS.length < 3) {
-  console.log("Not enough arguments given\n");
+  console.log(`${t("not-enough-arguments")}\n`);
   console.log(help());
 } else if (ARGS.length > 4) {
-  console.log("Too many arguments given\n");
+  console.log(`${t("too-many-arguments")}\n`);
   console.log(help());
 }
 
@@ -39,11 +47,9 @@ if (isNaN(Number(ARGS[2]))) {
       break;
     case "switch":
       if (CURRENT_PROJECT === ARGS[3]) {
-        console.log("Already on project " + CURRENT_PROJECT);
+        console.log(t("already-on-project", { project: CURRENT_PROJECT }));
       } else if (!["calculator", "combiner"].includes(ARGS[3])) {
-        console.log(
-          `Project '${ARGS[3]}' does not exist. Here are the available projects:\n`
-        );
+        console.log(`${t("[project-not-exist", { project: ARGS[3] })}\n`);
         console.log("\tcalculator\n\tcombiner\n");
       } else {
         switchAlias(ARGS[3]);
@@ -85,11 +91,12 @@ if (isNaN(Number(ARGS[2]))) {
   console.log(help());
 }
 
-function getProjectMeta() {
+export function getProjectMeta() {
   // Read .meta file for CURRENT_PROJECT variable
   const META_FILE = "tooling/.meta";
   let meta = {
     CURRENT_PROJECT: "calculator",
+    LOCALE: "en",
   };
   try {
     const META = fs.readFileSync(META_FILE, "utf8");
@@ -100,9 +107,8 @@ function getProjectMeta() {
     }, "");
     meta = { ...meta, ...new_meta };
   } catch (err) {
-    console.log(
-      `Defaulting to 'calculator' project.\n\nError reading ${META_FILE}: ${err}`
-    );
+    console.log(`${t("meta-file-error", { metaFile: META_FILE })}`);
+    console.error(err);
   }
   return meta;
 }
@@ -182,22 +188,22 @@ function worderiseNumber(number) {
 
 function help() {
   return `
-  chmod +x tooling/fcc - Gives the shell permission to run fcc
+  chmod +x tooling/fcc - ${t("shell-permission")}
 
   ---
 
-  fcc <n>              - Runs the nth lesson
-  fcc reset <n>        - Resets the nth lesson
-  fcc solution <n>     - Prints the solution for the nth lesson
-  fcc help             - Prints this help message
-  fcc switch <project> - Switches between the lessons for <project>
-  fcc test <n>         - Runs the regex tests for the nth lesson
+  fcc <n>              - ${t("fcc-n")}
+  fcc reset <n>        - ${t("fcc-reset-n")}
+  fcc solution <n>     - ${t("fcc-solution-n")}
+  fcc help             - ${t("fcc-help")}
+  fcc switch <project> - ${t("fcc-switch-project")}
+  fcc test <n>         - ${t("fcc-test-n")}
 
   ---
 
-  cargo run --bin <project> - Runs the <project>/src/main.rs binary
+  cargo run --bin <project> - ${t("cargo-run")}
 
-  https://doc.rust-lang.org/std/index.html       - Rust documentation
-  https://doc.rust-lang.org/book/title-page.html - Rust book
+  https://doc.rust-lang.org/std/index.html       - ${t("rust-docs")}
+  https://doc.rust-lang.org/book/title-page.html - ${t("rust-book")}
   `;
 }
