@@ -13,7 +13,7 @@ function t(key, args = {}) {
   // Replace placeholders in value with args
   const result =
     Object.values(args)?.length > 0
-      ? value.replace(/\{\{\w+\}\}/g, (_, index) => args[index])
+      ? value.replace(/\{\{(\w+)\}\}/g, (_, m) => args[m])
       : value;
   // Return value
   return result;

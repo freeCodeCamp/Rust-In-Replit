@@ -11,7 +11,7 @@
   "switch-navigate": "Please navigate to the '{{location}}' file, and add the following line:",
   "valid-project": "a valid project",
   "create-new-project-error": "It looks like you have not created a new project with:",
-  "lesson-correct": "Lesson ${{lessonNumber}} is correct",
+  "lesson-correct": "Lesson #{{lessonNumber}} is correct",
   "tests-error": "An error occured trying to run the tests:",
   "shell-permission": "Gives the shell permission to run fcc",
   "fcc-n": "Runs the nth lesson",
