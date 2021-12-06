@@ -2,7 +2,7 @@
 
 const util = require("util");
 const execute = util.promisify(require("child_process").exec);
-const t = require("./t");
+const { t } = require("./t");
 
 // Set alias based on project argv
 async function switchAlias(project) {

@@ -7,15 +7,15 @@ const {
 const fs = require("fs");
 const util = require("util");
 
-const t, { LOCALE } = require('./t');
+const { t, LOCALE } = require("./t");
 
 const execute = util.promisify(require("child_process").exec);
 
-const ERROR_MESSAGE = t('reset-error');
+const ERROR_MESSAGE = t("reset-error");
 
 async function resetLesson(project, lessonNumber) {
   const rustFile = `./${project}/src/main.rs`;
-  const answerFile = `./tooling/answers-${project}.md`;
+  const answerFile = `./tooling/locales/${LOCALE}/answers-${project}.md`;
   try {
     if (lessonNumber === 1) {
       await execute(`rm -rf ../${project}`, {
@@ -42,7 +42,7 @@ async function resetLesson(project, lessonNumber) {
 }
 
 function r(lessonNumber) {
-  console.log(`${t('lesson-reset', {lessonNumber})}`);
+  console.log(`${t("lesson-reset", { lessonNumber })}`);
 }
 
 module.exports = resetLesson;

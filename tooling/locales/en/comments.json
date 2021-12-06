@@ -27,5 +27,6 @@
   "not-enough-arguments": "Not enough arguments given",
   "too-many-arguments": "Too many arguments given",
   "already-on-project": "Already on project {{project}}",
-  "project-not-exist": "Project {{project}} does not exist. Here are the available projects:"
+  "project-not-exist": "Project {{project}} does not exist. Here are the available projects:",
+  "invalid-argument": "Invalid argument"
 }

@@ -1,6 +1,6 @@
 // This file parses answer files for lesson content
 const { getLessonFromFile, getLessonDescription } = require("./parser");
-const t, { LOCALE } = require("./t");
+const { t, LOCALE } = require("./t");
 
 function runLesson(project, lessonNumber) {
   const locale = LOCALE;
@@ -9,7 +9,7 @@ function runLesson(project, lessonNumber) {
   const nextLesson = getLessonFromFile(answerFile, lessonNumber + 1);
   if (project === "combiner") {
     const description = getLessonDescription(lesson)
-      .replace(t('task'), `${Colour.FgMagenta}${t('task')}${Colour.Reset}`)
+      .replace(t("task"), `${Colour.FgMagenta}${t("task")}${Colour.Reset}`)
       .replace(
         /```(rust|bash)\n(.+?)```\n/s,
         `${Colour.FgCyan}$2${Colour.Reset}`
@@ -18,16 +18,16 @@ function runLesson(project, lessonNumber) {
       .replace(/\*\*([^\*]+)\*\*/g, `${Colour.Bright}$1${Colour.Reset}`)
       .replace(/(\s)_([^_]+)_(\s)/g, `$1${Colour.Italic}$2${Colour.Reset}$3`);
     console.log(
-      `\n${Colour.Underscore + Colour.FgGreen}${t('lesson')} #${lessonNumber}${
+      `\n${Colour.Underscore + Colour.FgGreen}${t("lesson")} #${lessonNumber}${
         Colour.Reset
       }\n`
     );
     console.log(description);
     if (!!nextLesson) {
       console.log(
-        `${t('next-lesson')}\n\t${
-          Colour.FgCyan
-        }$ fcc ${lessonNumber + 1}${Colour.Reset}\n`
+        `${t("next-lesson")}\n\t${Colour.FgCyan}$ fcc ${lessonNumber + 1}${
+          Colour.Reset
+        }\n`
       );
     }
   } else {

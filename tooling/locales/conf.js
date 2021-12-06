@@ -1,6 +1,11 @@
-export const locales = ["en", "es"];
+const locales = ["en", "es"];
 
-export const translatedLocales = {
+const translatedLocales = {
   en: "English",
   es: "Español",
+};
+
+module.exports = {
+  locales,
+  translatedLocales,
 };

@@ -6,7 +6,7 @@ const { getLessonFromFile, getLessonTests } = require("./parser.js");
 
 const execute = util.promisify(require("child_process").exec);
 const readFile = util.promisify(fs.readFile);
-const t, {LOCALE} = require('./t');
+const { t, LOCALE } = require("./t");
 
 // HELPER FUNCTIONS
 const getCommandOutput = async function (command) {
@@ -36,7 +36,7 @@ async function runTests(project, lessonNumber) {
       camperCode = await getFileContents(camperCodeFile);
     } catch (err) {
       return console.log(
-        `\n${t('create-new-project-error')}\n\t$ cargo new <crate_name>\n`
+        `\n${t("create-new-project-error")}\n\t$ cargo new <crate_name>\n`
       );
     }
     const answerFile = `./tooling/locales/${LOCALE}/answers-${project}.md`;
@@ -92,10 +92,10 @@ async function runTests(project, lessonNumber) {
       }
     }
     if (c === numTests) {
-      console.log(t('lesson-correct', {lessonNumber}));
+      console.log(t("lesson-correct", { lessonNumber }));
     }
   } catch (e) {
-    console.log(t('tests-error'));
+    console.log(t("tests-error"));
     console.error(e);
   }
 }

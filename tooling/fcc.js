@@ -9,7 +9,6 @@
 // fcc switch <project> - Switches between the lessons for <project>
 // *fcc test <n>        - Runs the regex tests for the nth lesson
 
-const fs = require("fs");
 const util = require("util");
 const execute = util.promisify(require("child_process").exec);
 
@@ -18,7 +17,7 @@ const runLesson = require("./lesson");
 const runSolution = require("./solution");
 const runTests = require("./test");
 const resetLesson = require("./reset");
-const t = require("./t");
+const { t, getProjectMeta } = require("./t");
 
 const { locales } = require("./locales/conf");
 
@@ -65,8 +64,10 @@ if (isNaN(Number(ARGS[2]))) {
       runTests(CURRENT_PROJECT, Number(ARGS[3]));
       break;
     default:
-      console.log("Invalid argument\n");
+      console.log(ARGS, CURRENT_PROJECT, LOCALE);
+      console.log(`${t("invalid-argument")}\n`);
       console.log(help());
+      break;
   }
 } else if (!isNaN(Number(ARGS[2]))) {
   if (CURRENT_PROJECT === "calculator") {
@@ -87,30 +88,8 @@ if (isNaN(Number(ARGS[2]))) {
   }
   runLesson(CURRENT_PROJECT, Number(ARGS[2]));
 } else {
-  console.log("Invalid arguments\n");
+  console.log(`${t("invalid-argument")}\n`);
   console.log(help());
-}
-
-export function getProjectMeta() {
-  // Read .meta file for CURRENT_PROJECT variable
-  const META_FILE = "tooling/.meta";
-  let meta = {
-    CURRENT_PROJECT: "calculator",
-    LOCALE: "en",
-  };
-  try {
-    const META = fs.readFileSync(META_FILE, "utf8");
-    const metaArr = META.split("\n").filter(Boolean);
-    const new_meta = metaArr.reduce((meta, line) => {
-      const [key, value] = line.split("=");
-      return { ...meta, [key]: value };
-    }, "");
-    meta = { ...meta, ...new_meta };
-  } catch (err) {
-    console.log(`${t("meta-file-error", { metaFile: META_FILE })}`);
-    console.error(err);
-  }
-  return meta;
 }
 
 function getCmd(lessonNumber) {

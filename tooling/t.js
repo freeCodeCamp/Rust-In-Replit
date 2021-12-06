@@ -1,8 +1,8 @@
-const { getProjectMeta } = require("./fcc");
+const fs = require("fs");
 
-export const LOCALE = getProjectMeta().LOCALE;
+const LOCALE = getProjectMeta().LOCALE;
 
-export default function t(key, args) {
+function t(key, args = {}) {
   // Get key from ./locales/{locale}/comments.json
   // Read file and parse JSON
   const locale = LOCALE;
@@ -18,3 +18,27 @@ export default function t(key, args) {
   // Return value
   return result;
 }
+
+function getProjectMeta() {
+  // Read .meta file for CURRENT_PROJECT variable
+  const META_FILE = "tooling/.meta";
+  let meta = {
+    CURRENT_PROJECT: "calculator",
+    LOCALE: "en",
+  };
+  try {
+    const META = fs.readFileSync(META_FILE, "utf8");
+    const metaArr = META.split("\n").filter(Boolean);
+    const new_meta = metaArr.reduce((meta, line) => {
+      const [key, value] = line.split("=");
+      return { ...meta, [key]: value };
+    }, "");
+    meta = { ...meta, ...new_meta };
+  } catch (err) {
+    console.log(`${t("meta-file-error", { metaFile: META_FILE })}`);
+    console.error(err);
+  }
+  return meta;
+}
+
+module.exports = { t, LOCALE, getProjectMeta };
