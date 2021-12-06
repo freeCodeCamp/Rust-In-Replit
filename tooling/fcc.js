@@ -63,6 +63,9 @@ if (isNaN(Number(ARGS[2]))) {
     case "test":
       runTests(CURRENT_PROJECT, Number(ARGS[3]));
       break;
+    case "welcome":
+      console.log(welcome());
+      break;
     default:
       console.log(ARGS, CURRENT_PROJECT, LOCALE);
       console.log(`${t("invalid-argument")}\n`);
@@ -185,4 +188,8 @@ function help() {
   https://doc.rust-lang.org/std/index.html       - ${t("rust-docs")}
   https://doc.rust-lang.org/book/title-page.html - ${t("rust-book")}
   `;
+}
+
+function welcome() {
+  return t("welcome");
 }
