@@ -133,8 +133,10 @@ function welcome() {
 }
 
 function promptForLocale() {
+  const greetings = locales.map((x) => t("greeting", {}, x));
+  greetings.forEach(console.log);
   console.log(`
-  Welcome. This course is available in multiple languages:
+  
   \t- ${Object.values(translatedLocales).join("\n\t- ")}
   `);
   const readline = require("readline");
@@ -144,7 +146,7 @@ function promptForLocale() {
   });
 
   function getInput() {
-    rl.question("Type a language from above: ", (lang = "English") => {
+    rl.question(">>: ", (lang = "English") => {
       const ling = lang === "" ? "English" : lang;
       if (
         !Object.values(translatedLocales)?.some(

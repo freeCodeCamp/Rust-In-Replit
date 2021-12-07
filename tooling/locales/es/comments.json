@@ -1,4 +1,5 @@
 {
+  "greeting": "Welcome. This course is available in multiple languages. Type one from below:",
   "call-to-action": "The language {{locale}} is not yet supported. Help us translate this course: https://contribute.freecodecamp.org/",
   "task": "Tarea",
   "lesson": "LESSON",
