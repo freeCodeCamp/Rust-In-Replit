@@ -148,7 +148,7 @@ It is convention in Rust to use snake_case for:
 - Function names
 - File names
 
-_SCREAMING_SNAKE_CASE_ is used for constants and statics. Lastly, _PascalCase_ is used for types, traits, and enums (we will cover these later).
+SCREAMING_SNAKE_CASE is used for constants and statics. Lastly, _PascalCase_ is used for types, traits, and enums (we will cover these later).
 
 You can see if you completed the lesson correctly by running:
 
