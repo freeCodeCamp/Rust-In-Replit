@@ -1,6 +1,6 @@
 {
   "call-to-action": "The language {{locale}} is not yet supported. Help us translate this course: https://contribute.freecodecamp.org/",
-  "task": "Tarea:",
+  "task": "Tarea",
   "lesson": "LESSON",
   "next-lesson": "When you are done, type the following for the next lesson:",
   "reset-error": "An error occured trying to reset your progress",

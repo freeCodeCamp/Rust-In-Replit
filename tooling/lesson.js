@@ -8,7 +8,10 @@ function runLesson(project, lessonNumber) {
   const lesson = getLessonFromFile(answerFile, lessonNumber);
   const nextLesson = getLessonFromFile(answerFile, lessonNumber + 1);
   const description = getLessonDescription(lesson)
-    .replace(t("task"), `${Colour.FgMagenta}${t("task")}${Colour.Reset}`)
+    .replace(
+      new RegExp(`${t("task")}:`, "g"),
+      `${Colour.FgMagenta}${t("task")}${Colour.Reset}`
+    )
     .replace(/```(rust|bash)\n(.+?)```\n/s, `${Colour.FgCyan}$2${Colour.Reset}`)
     .replace(/`([^`]+)`/g, `${Colour.FgBlue}$1${Colour.Reset}`)
     .replace(/\*\*([^\*]+)\*\*/g, `${Colour.Bright}$1${Colour.Reset}`)
