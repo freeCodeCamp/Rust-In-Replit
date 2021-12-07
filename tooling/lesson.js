@@ -10,7 +10,7 @@ function runLesson(project, lessonNumber) {
   const description = getLessonDescription(lesson)
     .replace(
       new RegExp(`${t("task")}:`, "g"),
-      `${Colour.FgMagenta}${t("task")}${Colour.Reset}`
+      `${Colour.FgMagenta}${t("task")}:${Colour.Reset}`
     )
     .replace(/```(rust|bash)\n(.+?)```\n/s, `${Colour.FgCyan}$2${Colour.Reset}`)
     .replace(/`([^`]+)`/g, `${Colour.FgBlue}$1${Colour.Reset}`)
