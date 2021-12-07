@@ -65,18 +65,22 @@ if (isNaN(Number(ARGS[2]))) {
       promptForLocale();
       break;
     case "locale":
-      if (!Object.values(translatedLocales)?.includes(ARGS[3])) {
+      if (
+        !Object.values(translatedLocales)?.some(
+          (x) => ARGS[3].toLowerCase() === x.toLowerCase()
+        )
+      ) {
         console.log(`This course is not translated into ${
           ARGS[3]
         }, yet. Help us translate it!
         https://contribute.freecodecamp.org/
         
 Available locales:
-\t- ${Object.values(translatedLocales).join("\n- ")}`);
+\t- ${Object.values(translatedLocales).join("\t\n- ")}`);
       } else {
         setLocale(
           Object.entries(translatedLocales)?.find(
-            ([_, val]) => val === ARGS[3]
+            ([_, val]) => val.toLowerCase() === ARGS[3].toLowerCase()
           )?.[0]
         );
       }

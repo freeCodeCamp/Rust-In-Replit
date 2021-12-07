@@ -31,13 +31,13 @@ Tarea: Crea un nuevo proyecto de Rust ejecutando el siguiente:
 
 ### --description--
 
-You have just created a new Rust project within the `calculator/` directory.
+Tu acabas de crear un nuevo proyecto de Rust dentro de el directorio `calculator/`.
 
-Cargo has created the boilerplate for a 'Hello World'.
+Cargo ha creado el boilerplate para un 'Hola Mundo'.
 
-Task: Open the `calculator/src/main.rs` file.
+Tarea: Abre el archivo `calculator/src/main.rs`.
 
-This is the default file Cargo uses for your application binary.
+Este es el archivo predeterminado que Cargo usa para su binario de aplicación.
 
 ### --seed--
 
@@ -57,24 +57,24 @@ fn main() {
 
 ### --description--
 
-This file contains a function declaration with the handle `main`.
-By default, rustc calls the `main` function first whenever the executable is run.
+Este archivo contiene una declaración de funciónes con el manejador `main`.
+Por defecto, rustc llama a la función `main` primero cuando se procede el ejecutable.
 
-`println` is a built-in macro.
+`println` es un construido en _macro._
 
-A macro is similar to a function, but can be thought of as a piece of code which writes other code.
-For now, the main differences between a function and a macro to keep in mind are:
+Un macro es similar a una función, pero se puede considerar como un fragmento de código que escribe otro código.
+Por ahora, las principales diferencias entre una función y una macro a tener en cuenta son:
 
-    - Macros are called using a bang (!)
-    - Macros can take a variable number of arguments; functions in Rust cannot
+    - Macros se llaman usando un _bang (!)_
+    - Macros pueden tomar un número variable de argumentos; las funciones en Rust no pueden
 
-Task: Run your code, using the following command:
+Tarea: Ejecute el código con el siguiente comando:
 
 ```bash
     $ cargo run --bin calculator
 ```
 
-_NOTE:_ The `--bin calculator` arguments are only necessary, because you are not within the `calculator` directory.
+_NOTA:_ Los `--bin calculator` argumentos solo son necesarios, porque no están dentro de la `calculator` directorio.
 
 ### --seed--
 
@@ -94,23 +94,23 @@ fn main() {
 
 ### --description--
 
-Variables are declared using the `let` keyword.
+Las variables se declaran utilizando la palabra clave `let`.
 
 ```rust
     let variable_name = value
 ```
 
-Task: Within the `main` function, declare a new variable, and name it `firstName` and give it a value of `"<your_name>"`. Ensure to declare it before the `println!` call, and place your name within double quotes.
+Tarea: Dentro de la `main` función, declara una nueva variable y nómbrala `firstName` y dale un valor de `"<your_name>"`. Asegúrate de declararlo antes de la llamada `println!` y coloca tu nombre entre commillas dobles.
 
-_NOTE:_ Variables can also be declared using the const or static keywords.
+_NOTA:_ Las variables también se pueden declarar usando el `const` o palabras clave `static`.
 
-Task: Run your code to see what the compiler says:
+Tarea: Ejecuta tu código para ver lo que dice el compilador:
 
 ```bash
     $ cargo run --bin calculator
 ```
 
-_HINT:_ If you get stuck, try to follow the compiler's helpful advice.
+_SUGERENCIA:_ Si te quedas atascado, trata de seguir los consejos útiles del compilador.
 
 You can see if you completed the lesson correctly by running:
 
@@ -140,7 +140,7 @@ fn main() {
 
 Above, you might notice the rustc compiler is giving two suggestions for your code.
 
-Task: Follow the compiler's advice to convert the variable name into snake_case.
+Tarea: Follow the compiler's advice to convert the variable name into snake_case.
 
 It is convention in Rust to use snake_case for:
 
