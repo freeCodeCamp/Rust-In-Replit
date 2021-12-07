@@ -134,7 +134,8 @@ function welcome() {
 
 function promptForLocale() {
   const greetings = locales.map((x) => t("greeting", {}, x));
-  greetings.forEach(console.log);
+  console.log("\n");
+  greetings.forEach((x) => console.log(x));
   console.log(`
   
   \t- ${Object.values(translatedLocales).join("\n\t- ")}
