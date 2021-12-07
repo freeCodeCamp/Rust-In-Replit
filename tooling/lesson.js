@@ -12,7 +12,10 @@ function runLesson(project, lessonNumber) {
       new RegExp(`${t("task")}:`, "g"),
       `${Colour.FgMagenta}${t("task")}:${Colour.Reset}`
     )
-    .replace(/```(rust|bash)\n(.+?)```\n/s, `${Colour.FgCyan}$2${Colour.Reset}`)
+    .replace(
+      /```(rust|bash)\n(.+?)```\n/gs,
+      `${Colour.FgCyan}$2${Colour.Reset}`
+    )
     .replace(/`([^`]+)`/g, `${Colour.FgBlue}$1${Colour.Reset}`)
     .replace(/\*\*([^\*]+)\*\*/g, `${Colour.Bright}$1${Colour.Reset}`)
     .replace(/(\s)_([^_]+)_(\s)/g, `$1${Colour.Italic}$2${Colour.Reset}$3`);
