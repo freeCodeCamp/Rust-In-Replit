@@ -141,16 +141,17 @@ function promptForLocale() {
 
   function getInput() {
     rl.question("Type a language from above: ", (lang = "English") => {
+      const ling = lang === "" ? "English" : lang;
       if (
         !Object.values(translatedLocales)?.some(
-          (x) => lang.toLowerCase() === x.toLowerCase()
+          (x) => ling.toLowerCase() === x.toLowerCase()
         )
       ) {
         getInput();
       } else {
         setLocale(
           Object.entries(translatedLocales)?.find(
-            ([_, val]) => val.toLowerCase() === lang.toLowerCase()
+            ([_, val]) => val.toLowerCase() === ling.toLowerCase()
           )?.[0]
         );
         rl.close();
