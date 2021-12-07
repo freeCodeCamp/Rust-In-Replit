@@ -154,7 +154,7 @@ function promptForLocale() {
             ([_, val]) => val.toLowerCase() === ling.toLowerCase()
           )?.[0]
         );
-        console.log(`Language set to: ${ling}`);
+        console.log(`Language set to ${ling}`);
         rl.close();
       }
     });
