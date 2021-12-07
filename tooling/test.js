@@ -29,6 +29,7 @@ const getFileContents = async (file) => {
 };
 
 async function runTests(project, lessonNumber) {
+  const locale = LOCALE === "undefined" ? "en" : LOCALE;
   try {
     const camperCodeFile = `./${project}/src/main.rs`;
     let camperCode = "";
@@ -39,7 +40,7 @@ async function runTests(project, lessonNumber) {
         `\n${t("create-new-project-error")}\n\t$ cargo new <crate_name>\n`
       );
     }
-    const answerFile = `./tooling/locales/${LOCALE}/answers-${project}.md`;
+    const answerFile = `./tooling/locales/${locale}/answers-${project}.md`;
     const lesson = getLessonFromFile(answerFile, lessonNumber);
     const testTexts = getLessonTests(lesson);
 

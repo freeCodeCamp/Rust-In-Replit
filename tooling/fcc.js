@@ -62,7 +62,7 @@ if (isNaN(Number(ARGS[2]))) {
       runTests(CURRENT_PROJECT, Number(ARGS[3]));
       break;
     case "welcome":
-      console.log(welcome());
+      promptForLocale();
       break;
     case "locale":
       if (!Object.values(translatedLocales)?.includes(ARGS[3])) {
@@ -126,4 +126,43 @@ function help() {
 
 function welcome() {
   return t("welcome");
+}
+
+function promptForLocale() {
+  console.log(`
+  Welcome. This course is available in multiple languages:
+  \t- ${Object.values(translatedLocales).join("\n\t- ")}
+  `);
+  const readline = require("readline");
+  const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+  });
+
+  function getInput() {
+    rl.question("Type a language from above: ", (lang = "English") => {
+      if (
+        !Object.values(translatedLocales)?.some(
+          (x) => lang.toLowerCase() === x.toLowerCase()
+        )
+      ) {
+        getInput();
+      } else {
+        setLocale(
+          Object.entries(translatedLocales)?.find(
+            ([_, val]) => val.toLowerCase() === lang.toLowerCase()
+          )?.[0]
+        );
+        rl.close();
+      }
+    });
+  }
+  getInput();
+
+  rl.on("close", function () {
+    console.log("\n\n");
+    console.log(welcome());
+    console.log("\n");
+    process.exit(0);
+  });
 }

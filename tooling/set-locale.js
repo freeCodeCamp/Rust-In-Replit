@@ -6,15 +6,16 @@ const { t } = require("./t");
 
 // Set alias based on project argv
 async function setLocale(locale) {
+  const loc = locale === "undefined" ? "en" : locale;
   try {
     const { stdout, stderr } = await execute(
-      `echo '\nLOCALE=${locale}' >> ./tooling/.meta`
+      `echo '\nLOCALE=${loc}' >> ./tooling/.meta`
     );
     if (stderr) {
       console.error(stderr);
     } else {
       console.log(
-        `${t("set-locale-success", { locale })}\n\n${t(
+        `${t("set-locale-success", { loc })}\n\n${t(
           "access-lessons"
         )}\n\t$ fcc 1\n`
       );

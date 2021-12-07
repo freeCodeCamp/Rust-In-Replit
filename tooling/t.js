@@ -3,9 +3,10 @@ const fs = require("fs");
 const LOCALE = getProjectMeta().LOCALE;
 
 function t(key, args = {}) {
+  const loc = getProjectMeta().LOCALE;
   // Get key from ./locales/{locale}/comments.json
   // Read file and parse JSON
-  const locale = LOCALE ?? "en";
+  const locale = loc === "undefined" ? "en" : loc;
   const comments = require(`./locales/${locale}/comments.json`);
 
   // Get value from JSON

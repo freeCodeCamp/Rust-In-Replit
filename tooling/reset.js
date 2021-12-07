@@ -15,7 +15,7 @@ const ERROR_MESSAGE = t("reset-error");
 
 async function resetLesson(project, lessonNumber) {
   const rustFile = `./${project}/src/main.rs`;
-  const locale = LOCALE ?? "en";
+  const locale = LOCALE === "undefined" ? "en" : LOCALE;
   const answerFile = `./tooling/locales/${locale}/answers-${project}.md`;
   try {
     if (lessonNumber === 1) {
