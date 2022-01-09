@@ -1,34 +1,36 @@
 // This file parses answer files for lesson content
 const { getLessonFromFile, getLessonDescription } = require("./parser");
+const { t, LOCALE } = require("./t");
 
 function runLesson(project, lessonNumber) {
-  const answerFile = `./tooling/answers-${project}.md`;
+  const locale = LOCALE === "undefined" ? "en" : LOCALE ?? "en";
+  const answerFile = `./tooling/locales/${locale}/answers-${project}.md`;
   const lesson = getLessonFromFile(answerFile, lessonNumber);
   const nextLesson = getLessonFromFile(answerFile, lessonNumber + 1);
-  if (project === "combiner") {
-    const description = getLessonDescription(lesson)
-      .replace("Task:", `${Colour.FgMagenta}Task:${Colour.Reset}`)
-      .replace(
-        /```(rust|bash)\n(.+?)```\n/s,
-        `${Colour.FgCyan}$2${Colour.Reset}`
-      )
-      .replace(/`([^`]+)`/g, `${Colour.FgBlue}$1${Colour.Reset}`)
-      .replace(/\*\*([^\*]+)\*\*/g, `${Colour.Bright}$1${Colour.Reset}`)
-      .replace(/(\s)_([^_]+)_(\s)/g, `$1${Colour.Italic}$2${Colour.Reset}$3`);
+  const description = getLessonDescription(lesson)
+    .replace(
+      new RegExp(`${t("task")}:`, "g"),
+      `${Colour.FgMagenta}${t("task")}:${Colour.Reset}`
+    )
+    .replace(
+      /```(rust|bash)\n(.+?)```\n/gs,
+      `${Colour.FgCyan}$2${Colour.Reset}`
+    )
+    .replace(/`([^`]+)`/g, `${Colour.FgBlue}$1${Colour.Reset}`)
+    .replace(/\*\*([^\*]+)\*\*/g, `${Colour.Bright}$1${Colour.Reset}`)
+    .replace(/(\s)_([^_]+)_(\s)/g, `$1${Colour.Italic}$2${Colour.Reset}$3`);
+  console.log(
+    `\n${Colour.Underscore + Colour.FgGreen}${t("lesson")} #${lessonNumber}${
+      Colour.Reset
+    }\n`
+  );
+  console.log(description);
+  if (!!nextLesson) {
     console.log(
-      `\n${Colour.Underscore + Colour.FgGreen}LESSON #${lessonNumber}${
+      `${t("next-lesson")}\n\t${Colour.FgCyan}$ fcc ${lessonNumber + 1}${
         Colour.Reset
       }\n`
     );
-    console.log(description);
-    if (!!nextLesson) {
-      console.log(
-        `When you are done, type the following for the next lesson:\n\t${Colour.FgCyan
-        }$ fcc ${lessonNumber + 1}${Colour.Reset}\n`
-      );
-    }
-  } else {
-    console.log(getLessonDescription(lesson));
   }
 }
 

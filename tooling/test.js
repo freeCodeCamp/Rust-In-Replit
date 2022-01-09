@@ -6,6 +6,7 @@ const { getLessonFromFile, getLessonTests } = require("./parser.js");
 
 const execute = util.promisify(require("child_process").exec);
 const readFile = util.promisify(fs.readFile);
+const { t, LOCALE } = require("./t");
 
 // HELPER FUNCTIONS
 const getCommandOutput = async function (command) {
@@ -28,6 +29,7 @@ const getFileContents = async (file) => {
 };
 
 async function runTests(project, lessonNumber) {
+  const locale = LOCALE === "undefined" ? "en" : LOCALE;
   try {
     const camperCodeFile = `./${project}/src/main.rs`;
     let camperCode = "";
@@ -35,10 +37,10 @@ async function runTests(project, lessonNumber) {
       camperCode = await getFileContents(camperCodeFile);
     } catch (err) {
       return console.log(
-        "\nIt looks like you have not created a new crate with:\n\t$ cargo new <crate_name>\n"
+        `\n${t("create-new-project-error")}\n\t$ cargo new <crate_name>\n`
       );
     }
-    const answerFile = `./tooling/answers-${project}.md`;
+    const answerFile = `./tooling/locales/${locale}/answers-${project}.md`;
     const lesson = getLessonFromFile(answerFile, lessonNumber);
     const testTexts = getLessonTests(lesson);
 
@@ -91,10 +93,10 @@ async function runTests(project, lessonNumber) {
       }
     }
     if (c === numTests) {
-      console.log(`Lesson #${lessonNumber} is correct.`);
+      console.log(t("lesson-correct", { lessonNumber }));
     }
   } catch (e) {
-    console.log("An error has occurred");
+    console.log(t("tests-error"));
     console.error(e);
   }
 }

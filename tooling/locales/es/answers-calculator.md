@@ -4,6 +4,18 @@
 
 ### --description--
 
+Las principales herramentas dentro del ecosistema Rust son:
+
+- rustc - el compilador que toma tu código Rust y lo compila en binario (código legible por máquina
+- rustup - La utilidad de línea de comandos para instalar y actualizar Rust
+- cargo - El sistema de construcción de Rust y el admistrador de paquetes (trabajará con esto)
+
+Tarea: Crea un nuevo proyecto de Rust ejecutando el siguiente:
+
+```bash
+    $ cargo new calculator
+```
+
 ### --seed--
 
 ```rust
@@ -18,6 +30,14 @@
 ## 2
 
 ### --description--
+
+Tu acabas de crear un nuevo proyecto de Rust dentro de el directorio `calculator/`.
+
+Cargo ha creado el boilerplate para un 'Hola Mundo'.
+
+Tarea: Abre el archivo `calculator/src/main.rs`.
+
+Este es el archivo predeterminado que Cargo usa para su binario de aplicación.
 
 ### --seed--
 
@@ -37,6 +57,25 @@ fn main() {
 
 ### --description--
 
+Este archivo contiene una declaración de funciónes con el manejador `main`.
+Por defecto, rustc llama a la función `main` primero cuando se procede el ejecutable.
+
+`println` es un construido en _macro._
+
+Un macro es similar a una función, pero se puede considerar como un fragmento de código que escribe otro código.
+Por ahora, las principales diferencias entre una función y una macro a tener en cuenta son:
+
+    - Macros se llaman usando un _bang (!)_
+    - Macros pueden tomar un número variable de argumentos; las funciones en Rust no pueden
+
+Tarea: Ejecute el código con el siguiente comando:
+
+```bash
+    $ cargo run --bin calculator
+```
+
+_NOTA:_ Los `--bin calculator` argumentos solo son necesarios, porque no están dentro de la `calculator` directorio.
+
 ### --seed--
 
 ```rust
@@ -54,6 +93,30 @@ fn main() {
 ## 4
 
 ### --description--
+
+Las variables se declaran utilizando la palabra clave `let`.
+
+```rust
+    let variable_name = value
+```
+
+Tarea: Dentro de la `main` función, declara una nueva variable y nómbrala `firstName` y dale un valor de `"<your_name>"`. Asegúrate de declararlo antes de la llamada `println!` y coloca tu nombre entre commillas dobles.
+
+_NOTA:_ Las variables también se pueden declarar usando el `const` o palabras clave `static`.
+
+Tarea: Ejecuta tu código para ver lo que dice el compilador:
+
+```bash
+    $ cargo run --bin calculator
+```
+
+_SUGERENCIA:_ Si te quedas atascado, trata de seguir los consejos útiles del compilador.
+
+You can see if you completed the lesson correctly by running:
+
+```bash
+    $ fcc test 4
+```
 
 ### --seed--
 
@@ -75,6 +138,24 @@ fn main() {
 
 ### --description--
 
+Above, you might notice the rustc compiler is giving two suggestions for your code.
+
+Tarea: Follow the compiler's advice to convert the variable name into snake_case.
+
+It is convention in Rust to use snake_case for:
+
+- Variable names
+- Function names
+- File names
+
+SCREAMING_SNAKE_CASE is used for constants and statics. Lastly, _PascalCase_ is used for types, traits, and enums (we will cover these later).
+
+You can see if you completed the lesson correctly by running:
+
+```bash
+    $ fcc test 5
+```
+
 ### --seed--
 
 ```rust
@@ -93,6 +174,8 @@ fn main() {
 ## 6
 
 ### --description--
+
+Task: Re-run your code. You should only have one warning, now.
 
 ### --seed--
 
@@ -113,6 +196,22 @@ fn main() {
 
 ### --description--
 
+The compiler is still giving you a warning about `first_name` being an unused variable.
+
+Task: Fix that, by changing the `println!` call to be:
+
+```rust
+    println!("Hello, {}!", first_name);
+```
+
+The `'{}'` are replaced with the value of the arguments.
+
+You can see if you completed the lesson correctly by running:
+
+```bash
+    $ fcc test 7
+```
+
 ### --seed--
 
 ```rust
@@ -131,6 +230,18 @@ fn main() {
 ## 8
 
 ### --description--
+
+There are many things you can do with `println!`. Look at the Rust by Example docs, and play around with your code:
+
+- https://doc.rust-lang.org/rust-by-example/hello/print.html
+
+This is what makes the `println!` macro an excellent tool to debug your code.
+
+Task: Run your code to see the output with:
+
+```bash
+    $ cargo run --bin calculator
+```
 
 ### --seed--
 
@@ -151,6 +262,26 @@ fn main() {
 
 ### --description--
 
+The type of `first_name` is `&str`.
+`str` is a primitive type, and the _ampersand (&)_ indicates the type is a _reference._
+
+An important aspect of the Rust langauge is ownership. That is, memory use and allocation.
+The concept of ownership will come up, throughout this course.
+
+Another common type is `String`. This is a useful type, because it is automatically heap allocated. This allows its size to be unknown at compile time.
+
+Task: Convert `first_name` into the `String` type, by using the from trait which is available on the `String` struct:
+
+```rust
+    let example = String::from("Hello, Camper!");
+```
+
+You can see if you completed the lesson correctly by running:
+
+```bash
+    $ fcc test 9
+```
+
 ### --seed--
 
 ```rust
@@ -169,6 +300,14 @@ fn main() {
 ## 10
 
 ### --description--
+
+Task: Immediately after `first_name`, create a new variable named `name`, and assign the value of `first_name` to it. Then, replace the second argument in the `println!` call with your newly created variable.
+
+You can see if you completed the lesson correctly by running:
+
+```bash
+    $ fcc test 10
+```
 
 ### --seed--
 
@@ -190,6 +329,14 @@ fn main() {
 ## 11
 
 ### --description--
+
+Task: Copy the current `println!` call, and place it immediately after the first. Then, replace the second argument with `first_name`.
+
+You can see if you completed the lesson correctly by running:
+
+```bash
+    $ fcc test 11
+```
 
 ### --seed--
 
@@ -213,6 +360,8 @@ fn main() {
 
 ### --description--
 
+Task: Run your code. You will see an error.
+
 ### --seed--
 
 ```rust
@@ -235,6 +384,25 @@ fn main() {
 ## 13
 
 ### --description--
+
+Your app errored out. The reason for this error is the last `println!` call tries to use the `first_name` variable. However, this variable is no longer available, as it was _moved_ into `name`.
+
+To prevent `first_name` from being moved, you can assign `name` to the referenced value of `first_name`.
+
+Task: Do this, by adding the reference symbol to the beginning of the `name` value. Here is an example:
+
+```rust
+    let value = String::from("");
+    let referenced_value = &value;
+```
+
+This prevents `value` from being moved into `referenced_value`, and, instead, uses a reference to the value of `value` in `referenced_value`.
+
+You can see if you completed the lesson correctly by running:
+
+```bash
+    $ fcc test 13
+```
 
 ### --seed--
 
@@ -261,6 +429,8 @@ fn main() {
 
 ### --description--
 
+Task: Run your code. You should not see the error anymore.
+
 ### --seed--
 
 ```rust
@@ -281,6 +451,22 @@ fn main() {
 ## 15
 
 ### --description--
+
+You want to add your surname (second name) to `name`.
+
+There are many ways to do this in Rust. If you try to just concatenate `" Surname"` to `&first_name`, Rust will error, because you cannot concatenate to a referenced value.
+
+You could remove the &, but then the second `println!` will cause the program to panic.
+
+In order to concatenate a reference to a `str (&str)`, the first argument needs to be owned. A `String` can be used as an owned value with the `to_owned` method:
+
+```rust
+    let owned_string = my_string.to_owned() + " Surname";
+```
+
+Task: Instead of moving `first_name`, turn it into an owned value, and concatenate your surname to it - assigning the result to `name`.
+
+Run your code. If it compiles and prints the two lines, you have completed the lesson correctly. If not, use the output to debug and fix your code.
 
 ### --seed--
 
@@ -305,6 +491,21 @@ fn main() {
 
 ### --description--
 
+A more idiomatic way to make use of the `String` type, is by using the `push_str` method:
+
+```rust
+    let mut my_string = String::from("String");
+    my_string.push_str("a str");
+```
+
+Task: Delete `name` as well as the first `println!` call. Then, use the `push_str` method on `first_name` to append your surname.
+
+You can see if you completed the lesson correctly by running:
+
+```bash
+    $ fcc test 16
+```
+
 ### --seed--
 
 ```rust
@@ -327,6 +528,8 @@ fn main() {
 ## 17
 
 ### --description--
+
+Task: Run your code. It should error out.
 
 ### --seed--
 
@@ -352,6 +555,16 @@ fn main() {
 
 ### --description--
 
+Your code errored out, because `first_name` is not _mutable._
+
+Task: Use the hints from the compiler to make `first_name` mutable.
+
+You can see if you completed the lesson correctly by running:
+
+```bash
+    $ fcc test 18
+```
+
 ### --seed--
 
 ```rust
@@ -376,6 +589,8 @@ fn main() {
 
 ### --description--
 
+Task: Run your code again to make sure it compiles without error.
+
 ### --seed--
 
 ```rust
@@ -395,6 +610,22 @@ fn main() {
 ## 20
 
 ### --description--
+
+So far, you have learnt about the `str`, and `String` types, as well as about references. If you have not accidentally used single quotes ('), you may not have noticed that, so far, everything to do with strings use double quotes (").
+
+This is because there is a third standard type called `char`.
+
+A `char` is a _USV (Unicode Scalar Value),_ which is represented in unicode with values like `U+221E` - the unicode for '∞'.
+
+Strings can be thought of as collections or arrays of `char`s.
+
+Task: Remove all of your code from within your `main` function. Then, declare a new variable `first`, and assign it the first letter of your first name - `first` should be type `&str`.
+
+You can see if you completed the lesson correctly by running:
+
+```bash
+    $ fcc test 20
+```
 
 ### --seed--
 
@@ -418,6 +649,10 @@ fn main() {
 
 ### --description--
 
+Task: Print to the console the value of the `.len()` method on `first` and the value of `first.chars().count()`.
+
+Run your code to see the output. If it runs and prints `'1 1'`, you have correctly completed the lesson.
+
 ### --seed--
 
 ```rust
@@ -435,6 +670,14 @@ fn main() {
 ## 22
 
 ### --description--
+
+You should see `1 1` output in the console. The `len` method returns the length in bytes for the `str`. The `chars` method returns an iterator over the `char`s in the string slice, and the `count` method returns the number of elements in the iterator.
+
+Task: Change the value of `first` to be a string slice of the infinity character: ∞
+
+_HINT:_ You can copy-paste the character from the above line
+
+Run your code to see the output. If it runs and prints `'3 1'`, you have correctly completed the lesson.
 
 ### --seed--
 
@@ -457,6 +700,11 @@ fn main() {
 
 ### --description--
 
+You should see `3 1` output in the console.
+This is because the `'∞'` char takes up 3 bytes in length.
+
+Task: Feel free to play around with these new methods, as well as get an idea of what values different strings produce.
+
 ### --seed--
 
 ```rust
@@ -475,6 +723,20 @@ fn main() {
 ## 24
 
 ### --description--
+
+From this lesson on, you will be writing your code with _TDD Test Driven Development_ in mind. That is, you will need to write your code to pass the existing tests, as well as write some tests to pass yourself.
+
+Task: Run the following command to initialise your code with tests for the next lesson:
+
+```bash
+    $ fcc reset 24
+```
+
+You can see if you completed the lesson correctly by running:
+
+```bash
+    $ fcc test 24
+```
 
 ### --seed--
 
@@ -501,6 +763,24 @@ mod tests {
 
 ### --description--
 
+Already included is the basic setup for tests. The `#[]` syntax above a declaration is how _attributes_ are added in Rust.
+
+`cfg(test)` configures the `test` trait to the below declaration, and the `#[test]` syntax declares which functions are to be run as tests.
+
+Task: At the top of the script, add a function named `main`. Then, at the top of the `tests` module, import the `main` function, using this syntax:
+
+```rust
+    use crate::main;
+```
+
+The `use` keyword, in Rust, is similar to 'import', 'require', or 'include' as in other languages.
+
+You can see if you completed the lesson correctly by running:
+
+```bash
+    $ cargo test --bin calculator
+```
+
 ### --seed--
 
 ```rust
@@ -524,6 +804,31 @@ mod tests {
 ## 26
 
 ### --description--
+
+As you might notice from the tests, functions without explicit returns return an empty `tuple`. Tuples are represented with parentheses () - why the test asserts the return of `main` is `()`.
+
+There are two ways to return. Using the `return` keyword, or by leaving off the semi-colon.
+
+Functions returning anything other than an empty tuple need to be explicitly typed:
+
+```rust
+    fn my_func() -> String {
+      let my_string: String = String::from("Nich");
+      my_string
+    }
+```
+
+_Note:_ The above has been explicitly typed, for clarity.
+
+Task: Pass the test, by returning `24` from `main`, and type the return of the function with the type `usize`.
+
+`usize` is the default type for a positive integer. The u stands for _unsigned,_ and size describes the bit-size of the system. This is commonly either 64- or 32- bit systems.
+
+You can see if you completed the lesson correctly by running:
+
+```bash
+    $ cargo test --bin calculator
+```
 
 ### --seed--
 
@@ -551,6 +856,26 @@ mod tests {
 ## 27
 
 ### --description--
+
+There are many types of number, in Rust:
+
+    - Unsigned Integers: `u8`, `u16`, `u32`, `u64`, `usize`, `u128`
+    - Signed Integer: `i8`, `i16`, `i32`, `i64`, `isize`, `i128`
+    - Float: `f32`, `f64`
+
+Unsigned integers only represent positive whole numbers.
+Signed integers represent both positive and negative whole numbers.
+Floats only represent positive and negative fractions.
+
+Task: Pass the tests, by changing the number and return type of the `main` function.
+
+_NOTE:_ The first test includes the `should_panic` trait. This means, the code should error out.
+
+You can see if you completed the lesson correctly by running:
+
+```bash
+    $ cargo test --bin calculator
+```
 
 ### --seed--
 
@@ -583,6 +908,43 @@ mod tests {
 ## 28
 
 ### --description--
+
+You want your calculator to be used on the command line like:
+
+```bash
+    $ calculator <first_number> <operator> <second_number>
+```
+
+With an output like:
+
+```bash
+    $ <first_number> <operator> <second_number> = <result>
+```
+
+Example:
+
+```bash
+    $ calcualtor 1 + 1
+    $ 1 + 1 = 2
+```
+
+Task: Create a new function named `output` which accepts 4 arguments. The first, third, and fourth arguments should be signed integers, and the second argument should be a `char`.
+
+_HINT:_ Do not forget to import the new function into the tests module.
+
+Here is an example function with typed arguments:
+
+```rust
+    fn example(first_arg: usize, second_arg: String) -> &str {
+      "I return a reference to a string slice"
+    }
+```
+
+You can see if you completed the lesson correctly by running:
+
+```bash
+    $ cargo test --bin calculator
+```
 
 ### --seed--
 
@@ -625,6 +987,22 @@ mod tests {
 ## 29
 
 ### --description--
+
+Now, to get `output` to return the correct output, you are going to use the format macro.
+
+The `format!` macro works almost identically to the `println!` macro, you have been using. Except, instead of printing the output to the console, it returns the output as a `String`.
+
+Task: Use the `format!` macro to return an output following this format:
+
+```bash
+    <first_number> <operator> <second_number> = <result>
+```
+
+You can see if you completed the lesson correctly by running:
+
+```bash
+    $ cargo test --bin calculator
+```
 
 ### --seed--
 
@@ -669,6 +1047,14 @@ mod tests {
 
 ### --description--
 
+Task: Within the `main` function, print to the console the result of calling `output` with any valid arguments.
+
+You can see if you completed the lesson correctly by running:
+
+```bash
+    $ fcc test 30
+```
+
 ### --seed--
 
 ```rust
@@ -709,6 +1095,16 @@ mod tests {
 ## 31
 
 ### --description--
+
+Task: Within the `main` function, declare three variables: `first_number`, `operator`, and `second_number`.
+
+Then, assign them valid values, and pass them as arguments within the `output` call.
+
+You can see if you completed the lesson correctly by running:
+
+```bash
+    $ fcc test 31
+```
 
 ### --seed--
 
@@ -757,6 +1153,18 @@ mod tests {
 ## 32
 
 ### --description--
+
+You may have noticed what is printed to the console is not correct. You need to perform an operation on the input numbers, to fix this.
+
+Task: Declare a new function named `operate` which accepts, in order, the `operator`, `first_number`, and `second_number`.
+
+_HINT:_ Remember to import the function into the `tests` module.
+
+You can see if you completed the lesson correctly by running:
+
+```bash
+    $ cargo test --bin calculator
+```
 
 ### --seed--
 
@@ -811,6 +1219,32 @@ mod tests {
 ## 33
 
 ### --description--
+
+You want to be able to perform the four basic operations: addition, subtraction, division, and multiplication.
+
+Task: Use multiple `if` statements to compare the cases where `operator` is one of: `'+' '-' '*' '/'`
+
+An `if` statement follows this syntax:
+
+```rust
+    if my_var == "my str" {
+      // Do stuff
+    } else if my_var == "something else" {
+      // Do more stuff
+    } else {
+      // Finally...
+    }
+```
+
+Task: Return the result of the operation on `first_number` and `second_number`, to pass the tests.
+
+_HINT:_ Remember to include an `else` clause.
+
+You can see if you completed the lesson correctly by running:
+
+```bash
+    $ cargo test --bin calculator
+```
 
 ### --seed--
 
@@ -887,6 +1321,18 @@ mod tests {
 ## 34
 
 ### --description--
+
+Instead of returning a result of `0`, when an invalid operator is used, it might make more sense to panic the application.
+
+The `panic!` macro does just that, and it accepts a reference to a string slice as an argument, which can contain a message to panic with.
+
+Task: Panic from your code, when an invalid operator is used.
+
+You can see if you completed the lesson correctly by running:
+
+```bash
+    $ cargo test --bin calculator
+```
 
 ### --seed--
 
@@ -973,6 +1419,29 @@ mod tests {
 ## 35
 
 ### --description--
+
+Instead of many `if...else` statements, you can improve your code's readability and useability with Rust's `match` control flow. The `match` operator is similar to many languages' `switch` statement. However, it allows pattern matching.
+
+A contrived example of an expression using the `match` operator:
+
+```rust
+    let some_variable = 't';
+    match some_variable {
+      'a' => 'A',
+      'b' => 'B',
+      _ => 'Z',
+    }
+```
+
+As `'t'` does not match `'a'` or `'b'`, the expression returns `'Z'`, following the base-case denoted by the underscore.
+
+Task: Convert the if/else logic within `operate` to use the `match` operator.
+
+You can see if you completed the lesson correctly by running:
+
+```bash
+    $ fcc test 35
+```
 
 ### --seed--
 
@@ -1061,6 +1530,28 @@ mod tests {
 ## 36
 
 ### --description--
+
+You should be able to use the calculator with an input like: `calculator 3 x 3`
+
+A `match` pattern can be extended using bit-wise logic like this:
+
+```rust
+    match name {
+      "Quincy" => "Hello, Quincy",
+      "Tom" | "Nich" => "Hello, other",
+      _ => panic!("Pattern not found"),
+    }
+```
+
+With a `name` of `"Nich"`, the second `match` _arm_ would be matched.
+
+Task: Extend the multiplication arm in the `match` operator to match on `operator` values of `'x'` and `'X'`.
+
+You can see if you completed the lesson correctly by running:
+
+```bash
+    $ cargo test --bin calculator
+```
 
 ### --seed--
 
@@ -1153,6 +1644,16 @@ mod tests {
 ## 37
 
 ### --description--
+
+Currently, the `result` argument for `output` is hard-coded.
+
+Task: Within `main`, declare a new variable named `result`, and assign it a value of calling `operate` with the first three variables. Then, pass `result` as the fourth argument to `output`.
+
+You can see if you completed the lesson correctly by running:
+
+```bash
+    $ fcc test 37
+```
 
 ### --seed--
 
@@ -1247,6 +1748,24 @@ mod tests {
 ## 38
 
 ### --description--
+
+You want this application to read values from command line arguments. Rust's standard library has an environment module which provides access to arguments passed through the CLI.
+
+Modules in the standard library are accessed using the following syntax:
+
+```rust
+    use std::*;
+```
+
+This imports all modules within the standard library. However, you only need one.
+
+Task: At the root of the script, use the above syntax to import only the env module from the standard library.
+
+You can see if you completed the lesson correctly by running:
+
+```bash
+    $ fcc test 38
+```
 
 ### --seed--
 
@@ -1343,6 +1862,18 @@ mod tests {
 ## 39
 
 ### --description--
+
+Now that the `env` module has been brought into scope, you can reference its Structs, Enums, and Functions.
+
+Task: At the top of `main` declare a new variable named `args`, and assign it the value of calling the `args` function, which exists within the `env` module.
+
+_HINT:_ Remember, accessing a function within a module uses the `'::'` syntax.
+
+You can see if you completed the lesson correctly by running:
+
+```bash
+    $ fcc test 39
+```
 
 ### --seed--
 
@@ -1444,6 +1975,16 @@ mod tests {
 
 ### --description--
 
+Task: To get an idea of what `args` contains, print its value to the console.
+
+_HINT:_ Remember, follow the compiler's helpful advice, if you are struggling to print the value.
+
+You can see if you completed the lesson correctly by running:
+
+```bash
+    $ fcc test 40
+```
+
 ### --seed--
 
 ```rust
@@ -1541,6 +2082,14 @@ mod tests {
 ## 41
 
 ### --description--
+
+Without passing any arguments when running the crate, the value of `args` still contains one argument - the relative path of the binary.
+
+Task: See the different values of `args` by running commands like:
+
+```bash
+    $ cargo run --bin calculator -- 1 + 2
+```
 
 ### --seed--
 
@@ -1640,6 +2189,19 @@ mod tests {
 ## 42
 
 ### --description--
+
+In order to access a specific argument in `args`, you can use the `nth` method.
+The `nth` method accepts one numeric argument (n) to access the next 'nth' argument - using 0-based indexing.
+
+Task: Change the `args` println to print the first argument to the console.
+
+_HINT:_ Remember to follow the compiler's helpful advice, if you get stuck.
+
+You can see if you completed the lesson correctly by running:
+
+```bash
+    $ fcc test 42
+```
 
 ### --seed--
 
@@ -1741,6 +2303,16 @@ mod tests {
 ## 43
 
 ### --description--
+
+If you followed the compiler's advice, in the previous lesson, you needed to delcare `args` as mutable. This is because the `nth` method mutably iterates over the elements.
+
+Task: Remove the println for 'args'. Then, change `first_number`, `operator`, and `second_number` to be equal to the first, second, and third `args` respectfully.
+
+You can see if you completed the lesson correctly by running:
+
+```bash
+    $ fcc test 43
+```
 
 ### --seed--
 
@@ -1845,6 +2417,33 @@ mod tests {
 
 ### --description--
 
+Some code has been commented out, so that the program compiles.
+
+If you run the code now, you will see the output contains:
+
+```bash
+    $ Some("target/debug/calculator"), None, None
+```
+
+This is because `nth` does not return the value directly, but, instead, returns the value wrapped in an `Option`.
+
+An `Option` is a type that includes either `Some` wrapped around a value, or `None` if the value does not exist.
+
+In order to use the value wrapped in `Some`, the `Option` can be _unwrapped:_
+
+```rust
+    let my_option: Option<String> = env::args().nth(0);
+    let my_value: String = my_option.unwrap();
+```
+
+Task: Unwrap the `first_number`, `operator`, and `second_number` variables at their declaration, and run your code to see what happens.
+
+You can see if you completed the lesson correctly by running:
+
+```bash
+    $ fcc test 44
+```
+
 ### --seed--
 
 ```rust
@@ -1948,6 +2547,22 @@ mod tests {
 
 ### --description--
 
+Currently, running the application with:
+
+```bash
+    $ cargo run --bin calculator
+```
+
+Causes a panic. This is because trying to unwrapping a value where `None` exists is undefined behaviour.
+
+There are ways to handle errors more gracefully, but, for now, be sure to call your application with enough arguments:
+
+```bash
+    $ cargo run --bin calculator -- 1 + 2
+```
+
+Task: Run your code again, but keep adding arguments after the '--', until there is no panic.
+
 ### --seed--
 
 ```rust
@@ -2042,6 +2657,14 @@ mod tests {
 
 ### --description--
 
+Currently, 5 arguments are needed, to prevent the application from panicking. It looks like you are only trying to unwrap the 3rd element, though?
+
+Actually, due to `nth` mutably iterating over `args`, after accessing the first element, it is removed. So, trying to access the second element afterwards is equivalent to having originally tried to access the third.
+
+Task: Change the arguments passed to `nth` so that the correct elements are accessed. Running `cargo run --bin calculator -- 1 + 2` should output: "1", "+", "2"
+
+_HINT:_ Remember, the first element is the relative path to the binary - not the first_number.
+
 ### --seed--
 
 ```rust
@@ -2135,6 +2758,22 @@ mod tests {
 ## 47
 
 ### --description--
+
+It can be useful to explicitly annotate your variables' types. You have already seen examples of this, but here is one more:
+
+```rust
+    let my_var: &str = "Mrugesh";
+```
+
+Task: Type-annotate your `args`, `first_number`, `operator`, and `second_number` variables.
+
+_HINT:_ Give something the incorrect type, and follow the compiler's advice to correct it. You will need to import a type from the `env` module.
+
+You can see if you completed the lesson correctly by running:
+
+```bash
+    $ fcc test 47
+```
 
 ### --seed--
 
@@ -2238,6 +2877,22 @@ mod tests {
 
 ### --description--
 
+Instead of writing unecessary imports, you can combine them with the following syntax:
+
+```rust
+    use std::env::{var, Vars};
+```
+
+The above imports the `var` function, and the `Vars` struct from the `env` module, in the standard library.
+
+Task: Use one import statement to import both the `args` function, as well as the `Args` struct.
+
+You can see if you completed the lesson correctly by running:
+
+```bash
+    $ fcc test 48
+```
+
 ### --seed--
 
 ```rust
@@ -2332,6 +2987,26 @@ mod tests {
 ## 49
 
 ### --description--
+
+Now, you need to fix the issue of `operate` and `output` expecting `i32` and `&str` type inputs.
+
+This can be acheived with the `parse` method, which exists on the `String` type.
+
+The `parse` method converts a `String` into a given type. The type can be given using _turbofish_ syntax:
+
+```rust
+    let my_string_number: String = String::from("Kris");
+    let my_number_option: Option<usize> = my_string_number.parse::<usize>();
+    let my_number: usize = my_number_option.unwrap();
+```
+
+Task: Within `main`, declare two new variables - `first` and `second` - and use turbofish syntax to assign the parsed and unwrapped values of `first_number` and `second_number` respectfully. Then, replace `first_number` and `second_number` with `first` and `second` in the `println!` call.
+
+You can see if you completed the lesson correctly by running:
+
+```bash
+    $ fcc test 49
+```
 
 ### --seed--
 
@@ -2435,6 +3110,18 @@ mod tests {
 
 ### --description--
 
+Currently, `operator` is of type `String` when it needs to be `char`. A `String` can be converted into a `char`, using the `chars` method, and unwrapping the first `Option` returned by calling the `next` method.
+
+Task: Uncomment the commented-out code, and make the necessary adjustments to allow the code to compile.
+
+Be sure to follow the compiler's hints to get the code compiling. Then, remove the first `println!` call so there is only one output.
+
+You can ensure the output is correct by running:
+
+```bash
+    $ cargo run --bin calculator -- 1 + -1
+```
+
 ### --seed--
 
 ```rust
@@ -2531,6 +3218,16 @@ mod tests {
 ## 51
 
 ### --description--
+
+Currently, the calculator only accepts integers as inputs.
+
+Task: Change all the necessary types to allow the calculator to accept floating point numbers as well.
+
+You can see if you completed the lesson correctly by running:
+
+```bash
+    $ cargo test --bin calculator
+```
 
 ### --seed--
 
@@ -2638,6 +3335,16 @@ mod tests {
 
 ### --description--
 
+You have completed the code for your binary. Now, you need to compile and ship it to be used.
+
+Task: Run the following command to build your code into a binary:
+
+```bash
+    $ cargo build --bin calculator
+```
+
+If you see no errors, you have successfully completed the lesson.
+
 ### --seed--
 
 ```rust
@@ -2743,6 +3450,16 @@ mod tests {
 ## 53
 
 ### --description--
+
+Cargo has just compiled your code into the `target/debug` directory.
+
+Task: Run your application, using the following command:
+
+```bash
+    $ target/debug/calculator 1 + 2
+```
+
+If you see the output `'1 + 2 = 3'` you have successfully completed the lesson.
 
 ### --seed--
 
@@ -2850,6 +3567,16 @@ mod tests {
 
 ### --description--
 
+The Rust compiler often compiles with incredible optimisations. However, you need to specify for Cargo to build a _release_ build of your code, in order to get the most out of it.
+
+Task: Rebuild your application, this time using the `release` flag:
+
+```bash
+    $ cargo build --release --bin calculator
+```
+
+You should be able to locate your optimised binary within the `target/release` directory.
+
 ### --seed--
 
 ```rust
@@ -2955,6 +3682,16 @@ mod tests {
 ## 55
 
 ### --description--
+
+Congratulations. You have completed the `freeCodeCamp - Rust in Replit - CLI Calculator` project.
+
+You are welcome to extend your current project - perhaps, to accept multiple operations...
+
+Task: Run the following command to begin the next project:
+
+```bash
+    $ fcc switch combiner
+```
 
 ### --seed--
 
