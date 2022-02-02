@@ -5,132 +5,132 @@ on:
   #   # runs every day at 12:00 noon UTC
   #   - cron: '0 12 * * *'
 
-  jobs:
-    i18n-download:
-      name: Download
-      runs-on: ubuntu-20.04
+jobs:
+  i18n-download:
+    name: Download
+    runs-on: ubuntu-20.04
 
-      steps:
-        - name: Checkout Source Files
-          uses: actions/checkout@v2
-          with:
-            token: ${{ secrets.CROWDIN_CAMPERBOT_PAT }}
+    steps:
+      - name: Checkout Source Files
+        uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.CROWDIN_CAMPERBOT_PAT }}
 
-        - name: Generate Crowdin Config
-          uses: freecodecamp/crowdin-action@main
-          env:
-            CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_CAMPERBOT_SERVICE_TOKEN }}
-            CROWDIN_API_URL: "https://freecodecamp.crowdin.com/api/v2/"
-            CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID_RIR }}
-            PLUGIN: "generate-config"
-            PROJECT_NAME: "rust-in-replit"
+      - name: Generate Crowdin Config
+        uses: freecodecamp/crowdin-action@main
+        env:
+          CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_CAMPERBOT_SERVICE_TOKEN }}
+          CROWDIN_API_URL: "https://freecodecamp.crowdin.com/api/v2/"
+          CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID_RIR }}
+          PLUGIN: "generate-config"
+          PROJECT_NAME: "rust-in-replit"
 
-        ##### Download Chinese #####
-        - name: Crowdin Download Chinese Translations
-          uses: crowdin/github-action@master
-          # options: https://github.com/crowdin/github-action/blob/master/action.yml
-          with:
-            # uploads
-            upload_sources: false
-            upload_translations: false
-            auto_approve_imported: false
-            import_eq_suggestions: false
+      ##### Download Chinese #####
+      - name: Crowdin Download Chinese Translations
+        uses: crowdin/github-action@master
+        # options: https://github.com/crowdin/github-action/blob/master/action.yml
+        with:
+          # uploads
+          upload_sources: false
+          upload_translations: false
+          auto_approve_imported: false
+          import_eq_suggestions: false
 
-            # downloads
-            download_translations: true
-            download_language: zh-CN
-            skip_untranslated_files: false
-            export_only_approved: true
+          # downloads
+          download_translations: true
+          download_language: zh-CN
+          skip_untranslated_files: false
+          export_only_approved: true
 
-            push_translations: false
+          push_translations: false
 
-            # pull-request
-            create_pull_request: false
+          # pull-request
+          create_pull_request: false
 
-            # global options
-            config: "./crowdin-config.yml"
-            base_url: ${{ secrets.CROWDIN_BASE_URL_FCC }}
+          # global options
+          config: "./crowdin-config.yml"
+          base_url: ${{ secrets.CROWDIN_BASE_URL_FCC }}
 
-            # Uncomment below to debug
-            # dryrun_action: true
+          # Uncomment below to debug
+          # dryrun_action: true
 
-          env:
-            GITHUB_TOKEN: ${{ secrets.CROWDIN_CAMPERBOT_PAT }}
-            CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID_RIR }}
-            CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_CAMPERBOT_SERVICE_TOKEN }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.CROWDIN_CAMPERBOT_PAT }}
+          CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID_RIR }}
+          CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_CAMPERBOT_SERVICE_TOKEN }}
 
-        # Convert Simplified Chinese to Traditional #
-        - name: Convert Chinese
-          uses: freecodecamp/crowdin-action@main
-          env:
-            CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_CAMPERBOT_SERVICE_TOKEN }}
-            CROWDIN_API_URL: "https://freecodecamp.crowdin.com/api/v2/"
-            CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID_RIR }}
-            PLUGIN: "convert-chinese"
-            FILE_PATHS: '["/tooling/locales/zh/"]'
+      # Convert Simplified Chinese to Traditional #
+      - name: Convert Chinese
+        uses: freecodecamp/crowdin-action@main
+        env:
+          CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_CAMPERBOT_SERVICE_TOKEN }}
+          CROWDIN_API_URL: "https://freecodecamp.crowdin.com/api/v2/"
+          CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID_RIR }}
+          PLUGIN: "convert-chinese"
+          FILE_PATHS: '["/tooling/locales/zh/"]'
 
-        ##### Download Espanol #####
-        - name: Crowdin Download Espanol Translations
-          uses: crowdin/github-action@master
-          # options: https://github.com/crowdin/github-action/blob/master/action.yml
-          with:
-            # uploads
-            upload_sources: false
-            upload_translations: false
-            auto_approve_imported: false
-            import_eq_suggestions: false
+      ##### Download Espanol #####
+      - name: Crowdin Download Espanol Translations
+        uses: crowdin/github-action@master
+        # options: https://github.com/crowdin/github-action/blob/master/action.yml
+        with:
+          # uploads
+          upload_sources: false
+          upload_translations: false
+          auto_approve_imported: false
+          import_eq_suggestions: false
 
-            # downloads
-            download_translations: true
-            download_language: es-EM
-            skip_untranslated_files: false
-            export_only_approved: true
+          # downloads
+          download_translations: true
+          download_language: es-EM
+          skip_untranslated_files: false
+          export_only_approved: true
 
-            push_translations: false
+          push_translations: false
 
-            # pull-request
-            create_pull_request: false
+          # pull-request
+          create_pull_request: false
 
-            # global options
-            config: "./crowdin-config.yml"
-            base_url: ${{ secrets.CROWDIN_BASE_URL_FCC }}
+          # global options
+          config: "./crowdin-config.yml"
+          base_url: ${{ secrets.CROWDIN_BASE_URL_FCC }}
 
-            # Uncomment below to debug
-            # dryrun_action: true
+          # Uncomment below to debug
+          # dryrun_action: true
 
-          env:
-            GITHUB_TOKEN: ${{ secrets.CROWDIN_CAMPERBOT_PAT }}
-            CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID_RIR }}
-            CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_CAMPERBOT_SERVICE_TOKEN }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.CROWDIN_CAMPERBOT_PAT }}
+          CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID_RIR }}
+          CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_CAMPERBOT_SERVICE_TOKEN }}
 
-        # Create Commit
-        - name: Commit Changes
-          uses: freecodecamp/crowdin-action@main
-          env:
-            CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_CAMPERBOT_SERVICE_TOKEN }}
-            CROWDIN_API_URL: "https://freecodecamp.crowdin.com/api/v2/"
-            CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID_RIR }}
-            PLUGIN: "commit-changes"
-            GH_USERNAME: "camperbot"
-            GH_EMAIL: ${{ secrets.ACTIONS_CAMPERBOT_EMAIL }}
-            GH_BRANCH: "i18n-sync"
-            GH_MESSAGE: "This PR was automagically generated by Crowdin."
+      # Create Commit
+      - name: Commit Changes
+        uses: freecodecamp/crowdin-action@main
+        env:
+          CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_CAMPERBOT_SERVICE_TOKEN }}
+          CROWDIN_API_URL: "https://freecodecamp.crowdin.com/api/v2/"
+          CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID_RIR }}
+          PLUGIN: "commit-changes"
+          GH_USERNAME: "camperbot"
+          GH_EMAIL: ${{ secrets.ACTIONS_CAMPERBOT_EMAIL }}
+          GH_BRANCH: "i18n-sync"
+          GH_MESSAGE: "This PR was automagically generated by Crowdin."
 
-        # Generate PR #
-        # All languages should go ABOVE this. #
+      # Generate PR #
+      # All languages should go ABOVE this. #
 
-        - name: Create PR
-          uses: freecodecamp/crowdin-action@main
-          env:
-            CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_CAMPERBOT_SERVICE_TOKEN }}
-            CROWDIN_API_URL: "https://freecodecamp.crowdin.com/api/v2/"
-            CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID_RIR }}
-            PLUGIN: "pull-request"
-            GH_TOKEN: ${{ secrets.CROWDIN_CAMPERBOT_PAT }}
-            BRANCH: "i18n-sync"
-            REPOSITORY: "freecodecamp/rust-in-replit"
-            BASE: "main"
-            TITLE: "chore(i18n,docs): processed translations"
-            BODY: "This PR was opened auto-magically by Crowdin."
-            LABELS: "crowdin-sync"
-            TEAM_REVIEWERS: "i18n"
+      - name: Create PR
+        uses: freecodecamp/crowdin-action@main
+        env:
+          CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_CAMPERBOT_SERVICE_TOKEN }}
+          CROWDIN_API_URL: "https://freecodecamp.crowdin.com/api/v2/"
+          CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID_RIR }}
+          PLUGIN: "pull-request"
+          GH_TOKEN: ${{ secrets.CROWDIN_CAMPERBOT_PAT }}
+          BRANCH: "i18n-sync"
+          REPOSITORY: "freecodecamp/rust-in-replit"
+          BASE: "main"
+          TITLE: "chore(i18n,docs): processed translations"
+          BODY: "This PR was opened auto-magically by Crowdin."
+          LABELS: "crowdin-sync"
+          TEAM_REVIEWERS: "i18n"
