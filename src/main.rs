@@ -864,7 +864,7 @@ mod tests {
       d("With an output like:\n"),
       cmd("\t$ <first_number> <operator> <second_number> = <result>\n\n"),
       d("Example:\n"),
-      cmd("\t$ calcualtor 1 + 1\n"),
+      cmd("\t$ calculator 1 + 1\n"),
       cmd("\t$ 1 + 1 = 2\n"),
     ]);
     term(&[
