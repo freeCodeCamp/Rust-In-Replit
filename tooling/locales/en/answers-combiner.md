@@ -1463,7 +1463,7 @@ mod tests {
 
 The compiler is showing a warning that the `find_image_from_path` function is unused. This is going to become annoying, over the course of this project. Fortunately, you can enable global attributes to suppress the warning.
 
-Global attributs use the syntax `#![feature(feature_name)]`, and should be placed at the top of the file.
+Global attributes use the syntax `#![feature(feature_name)]`, and should be placed at the top of the file.
 
 Task: Within `main.rs`, use the `allow` feature to globally enable `unused_variables` and `dead_code`.
 
@@ -2172,7 +2172,7 @@ mod tests {
     }
   }
   #[test]
-  fn image_format_comparision() {
+  fn image_format_comparison() {
     if let Some((file_contents, _)) = return_file_in_src("main.rs").split_once("#[cfg(test)]") {
       assert!(
         reg_with_con(r"image_1_format\s*!=\s*image_2_format", file_contents)
@@ -2509,7 +2509,7 @@ mod tests {
     }
   }
   #[test]
-  fn iamge_dimensions_method_used() {
+  fn image_dimensions_method_used() {
     if let Some((file_contents, _)) = return_file_in_src("main.rs").split_once("#[cfg(test)]") {
       assert!(reg_with_con(r"image_1\.dimensions\(\)", file_contents));
       assert!(reg_with_con(r"image_2\.dimensions\(\)", file_contents));
@@ -3194,7 +3194,7 @@ Now that you have a buffer size, you need to create a buffer of `Vec<u8>`. The `
 
 Task: Within `new`, declare a variable named `buffer`, and assign it the value of calling the `with_capacity` function with `buffer_capacity`.
 
-_Hint:_ Follow the compiler's advice to explicity type the `buffer` variable.
+_Hint:_ Follow the compiler's advice to explicitly type the `buffer` variable.
 
 Run `cargo test --bin combiner` to see if you correctly completed the task.
 
@@ -5106,7 +5106,7 @@ fn set_rgba(vec: Vec<u8>, start: usize, end: usize) -> Vec<u8> {
 mod tests {
   use super::*;
   #[test]
-  fn alternate_pixles_not_infinite() {
+  fn alternate_pixels_not_infinite() {
     let _a = alternate_pixels(vec![1, 2, 3], vec![3, 2, 1]);
   }
   #[test]
@@ -5264,7 +5264,7 @@ fn set_rgba(vec: Vec<u8>, start: usize, end: usize) -> Vec<u8> {
 mod tests {
   use super::*;
   #[test]
-  fn alternate_pixles_not_infinite() {
+  fn alternate_pixels_not_infinite() {
     let _a = alternate_pixels(vec![1, 2, 3], vec![3, 2, 1]);
   }
 }
@@ -5397,7 +5397,7 @@ fn set_rgba(vec: Vec<u8>, start: usize, end: usize) -> Vec<u8> {
 mod tests {
   use super::*;
   #[test]
-  fn alternate_pixles_not_infinite() {
+  fn alternate_pixels_not_infinite() {
     let _a = alternate_pixels(vec![1, 2, 3, 4], vec![4, 3, 2, 1]);
   }
   #[test]
@@ -5421,7 +5421,7 @@ mod tests {
 
 ### --description--
 
-Currently, `alternate_pixels` is splicing every RGBA set from `vec_1` into `combined_data`. However, you want every second set to be from `vec_2`. To achieve this, you can uuse the remainder operator:
+Currently, `alternate_pixels` is splicing every RGBA set from `vec_1` into `combined_data`. However, you want every second set to be from `vec_2`. To achieve this, you can use the remainder operator:
 
 ```rust
     let mut my_vec = vec![0u8; 6];
@@ -5545,7 +5545,7 @@ fn set_rgba(vec: &Vec<u8>, start: usize, end: usize) -> Vec<u8> {
 mod tests {
   use super::*;
   #[test]
-  fn alternate_pixles_not_infinite() {
+  fn alternate_pixels_not_infinite() {
     let _a = alternate_pixels(vec![1, 2, 3, 4], vec![4, 3, 2, 1]);
   }
   #[test]
@@ -5888,7 +5888,7 @@ So far, you have only implemented functions on structs. Methods are defined in a
 
 As the value of the instance of `MyStruct` needs to be changed, the method `change_name` takes a mutable reference to the instance as its first argument. _Notice the method is still only called with one argument_ .
 
-Task: Implement a method `set_data` on `FloatingImage` which takes a `Vec<u8>` as an arguement.
+Task: Implement a method `set_data` on `FloatingImage` which takes a `Vec<u8>` as an argument.
 
 Run `cargo test --bin combiner` to see if you correctly completed this task.
 
@@ -6171,7 +6171,7 @@ To handle errors more clearly, you can create an _enum_ to represent the possibl
 
 Enums can be used as both values as well as types. You have already encountered the `Option` enum.
 
-Task: Create an `enum` called `ImageDataErrors`, and has two varaints `BufferTooSmall` and `DifferentImageFormats`.
+Task: Create an `enum` called `ImageDataErrors`, and has two variants `BufferTooSmall` and `DifferentImageFormats`.
 
 Run `cargo test --bin combiner` to see if you correctly completed this task.
 
