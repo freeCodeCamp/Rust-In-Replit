@@ -128,6 +128,7 @@ jobs:
           CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID_RIR }}
           PLUGIN: "pull-request"
           GH_TOKEN: ${{ secrets.CROWDIN_CAMPERBOT_PAT }}
+          GH_EMAIL: ${{ secrets.CAMPERBOT_EMAIL }}
           BRANCH: "i18n-sync"
           REPOSITORY: "freecodecamp/rust-in-replit"
           BASE: "main"
