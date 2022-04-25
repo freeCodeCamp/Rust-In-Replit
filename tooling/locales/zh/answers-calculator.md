@@ -57,13 +57,11 @@ fn main() {
 
 ### --description--
 
-This file contains a function declaration with the handle `main`.
-By default, rustc calls the `main` function first whenever the executable is run.
+This file contains a function declaration with the handle `main`. By default, rustc calls the `main` function first whenever the executable is run.
 
 `println` is a built-in macro.
 
-A macro is similar to a function, but can be thought of as a piece of code which writes other code.
-For now, the main differences between a function and a macro to keep in mind are:
+A macro is similar to a function, but can be thought of as a piece of code which writes other code. For now, the main differences between a function and a macro to keep in mind are:
 
     - Macros are called using a bang (!)
     - Macros can take a variable number of arguments; functions in Rust cannot
@@ -262,11 +260,9 @@ fn main() {
 
 ### --description--
 
-The type of `first_name` is `&str`.
-`str` is a primitive type, and the _ampersand (&)_ indicates the type is a _reference._
+The type of `first_name` is `&str`. `str` is a primitive type, and the _ampersand (&)_ indicates the type is a _reference._
 
-An important aspect of the Rust language is ownership. That is, memory use and allocation.
-The concept of ownership will come up, throughout this course.
+An important aspect of the Rust langauge is ownership. That is, memory use and allocation. The concept of ownership will come up, throughout this course.
 
 Another common type is `String`. This is a useful type, because it is automatically heap allocated. This allows its size to be unknown at compile time.
 
@@ -700,8 +696,7 @@ fn main() {
 
 ### --description--
 
-You should see `3 1` output in the console.
-This is because the `'∞'` char takes up 3 bytes in length.
+You should see `3 1` output in the console. This is because the `'∞'` char takes up 3 bytes in length.
 
 Task: Feel free to play around with these new methods, as well as get an idea of what values different strings produce.
 
@@ -863,9 +858,7 @@ There are many types of number, in Rust:
     - Signed Integer: `i8`, `i16`, `i32`, `i64`, `isize`, `i128`
     - Float: `f32`, `f64`
 
-Unsigned integers only represent positive whole numbers.
-Signed integers represent both positive and negative whole numbers.
-Floats only represent positive and negative fractions.
+Unsigned integers only represent positive whole numbers. Signed integers represent both positive and negative whole numbers. Floats only represent positive and negative fractions.
 
 Task: Pass the tests, by changing the number and return type of the `main` function.
 
@@ -1147,7 +1140,7 @@ mod tests {
 - `let second_number`
 - You should declare a variable named `operator`.
 - `let operator`
-- You should call `output` with the variables you just declared.
+- You should call `ouput` with the variables you just declared.
 - `output\(\s*first_number\s*,\s*operator\s*,\s*second_number`
 
 ## 32
@@ -1420,7 +1413,7 @@ mod tests {
 
 ### --description--
 
-Instead of many `if...else` statements, you can improve your code's readability and usability with Rust's `match` control flow. The `match` operator is similar to many languages' `switch` statement. However, it allows pattern matching.
+Instead of many `if...else` statements, you can improve your code's readability and useability with Rust's `match` control flow. The `match` operator is similar to many languages' `switch` statement. However, it allows pattern matching.
 
 A contrived example of an expression using the `match` operator:
 
@@ -1624,7 +1617,7 @@ mod tests {
     assert_eq!(op, -24);
   }
   #[test]
-  fn operate_handles_multiplication_cap_x() {
+  fn operate_handles_multiplcaiton_cap_x() {
     let op = operate('X', -12, 2);
     assert_eq!(op, -24);
   }
@@ -1726,7 +1719,7 @@ mod tests {
     assert_eq!(op, -24);
   }
   #[test]
-  fn operate_handles_multiplication_cap_x() {
+  fn operate_handles_multiplcaiton_cap_x() {
     let op = operate('X', -12, 2);
     assert_eq!(op, -24);
   }
@@ -1842,7 +1835,7 @@ mod tests {
     assert_eq!(op, -24);
   }
   #[test]
-  fn operate_handles_multiplication_cap_x() {
+  fn operate_handles_multiplcaiton_cap_x() {
     let op = operate('X', -12, 2);
     assert_eq!(op, -24);
   }
@@ -1952,7 +1945,7 @@ mod tests {
     assert_eq!(op, -24);
   }
   #[test]
-  fn operate_handles_multiplication_cap_x() {
+  fn operate_handles_multiplcaiton_cap_x() {
     let op = operate('X', -12, 2);
     assert_eq!(op, -24);
   }
@@ -2062,7 +2055,7 @@ mod tests {
     assert_eq!(op, -24);
   }
   #[test]
-  fn operate_handles_multiplication_cap_x() {
+  fn operate_handles_multiplcaiton_cap_x() {
     let op = operate('X', -12, 2);
     assert_eq!(op, -24);
   }
@@ -2169,7 +2162,7 @@ mod tests {
     assert_eq!(op, -24);
   }
   #[test]
-  fn operate_handles_multiplication_cap_x() {
+  fn operate_handles_multiplcaiton_cap_x() {
     let op = operate('X', -12, 2);
     assert_eq!(op, -24);
   }
@@ -2190,8 +2183,7 @@ mod tests {
 
 ### --description--
 
-In order to access a specific argument in `args`, you can use the `nth` method.
-The `nth` method accepts one numeric argument (n) to access the next 'nth' argument - using 0-based indexing.
+In order to access a specific argument in `args`, you can use the `nth` method. The `nth` method accepts one numeric argument (n) to access the next 'nth' argument - using 0-based indexing.
 
 Task: Change the `args` println to print the first argument to the console.
 
@@ -2281,7 +2273,7 @@ mod tests {
     assert_eq!(op, -24);
   }
   #[test]
-  fn operate_handles_multiplication_cap_x() {
+  fn operate_handles_multiplcaiton_cap_x() {
     let op = operate('X', -12, 2);
     assert_eq!(op, -24);
   }
@@ -2304,7 +2296,7 @@ mod tests {
 
 ### --description--
 
-If you followed the compiler's advice, in the previous lesson, you needed to declare `args` as mutable. This is because the `nth` method mutably iterates over the elements.
+If you followed the compiler's advice, in the previous lesson, you needed to delcare `args` as mutable. This is because the `nth` method mutably iterates over the elements.
 
 Task: Remove the println for 'args'. Then, change `first_number`, `operator`, and `second_number` to be equal to the first, second, and third `args` respectfully.
 
@@ -2392,7 +2384,7 @@ mod tests {
     assert_eq!(op, -24);
   }
   #[test]
-  fn operate_handles_multiplication_cap_x() {
+  fn operate_handles_multiplcaiton_cap_x() {
     let op = operate('X', -12, 2);
     assert_eq!(op, -24);
   }
@@ -2522,7 +2514,7 @@ mod tests {
     assert_eq!(op, -24);
   }
   #[test]
-  fn operate_handles_multiplication_cap_x() {
+  fn operate_handles_multiplcaiton_cap_x() {
     let op = operate('X', -12, 2);
     assert_eq!(op, -24);
   }
@@ -2636,7 +2628,7 @@ mod tests {
     assert_eq!(op, -24);
   }
   #[test]
-  fn operate_handles_multiplication_cap_x() {
+  fn operate_handles_multiplcaiton_cap_x() {
     let op = operate('X', -12, 2);
     assert_eq!(op, -24);
   }
@@ -2738,7 +2730,7 @@ mod tests {
     assert_eq!(op, -24);
   }
   #[test]
-  fn operate_handles_multiplication_cap_x() {
+  fn operate_handles_multiplcaiton_cap_x() {
     let op = operate('X', -12, 2);
     assert_eq!(op, -24);
   }
@@ -2848,7 +2840,7 @@ mod tests {
     assert_eq!(op, -24);
   }
   #[test]
-  fn operate_handles_multiplication_cap_x() {
+  fn operate_handles_multiplcaiton_cap_x() {
     let op = operate('X', -12, 2);
     assert_eq!(op, -24);
   }
@@ -2877,7 +2869,7 @@ mod tests {
 
 ### --description--
 
-Instead of writing unnecessary imports, you can combine them with the following syntax:
+Instead of writing unecessary imports, you can combine them with the following syntax:
 
 ```rust
     use std::env::{var, Vars};
@@ -2967,7 +2959,7 @@ mod tests {
     assert_eq!(op, -24);
   }
   #[test]
-  fn operate_handles_multiplication_cap_x() {
+  fn operate_handles_multiplcaiton_cap_x() {
     let op = operate('X', -12, 2);
     assert_eq!(op, -24);
   }
@@ -3083,7 +3075,7 @@ mod tests {
     assert_eq!(op, -24);
   }
   #[test]
-  fn operate_handles_multiplication_cap_x() {
+  fn operate_handles_multiplcaiton_cap_x() {
     let op = operate('X', -12, 2);
     assert_eq!(op, -24);
   }
@@ -3198,7 +3190,7 @@ mod tests {
     assert_eq!(op, -24);
   }
   #[test]
-  fn operate_handles_multiplication_cap_x() {
+  fn operate_handles_multiplcaiton_cap_x() {
     let op = operate('X', -12, 2);
     assert_eq!(op, -24);
   }
@@ -3314,7 +3306,7 @@ mod tests {
     assert_eq!(op, -24.0);
   }
   #[test]
-  fn operate_handles_multiplication_cap_x() {
+  fn operate_handles_multiplcaiton_cap_x() {
     let op = operate('X', -12.0, 2.0);
     assert_eq!(op, -24.0);
   }
@@ -3430,7 +3422,7 @@ mod tests {
     assert_eq!(op, -24.0);
   }
   #[test]
-  fn operate_handles_multiplication_cap_x() {
+  fn operate_handles_multiplcaiton_cap_x() {
     let op = operate('X', -12.0, 2.0);
     assert_eq!(op, -24.0);
   }
@@ -3546,7 +3538,7 @@ mod tests {
     assert_eq!(op, -24.0);
   }
   #[test]
-  fn operate_handles_multiplication_cap_x() {
+  fn operate_handles_multiplcaiton_cap_x() {
     let op = operate('X', -12.0, 2.0);
     assert_eq!(op, -24.0);
   }
@@ -3662,7 +3654,7 @@ mod tests {
     assert_eq!(op, -24.0);
   }
   #[test]
-  fn operate_handles_multiplication_cap_x() {
+  fn operate_handles_multiplcaiton_cap_x() {
     let op = operate('X', -12.0, 2.0);
     assert_eq!(op, -24.0);
   }
@@ -3778,7 +3770,7 @@ mod tests {
     assert_eq!(op, -24.0);
   }
   #[test]
-  fn operate_handles_multiplication_cap_x() {
+  fn operate_handles_multiplcaiton_cap_x() {
     let op = operate('X', -12.0, 2.0);
     assert_eq!(op, -24.0);
   }
