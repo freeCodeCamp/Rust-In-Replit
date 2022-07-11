@@ -1428,7 +1428,7 @@ mod tests {
 
 ### --description--
 
-Task: Within `main.rs`, defined a function named `find_image_from_path` that takes a `String` as an argument.
+Task: Within `main.rs`, define a function named `find_image_from_path` that takes a `String` as an argument.
 
 Run `cargo test --bin combiner` to see if you correctly completed the task.
 
