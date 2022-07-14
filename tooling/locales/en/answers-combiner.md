@@ -913,7 +913,7 @@ Testing your application with arguments should now print out the `Args` struct w
 
 Task: Change the `println` in `main` to print the value of `args`.
 
-Run `cargo run --bin combiner first_arg second_arg third_arg`. If you see to see the following, you correctly completed the task:
+Run `cargo run --bin combiner first_arg second_arg third_arg`. If you see the following, you correctly completed the task:
 
 ```bash
     Args { image_1: "first_arg", image_2: "second_arg", output: "third_arg" }
@@ -1428,7 +1428,7 @@ mod tests {
 
 ### --description--
 
-Task: Within `main.rs`, defined a function named `find_image_from_path` that takes a `String` as an argument.
+Task: Within `main.rs`, define a function named `find_image_from_path` that takes a `String` as an argument.
 
 Run `cargo test --bin combiner` to see if you correctly completed the task.
 
@@ -5144,7 +5144,7 @@ mod tests {
 
 ### --description--
 
-You have a `Vec<u8>` of `0`s, and two `Vec<u8>`s of `0-255`. To replace one slice of a vector and with another, you can use the `splice` method:
+You have a `Vec<u8>` of `0`s, and two `Vec<u8>`s of `0-255`. To replace one slice of a vector with another, you can use the `splice` method:
 
 ```rust
     let original_vec = vec![0, 1, 2, 3];
