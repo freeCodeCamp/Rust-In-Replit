@@ -1,12 +1,12 @@
-# freeCodeCamp - Rust in Replit - Combinador de imágenes
+# freeCodeCamp - curso de Rust no Replit - Combinador de imagens
 
 ## 1
 
 ### --description--
 
-Empieza por crear un nuevo proyecto llamado `combiner`.
+Comece criando um projeto chamado `combiner`.
 
-Ejecuta `fcc test 1` para ver si completaste correctamente la tarea.
+Execute `fcc test 1` para ver se você completou a tarefa corretamente.
 
 ### --seed--
 
@@ -19,24 +19,24 @@ fn main() {
 
 ### --tests--
 
-- Deberías ver un nuevo directorio `combiner` creado en la raíz.
+- Você deve ver um novo diretório `combiner` criado na raiz do projeto.
 - `Hello, world!`
 
 ## 2
 
 ### --description--
 
-En este proyecto, vas a crear un CLI (combinador) que espera tres argumentos:
+Neste projeto, você criará uma interface de linha de comando (o combiner) que precisa de três argumentos:
 
 ```bash
     $ combiner image1.png image2.png output.png
 ```
 
-Los dos primeros argumentos son las rutas a las imágenes que desea combinar. El tercer argumento es la ruta de salida de la imagen.
+Os primeiros dois argumentos são os caminhos para as imagens que você deseja combinar. O terceiro argumento é o caminho para a imagem resultante.
 
-Tarea: Abre `combiner/src/main.rs` y ejecuta `cargo run --bin combiner` para ver si tu aplicación está correctamente configurada.
+Tarefa: abra o arquivo `combiner/src/main.rs` e execute `cargo --bin combiner` para ver se a aplicação está configurada corretamente.
 
-Deberías ver `Hello, world!` impreso en la consola.
+Você deve ver `Hello, world!` mostrado no console.
 
 ### --seed--
 
@@ -49,18 +49,18 @@ fn main() {
 
 ### --tests--
 
-- La ejecución de su código debería dar como resultado `Hello, world!`
+- O código deve retornar `Hello, world!`
 - `getCommandOutput(Hello, world!)`
 
 ## 3
 
 ### --description--
 
-Tarea: Define una función llamada `get_nth_arg` que toma una `usize` argumento.
+Tarefa: defina uma função chamada `get_nth_arg` que recebe um argumento `usize`.
 
-Recuerde importar cuando sea necesario.
+Lembre-se de importar conforme necessário.
 
-Ejecuta `cargo test --bin combiner` para ver si completaste correctamente la tarea.
+Execute `cargo test --bin combiner` para ver se você completou a tarefa corretamente.
 
 ### --seed--
 
@@ -87,27 +87,27 @@ mod tests {
 
 ### --tests--
 
-- Ejecuta `cargo test --bin combiner` para ver si completaste correctamente la tarea.
+- Execute `cargo test --bin combiner` para ver se você completou a tarefa corretamente.
 - `null`
-- Sugerencia: Recuerda importar la función en el módulo `tests`.
+- Dica: Lembre-se de importar a função no módulo `tests`.
 - `null`
 
 ## 4
 
 ### --description--
 
-Las próximas pruebas utilizan una caja externa llamada `regex`.
+Os próximos testes fazem uso de uma crate externa chamada `regex`.
 
-Tarea: Abre el archivo `Cargo.toml` en la raíz y añade las siguientes líneas:
+Tarefa: abra o arquivo `Cargo.toml` no diretório raiz do projeto e adicione as seguintes linhas:
 
 ```rust
     [dependencies]
     regex = "1.5.4"
 ```
 
-Esto instalará la caja `regex` en tu proyecto que se utiliza en la función `reg_with_con`. Puedes encontrar más información sobre esta caja en: https://crates.io/crates/regex
+Isso instalará a crate `regex` no projeto, que será usada na função `reg_with_con`. Você pode saber mais sobre esta crate em: https://crates.io/crates/regex
 
-Ejecuta `cargo test --bin combiner` para ver si completaste correctamente la tarea.
+Execute `cargo test --bin combiner` para ver se você completou a tarefa corretamente.
 
 ### --seed--
 
@@ -146,18 +146,18 @@ mod tests {
 
 ### --tests--
 
-- Ejecuta `cargo test --bin combiner` para verificar si está correctamente completada la tarea. Si no hay errores significa que has terminado.
+- Execute `cargo test --bin combiner` para ver se você completou a tarefa corretamente. Se não houver nenhum erro, significa que tudo está pronto.
 - `null`
 
 ## 5
 
 ### --description--
 
-Para hacer uso de argumentos de línea de comandos, necesitarás usar el módulo `std::env`.
+Para usar os argumentos da linha de comando, você precisará usar o módulo `std::env`.
 
-Tarea: Dentro de `get_nth_arg`, retorna el valor devuelto de la llamada del método `nth` en la función `args` con el argumento `n`.
+Tarefa: dentro de `get_nth_arg`, retorne o valor retirado de seu invólucro ao chamar o método `nth` na função `args` com o argumento `n`.
 
-Ejecuta `cargo test --bin combiner` para verificar si está correctamente completada la tarea.
+Execute `cargo test --bin combiner` para ver se você completou a tarefa corretamente.
 
 ### --seed--
 
@@ -195,18 +195,18 @@ mod tests {
 
 ### --tests--
 
-- Ejecuta `cargo test --bin combiner` para ver si has completado la tarea correctamente. Si no hay errores significa que has terminado.
+- Execute `cargo test --bin combiner` para ver se você completou a tarefa corretamente. Se não houver nenhum erro, significa que tudo está pronto.
 - `null`
 
 ## 6
 
 ### --description--
 
-Idealmente, quieres guardar solamente los argumentos de la linea de comandos en los que estes interesado en una sola variable.
+Idealmente, você quer armazenar apenas os argumentos da linha de comando em que você está interessado em uma única variável.
 
-Tarea: Dentro de `main` crea una variable que se llame `args`, y asigna el valor de `Args {}`.
+Tarefa: dentro de `main`, crie uma variável chamada `args` e atribua a ela o valor de `Args {}`.
 
-Ejecuta `fcc test 6` para ver si has completado la tarea correctamente.
+Execute `fcc test 6` para ver se você completou a tarefa corretamente.
 
 ### --seed--
 
@@ -245,18 +245,18 @@ mod tests {
 
 ### --tests--
 
-- Debe declarar una nueva variable llamada `args`.
+- Você deve criar uma variável chamada `args`.
 - `let args`
-- Deberías asignar `args` el valor de `Args {}`.
+- Você deve atribuir para `args` o valor de `Args {}`.
 - `let\s+args\s*=\s*Args\s*\{\};`
 
 ## 7
 
 ### --description--
 
-La sintaxis `Args {}` es un constructor para una estructura llamada `Args`. Sin embargo, todavía no hemos definido la estructura.
+A sintaxe `Args {}` é um construtor para uma estrutura chamada `Args`. No entanto, ainda não definimos a estrutura.
 
-Aquí hay un ejemplo de una estructura que ya has utilizado:
+Aqui está um exemplo de uma estrutura que você já usou:
 
 ```rust
     struct String {
@@ -264,13 +264,13 @@ Aquí hay un ejemplo de una estructura que ya has utilizado:
     }
 ```
 
-La estructura `String` consiste en un campo `vec`, que es un `Vec` de `u8`s.
+A estrutura `String` consiste de um campo de `vec`, que é um `Vec` de `u8`s.
 
-Tarea: En el ámbito global, define una estructura llamada `Args`.
+Tarefa: no escopo global, defina uma estrutura chamada `Args`.
 
-Recuerde importar cuando sea necesario.
+Lembre-se de importar conforme necessário.
 
-Ejecuta `cargo test --bin combiner` para ver si completaste correctamente la tarea.
+Execute `cargo test --bin combiner` para ver se você completou a tarefa corretamente.
 
 ### --seed--
 
@@ -319,11 +319,11 @@ mod tests {
 
 ### --description--
 
-En lugar de escribir `use crate::` para cada función o estructura en el módulo `test`, puedes usar la palabra clave `super` con el selector de comodín `*` para seleccionar todo en el módulo actual.
+Em vez de escrever `use crate::` para cada função ou estrutura no módulo `tests`, você pode usar a palavra-chave `super` com o seletor `*` para selecionar tudo no módulo atual.
 
-Tarea: Reemplazar las llamadas `use crate::` con `use super::*`.
+Tarefa: substitua as chamadas para `use crate::` por `use super::*`.
 
-Ejecuta `cargo test --bin combiner` para ver si has completado la tarea correctamente.
+Execute `cargo test --bin combiner` para ver se você completou a tarefa corretamente.
 
 ### --seed--
 
@@ -389,18 +389,18 @@ mod tests {
 
 ### --tests--
 
-- Ejecuta `cargo test --bin combiner` para ver si completaste correctamente la tarea. Si no hay errores significa que has terminado.
+- Execute `cargo test --bin combiner` para ver se você completou a tarefa corretamente. Se não houver nenhum erro, significa que tudo está pronto.
 - `null`
 
 ## 9
 
 ### --description--
 
-Tarea: Añade un campo llamado `image_1` a la estructura `Args` y dale el tipo correcto para pasar las pruebas.
+Tarefa: adicione um campo chamado `image_1` na estrutura `Args` e indique o tipo correto para passar nos testes.
 
-Recuerda ajustar la declaración en `main` según sea necesario.
+Lembre-se de ajustar a declaração em `main` conforme necessário.
 
-Ejecuta `cargo test --bin combiner` para ver si completaste correctamente la tarea.
+Execute `cargo test --bin combiner` para ver se você completou a tarefa corretamente.
 
 ### --seed--
 
@@ -434,11 +434,11 @@ mod tests {
 
 ### --description--
 
-Tarea: Para obtener una mejor idea de la estructura `Args`, imprime el valor de `my_arg` en la prueba `args_struct_has_image_1_field`.
+Tarefa: para entender melhor a estrutura `Args`, mostre o valor de `my_arg` no teste `args_struct_has_image_1_field`.
 
-Ejecuta `cargo test --bin combiner -- --show-output`. Si ves un error, has completado correctamente la tarea.
+Execute `cargo test --bin combiner -- --show-output`. Se aparecer um erro, você concluiu a tarefa corretamente.
 
-La bandera `--show-output` muestra el stdout de las pruebas.
+A opção `--show-output` mostra o stdout dos testes.
 
 ### --seed--
 
@@ -475,11 +475,11 @@ mod tests {
 
 ### --description--
 
-Tu código no pudo compilar, porque la macro `println!` no sabe cómo formatear la estructura `Args`.
+O código não pôde compilar, porque a macro `println!` não sabe como formatar a estrutura `Args`.
 
-Tarea: Sigue el consejo del compilador para extender el formateador dentro de la `println`.
+Tarefa: siga o conselho do compilador para estender o formatador dentro de `println!`.
 
-Ejecuta `cargo test --bin combiner -- --show-output`. No debería ver errores.
+Execute `cargo test --bin combiner -- --show-output`. Ainda deve mostrar um erro.
 
 ### --seed--
 
@@ -516,9 +516,9 @@ mod tests {
 
 ### --description--
 
-El compilador le indica que está intentando utilizar la macro `println!` en un tipo que no implementa el rasgo `Debug`.
+O compilador está dizendo que você está tentando usar a macro `println!` em um tipo que não implementa o traço `Debug`.
 
-Generalmente, los rasgos necesitan ser implementados para una estructura usando la palabra clave `impl`. Sin embargo, en este caso, puedes utilizar el atributo `derive` para implementar automáticamente el trait `Debug` para ti:
+Geralmente, traços precisam ser implementados em uma estrutura usando a palavra-chave `impl`. No entanto, neste caso, você pode usar o atributo `derive` para implementar automaticamente o traço `Debug`:
 
 ```rust
     #[derive(Debug)]
@@ -527,9 +527,9 @@ Generalmente, los rasgos necesitan ser implementados para una estructura usando 
     }
 ```
 
-Tarea: Implementa el rasgo `Debug` para tu estructura `Args`.
+Tarefa: implemente o traço `Debug` na estrutura `Args`.
 
-Ejecuta `cargo test --bin combiner -- --show-output`. Deberías ver la estructura de `Args` impresa en la consola.
+Execute `cargo test --bin combiner -- --show-output`. Você deve ver a estrutura `Args` mostrada no console.
 
 ### --seed--
 
@@ -566,7 +566,7 @@ mod tests {
 
 ### --description--
 
-Puedes notar el `String::new()` usado en `main`. La función `new` es un constructor común para strts. Para `String`se ve algo así:
+Você pode notar a `String::new()` usada em `main`. A função `new` é um construtor comum para estruturas. Para `String`, é algo assim:
 
 ```rust
     impl String {
@@ -576,11 +576,11 @@ Puedes notar el `String::new()` usado en `main`. La función `new` es un constru
     }
 ```
 
-Lo anterior implementa la función `new` para `String`. El tipo de retorno es `Self`, que es el tipo de estructura.
+O código acima implementa a função `new` para `String`. O tipo de retorno é `Self`, que é o tipo da estrutura.
 
-Tarea: Implementar la función `new` para `Args`.
+Tarefa: implemente a função `new` para `Args`.
 
-Ejecuta `cargo test --bin combiner` para ver si completaste correctamente la tarea.
+Execute `cargo test --bin combiner` para ver se você completou a tarefa corretamente.
 
 ### --seed--
 
@@ -621,9 +621,9 @@ mod tests {
 
 ### --description--
 
-Misión: En lugar de crear manualmente la estructura `Args` en `main`, usa la función `new` para crear la struct.
+Tarefa: em vez de criar manualmente a estrutura `Args` em `main`, use a função `new` para criar a estrutura.
 
-Ejecuta `cargo test --bin combiner` para ver si completaste correctamente la tarea.
+Execute `cargo test --bin combiner` para ver se você completou a tarefa corretamente.
 
 ### --seed--
 
@@ -687,9 +687,9 @@ mod tests {
 
 ### --description--
 
-Tarea: Dentro de `new`, en lugar de asignar un `String` de texto a `image_1`, use la función `get_nth_arg` para asignar el valor del primer **argumento** válido.
+Tarefa: dentro de `new`, em vez de atribuir uma `String` vazia para `image_1`, use a função `get_nth_arg` para atribuir o valor do primeiro argumento **válido**.
 
-Ejecuta `cargo test --bin combiner` para ver si completaste correctamente la tarea.
+Execute `cargo test --bin combiner` para ver se você completou a tarefa corretamente.
 
 ### --seed--
 
@@ -755,11 +755,11 @@ mod tests {
 
 ### --description--
 
-La aplicación debería esperar tres argumentos: `image_1`, `image_2`y `output`.
+A aplicação deve esperar três argumentos: `image_1`, `image_2` e `output`.
 
-Misión: Añadir los dos campos faltantes a la estructura `Args`. Todos los campos deben usar el mismo tipo.
+Tarefa: adicione os dois campos que estão faltando na estrutura `Args`. Todos os campos devem usar o mesmo tipo.
 
-Ejecuta `fcc test 16` para ver si completaste correctamente la tarea.
+Execute `fcc test 16` para ver se você completou a tarefa corretamente.
 
 ### --seed--
 
@@ -821,20 +821,20 @@ mod tests {
 
 ### --tests--
 
-- Debe definir `Args` con un campo `image_1` de tipo `String`.
+- Você deve definir `Args` com um campo `image_1` do tipo `String`.
 - `image_1:\s*String`
-- Debe definir `Args` con un campo `image_1` de tipo `String`.
+- Você deve definir `Args` com um campo `image_2` do tipo `String`.
 - `image_2:\s*String`
-- Debes de definir `Args` con un campo `output` de tipo `String`.
+- Você deve definir `Args` com um `output` do tipo `String`.
 - `output:\s*String`
 
 ## 17
 
 ### --description--
 
-Tarea: Actualizar la función `new` para asignar valores válidos a todos los campos esperados.
+Tarefa: atualize a função `new` para atribuir valores válidos para todos os campos esperados.
 
-Ejecuta `cargo test --bin combiner -- --show-output` para ver si completaste correctamente la tarea.
+Execute `cargo test --bin combiner -- --show-output` para ver se você completou a tarefa corretamente.
 
 ### --seed--
 
@@ -909,11 +909,11 @@ mod tests {
 
 ### --description--
 
-Probar ahorra su aplicación con argumentos deberia imprimir la estructura de `Args` con los argumentos como valores para los campos.
+Testar sua aplicação com argumentos agora deve mostrar a estrutura `Args` com os argumentos como valores para os campos.
 
-Tarea: Cambia la `println` en `main` para imprimir el valor de `args`.
+Tarefa: altere `println` em `main` para mostrar o valor de `args`.
 
-Ejecuta `cargo run --bin combiner first_arg second_arg third_arg`. Si ves lo siguiente, significa que has completado correctamente la tarea:
+Execute `cargo run --bin combiner first_arg second_arg third_arg`. Se ver o seguinte, você completou a tarefa corretamente:
 
 ```bash
     Args { image_1: "first_arg", image_2: "second_arg", output: "third_arg" }
@@ -981,11 +981,11 @@ mod tests {
 
 ### --description--
 
-Antes de que el archivo `main.rs` esté demasiado desordenado, debería mover la lógica del argumento a su propio archivo.
+Antes do arquivo `main.rs` ficar muito desordenado, você deve mover a lógica do argumento para um arquivo próprio.
 
-Tarea: Crea el archivo `combiner/src/args.rs`.
+Tarefa: crie o arquivo `combiner/src/args.rs`.
 
-Ejecuta `cargo test --bin combiner` para ver si completaste correctamente la tarea.
+Execute `cargo test --bin combiner` para ver se você completou a tarefa corretamente.
 
 ### --seed--
 
@@ -1047,9 +1047,9 @@ mod tests {
 
 ### --description--
 
-Tarea: Mueve la estructura e implementación de `Args`, y la función `get_nth_arg` al archivo `args.rs`. Luego, comenta el contenido dentro de la función `main` para que tu aplicación compile.
+Tarefa: mova a estrutura `Args`, a implementação e a função `get_nth_arg` para o arquivo `args.rs`. Em seguida, comente o conteúdo dentro da função `main` para que a aplicação seja compilada.
 
-Ejecuta `cargo test --bin combiner` para ver si completaste correctamente la tarea.
+Execute `cargo test --bin combiner` para ver se você completou a tarefa corretamente.
 
 ### --seed--
 
@@ -1137,15 +1137,15 @@ mod tests {
 
 ### --description--
 
-En Rust, todo es privado por defecto. Por lo tanto, para hacer pública una función o estructura, puedes utilizar la palabra clave `pub`:
+No Rust, tudo é privado por padrão. Então, para deixar a função e a estrutura públicas, você pode usar a palavra-chave `pub`:
 
 ```rust
     pub MyStruct {}
 ```
 
-Tarea: Dentro de `args.rs` haz pública la estructura y la función.
+Tarefa: dentro de `args.rs` deixe a estrutura e a função públicas.
 
-Ejecuta `cargo test --bin combiner` para ver si completaste correctamente la tarea.
+Execute `cargo test --bin combiner` para ver se você completou a tarefa corretamente.
 
 ### --seed--
 
@@ -1209,15 +1209,15 @@ mod tests {
 
 ### --description--
 
-Para poder utilizar los contenidos de un archivo externo, debe ser declarado como módulo:
+Para utilizar o conteúdo de um arquivo externo, ele precisa ser declarado como um módulo:
 
 ```rust
     mod my_file_name
 ```
 
-Tarea: En la parte superior de `main.rs`, declare el archivo `args.rs` como módulo.
+Tarefa: no topo de `main.rs`, declare o arquivo `args.rs` como um módulo.
 
-Ejecuta `cargo test --bin combiner` para ver si completaste correctamente la tarea.
+Execute `cargo test --bin combiner` para ver se você completou a tarefa corretamente.
 
 ### --seed--
 
@@ -1286,11 +1286,11 @@ mod tests {
 
 ### --description--
 
-Ahora que `args` ha sido declarado como un módulo para su uso dentro de `main.rs`, puedes usar la palabra clave `use` para importar la estructura `Args`.
+Agora que `args` foi declarado como um módulo para uso dentro de `main.rs`, você pode utilizar a palavra-chave `use` para importar a estrutura `Args`.
 
-Tarea: Dentro de `main.rs`, importa la estructura `Args`. Luego, descomenta el código previamente comentado en la función `main`.
+Tarefa: dentro de `main.rs`, importe a estrutura `Args`. Então, descomente o código comentado na função `main`.
 
-Ejecuta `cargo test --bin combiner -- --show-output`. Deberias de ver un error.
+Execute `cargo test --bin combiner`. Você deve ver um erro.
 
 ### --seed--
 
@@ -1334,11 +1334,11 @@ mod tests {
 
 ### --description--
 
-El error surge porque la función `new` implementada para `Args` no es pública.
+O erro ocorre porque a função `new` implementada para `Args` não é pública.
 
-Tarea: Dentro de `args.rs` declarar la función `new` como pública.
+Tarefa: dentro de `args.rs` declare a função `new` como pública.
 
-Ejecuta `cargo test --bin combiner` para ver si completaste correctamente la tarea.
+Execute `cargo test --bin combiner` para ver se você completou a tarefa corretamente.
 
 ### --seed--
 
@@ -1389,15 +1389,15 @@ mod tests {
 
 ### --description--
 
-Para codificar y decodificar las imágenes, utiliza la caja de `image`.
+A fim de codificar e decodificar as imagens, você usará a crate `image`.
 
-Tarea: Dentro de la raíz `Cargo.toml`, agregue lo siguiente a la sección `dependencies`:
+Tarefa: dentro da raiz do arquivo `Cargo.toml`, adicione o seguinte código à seção `dependencies`:
 
 ```rust
     image = "0.23.14"
 ```
 
-Ejecuta `cargo test --bin combiner` para ver si completaste correctamente la tarea.
+Execute `cargo test --bin combiner` para ver se você completou a tarefa corretamente.
 
 ### --seed--
 
@@ -1428,9 +1428,9 @@ mod tests {
 
 ### --description--
 
-Tarea: Dentro de `main.rs`, has definido una función llamada `find_image_from_path` que toma una `String` como argumento.
+Tarefa: dentro de `main.rs`, defina uma função chamada `find_image_from_path` que recebe uma `String` como argumento.
 
-Ejecuta `cargo test --bin combiner` para ver si completaste correctamente la tarea.
+Execute `cargo test --bin combiner` para ver se você completou a tarefa corretamente.
 
 ### --seed--
 
@@ -1461,13 +1461,13 @@ mod tests {
 
 ### --description--
 
-El compilador muestra una advertencia de que la función `find_image_from_path` no está siendo usada. Esto va a resultar molesto, a lo largo de este proyecto. Afortunadamente, puede habilitar atributos globales para suprimir la advertencia.
+O compilador está mostrando um aviso de que a função `find_image_from_path` não está sendo utilizada. Isso será um incômodo, ao longo deste projeto. Felizmente, você pode habilitar atributos globais para ocultar o aviso.
 
-Global attributes use the syntax `#![feature(feature_name)]`, and should be placed at the top of the file.
+Atributos globais usam a sintaxe `#![feature(feature_name)]` e devem ser colocados no topo do arquivo.
 
-Misión: Dentro de `main.rs`, use la función `allow` para habilitar globalmente `unused_variables` y `dead_code`.
+Tarefa: dentro de `main.rs`, use o recurso `allow` para ativar globalmente `unused_variables` e `dead_code`.
 
-Ejecuta `cargo test --bin combiner -- --show-output`. Si ya no ves errores, has completado la lección con éxito.
+Execute `cargo test --bin combiner`. Se você não ver mais o aviso, concluiu esta aula com sucesso.
 
 ### --seed--
 
@@ -1501,11 +1501,11 @@ mod tests {
 
 ### --description--
 
-Tarea: Importar la estructura del `Lector` desde `image::io`y, dentro de `find_image_from_path`, asignar el valor sin envolver de la función `Reader::open`, pasando `path` como argumento, a una variable llamada `image_reader`. Luego, devuelve `image_reader`.
+Tarefa: importe a estrutura `Reader` de `image::io` e, dentro de `find_image_from_path`, atribua o valor removido do invólucro da função `Reader::open`, passando `path` como argumento para uma variável chamada `image_reader`. Em seguida, retorne `image_reader`.
 
-Tarea: Importar la estructura del `Lector` desde `image::io`y, dentro de `find_image_from_path`, asignar el valor sin envolver de la función `Reader::open`, pasando `path` como argumento, a una variable llamada `image_reader`.
+Dica: siga o conselho do compilador e importe os tipos necessários.
 
-Ejecuta `cargo test --bin combiner` para ver si completaste correctamente la tarea.
+Execute `cargo test --bin combiner` para ver se você completou a tarefa corretamente.
 
 ### --seed--
 
@@ -1542,11 +1542,11 @@ mod tests {
 
 ### --description--
 
-Tarea: Dentro de `find_image_from_path`, asignar el valor no envuelto del método `format` en `image_reader` a una variable llamada `image_format`, y devuelvelo.
+Tarefa: dentro de `find_image_from_path`, atribua o valor removido do invólucro do método `format` em `image_reader` para uma variável chamada `image_format` e retorne-o.
 
-Pista: siga el consejo del compilador e importe los tipos necesarios.
+Dica: siga o conselho do compilador e importe os tipos necessários.
 
-Ejecuta `cargo test --bin combiner` para ver si completaste correctamente la tarea.
+Execute `cargo test --bin combiner` para ver se você completou a tarefa corretamente.
 
 ### --seed--
 
@@ -1611,9 +1611,9 @@ mod tests {
 
 ### --description--
 
-Tarea: Eliminar las importaciones no utilizadas de `main.rs`.
+Tarefa: remova as importações não utilizadas de `main.rs`.
 
-Ejecuta `cargo test --bin combiner` para ver si completaste correctamente la tarea.
+Execute `cargo test --bin combiner` para ver se você completou a tarefa corretamente.
 
 ### --seed--
 
@@ -1675,13 +1675,13 @@ mod tests {
 
 ### --description--
 
-Hasta ahora, no has decodificado la imagen. El `Reader` tiene un método `decode` que devuelve una `DynamicImage` en un `Result`.
+Até agora, você não decodificou a imagem. O `Reader` tem um método `decode` que retorna uma `DynamicImage` em um `Result`.
 
-Tarea: Dentro de `find_image_from_path`, asignar el valor no envuelto del método `format` en `image_reader` a una variable llamada `image_format`, y devuelvelo. Luego, devuelve `image_reader`.
+Tarefa: dentro de `find_image_from_path`, atribua o valor removido do invólucro do método `decode` em `image_reader` para uma variável chamada `image`. Em seguida, retorne `image`.
 
-_Pista:_ Siga el consejo del compilador e importe los tipos necesarios.
+_Dica:_ siga o conselho do compilador e importe os tipos necessários.
 
-Ejecuta `cargo test --bin combiner` para ver si completaste correctamente la tarea.
+Execute `cargo test --bin combiner` para ver se você completou a tarefa corretamente.
 
 ### --seed--
 
@@ -1741,7 +1741,7 @@ mod tests {
 
 ### --description--
 
-Ha aprendido sobre el tipo de tupla vacío `()`. Ahora, usará una tupla para devolver varios valores. A diferencia de otros tipos, una tupla puede contener más de un tipo.
+Você aprendeu sobre o tipo tupla vazia `()`. Agora, você usará uma tupla para retornar vários valores. Diferente de outros tipos, uma tupla pode conter mais de um tipo.
 
 ```rust
     // The Vec type can only contain one type.
@@ -1750,9 +1750,9 @@ Ha aprendido sobre el tipo de tupla vacío `()`. Ahora, usará una tupla para de
     let my_tuple = (1u8, 2u16, 3u32);
 ```
 
-Tarea: Desde `find_image_from_path`, devuelve una tupla que contiene la `DynamicImage` y `ImageFormat` de la imagen, en ese orden.
+Tarefa: a partir de `find_image_from_path`, retorne uma tupla que contenha a `DynamicImage` e o `ImageFormat` da imagem, nesta ordem.
 
-Ejecuta `cargo test --bin combiner` para ver si completaste correctamente la tarea.
+Execute `cargo test --bin combiner` para ver se você completou a tarefa corretamente.
 
 ### --seed--
 
@@ -1795,15 +1795,15 @@ mod tests {
 
 ### --description--
 
-Las tuplas pueden ser deconstruidos en variables como esta:
+Tuplas podem ser destruturadas em variáveis como esta:
 
 ```rust
     let (x, y, z) = (1, 2, 3);
 ```
 
-Tarea: Dentro de `principal`, deconstruye la tupla devuelta de `find_image_from_path` en las variables `image_1` y `image_1_format`. Deberias de llamar a `find_image_from_path` con el valor del campo `image_1` de `args`.
+Tarefa: dentro de `main`, desestruture a tupla retornada de `find_image_from_path` nas variáveis `image_1` e `image_1_format`. Você deve chamar `find_image_from_path` com o valor do campo `image_1` de `args`.
 
-Ejecuta `cargamento test --bin combiner`. Deberías ver un error.
+Execute `cargo test --bin combiner`. Você deve ver um erro.
 
 ### --seed--
 
@@ -1879,11 +1879,11 @@ mod tests {
 
 ### --description--
 
-Tu código tiene un error, porque el campo `image_1` en `args` no es público. Por lo tanto, no puede ser utilizado a través de módulos.
+O código tem um erro, pois o campo `image_1` em `args` não é público. Assim, não pode ser utilizado nos outros módulos.
 
-Tarea: Dentro de `args.rs`, cambia todos los campos de la estructura `Args` a públicos.
+Tarefa: dentro de `args.rs`, altere todos os campos da estrutura `Args` para público.
 
-Ejecuta `cargo test --bin combiner` para ver si completaste correctamente la tarea.
+Execute `cargo test --bin combiner` para ver se você completou a tarefa corretamente.
 
 ### --seed--
 
@@ -1968,9 +1968,9 @@ mod tests {
 
 ### --description--
 
-Tarea: Dentro de `principal`, deconstruye la tupla devuelta de `find_image_from_path` en las variables `image_1` y `image_1_format`. Deberias de llamar a `find_image_from_path` con el valor del campo `image_1` de `args`.
+Tarefa: dentro de `main`, desestruture a tupla retornada de `find_image_from_path` nas variáveis `image_2` e `image_2_format`. Você deve chamar `find_image_from_path` com o valor do campo `image_2` de `args`.
 
-Ejecuta `cargo test --bin combiner` para ver si completaste correctamente la tarea.
+Execute `cargo test --bin combiner` para ver se você completou a tarefa corretamente.
 
 ### --seed--
 
@@ -2047,9 +2047,9 @@ mod tests {
 
 ### --description--
 
-Hasta ahora, has lidiado con algunas funciones que devuelven un `Resultado`. Ahora vas a crear un nuevo `Resultado`.
+Até agora, você lidou com poucas funções que retornaram um `Result`. Agora, você vai criar um novo `Result`.
 
-Un `resultado` es un tipo que puede ser `Ok` o `Err`. Es común devolver una tupla vacía cuando una función es exitosa, y devolver un mensaje de error cuando una función falla:
+Um `Result` é um tipo que pode ser `Ok` ou `Err`. É comum retornar uma tupla vazia quando uma função foi bem-sucedida e retornar uma mensagem de erro quando uma função falhar:
 
 ```rust
     fn function_returns_result() -> Result<(), String> {
@@ -2061,7 +2061,7 @@ Un `resultado` es un tipo que puede ser `Ok` o `Err`. Es común devolver una tup
     }
 ```
 
-Tarea: Dentro de `main.rs`, convierte la función `main` para devolver un `Resultado`. Por ahora, solo devuelve una tupla vacía en `Ok`, pero establece el tipo return `Err` a `String`.
+Tarefa: dentro de `main.rs`, converta a função `main` para retornar um `Result`. Por enquanto, apenas retorne uma tupla vazia no `Ok`, mas defina o tipo do retorno de `Err` para `String`.
 
 ### --seed--
 
@@ -2125,11 +2125,11 @@ mod tests {
 
 ### --description--
 
-Su aplicación sólo podrá combinar dos imágenes del mismo tipo.
+A aplicação será capaz de combinar apenas duas imagens do mesmo tipo.
 
-Tarea: Como tal, si `image_1_format` no es igual a `image_2_format`, devuelve un mensaje de error.
+Tarefa: assim, se `image_1_format` não é igual a `image_2_format`, retorne uma mensagem de erro.
 
-Ejecuta `cargo test --bin combiner` para ver si completaste correctamente la tarea.
+Execute `cargo test --bin combiner` para ver se você completou a tarefa corretamente.
 
 ### --seed--
 
@@ -2204,11 +2204,11 @@ mod tests {
 
 ### --description--
 
-Otro error que puede ocurrir es cuando las dos imágenes no son del mismo tamaño. Afortunadamente, hay una función que se puede utilizar para redimensionar las imágenes.
+Outro erro que pode ocorrer é quando as duas imagens não são do mesmo tamanho. Felizmente, há uma função que pode ser usada para redimensionar as imagens.
 
-Tarea: Comienza creando una función llamada `standardise_size` que toma `image_1` y `image_2` como parámetros.
+Tarefa: comece criando uma função chamada `standardise_size` que recebe `image_1` e `image_2` como parâmetros.
 
-Ejecuta `cargo test --bin combiner` para ver si completaste correctamente la tarea.
+Execute `cargo test --bin combiner` para ver se você completou a tarefa corretamente.
 
 ### --seed--
 
@@ -2280,11 +2280,11 @@ mod tests {
 
 ### --description--
 
-Para simplificar la combinación de las imágenes, puedes cambiar el tamaño de la imagen más grande al tamaño de la imagen más pequeña. Para ello, es necesario obtener las dimensiones más pequeñas de las dos imágenes.
+Para tornar a combinação de imagens mais simples, você pode redimensionar a maior imagem para o tamanho da menor imagem. Para fazer isso, você precisa obter as menores dimensões das duas imagens.
 
-Tarea: Crea una función llamada `get_smallest_dimensions` que toma dos tuplas como parámetros. Cada tupla debe tomar dos elementos, cada uno de tipo `u32`.
+Tarefa: crie uma função chamada `get_smallest_dimensions` que recebe duas tuplas como parâmetros. Cada tupla deve receber dois elementos, cada um com tipo `u32`.
 
-Ejecuta `cargo test --bin combiner` para ver si completaste correctamente la tarea.
+Execute `cargo test --bin combiner` para ver se você completou a tarefa corretamente.
 
 ### --seed--
 
@@ -2358,13 +2358,13 @@ mod tests {
 
 ### --description--
 
-Dentro de `get_smallest_dimensions`, necesitarás devolver las dimensiones con el menor número de píxeles. El número de píxeles es el producto del ancho y la altura.
+Dentro de `get_smallest_dimensions`, você precisará retornar as dimensões com o menor número de pixels. O número de pixels é o produto da largura e da altura.
 
-Tarea: Devuelve `dim_1` si el número de píxeles en `dim_1` es menor que el número de píxeles en `dim_2`. De otro modo, devuelve `dim_2`.
+Tarefa: retorne `dim_1` se o número de pixels em `dim_1` for menor que o número de pixels em `dim_2`. Caso contrário, retorne `dim_2`.
 
-Recuerda, puedes usar notación de puntos para acceder a los elementos de una tupla.
+Lembre-se de que você pode usar a notação de ponto para acessar os elementos de uma tupla.
 
-Ejecuta `cargo test --bin combiner` para ver si completaste correctamente la tarea.
+Execute `cargo test --bin combiner` para ver se você completou a tarefa corretamente.
 
 ### --seed--
 
@@ -2449,11 +2449,11 @@ mod tests {
 
 ### --description--
 
-Tarea: Dentro de `standardise_size`, deconstruye la tupla devuelta de `get_smallest_dimensions` en dos variables `ancho` y `altura`. Utilice el retorno de la llamada al método `dimensiones` en cada `DynamicImage` para pasar como argumentos para `get_smallest_dimensions`.
+Tarefa: dentro de `standard _size`, desestruture a tupla retornada de `get_smallest_dimensions` em duas variáveis `width` e `height`. Use o retorno do método `dimensions` em cada `DynamicImage` para passar como argumentos para `get_smallest_dimensions`.
 
-_Pista:_ Siga el consejo del compilador e importe los tipos necesarios.
+_Dica:_ siga o conselho do compilador para conseguir as dimensões das imagens.
 
-Ejecuta `cargo test --bin combiner` para ver si completaste correctamente la tarea.
+Execute `cargo test --bin combiner` para ver se você completou a tarefa corretamente.
 
 ### --seed--
 
@@ -2544,9 +2544,9 @@ mod tests {
 
 ### --description--
 
-Tarea: Dentro de `standardise_size`, imprime `ancho` y `altura` en la consola.
+Tarefa: dentro de `standardise_size`, mostre `width` e `height` no console.
 
-Ejecuta `cargo test --bin combiner -- --show-output`. Si ves el `'width: 10, height: 10'` impreso en la consola, has completado con éxito la tarea.
+Execute `cargo test --bin combiner -- --show-output`. Se você ver `'width: 10, height: 10'` no console, a tarefa foi concluída com sucesso.
 
 ### --seed--
 
@@ -2621,9 +2621,9 @@ mod tests {
 
 ### --description--
 
-Tarea: Dentro de `standardise_size`, escribir una sentencia `if` para comprobar si las dimensiones de `image_2`son iguales a las dimensiones más pequeñas previamente determinadas. Si lo son, devuelve una tupla que contiene `image_1` y `image_2`. De otro modo, retorna la misma tupla.
+Tarefa: dentro de `standardise_size`, escreva uma instrução `if` para verificar se as dimensões de `image_2` são iguais às dimensões menores previamente determinadas. Se forem, retorne uma tupla contendo `image_1` e `image_2`. Caso contrário, retorne a mesma tupla.
 
-Ejecuta `cargo test --bin combiner` para ver si completaste correctamente la tarea.
+Execute `cargo test --bin combiner` para ver se você completou a tarefa corretamente.
 
 ### --seed--
 
@@ -2714,15 +2714,15 @@ mod tests {
 
 ### --description--
 
-En lugar de devolver las imágenes sin cambios, deberías cambiar el tamaño de la imagen más grande. Puede utilizar el método `resize_exact` que existe en la estructura `DynamicImage`. El método `resize_exact` toma el formulario:
+Ao invés de retornar as imagens inalteradas, você deve redimensionar a imagem maior. Você pode usar o método `resize_exact` que existe na estrutura `DynamicImage`. O método `resize_exact` assume a forma:
 
 ```rust
     image_to_resize.resize_exact(new_width: u32, new_height: u32, filter: image::imageops::FilterType);
 ```
 
-Tarea: Dentro de `standardise_size`, cambiar el tamaño de la variable de imagen correcta a las dimensiones correctas, usando el filtro `Triangle`.
+Tarefa: dentro de `standardise_size`, redimensione a variável da imagem correta para as dimensões corretas, usando o filtro `Triangle`.
 
-Ejecuta `cargo test --bin combiner` para ver si completaste correctamente la tarea.
+Execute `cargo test --bin combiner` para ver se você completou a tarefa corretamente.
 
 ### --seed--
 
@@ -2799,9 +2799,9 @@ mod tests {
 
 ### --description--
 
-Tarea: Dentro de `principal` antes de que `Ok` regrese, use la función `standardise_size` para redeclarar `image_1` y `image_2` como el tamaño correcto.
+Tarefa: dentro de `main` antes do retorno de `Ok`, use a função `standardise_size` para redeclarar `image_1` e `image_2` como o tamanho correto.
 
-Ejecuta `cargo test --bin combiner` para ver si completaste correctamente la tarea.
+Execute `cargo test --bin combiner` para ver se você completou a tarefa corretamente.
 
 ### --seed--
 
@@ -2895,9 +2895,9 @@ mod tests {
 
 ### --description--
 
-Para manejar la salida, se puede crear una estructura temporal para mantener los metadatos de la imagen de salida.
+Para lidar com o resultado, uma estrutura temporária pode ser criada para guardar os metadados para a imagem resultante.
 
-Tarea: Crea una estructura llamada `FloatingImage` que tiene los siguientes campos:
+Tarefa: crie uma estrutura chamada `FloatingImage` com os seguintes campos:
 
 ```rust
     width: u32,
@@ -2906,7 +2906,7 @@ Tarea: Crea una estructura llamada `FloatingImage` que tiene los siguientes camp
     name: String,
 ```
 
-Ejecuta `cargo test --bin combiner` para ver si completaste correctamente la tarea.
+Execute `cargo test --bin combiner` para ver se você completou a tarefa corretamente.
 
 ### --seed--
 
@@ -2986,9 +2986,9 @@ mod tests {
 
 ### --description--
 
-Tarea: Implementar una función llamada `new` para `FloatingImage`. La función `new` debe tomar tres argumentos: `width: u32`, `height: u32`, `name: String`.
+Tarefa: implemente uma função chamada `new` para `FloatingImage`. A função `new` deve receber três argumentos: `width: u32`, `height: u32`, `name: String`.
 
-Ejecuta `cargo test --bin combiner` para ver si completaste correctamente la tarea.
+Execute `cargo test --bin combiner` para ver se você completou a tarefa corretamente.
 
 ### --seed--
 
@@ -3065,18 +3065,18 @@ mod tests {
 
 ### --description--
 
-Para escribir eficientemente los datos de imagen combinados en la imagen de salida, necesita crear un búfer lo suficientemente grande como para almacenar los datos, por lo que no es necesario asignar espacio extra.
+Para escrever eficientemente os dados da imagem combinada na imagem resultante, você precisa criar um buffer de tamanho suficiente para guardar os dados, então nenhum espaço extra precisará ser alocado.
 
-Las imágenes grandes pueden tener una gran cantidad de datos, así que puede aprovechar la numeración fácil de leer de Rust, que separa el número en grupos de tres dígitos:
+Imagens grandes podem ter uma grande quantidade de dados, assim você pode tirar proveito da numeração fácil de ler do Rust, que separa o número em grupos de três algarismos:
 
 ```rust
     let difficult_to_read_number = 1325364955;
     let easy_to_read_number = 1_325_364_955;
 ```
 
-Tarea: Dentro de `new`, declarar una variable llamada `buffer_capacity`, y asignale el valor de `3655744` usando el número fácil de leer.
+Tarefa: dentro de `new`, declare uma variável chamada `buffer_capacity` e atribua o valor de `3655744` usando o número fácil de ler.
 
-Ejecuta `cargo test --bin combiner` para ver si completaste correctamente la tarea.
+Execute `cargo test --bin combiner` para ver se você completou a tarefa corretamente.
 
 ### --seed--
 
@@ -3190,13 +3190,13 @@ mod tests {
 
 ### --description--
 
-Ahora que tiene un tamaño de búfer, necesita crear un búfer de `Vec<u8>`. La estructura `Vec` implementa una función `with_capacity`, que toma una capacidad como argumento y devuelve un nuevo `Vec` con esa capacidad.
+Agora que você tem um tamanho de buffer, precisa criar um buffer de `Vec<u8>`. A estrutura `Vec` implementa uma função `with_capacity`, que precisa de uma capacidade como argumento e retorna um novo `Vec` com essa capacidade.
 
-Tarea: En `new`, declarar una variable llamada `buffer,`, y asignarle el valor de llamar a la función `with_capacity` con `buffer_capacity`.
+Tarefa: dentro de `new`, declare uma variável chamada `buffer`, e atribua a ela o valor retornado da função `with_capacity` com `buffer_capacity`.
 
-_Hint:_ Follow the compiler's advice to explicitly type the `buffer` variable.
+_Dica:_ siga o conselho do compilador para tipar explicitamente a variável `buffer`.
 
-Ejecuta `cargo test --bin combiner` para ver si completaste correctamente la tarea.
+Execute `cargo test --bin combiner` para ver se você completou a tarefa corretamente.
 
 ### --seed--
 
@@ -3319,9 +3319,9 @@ mod tests {
 
 ### --description--
 
-Tarea: Dentro de `new`, utilice las variables disponibles para devolver una instancia de la estructura `FloatingImage`.
+Tarefa: dentro de `nova`, use as variáveis disponíveis para retornar uma instância da estrutura `FloatingImage`.
 
-Ejecuta `cargo test --bin combiner` para ver si completaste correctamente la tarea.
+Execute `cargo test --bin combiner` para ver se você completou a tarefa corretamente.
 
 ### --seed--
 
@@ -3420,9 +3420,9 @@ mod tests {
 
 ### --description--
 
-Tarea: Dentro de `main`, declare una nueva variable `output` usando la `new` función de la estructura `FloatingImage`. Utilice los métodos `width` y `height` de la variable `image_1` para los dos primeros argumentos, y el campo de `output` de la variable `args` para el tercer argumento.
+Tarefa: dentro de `main`, declare uma nova variável `output` usando a função `new` da estrutura `FloatingImage`. Use os métodos `width` e `height` da variável `image_1` para os dois primeiros argumentos e o campo `output` da variável `args` para o terceiro argumento.
 
-Ejecuta `cargo test --bin combiner` para ver si completaste correctamente la tarea.
+Execute `cargo test --bin combiner` para ver se você completou a tarefa corretamente.
 
 ### --seed--
 
@@ -3551,9 +3551,9 @@ mod tests {
 
 ### --description--
 
-Tarea: Define una función llamada `get_nth_arg` que toma una `usize` argumento.
+Tarefa: defina uma função chamada `combine_images` que recebe dois `DynamicImage`s como argumentos.
 
-Ejecuta `cargo test --bin combiner` para ver si completaste correctamente la tarea.
+Execute `cargo test --bin combiner` para ver se você completou a tarefa corretamente.
 
 ### --seed--
 
@@ -3646,13 +3646,13 @@ mod tests {
 
 ### --description--
 
-Para procesar las imágenes, las convertirá en un vector de píxeles RGBA. Los píxeles se almacenan como `u8`, porque sus valores están entre 0 y 255.
+Para processar as imagens, você as converterá em um vetor de pixels RGBA. Os pixels são armazenados como `u8`s, porque seus valores estão entre 0 e 255.
 
-La estructura `DynamicImage` implementa el método `to_rgba8`, que devuelve un `ImageBuffer` que contiene un `Vec<u8>`, y el `ImageBuffer` implementa el método `into_vec`, que devuelve el `Vec<u8>`.
+A estrutura `DynamicImage` implementa o método `to_rgba8`, que retorna um `ImageBuffer` contendo um `Vec<u8>` e o `ImageBuffer` implementa o método `into_vec`, que retorna o `Vec<u8>`.
 
-Tarea: Dentro de `combine_images`, declarar una variable `vec_1`, y utilice los métodos anteriores para asignar el `Vec<u8>` a él. Return `vec_1`.
+Tarefa: dentro de `combine_images`, declare uma variável `vec_1` e use os métodos abaixo para atribuir `Vec<u8>` a ela. Retorne `vec_1`.
 
-Ejecuta `cargo test --bin combiner` para ver si completaste correctamente la tarea.
+Execute `cargo test --bin combiner` para ver se você completou a tarefa corretamente.
 
 ### --seed--
 
@@ -3752,9 +3752,9 @@ mod tests {
 
 ### --description--
 
-Tarea: Haz lo mismo que en la lección anterior, pero en `image_2`, y devuelve la nueva variable llamada `vec_2` en vez de `vec_1`.
+Tarefa: faça o mesmo que na lição anterior, mas em `image_2`, e retorne a nova variável chamada `vec_2` em vez de `vec_1`.
 
-Ejecuta `cargo test --bin combiner` para ver si completaste correctamente la tarea.
+Execute `cargo test --bin combiner` para ver se você completou a tarefa corretamente.
 
 ### --seed--
 
@@ -3852,11 +3852,11 @@ mod tests {
 
 ### --description--
 
-Ahora que tienes los valores de píxeles de cada imagen en `vec_1` y `vec_2`, puede combinarlos en una sola imagen.
+Agora que você tem os valores de pixel de cada imagem em `vec_1` e `vec_2`, você pode combiná-los em uma única imagem.
 
-Tarea: Define una función llamada `alternate_pixels` que toma dos `Vec<u8>`s como argumentos.
+Tarefa: defina uma função chamada `alternate_pixels` que recebe dois `Vec<u8>`s como argumentos.
 
-Ejecuta `cargo test --bin combiner` para ver si completaste correctamente la tarea.
+Execute `cargo test --bin combiner` para ver se você completou a tarefa corretamente.
 
 ### --seed--
 
@@ -3955,7 +3955,7 @@ mod tests {
 
 ### --description--
 
-Necesitará almacenar los datos combinados de píxeles de imagen en una variable. Para crear esta variable, puede utilizar la macro `vec`, proporcionando el tipo y la longitud del vector:
+Você precisará armazenar os dados de pixel da imagem combinada em uma variável. Para criar essa variável, você pode usar a macro `vec`, fornecendo o tipo e o comprimento do vetor:
 
 ```rust
     let my_vec = vec![10u8; 5];
@@ -3963,9 +3963,9 @@ Necesitará almacenar los datos combinados de píxeles de imagen en una variable
     assert_eq!(my_vec, [10, 10, 10, 10, 10]);
 ```
 
-Tarea: Dentro de `alternate_pixels`, declarar una variable `combined_data`, y use la macro `vec` para crear un `Vec<u8>` de `0` de la misma longitud que `vec_1`. Devuelve `combined_data`.
+Tarefa: dentro de `alternate_pixels`, declare uma variável `combined_data`, e use a macro `vec` para criar um `Vec<u8>` de `0` do mesmo tamanho que `vec_1`. Retorne `combined_data`.
 
-Ejecuta `cargo test --bin combiner` para ver si has completado la tarea correctamente.
+Execute `cargo test --bin combiner` para ver se você completou a tarefa corretamente.
 
 ### --seed--
 
@@ -4073,7 +4073,7 @@ mod tests {
 
 ### --description--
 
-Para iterar sobre los píxeles en los vectores, usará un bucle `while`. Un bucle `while` sigue esta sintaxis:
+Para iterar sobre os pixels nos vetores, você usará um laço de repetição `while`. Um laço `while` segue essa sintaxe:
 
 ```rust
     while condition {
@@ -4081,11 +4081,11 @@ Para iterar sobre los píxeles en los vectores, usará un bucle `while`. Un bucl
     }
 ```
 
-Donde `condition` es una expresión booleana que se evalúa como `true` o `false`.
+Onde `condition` é uma expressão booleana que é avaliada como `true` ou `false`.
 
-Tarea: Dentro de `alternate_pixels`, antes de devolver `combined_data`, declarar una variable `i`, y asignar el valor de `0`. Luego, declare un bucle `mientras que` se ejecuta mientras que `i` es menor que la longitud de `vec_1`.
+Tarefa: dentro de `alternate_pixels`, antes de retornar `combined_data`, declare uma variável `i` e atribua o valor de `0`. Em seguida, declare um laço `while` que é executado enquanto `i` é menor que o comprimento de `vec_1`.
 
-Ejecuta `cargo test --bin combiner` para ver si completaste correctamente la tarea.
+Execute `cargo test --bin combiner` para ver se você completou a tarefa corretamente.
 
 ### --seed--
 
@@ -4226,11 +4226,11 @@ mod tests {
 
 ### --description--
 
-Para establecer correctamente los conjuntos de píxeles RGBA para el vector de salida, reemplazará los valores `0u8` por los valores correctos.
+Para definir corretamente os conjuntos de pixels RGBA para o vetor resultante, você substituirá os valores `0u8` pelos valores corretos.
 
-Tarea: Define una función llamada `set_rgba` que toma 3 argumentos: A `Vec<u8>`y dos `usen`.
+Tarefa: defina uma função chamada `set_rgba`, que recebe 3 argumentos: Um `Vec<u8>` e dois `usize`.
 
-Ejecuta `cargo test --bin combiner` para ver si completaste correctamente la tarea.
+Execute `cargo test --bin combiner` para ver se você completou a tarefa corretamente.
 
 ### --seed--
 
@@ -4334,9 +4334,9 @@ mod tests {
 
 ### --description--
 
-Tarea: Dentro de `set_rgba`, define una variable mutable llamada `rgba`, y asignarlo a estar vacío `Vec<u8>`. Intenta hacer esto sin la macro `vec`. Luego, devuelve `rgba`.
+Tarefa: dentro de `set_rgba`, defina uma variável mutável chamada `rgba` e atribua a ela um `Vec<u8>` vazio. Tente fazer isso sem a macro `vec`. Então, retorne `rgba`.
 
-Ejecuta `cargo test --bin combiner` para ver si completaste correctamente la tarea.
+Execute `cargo test --bin combiner` para ver se você completou a tarefa corretamente.
 
 ### --seed--
 
@@ -4466,7 +4466,7 @@ mod tests {
 
 ### --description--
 
-Para iterar sobre un rango de valores, puedes usar un bucle `para... en` con el operador _de rango literal_ literal:
+Para iterar sobre um intervalo de valores, você pode usar um laço `for...in` com o operador _literal de intervalo que inclui o número à direita_:
 
 ```rust
     for i in 1..=5 {
@@ -4474,13 +4474,13 @@ Para iterar sobre un rango de valores, puedes usar un bucle `para... en` con el 
     }
 ```
 
-El `=` dentro del literal del rango es el operador de rango _de rango_, lo que significa que el final está incluido.
+O `=` dentro do intervalo literal é o operador de intervalo _que inclui à direita_, ou seja, o final está incluído.
 
-Tarea: Dentro de `set_rgba`, antes de devolver `rgba`, iterar sobre el rango `de inicio. =end`, y empuja cada valor en el rango a `rgba`.
+Tarefa: dentro de `set_rgba`, antes de retornar `rgba`, itere ao longo do intervalo `start..=end` e armazene cada valor do intervalo em `rgba`.
 
-Sugerencia: Necesitarás afirmar el tipo correcto del valor que se envía a `rgba`.
+Dica: você precisará confirmar o tipo correto do valor que está sendo armazenado em `rgba`.
 
-Ejecuta `cargo test --bin combiner` para ver si completaste correctamente la tarea.
+Execute `cargo test --bin combiner` para ver se você completou a tarefa corretamente.
 
 ### --seed--
 
@@ -4592,7 +4592,7 @@ mod tests {
 
 ### --description--
 
-A veces, recuperar un valor de dentro de un vector provoca un pánico, porque el índice está fuera de los límites. Para evitar esto, puede usar el método `get` en un vector:
+Às vezes, recuperar um valor de dentro do vetor causa pânico, porque o índice está fora dos limites. Para evitar isso, você pode usar o método `get` em um vetor:
 
 ```rust
     let my_vec = vec![1, 2, 3];
@@ -4600,13 +4600,13 @@ A veces, recuperar un valor de dentro de un vector provoca un pánico, porque el
     assert_eq!(my_vec.get(3), None);
 ```
 
-El método `get` retorna una referencia al valor en el índice dado, o `None` si el índice está fuera de límites.
+O método `get` retorna uma referência ao valor no índice especificado ou `None` se o índice estiver fora dos limites.
 
-Misión: Dentro de `set_rgba`, dentro del bucle `for`, declarar una variable `val` que es la `match` del `get` método en `vec` utilizando `i` como argumento.
+Tarefa: dentro de `set_rgba`, dentro do laço `for`, declare uma variável `val` que é o `match` do método `get` em `vec` usando `i` como argumento.
 
-En `Some`, asigna el valor a `val`. En `None`, devuelve el pánico.
+Em `Some`, atribua o valor para `val`. Em `None`, retorne pânico.
 
-Ejecuta `cargo test --bin combiner` para ver si completaste correctamente la tarea.
+Execute `cargo test --bin combiner` para ver se você completou a tarefa corretamente.
 
 ### --seed--
 
@@ -4726,9 +4726,9 @@ mod tests {
 
 ### --description--
 
-Tarea: Dentro de `set_rgba`, cambia el valor presionado en el `vec` para ser `val`.
+Tarefa: dentro de `set_rgba`, altere o valor armazenado para `vec` para estar em `val`.
 
-Ejecuta `cargo test --bin combiner -- --show-output`. Deberias de ver un error.
+Execute `cargo test --bin combiner`. Você deve ver um erro.
 
 ### --seed--
 
@@ -4851,9 +4851,9 @@ mod tests {
 
 ### --description--
 
-El error ocurre, porque el tipo de `val` es `&u8` - una referencia a un entero sin signo de 8 bits. Sin embargo, el tipo de `vec` debe ser `Vec<u8>`, no `Vec<&u8>`.
+O erro acontece por causa que o tipo de `val` é `&u8` - uma referência a um inteiro unsigned de 8 bits. No entanto, o tipo de `vec` deve ser `Vec<u8>`, não `Vec<&u8>`.
 
-Para arreglar esto, el valor devuelto del método `get` puede ser _desferenciado_. Una desreferencia se hace anotando el valor con `*`.:
+Para corrigir isso, o valor retornado do método `get` pode ser _desreferenciado_. Uma desreferência é feita anotando o valor com `*`.:
 
 ```rust
     let x = 5;
@@ -4863,9 +4863,9 @@ Para arreglar esto, el valor devuelto del método `get` puede ser _desferenciado
     assert_eq!(5, *y);
 ```
 
-Tarea: Dentro de `set_rgba`, desreferencia el valor asignado a `val`.
+Tarefa: dentro de `set_rgba`, desfaça a referência ao valor atribuído a `val`.
 
-Ejecuta `cargo test --bin combiner` para ver si has completado la tarea correctamente.
+Execute `cargo test --bin combiner` para ver se você completou a tarefa corretamente.
 
 ### --seed--
 
@@ -4988,7 +4988,7 @@ mod tests {
 
 ### --description--
 
-Actualmente, el bucle `while` tiene el potencial de correr para siempre, cuando `vec` contiene cualquier elemento. Puedes arreglar esto incrementando `i` en cada iteración del bucle. Aquí hay algunas formas comunes de incrementar un entero:
+Atualmente, o laço `while` tem o potencial de ser executado para sempre, quando `vec` contém quaisquer elementos. Você pode corrigir isso incrementando `i` em cada iteração do laço. Aqui estão algumas maneiras comuns de incrementar um número inteiro:
 
 ```rust
     let mut a = 0;
@@ -4998,9 +4998,9 @@ Actualmente, el bucle `while` tiene el potencial de correr para siempre, cuando 
     assert_eq!(a, 3);
 ```
 
-Tarea: Dentro de `alternate_pixels`, en el bucle `while`, incremente `i` por `4`.
+Tarefa: dentro de `alternate_pixels`, no laço `while`, incremente `i` em `4`.
 
-Ejecuta `cargo test --bin combiner` para ver si completaste correctamente la tarea.
+Execute `cargo test --bin combiner` para ver se você completou a tarefa corretamente.
 
 ### --seed--
 
@@ -5144,7 +5144,7 @@ mod tests {
 
 ### --description--
 
-Tienes un `Vec<u8>` de `0`, y dos `Vec<u8>`s de `0-255`. Para reemplazar una porción de un vector y con otra, puede utilizar el método `splice`:
+Você tem um `Vec<u8>` de `0` e dois `Vec<u8>`s de `0-255`. Para substituir um pedaço de um vetor por outro, você pode usar o método `splice`:
 
 ```rust
     let original_vec = vec![0, 1, 2, 3];
@@ -5153,11 +5153,11 @@ Tienes un `Vec<u8>` de `0`, y dos `Vec<u8>`s de `0-255`. Para reemplazar una por
     assert_eq!(vec_to_change, vec![0, 0, 2, 3]);
 ```
 
-El método `splice` toma dos argumentos: el rango del vector a reemplazar, y los valores con los que reemplazar.
+O método `splice` recebe dois argumentos: o intervalo do vetor para substituir, e os valores para substituí-lo.
 
-Tarea: Dentro de `alternate_pixels`, en el `mientras que` bucle, utilizar el método `splice` en `combined_data` desde `i` hasta `i+3`, y utilice la función `set_rgba` para insertar los valores correctos de `vec_1`.
+Tarefa: dentro de `alternate_pixels`, no laço `while`, use o método `splice` em `combined_data`, de `i` para `i+3`, e use a função `set_rgba` para inserir os valores corretos de `vec_1`.
 
-Ejecutando `cargo test --bin combiner` debería producir un error. Ejecuta `fcc test 65` para ver si completaste correctamente la tarea.
+Executar `cargo test --bin combiner` deve mostrar um erro. Execute `fcc test 65` para ver se você completou a tarefa corretamente.
 
 ### --seed--
 
@@ -5272,24 +5272,24 @@ mod tests {
 
 ### --tests--
 
-- No debes cambiar la condición de bucle `while`.
+- Você não deve alterar a condição do laço `while`.
 - `while\s+i\s*<\s*vec_1\.len\(\)\s*\{`
-- Deberías incrementar `i` por 4 al final del bucle.
+- Você deve incrementar `i` em 4 ao final do laço.
 - `i\s*\+=\s*4;\s*\}`
-- Debería llamar al método `splice` en `combined_data`.
+- Você deve chamar o método `splice` em `combined_data`.
 - `combined_data\.splice\(`
-- Debería pasar el rango `i..i+4` o `i..=i+3` al primer argumento del método `splice`.
+- Você deve passar o intervalo `i..i+4` ou `i..=i+3` para o primeiro argumento do método `splice`.
 - `splice\(\s*(i..i\s*\+\s*4)|(i..=i\s*\+\s*3)\s*,`
-- Debería pasar `set_rgba(vec_1, i, i+3)` como el segundo argumento para `splice`.
+- Você deve passar `set_rgba(vec_1, i, i+3)` como o segundo argumento de `splice`.
 - `splice\(\s*(i..i+4)|(i..=i\s*\+\s*3)\s*,\s*set_rgba\(\s*vec_1\s*,\s*i\s*,\s*i\s*\+\s*3\s*\)\s*\)`
 
 ## 66
 
 ### --description--
 
-El error está diciendo que el valor `vec_1` se mueve a `set_rgba` en la primera iteración del bucle. Por lo tanto, en la segunda iteración, cuando se supone que la condición `while` evalúa `i < vec_1. en()`, `vec_1` no está en el ámbito a utilizar.
+O erro está dizendo que o valor `vec_1` está sendo movido para `set_rgba` na primeira iteração do laço. Então, na segunda iteração, quando a condição do `while` devia ser `i < vec_1. en()`, `vec_1` não está no escopo a ser usado.
 
-Tarea: Dentro de `alternate_pixels`, arreglar el problema, pasando una referencia a `vec_1` a `set_rgba`y arreglar las anotaciones de tipo necesarios.
+Tarefa: dentro de `alternate_pixels`, corrija o problema passando uma referência para `vec_1` para `set_rgba` e corrija as anotações de tipo necessárias.
 
 ### --seed--
 
@@ -5421,7 +5421,7 @@ mod tests {
 
 ### --description--
 
-Actualmente, `alternate_pixels` empalme cada RGBA establecido desde `vec_1` en `combined_data`. Sin embargo, quieres que cada segundo conjunto sea de `vec_2`. To achieve this, you can use the remainder operator:
+Atualmente, `alternate_pixels` está dividindo cada conjunto RGBA de `vec_1` em `combined_data`. No entanto, você quer que cada segundo conjunto faça parte de `vec_2`. Para fazer isso, você pode usar o operador de resto:
 
 ```rust
     let mut my_vec = vec![0u8; 6];
@@ -5435,9 +5435,9 @@ Actualmente, `alternate_pixels` empalme cada RGBA establecido desde `vec_1` en `
     assert_eq!(my_vec, vec![2, 1, 2, 1, 2, 1]);
 ```
 
-Tarea: Dentro de `alternate_pixels`, use el operador restante para dividir cada segundo conjunto de valores RGBA de `vec_2` en `combined_data`.
+Tarefa: dentro de `alternate_pixels`, use o operador de resto para dividir cada segundo conjunto de valores RGBA de `vec_2` para `combined_data`.
 
-Ejecuta `cargo test --bin combiner` para ver si completaste correctamente la tarea.
+Execute `cargo test --bin combiner` para ver se você completou a tarefa corretamente.
 
 ### --seed--
 
@@ -5569,9 +5569,9 @@ mod tests {
 
 ### --description--
 
-Tarea: Dentro de `combine_images`, en lugar de devolver `vec_2`, retorna el resultado de la llamada `alternate_pixels` con `vec_1` y `vec_2`.
+Tarefa: dentro de `combine_images`, em vez de retornar `vec_2`, retorne o resultado de chamar `alternate_pixels` com `vec_1` e `vec_2`.
 
-Ejecuta `cargo test --bin combiner` para ver si completaste correctamente la tarea.
+Execute `cargo test --bin combiner` para ver se você completou a tarefa corretamente.
 
 ### --seed--
 
@@ -5714,9 +5714,9 @@ mod tests {
 
 ### --description--
 
-Tarea: Dentro de `principal`, declare una variable `combined_data`, y asigne el valor de la llamada `combine_images` con `image_1` y `image_2`.
+Tarefa: dentro de `main`, declare uma variável `combined_data`, e atribua a ela o valor da chamada de `combine_images` com `image_1` e `image_2`.
 
-Ejecuta `cargo test --bin combiner` para ver si completaste correctamente la tarea.
+Execute `cargo test --bin combiner` para ver se você completou a tarefa corretamente.
 
 ### --seed--
 
@@ -5866,9 +5866,9 @@ mod tests {
 
 ### --description--
 
-Ahora, desea establecer los datos de `combined_data` en la imagen `output`. Para hacer esto, se va a definir un método en `FloatingImage` para establecer el campo `data` del `output` al valor `combined_data`.
+Agora, você quer definir os dados de `combined_data` em `output` da imagem. Para fazer isso, você vai definir um método em `FloatingImage` para definir o campo `data` de `output` para o valor de `combined_data`.
 
-Hasta ahora, sólo ha implementado funciones en las estructuras. Los métodos se definen de forma similar, pero toman una instancia de la estructura como su primer argumento:
+Até agora, você implementou apenas funções em estruturas. Métodos são definidos de maneira similar, mas eles precisam de uma instância da estrutura como primeiro argumento:
 
 ```rust
     struct MyStruct {
@@ -5886,11 +5886,11 @@ Hasta ahora, sólo ha implementado funciones en las estructuras. Los métodos se
     assert_eq!(my_struct.name, "Tom".to_string);
 ```
 
-Como el valor de la instancia de `MyStructural` necesita ser cambiado, el método `change_name` toma una referencia mutable a la instancia como su primer argumento. _Tenga en cuenta que el método sigue siendo llamado solo con un argumento_.
+Como o valor da instância de `MyStruct` precisa ser alterado, o método `change_name` recebe uma referência mutável para a instância como seu primeiro argumento. _Observe que o método ainda é chamado apenas com um argumento_.
 
-Task: Implement a method `set_data` on `FloatingImage` which takes a `Vec<u8>` as an argument.
+Tarefa: implemente um método `set_data` em `FloatingImage` que leva um `Vec<u8>` como argumento.
 
-Ejecuta `cargo test --bin combiner` para ver si completaste correctamente la tarea.
+Execute `cargo test --bin combiner` para ver se você completou a tarefa corretamente.
 
 ### --seed--
 
@@ -6017,9 +6017,9 @@ mod tests {
 
 ### --description--
 
-Tarea: Dentro de `set_data`, establece el campo `data` de la instancia para ser igual al valor del argumento `data`. Luego, devuelve un resultado `Ok` con una tupla vacía como respuesta.
+Tarefa: dentro de `set_data`, defina o campo de `data` da instância para que seja igual ao valor do argumento `data`. Em seguida, retorne um resultado `Ok` com uma tupla vazia como resposta.
 
-Ejecuta `cargo test --bin combiner` para ver si completaste correctamente la tarea.
+Execute `cargo test --bin combiner` para ver se você completou a tarefa corretamente.
 
 ### --seed--
 
@@ -6149,7 +6149,7 @@ mod tests {
 
 ### --description--
 
-Para manejar los errores más claramente, puede crear un _enum_ para representar los posibles errores que pueden suceder:
+Para lidar com erros de forma mais clara, você pode criar um _enum_ para representar os possíveis erros que podem ocorrer:
 
 ```rust
     enum MyErrors {
@@ -6169,11 +6169,11 @@ Para manejar los errores más claramente, puede crear un _enum_ para representar
     }
 ```
 
-Los números pueden ser usados como valores así como como como tipos. Ya has encontrado la `Option`.
+Enums podem ser usados como valores ou tipos. Você já encontrou o enum `Option`.
 
-Task: Create an `enum` called `ImageDataErrors`, and has two variants `BufferTooSmall` and `DifferentImageFormats`.
+Tarefa: crie um `enum` chamado `ImageDataErrors` e que tenha duas variantes `BufferTooSmall` e `DifferentImageFormats`.
 
-Ejecuta `cargo test --bin combiner` para ver si completaste correctamente la tarea.
+Execute `cargo test --bin combiner` para ver se você completou a tarefa corretamente.
 
 ### --seed--
 
@@ -6304,9 +6304,9 @@ mod tests {
 
 ### --description--
 
-Tarea: Derive el trait `debug` para el `ImageDataErrors` enum.
+Tarefa: derive o traço `Debug` para o enum `ImageDataErrors`.
 
-Ejecuta `cargo test --bin combiner -- --show-output`. Deberías ver lo siguiente impreso en la consola:
+Execute `cargo test --bin combiner -- --show-output`. Você deve ver o seguinte mostrado no console:
 
 ```bash
     BufferTooSmall
@@ -6450,11 +6450,11 @@ mod tests {
 
 ### --description--
 
-Ahora puede utilizar su enum para dar errores más específicos.
+Agora você pode usar o enum para indicar erros mais específicos.
 
-Tarea: Dentro de `set_data`, devuelve el error apropiado, si `data.len()` es mayor que `self.data.capacity()`.
+Tarefa: dentro de `set_data`, retorne o erro apropriado, se `data.len()` for maior que `self.data.capacity()`.
 
-Ejecuta `cargo test --bin combiner` para ver si completaste correctamente la tarea.
+Execute `cargo test --bin combiner` para ver se você completou a tarefa corretamente.
 
 ### --seed--
 
@@ -6604,9 +6604,9 @@ mod tests {
 
 ### --description--
 
-Tarea: Dentro de `main`, en lugar de devolver un error `String`, use `ImageDataErrors` para devolver el error apropiado.
+Tarefa: dentro de `main`, em vez de retornar um erro `String`, use `ImageDataErrors` para retornar o erro apropriado.
 
-Ejecuta `cargo test --bin combiner` para ver si completaste correctamente la tarea.
+Execute `cargo test --bin combiner` para ver se você completou a tarefa corretamente.
 
 ### --seed--
 
@@ -6746,11 +6746,11 @@ mod tests {
 
 ### --description--
 
-Misión: Dentro de `principal`, llama a `set_data` en el `output` con `combined_data`.
+Tarefa: dentro de `main`, chame `set_data` no `output` com `combined_data`.
 
-_Pista:_ Sigue el consejo del compilador para obtener el código para compilar
+_Dica:_ siga o conselho do compilador para fazer o código compilar
 
-Ejecuta `cargo test --bin combiner` para ver si completaste correctamente la tarea.
+Execute `cargo test --bin combiner` para ver se você completou a tarefa corretamente.
 
 ### --seed--
 
@@ -6919,7 +6919,7 @@ mod tests {
 
 ### --description--
 
-El compilador le advierte de que no está usando el `Result` devuelto por llamar a `set_data`. Se podría cometer el error utilizando el método `unwrap`. Sin embargo, como el error se está manejando con un enum, puede propagar el error utilizando el operador de _propagación de errores_:
+O compilador está avisando que você não está usando o `Result` retornado ao chamar `set_data`. Você pode gerar o pânico no erro usando o método `unwrap`. No entanto, como o erro está sendo tratado com um enum, você pode propagar o erro usando o operador de _propagação de erro_:
 
 ```rust
     enum MyError {
@@ -6940,11 +6940,11 @@ El compilador le advierte de que no está usando el `Result` devuelto por llamar
     assert_eq!(last(), "Err".to_string());
 ```
 
-Usar el operador `?` permite al `MyError` propagarse a la persona que llama.
+Usar o operador `?` permite que `MyError` propague para a função que o chamou.
 
-Tarea: Sigue el consejo del compilador en la advertencia para propagar el error.
+Tarefa: siga o conselho do compilador para propagar o erro.
 
-Ejecuta `cargo test --bin combiner` para ver si completaste correctamente la tarea.
+Execute `cargo test --bin combiner` para ver se você completou a tarefa corretamente.
 
 ### --seed--
 
@@ -7110,17 +7110,17 @@ mod tests {
 
 ### --description--
 
-Por último, puede guardar la nueva imagen en un archivo. El crate de `image` tiene una función `save_buffer_with_format` tomando el siguiente formulario:
+Por fim, você pode salvar a nova imagem em um arquivo. A crate `image` tem uma função `save_buffer_with_format` com o seguinte formato:
 
 ```rust
     fn save_buffer_with_format(path: AsRef<Path>, buf: &[u8], width: u32, height: u32, color: image::ColorType, format: image::ImageFormat) -> image::ImageResult<()>;
 ```
 
-Ver como `AsRef` está implementado para `String`, se puede utilizar un argumento de tipo `String` para el `path`.
+Como `AsRef` está implementado para `String`, um argumento do tipo `String` pode ser usado para `path`.
 
-Tarea: Dentro de `main`, usa las propiedades de `salida` correctas como los primeros cuatro argumentos, `Rgba8` como argumento de color, y `image_1_format` como parámetro de formato. Desenvolver el resultado de `save_buffer_with_format`.
+Tarefa: dentro de `main`, use as propriedades de `output` corretas como os primeiros quatro argumentos, `Rgba8` como argumento de cores, e `image_1_format` como argumento de formato. Remova do invólucro o resultado de `save_buffer_with_format`.
 
-Ejecuta `cargo run --bin combiner -- ./images/fcc_glyph.png ./images/pro.png example.png`. Si el archivo `example.png` existe, y es una combinación de mi imagen de perfil con el logotipo freeCodeCamp, has completado la tarea.
+Execute `cargo run --bin combiner -- ./images/fcc_glyph.png ./images/pro.png example.png`. Se o arquivo `exemplo.png` existe e se ele for uma combinação da minha imagem do perfil com o logotipo do freeCodeCamp, você completou a tarefa.
 
 ### --seed--
 
@@ -7263,9 +7263,9 @@ mod tests {
 
 ### --description--
 
-Tarea: Construye una versión de lanzamiento de tu CLI de `combiner`.
+Tarefa: crie uma versão de lançamento da interface de linha de comando do `combiner`.
 
-Ejecuta `cargo test --bin combiner` para ver si completaste correctamente la tarea.
+Execute `cargo test --bin combiner` para ver se você completou a tarefa corretamente.
 
 ### --seed--
 
@@ -7426,16 +7426,16 @@ mod tests {
 
 ### --tests--
 
-- Puedes usar el comando del combinador `cargo build --bin combiner --release` para construir el binario.
+- Você pode usar o comando `cargo build --bin combiner --release` para gerar o binário.
 - `null`
 
 ## 80
 
 ### --description--
 
-¡Felicidades por terminar el curso de **Rust en Replicit**!
+Parabéns por terminar o curso de **Rust no Replit**!
 
-Ahora puedes jugar con tu código y tu nueva herramienta de línea de comandos para hacer tus propias imágenes combinadas.
+Agora você pode brincar com o código e com a nova ferramenta de linha de comando para combinar suas próprias imagens.
 
 ### --seed--
 
@@ -7573,7 +7573,7 @@ fn set_rgba(vec: &Vec<u8>, start: usize, end: usize) -> Vec<u8> {
 
 ### --tests--
 
-- Esta es la última lección. ¡Felicitaciones!
+- Esta é a lição final. Parabéns!
 - `null`
 
 ## 81
@@ -7588,5 +7588,5 @@ fn set_rgba(vec: &Vec<u8>, start: usize, end: usize) -> Vec<u8> {
 
 ### --tests--
 
-- Marcador de posición
+- Placeholder
 - `null`

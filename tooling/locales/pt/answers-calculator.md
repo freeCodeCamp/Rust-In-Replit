@@ -1,16 +1,16 @@
-# freeCodeCamp - Rust in Replit Course Answers
+# freeCodeCamp - curso de Rust no Replit - respostas
 
 ## 1
 
 ### --description--
 
-The main tools within the Rust ecosystem are:
+As principais ferramentas do ecossistema Rust são:
 
-- rustc The compiler which takes your Rust code and compiles it into binary (machine readable code)
-- rustup The command line utility to install and update Rust
-- cargo The Rust build system and package manager (you will work with this)
+- rustc O compilador que pega seu código em Rust e o compila para binário (código legível pela máquina)
+- rustup O utilitário de linha de comando para instalar e atualizar o Rust
+- carga O sistema de criação e gerenciador de pacotes do Rust (você vai trabalhar com isto)
 
-Task: Create a new Rust project by running the following command in the prompt:
+Tarefa: criar um projeto do Rust executando o seguinte comando no prompt:
 
 ```bash
     $ cargo new calculator
@@ -24,20 +24,20 @@ Task: Create a new Rust project by running the following command in the prompt:
 
 ### --tests--
 
-- There are no RegEx tests for this lesson.
+- Não há testes de RegEx para esta lição.
 - `null`
 
 ## 2
 
 ### --description--
 
-You have just created a new Rust project within the `calculator/` directory.
+Você acabou de criar um projeto em Rust dentro do diretório `calculator/`.
 
-Cargo has created the boilerplate for a 'Hello World'.
+O cargo criou o boilerplate para um 'Hello World'.
 
-Task: Open the `calculator/src/main.rs` file.
+Tarefa: abrir o arquivo `calculator/src/main.rs`.
 
-This is the default file Cargo uses for your application binary.
+Este é o arquivo padrão que o cargo usa para o binário de sua aplicação.
 
 ### --seed--
 
@@ -50,29 +50,29 @@ fn main() {
 
 ### --tests--
 
-- You should have the project file `calculator/src/main.rust`.
+- Você deve ter o arquivo de projeto `calculator/src/main.rust`.
 - `null`
 
 ## 3
 
 ### --description--
 
-This file contains a function declaration with the handle `main`. By default, rustc calls the `main` function first whenever the executable is run.
+Este arquivo contém uma declaração da função com o identificador `main`. Por padrão, rustc chama primeiro a função `main` sempre que o executável é rodado.
 
-`println` is a built-in macro.
+`println` é uma macro incorporada.
 
-A macro is similar to a function, but can be thought of as a piece of code which writes other code. For now, the main differences between a function and a macro to keep in mind are:
+Uma macro é semelhante a uma função, mas pode ser considerada um trecho de código que escreve outro código. Por enquanto, as principais diferenças entre uma função e uma macro a se ter em mente são:
 
-    - Macros are called using a bang (!)
-    - Macros can take a variable number of arguments; functions in Rust cannot
+    - As macros são chamadas usando um "bang" (!)
+    - As macros podem ter um número variável de argumentos. As funções no Rust não podem.
 
-Task: Run your code, using the following command:
+Tarefa: executar seu código usando o seguinte comando:
 
 ```bash
     $ cargo run --bin calculator
 ```
 
-_NOTE:_ The `--bin calculator` arguments are only necessary, because you are not within the `calculator` directory.
+_OBSERVAÇÃO:_ os argumentos da `--bin calculator` são necessários apenas porque você não está dentro do diretório da `calculator`.
 
 ### --seed--
 
@@ -85,32 +85,32 @@ fn main() {
 
 ### --tests--
 
-- Running your code should output `Hello, world!`.
+- Executar seu código deve retornar `Hello, world!`.
 - `getCommandOutput(Hello, world!)`
 
 ## 4
 
 ### --description--
 
-Variables are declared using the `let` keyword.
+As variáveis são declaradas usando a palavra-chave `let`.
 
 ```rust
     let variable_name = value
 ```
 
-Task: Within the `main` function, declare a new variable, and name it `firstName` and give it a value of `"<your_name>"`. Ensure to declare it before the `println!` call, and place your name within double quotes.
+Tarefa: dentro da função `main`, declarar uma nova variável e nomeá-la `firstName`, dando a ela o valor de `"<your_name>"`. Certifique-se de declará-lo antes da chamada de `println!` e colocar seu nome entre aspas duplas.
 
-_NOTE:_ Variables can also be declared using the const or static keywords.
+_OBSERVAÇÃO:_ variáveis também podem ser declaradas usando as palavras-chave const ou static.
 
-Task: Run your code to see what the compiler says:
+Tarefa: executar seu código para ver o que diz o compilador:
 
 ```bash
     $ cargo run --bin calculator
 ```
 
-_HINT:_ If you get stuck, try to follow the compiler's helpful advice.
+_DICA:_ se você ficar preso, tente seguir os conselhos úteis do compilador.
 
-You can see if you completed the lesson correctly by running:
+Você pode ver se você concluiu a lição corretamente executando:
 
 ```bash
     $ fcc test 4
@@ -127,28 +127,28 @@ fn main() {
 
 ### --tests--
 
-- You should declare a variable `firstName` and give it a value of your first name within double quotes.
+- Você deve declarar uma variável `Nome` e atribuir a ela como valor o seu primeiro nome dentro de aspas duplas.
 - `let\s+firstName\s*=\s*\"\w+\"\s*`
-- You should follow the compiler's advice to add a semi-colon at the end.
+- Você deve seguir o conselho do compilador e adicionar um ponto e vírgula no final.
 - `let\s+firstName\s*=\s*\"\w+\"\s*;`
 
 ## 5
 
 ### --description--
 
-Above, you might notice the rustc compiler is giving two suggestions for your code.
+Acima, você pode notar que o compilador rustc está dando duas sugestões para o código.
 
-Task: Follow the compiler's advice to convert the variable name into snake_case.
+Tarefa: siga o conselho do compilador e converta o nome da variável em snake_case.
 
-It is convention in Rust to use snake_case for:
+É uma convenção no Rust usar o caso snake_case para:
 
-- Variable names
-- Function names
-- File names
+- Nomes de variáveis
+- Nomes das funções
+- Nomes de arquivos
 
-SCREAMING_SNAKE_CASE is used for constants and statics. Lastly, _PascalCase_ is used for types, traits, and enums (we will cover these later).
+SCREAMING_SNAKE_CASE é usado para constantes e estáticos. Por último, _PascalCase_ é usado para tipos, características e enums (abordaremos esse assunto mais tarde).
 
-You can see if you completed the lesson correctly by running:
+Você pode ver se você concluiu a lição corretamente executando:
 
 ```bash
     $ fcc test 5
@@ -166,14 +166,14 @@ fn main() {
 
 ### --tests--
 
-- You should have a variable `first_name` and give it a value of your first name within double quotes.
+- Você deve ter uma variável `first_name` e fornecer um valor do seu primeiro nome dentro das aspas duplas.
 - `let\s+first_name\s*=\s*"\w+"\s*;`
 
 ## 6
 
 ### --description--
 
-Task: Re-run your code. You should only have one warning, now.
+Tarefa: execute o seu código novamente. Você deve ter apenas um aviso agora.
 
 ### --seed--
 
@@ -187,24 +187,24 @@ fn main() {
 
 ### --tests--
 
-- You should have a variable `first_name` and give it a value of your first name within double quotes.
+- Você deve ter uma variável `first_name` e fornecer um valor do seu primeiro nome dentro das aspas duplas.
 - `let\s+first_name\s*=\s*"\w+"\s*;`
 
 ## 7
 
 ### --description--
 
-The compiler is still giving you a warning about `first_name` being an unused variable.
+O compilador ainda está dando um aviso sobre `first_name` ser uma variável não utilizada.
 
-Task: Fix that, by changing the `println!` call to be:
+Tarefa: corrija isso, alterando a chamada de `println!` para:
 
 ```rust
     println!("Hello, {}!", first_name);
 ```
 
-The `'{}'` are replaced with the value of the arguments.
+O `'{}'` é substituído pelo valor dos argumentos.
 
-You can see if you completed the lesson correctly by running:
+Você pode ver se você concluiu a lição corretamente executando:
 
 ```bash
     $ fcc test 7
@@ -222,20 +222,20 @@ fn main() {
 
 ### --tests--
 
-- You should change the `println!` call to `println!("Hello, {}!", first_name)`.
+- Você deve mudar o `println!` para `println!("Olá, {}!", first_name)`.
 - `println!\("Hello,\s*{}!",\s*first_name\)\s*;`
 
 ## 8
 
 ### --description--
 
-There are many things you can do with `println!`. Look at the Rust by Example docs, and play around with your code:
+Há muitas coisas que você pode fazer com `println!`. Procure por exemplos na documentação do Rust e brinque com o seu código:
 
 - https://doc.rust-lang.org/rust-by-example/hello/print.html
 
-This is what makes the `println!` macro an excellent tool to debug your code.
+Isso é o que torna a macro `println!` uma excelente ferramenta para depurar seu código.
 
-Task: Run your code to see the output with:
+Tarefa: execute seu código para ver a saída de:
 
 ```bash
     $ cargo run --bin calculator
@@ -253,26 +253,26 @@ fn main() {
 
 ### --tests--
 
-- You should change the `println!` call to `println!("Hello, {}!", first_name)`.
+- Você deve mudar o `println!` para `println!("Olá, {}!", first_name)`.
 - `println!\("Hello,\s*{}!",\s*first_name\)\s*;`
 
 ## 9
 
 ### --description--
 
-The type of `first_name` is `&str`. `str` is a primitive type, and the _ampersand (&)_ indicates the type is a _reference._
+O tipo de `first_name` é `&str`. `str` é um tipo primitivo e o _"e" comercial (&)_ indica que o tipo é uma _referência._
 
-An important aspect of the Rust language is ownership. That is, memory use and allocation. The concept of ownership will come up, throughout this course.
+Um aspecto importante da linguagem Rust é a propriedade. Ou seja, uso e alocação de memória. O conceito de propriedade surgirá ao longo deste curso.
 
-Another common type is `String`. This is a useful type, because it is automatically heap allocated. This allows its size to be unknown at compile time.
+Outro tipo comum é a `String`. Este é um tipo útil, pois é automaticamente alocado em pilhas. Isto permite que seu tamanho seja desconhecido no momento da compilação.
 
-Task: Convert `first_name` into the `String` type, by using the from trait which is available on the `String` struct:
+Tarefa: converta`first_name` para `String`, usando a característica que está disponível na estrutura `String`:
 
 ```rust
     let example = String::from("Hello, Camper!");
 ```
 
-You can see if you completed the lesson correctly by running:
+Você pode ver se você concluiu a lição corretamente executando:
 
 ```bash
     $ fcc test 9
@@ -290,16 +290,16 @@ fn main() {
 
 ### --tests--
 
-- You should use `String::from()` to create a `String` with your first name.
+- Você deve usar `String::from()` para criar uma `String` com seu primeiro nome.
 - `let\s+first_name\s*=\s*String::from\(\s*"\w+"\s*\)\s*;`
 
 ## 10
 
 ### --description--
 
-Task: Immediately after `first_name`, create a new variable named `name`, and assign the value of `first_name` to it. Then, replace the second argument in the `println!` call with your newly created variable.
+Tarefa: imediatamente após `first_name`, crie uma nova variável chamada `name` e atribua o valor de `first_name` a ela. Então, substitua o segundo argumento na chamada de `println!` por sua variável recém-criada.
 
-You can see if you completed the lesson correctly by running:
+Você pode ver se você concluiu a lição corretamente executando:
 
 ```bash
     $ fcc test 10
@@ -317,18 +317,18 @@ fn main() {
 
 ### --tests--
 
-- You should declare a variable `name` and assign it the value of `first_name`.
+- Você deve declarar uma variável `name` e atribuir a ela o valor de `first_name`.
 - `let\s+name\s*=\s*first_name\s*;`
-- You should replace the second argument of `println!` with `name`.
+- Você deve substituir o segundo argumento de `println!` por `name`.
 - `println!\("Hello,\s*{}!",\s*name\)\s*;`
 
 ## 11
 
 ### --description--
 
-Task: Copy the current `println!` call, and place it immediately after the first. Then, replace the second argument with `first_name`.
+Tarefa: copie a chamada de `println!` atual e coloque-a imediatamente após a primeira. Então, substitua o segundo argumento por `first_name`.
 
-You can see if you completed the lesson correctly by running:
+Você pode ver se você concluiu a lição corretamente executando:
 
 ```bash
     $ fcc test 11
@@ -347,16 +347,16 @@ fn main() {
 
 ### --tests--
 
-- You should have two `println!` calls immediately after one another.
+- Você deve ter duas chamadas de `println!`, uma após a outra.
 - `println!\("Hello,\s*{}!",\s*\w+\)\s*;\s*println!\("Hello,\s*{}!",\s*\w+\)\s*;`
-- You should have the first `println!` use `name` and the second `println!` use `first_name`.
+- A primeira `println!` deve usar `name` e a segunda `println!` usar `first_name`.
 - `println!\("Hello,\s*{}!",\s*name\)\s*;\s*println!\("Hello,\s*{}!",\s*first_name\)\s*;`
 
 ## 12
 
 ### --description--
 
-Task: Run your code. You will see an error.
+Tarefa: execute o seu código. Você verá um erro.
 
 ### --seed--
 
@@ -372,29 +372,29 @@ fn main() {
 
 ### --tests--
 
-- You should have two `println!` calls immediately after one another.
+- Você deve ter duas chamadas de `println!`, uma após a outra.
 - `println!\("Hello,\s*{}!",\s*\w+\)\s*;\s*println!\("Hello,\s*{}!",\s*\w+\)\s*;`
-- You should have the first `println!` use `name` and the second `println!` use `first_name`.
+- A primeira `println!` deve usar `name` e a segunda `println!` usar `first_name`.
 - `println!\("Hello,\s*{}!",\s*name\)\s*;\s*println!\("Hello,\s*{}!",\s*first_name\)\s*;`
 
 ## 13
 
 ### --description--
 
-Your app errored out. The reason for this error is the last `println!` call tries to use the `first_name` variable. However, this variable is no longer available, as it was _moved_ into `name`.
+O aplicativo apresentou uma falha. O motivo dessa falha é que a última chamada `println!` tenta usar a variável `first_name`. Porém, essa variável não está mais disponível. Ela _mudou_ para `name`.
 
-To prevent `first_name` from being moved, you can assign `name` to the referenced value of `first_name`.
+Para evitar que `first_name` mude, você pode atribuir `name` ao valor referenciado de `first_name`.
 
-Task: Do this, by adding the reference symbol to the beginning of the `name` value. Here is an example:
+Tarefa: faça isso adicionando o símbolo de referência no começo do valor de `name`. Exemplo:
 
 ```rust
     let value = String::from("");
     let referenced_value = &value;
 ```
 
-This prevents `value` from being moved into `referenced_value`, and, instead, uses a reference to the value of `value` in `referenced_value`.
+Isso impede que `value` mude para `referenced_value` e, ao invés disso, use uma referência ao valor de `value` em `referenced_value`.
 
-You can see if you completed the lesson correctly by running:
+Você pode ver se você concluiu a lição corretamente executando:
 
 ```bash
     $ fcc test 13
@@ -414,18 +414,18 @@ fn main() {
 
 ### --tests--
 
-- You should have two `println!` calls immediately after one another.
+- Você deve ter duas chamadas de `println!`, uma após a outra.
 - `println!\("Hello,\s*{}!",\s*\w+\)\s*;\s*println!\("Hello,\s*{}!",\s*\w+\)\s*;`
-- You should have the first `println!` use `name` and the second `println!` use `first_name`.
+- A primeira `println!` deve usar `name` e a segunda `println!` usar `first_name`.
 - `println!\("Hello,\s*{}!",\s*name\)\s*;\s*println!\("Hello,\s*{}!",\s*first_name\)\s*;`
-- You should reference `first_name` when assigning it to `name`, by using `&first_name`.
+- Você deve referenciar `first_name` quando atribuir para `name`, usando `&first_name`.
 - `let\s+name\s*=\s*&first_name\s*;`
 
 ## 14
 
 ### --description--
 
-Task: Run your code. You should not see the error anymore.
+Tarefa: execute o seu código. Você não deve mais ver o erro.
 
 ### --seed--
 
@@ -441,28 +441,28 @@ fn main() {
 
 ### --tests--
 
-- Run your code with `cargo run --bin calculator`. You should see no errors.
+- Execute seu código com `cargo run --bin calculator`. Você não deve ver erros.
 - `null`
 
 ## 15
 
 ### --description--
 
-You want to add your surname (second name) to `name`.
+Você quer adicionar o sobrenome (segundo nome) a `name`.
 
-There are many ways to do this in Rust. If you try to just concatenate `" Surname"` to `&first_name`, Rust will error, because you cannot concatenate to a referenced value.
+Há muitas maneiras de fazer isto em Rust. Se você tentar concatenar `" Surname"` com `&first_name`, o Rust retornará um erro, porque você não pode fazer concatenação com um valor referenciado.
 
-You could remove the &, but then the second `println!` will cause the program to panic.
+Você pode remover o &, mas então o segundo `println!` causará problemas ao programa.
 
-In order to concatenate a reference to a `str (&str)`, the first argument needs to be owned. A `String` can be used as an owned value with the `to_owned` method:
+Para concatenar uma referência com um `str (&str)`, o primeiro argumento precisa ter um dono. Uma `String` pode ser usada como um valor que possui um dono, com o método `to_owned`:
 
 ```rust
     let owned_string = my_string.to_owned() + " Surname";
 ```
 
-Task: Instead of moving `first_name`, turn it into an owned value, and concatenate your surname to it - assigning the result to `name`.
+Tarefa: ao invés de mover `first_name`, transforme-o em um valor que possui dono, e concatene o sobrenome com ele - atribua o resultado em `name`.
 
-Run your code. If it compiles and prints the two lines, you have completed the lesson correctly. If not, use the output to debug and fix your code.
+Execute o código. Se ele compilar e mostrar as duas linhas, você completou a lição corretamente. Se não, use o resultado mostrado para debugar e modificar o código.
 
 ### --seed--
 
@@ -478,25 +478,25 @@ fn main() {
 
 ### --tests--
 
-- You should turn `first_name` into an owned value with `.to_owned()`.
+- Você deve transformar `first_name` em um valor que possui dono com `.to_owned()`.
 - `first_name\.to_owned\(\)`
-- You should concatenate your surname to the owned `first_name`.
+- Você deve concatenar seu sobrenome ao `first_name` que possui dono.
 - `first_name\.to_owned\(\)\s*\+\s*"[\s\w]+"`
 
 ## 16
 
 ### --description--
 
-A more idiomatic way to make use of the `String` type, is by using the `push_str` method:
+Uma maneira mais idiomática de fazer uso do tipo `String` é usando o método `push_str`:
 
 ```rust
     let mut my_string = String::from("String");
     my_string.push_str("a str");
 ```
 
-Task: Delete `name` as well as the first `println!` call. Then, use the `push_str` method on `first_name` to append your surname.
+Tarefa: exclua `name` e a primeira chamada de `println!`. Em seguida, use o método `push_str` no `first_name` para anexar seu sobrenome.
 
-You can see if you completed the lesson correctly by running:
+Você pode ver se você concluiu a lição corretamente executando:
 
 ```bash
     $ fcc test 16
@@ -516,16 +516,16 @@ fn main() {
 
 ### --tests--
 
-- You should use the `.push_str()` method.
+- Você deve usar o método `.push_str()`.
 - `\.push_str\(`
-- You should push your surname to `first_name`.
+- Você deve mover seu sobrenome para `first_name`.
 - `first_name\.push_str\(\s*"[\s\w]+"\s*\)`
 
 ## 17
 
 ### --description--
 
-Task: Run your code. It should error out.
+Tarefa: execute o seu código. Deve dar erro.
 
 ### --seed--
 
@@ -540,22 +540,22 @@ fn main() {
 
 ### --tests--
 
-- You should use the `.push_str()` method.
+- Você deve usar o método `.push_str()`.
 - `\.push_str\(`
-- You should push your surname to `first_name`.
+- Você deve mover seu sobrenome para `first_name`.
 - `first_name\.push_str\(\s*"[\s\w]+"\s*\)`
-- You should make `first_name` mutable with `let mut first_name = ...`
+- Você deve tornar `first_name` mutável com `let mut first_name = ...`
 - `let\s+mut\s+first_name\s*=`
 
 ## 18
 
 ### --description--
 
-Your code errored out, because `first_name` is not _mutable._
+Seu código apresentou erro, porque `first_name` não é _mutável._
 
-Task: Use the hints from the compiler to make `first_name` mutable.
+Tarefa: use as dicas do compilador para tornar `first_name` mutável.
 
-You can see if you completed the lesson correctly by running:
+Você pode ver se você concluiu a lição corretamente executando:
 
 ```bash
     $ fcc test 18
@@ -574,18 +574,18 @@ fn main() {
 
 ### --tests--
 
-- You should use the `.push_str()` method.
+- Você deve usar o método `.push_str()`.
 - `\.push_str\(`
-- You should push your surname to `first_name`.
+- Você deve mover seu sobrenome para `first_name`.
 - `first_name\.push_str\(\s*"[\s\w]+"\s*\)`
-- You should make `first_name` mutable with `let mut first_name = ...`
+- Você deve tornar `first_name` mutável com `let mut first_name = ...`
 - `let\s+mut\s+first_name\s*=`
 
 ## 19
 
 ### --description--
 
-Task: Run your code again to make sure it compiles without error.
+Tarefa: execute seu código novamente para garantir que ele seja compilado sem erro.
 
 ### --seed--
 
@@ -600,24 +600,24 @@ fn main() {
 
 ### --tests--
 
-- Run your code with `cargo run --bin calculator`. You should see no errors.
+- Execute seu código com `cargo run --bin calculator`. Você não deve ver erros.
 - `null`
 
 ## 20
 
 ### --description--
 
-So far, you have learnt about the `str`, and `String` types, as well as about references. If you have not accidentally used single quotes ('), you may not have noticed that, so far, everything to do with strings use double quotes (").
+Até agora, você aprendeu sobre os tipos `str` e `String`, bem como sobre referências. Se você não tiver usado aspas simples acidentalmente ('), pode não ter notado que, até agora, tudo com strings usa aspas duplas (").
 
-This is because there is a third standard type called `char`.
+Isso ocorre porque há um terceiro tipo de padrão chamado `char`.
 
-A `char` is a _USV (Unicode Scalar Value),_ which is represented in unicode with values like `U+221E` - the unicode for '∞'.
+Um `char` é um _USV (Valor Escalar Unicode),_ que é representado em unicode com valores como `U+221E` - o unicode de '∞'.
 
-Strings can be thought of as collections or arrays of `char`s.
+Strings podem ser consideradas coleções ou arrays de `char`s.
 
-Task: Remove all of your code from within your `main` function. Then, declare a new variable `first`, and assign it the first letter of your first name - `first` should be type `&str`.
+Tarefa: remova todo o código de dentro da função `main`. Então, declare uma nova variável `first`, e atribua a ela a primeira letra do seu nome - `first` deve ser do tipo `&str`.
 
-You can see if you completed the lesson correctly by running:
+Você pode ver se você concluiu a lição corretamente executando:
 
 ```bash
     $ fcc test 20
@@ -636,18 +636,18 @@ fn main() {
 
 ### --tests--
 
-- You should declare a variable named `first`.
+- Você deve declarar uma variável chamada `first`.
 - `let\s+first`
-- You should assign `first` a single character in double quotes.
+- Você deve atribuir a `first` um único caractere entre aspas duplas.
 - `first\s*=\s*"\w"`
 
 ## 21
 
 ### --description--
 
-Task: Print to the console the value of the `.len()` method on `first` and the value of `first.chars().count()`.
+Tarefa: mostre no console o valor do método `.len()` com `first` e o valor de `first.chars().count()`.
 
-Run your code to see the output. If it runs and prints `'1 1'`, you have correctly completed the lesson.
+Execute seu código para ver o resultado mostrado. Se ele executar e mostrar `'1 1'`, você completou a lição corretamente.
 
 ### --seed--
 
@@ -660,20 +660,20 @@ fn main() {
 
 ### --tests--
 
-- You should print the length of `first` and the number of characters in `first`. Example Output: `1 1`
+- Você deve mostrar o comprimento de `first` e o número de caracteres em `first`. Exemplo de resultado: `1 1`
 - `getCommandOutput(\s*1\s*1\s*)`
 
 ## 22
 
 ### --description--
 
-You should see `1 1` output in the console. The `len` method returns the length in bytes for the `str`. The `chars` method returns an iterator over the `char`s in the string slice, and the `count` method returns the number of elements in the iterator.
+Você deve ver `1 1` como resultado no console. O método `len` retorna o comprimento em bytes da `str`. O método `chars` retorna um iterador de `char`s no pedaço de string, e o método `count` retorna o número de elementos no iterador.
 
-Task: Change the value of `first` to be a string slice of the infinity character: ∞
+Tarefa: mude o valor de `first` para que seja um pedaço de string do caractere infinito: ∞
 
-_HINT:_ You can copy-paste the character from the above line
+_DICA:_ você pode copiar e colar o caractere da linha acima
 
-Run your code to see the output. If it runs and prints `'3 1'`, you have correctly completed the lesson.
+Execute seu código para ver o resultado mostrado. Se ele executar e mostrar `'3 1'`, você completou a lição corretamente.
 
 ### --seed--
 
@@ -687,18 +687,18 @@ fn main() {
 
 ### --tests--
 
-- You should change the value of `first` to be a string slice of `∞`.
+- Você deve mudar o valor de `first` para que seja um pedaço de string de `∞`.
 - `first\s*=\s*"∞"`
-- Your code should print `3 1`.
+- O código deve mostrar `3 1`.
 - `getCommandOutput(\s*3\s*1\s*)`
 
 ## 23
 
 ### --description--
 
-You should see `3 1` output in the console. This is because the `'∞'` char takes up 3 bytes in length.
+Você deve ver `3 1` como resultado no console. O motivo é o fato de o caractere `'∞'` ocupar 3 bytes de comprimento.
 
-Task: Feel free to play around with these new methods, as well as get an idea of what values different strings produce.
+Tarefa: sinta-se à vontade para brincar com esses novos métodos e veja valores diferentes as strings produzem.
 
 ### --seed--
 
@@ -712,22 +712,22 @@ fn main() {
 
 ### --tests--
 
-- There are no tests for this lesson.
+- Não há testes para esta lição.
 - `null`
 
 ## 24
 
 ### --description--
 
-From this lesson on, you will be writing your code with _TDD Test Driven Development_ in mind. That is, you will need to write your code to pass the existing tests, as well as write some tests to pass yourself.
+A partir desta lição, você escreverá o código com _TDD - desenvolvimento orientado a testes_ em mente. Ou seja, você terá que escrever códigos que passem nos testes existentes e também escrever alguns testes por conta própria.
 
-Task: Run the following command to initialise your code with tests for the next lesson:
+Tarefa: execute o seguinte comando para inicializar o código com testes para a próxima lição:
 
 ```bash
     $ fcc reset 24
 ```
 
-You can see if you completed the lesson correctly by running:
+Você pode ver se você concluiu a lição corretamente executando:
 
 ```bash
     $ fcc test 24
@@ -751,26 +751,26 @@ mod tests {
 
 ### --tests--
 
-- You should have run the command `fcc reset 15`.
+- Você deve ter executado o comando `fcc reset 15`.
 - `mod tests`
 
 ## 25
 
 ### --description--
 
-Already included is the basic setup for tests. The `#[]` syntax above a declaration is how _attributes_ are added in Rust.
+O que já estiver incluído é a configuração básica para os testes. A sintaxe `#[]` acima de uma declaração é como os _atributos_ são adicionados no Rust.
 
-`cfg(test)` configures the `test` trait to the below declaration, and the `#[test]` syntax declares which functions are to be run as tests.
+`cfg(test)` configura `test` para a declaração abaixo. A sintaxe `#[test]` declara quais funções devem ser executadas como testes.
 
-Task: At the top of the script, add a function named `main`. Then, at the top of the `tests` module, import the `main` function, using this syntax:
+Tarefa: na parte superior do script, adicione uma função chamada `main`. Então, na parte superior do módulo `tests`, importe a função `main` usando esta sintaxe:
 
 ```rust
     use crate::main;
 ```
 
-The `use` keyword, in Rust, is similar to 'import', 'require', or 'include' as in other languages.
+A palavra-chave `use`, no Rust, é similar a 'import', 'require' ou 'include' em outras linguagens.
 
-You can see if you completed the lesson correctly by running:
+Você pode ver se você concluiu a lição corretamente executando:
 
 ```bash
     $ cargo test --bin calculator
@@ -793,18 +793,18 @@ mod tests {
 
 ### --tests--
 
-- There are no Node tests for this lesson
+- Não há testes de Node para esta lição
 - `null`
 
 ## 26
 
 ### --description--
 
-As you might notice from the tests, functions without explicit returns return an empty `tuple`. Tuples are represented with parentheses () - why the test asserts the return of `main` is `()`.
+Como você já deve ter notado, nos testes, funções sem retornos explícitos retornam uma `tuple` (tupla) vazia. Tuplas são representadas com parênteses () - o motivo de o teste avaliar o retorno de `main` é a existência desses `()`.
 
-There are two ways to return. Using the `return` keyword, or by leaving off the semi-colon.
+Há duas maneiras de retornar. Usando a palavra-chave `return` ou não colocando o ponto e vírgula.
 
-Functions returning anything other than an empty tuple need to be explicitly typed:
+Funções retornando qualquer coisa diferente de uma tupla vazia precisam ser explicitamente tipadas:
 
 ```rust
     fn my_func() -> String {
@@ -813,13 +813,13 @@ Functions returning anything other than an empty tuple need to be explicitly typ
     }
 ```
 
-_Note:_ The above has been explicitly typed, for clarity.
+_Observação:_ a função acima foi explicitamente tipada, para ficar claro.
 
-Task: Pass the test, by returning `24` from `main`, and type the return of the function with the type `usize`.
+Tarefa: passe no teste, retornando `24` da `main` e forneça o tipo de retorno da função como `usize`.
 
-`usize` is the default type for a positive integer. The u stands for _unsigned,_ and size describes the bit-size of the system. This is commonly either 64- or 32- bit systems.
+`usize` é o tipo padrão para um número inteiro positivo. O u significa _unsigned_ (sem sinal), enquanto size (tamanho) descreve o tamanho em bits do sistema. Comumente, são sistemas de 64 ou 32 bits.
 
-You can see if you completed the lesson correctly by running:
+Você pode ver se você concluiu a lição corretamente executando:
 
 ```bash
     $ cargo test --bin calculator
@@ -845,26 +845,26 @@ mod tests {
 
 ### --tests--
 
-- There are no Node tests for this lesson
+- Não há testes de Node para esta lição
 - `null`
 
 ## 27
 
 ### --description--
 
-There are many types of number, in Rust:
+Há muitos tipos de número, no Rust:
 
-    - Unsigned Integers: `u8`, `u16`, `u32`, `u64`, `usize`, `u128`
-    - Signed Integer: `i8`, `i16`, `i32`, `i64`, `isize`, `i128`
+    - Inteiros sem sinal: `u8`, `u16`, `u32`, `u64`, `usize`, `u128`
+    - Inteiros com sinal: `i8`, `i16`, `i32`, `i64`, `isize`, `i128`
     - Float: `f32`, `f64`
 
-Unsigned integers only represent positive whole numbers. Signed integers represent both positive and negative whole numbers. Floats only represent positive and negative fractions.
+Inteiros sem sinal apenas representam números positivos inteiros. Inteiros com sinal representam números inteiros positivos e negativos. Floats apenas representam frações positivas e negativas.
 
-Task: Pass the tests, by changing the number and return type of the `main` function.
+Tarefa: passe nos testes mudando o número e o tipo de retorno da função `main`.
 
-_NOTE:_ The first test includes the `should_panic` trait. This means, the code should error out.
+_Observação:_ o primeiro teste inclui a característica `should_panic`. Isso significa que o código deve mostrar erro.
 
-You can see if you completed the lesson correctly by running:
+Você pode ver se você concluiu a lição corretamente executando:
 
 ```bash
     $ cargo test --bin calculator
@@ -895,37 +895,37 @@ mod tests {
 
 ### --tests--
 
-- There are no Node tests for this lesson
+- Não há testes de Node para esta lição
 - `null`
 
 ## 28
 
 ### --description--
 
-You want your calculator to be used on the command line like:
+Você quer que sua calculadora seja usada na linha de comando como:
 
 ```bash
     $ calculator <first_number> <operator> <second_number>
 ```
 
-With an output like:
+Com uma saída como:
 
 ```bash
     $ <first_number> <operator> <second_number> = <result>
 ```
 
-Example:
+Exemplo:
 
 ```bash
     $ calcualtor 1 + 1
     $ 1 + 1 = 2
 ```
 
-Task: Create a new function named `output` which accepts 4 arguments. The first, third, and fourth arguments should be signed integers, and the second argument should be a `char`.
+Tarefa: crie uma função chamada `output`, que aceite 4 argumentos. O primeiro, o terceiro e o quatro argumentos devem ser inteiros signed, enquanto o segundo argumento deve ser um `char`.
 
-_HINT:_ Do not forget to import the new function into the tests module.
+_DICA:_ não se esqueça de importar a nova função no módulo de testes.
 
-Here is an example function with typed arguments:
+Aqui está um exemplo de uma função com argumentos tipados:
 
 ```rust
     fn example(first_arg: usize, second_arg: String) -> &str {
@@ -933,7 +933,7 @@ Here is an example function with typed arguments:
     }
 ```
 
-You can see if you completed the lesson correctly by running:
+Você pode ver se você concluiu a lição corretamente executando:
 
 ```bash
     $ cargo test --bin calculator
@@ -974,24 +974,24 @@ mod tests {
 
 ### --tests--
 
-- There are no Node tests for this lesson
+- Não há testes de Node para esta lição
 - `null`
 
 ## 29
 
 ### --description--
 
-Now, to get `output` to return the correct output, you are going to use the format macro.
+Agora, para `output` retornar o resultado correto, você usará o formato macro.
 
-The `format!` macro works almost identically to the `println!` macro, you have been using. Except, instead of printing the output to the console, it returns the output as a `String`.
+A macro `format!` funciona quase do mesmo jeito que a macro `println!`, que você está usando. A diferença é que, ao invés de mostrar o resultado no console, ela retornará o resultado como uma `String`.
 
-Task: Use the `format!` macro to return an output following this format:
+Tarefa: use a macro `format!` para retornar um resultado seguindo este formato:
 
 ```bash
     <first_number> <operator> <second_number> = <result>
 ```
 
-You can see if you completed the lesson correctly by running:
+Você pode ver se você concluiu a lição corretamente executando:
 
 ```bash
     $ cargo test --bin calculator
@@ -1033,16 +1033,16 @@ mod tests {
 
 ### --tests--
 
-- There are no Node tests for this lesson
+- Não há testes de Node para esta lição
 - `null`
 
 ## 30
 
 ### --description--
 
-Task: Within the `main` function, print to the console the result of calling `output` with any valid arguments.
+Tarefa: dentro da função `main`, mostre no console o resultado que `output` retorna ao ser chamado com argumentos válidos.
 
-You can see if you completed the lesson correctly by running:
+Você pode ver se você concluiu a lição corretamente executando:
 
 ```bash
     $ fcc test 30
@@ -1082,18 +1082,18 @@ mod tests {
 
 ### --tests--
 
-- You should print to the console any valid output.
+- Você deve imprimir no console qualquer saída válida.
 - `getCommandOutput(-?\d+ [\+\-\*\\\/xX] -?\d+ = -?\d)`
 
 ## 31
 
 ### --description--
 
-Task: Within the `main` function, declare three variables: `first_number`, `operator`, and `second_number`.
+Tarefa: dentro da função `main`, declare três variáveis: `first_number`, `operator` e `second_number`.
 
-Then, assign them valid values, and pass them as arguments within the `output` call.
+Então, atribua a elas valores válidos e as passe como argumentos ao chamar `output`.
 
-You can see if you completed the lesson correctly by running:
+Você pode ver se você concluiu a lição corretamente executando:
 
 ```bash
     $ fcc test 31
@@ -1134,26 +1134,26 @@ mod tests {
 
 ### --tests--
 
-- You should declare a variable named `first_number`.
+- Você deve declarar uma variável chamada `first_number`.
 - `let first_number`
-- You should declare a variable named `second_number`.
+- Você deve declarar uma variável chamada `second_number`.
 - `let second_number`
-- You should declare a variable named `operator`.
+- Você deve declarar uma variável chamada `operator`.
 - `let operator`
-- You should call `output` with the variables you just declared.
+- Você deve chamar `output` com as variáveis que você acabou de declarar.
 - `output\(\s*first_number\s*,\s*operator\s*,\s*second_number`
 
 ## 32
 
 ### --description--
 
-You may have noticed what is printed to the console is not correct. You need to perform an operation on the input numbers, to fix this.
+Você talvez tenha notado que o que é mostrado no console está errado. Você precisa fazer uma operação nos números fornecidos, para corrigir isso.
 
-Task: Declare a new function named `operate` which accepts, in order, the `operator`, `first_number`, and `second_number`.
+Tarefa: declare uma nova função nomeada `operate` que aceita, em ordem, `operator`, `first_number` e `second_number`.
 
-_HINT:_ Remember to import the function into the `tests` module.
+_DICA:_ lembre-se de importar a função no módulo `tests`.
 
-You can see if you completed the lesson correctly by running:
+Você pode ver se você concluiu a lição corretamente executando:
 
 ```bash
     $ cargo test --bin calculator
@@ -1206,18 +1206,18 @@ mod tests {
 
 ### --tests--
 
-- There are no Node tests for this lesson
+- Não há testes de Node para esta lição
 - `null`
 
 ## 33
 
 ### --description--
 
-You want to be able to perform the four basic operations: addition, subtraction, division, and multiplication.
+Você quer ser capaz de executar as quatro operações básicas: adição, subtração, divisão e multiplicação.
 
-Task: Use multiple `if` statements to compare the cases where `operator` is one of: `'+' '-' '*' '/'`
+Tarefa: use múltiplas declarações `if` para comparar os casos onde `operator` é um desses: `'+' '-' '*' '/'`
 
-An `if` statement follows this syntax:
+Uma declaração `if` segue esta sintaxe:
 
 ```rust
     if my_var == "my str" {
@@ -1229,11 +1229,11 @@ An `if` statement follows this syntax:
     }
 ```
 
-Task: Return the result of the operation on `first_number` and `second_number`, to pass the tests.
+Tarefa: retorne o resultado da operação com `first_number` e `second_number` para passar nos testes.
 
-_HINT:_ Remember to include an `else` clause.
+_DICA:_ lembre-se de incluir uma declaração `else`.
 
-You can see if you completed the lesson correctly by running:
+Você pode ver se você concluiu a lição corretamente executando:
 
 ```bash
     $ cargo test --bin calculator
@@ -1308,20 +1308,20 @@ mod tests {
 
 ### --tests--
 
-- There are no Node tests for this lesson
+- Não há testes de Node para esta lição
 - `null`
 
 ## 34
 
 ### --description--
 
-Instead of returning a result of `0`, when an invalid operator is used, it might make more sense to panic the application.
+Ao invés de retornar um resultado `0`, quando um operador inválido é utilizado, pode fazer mais sentido fazer a aplicação entrar em pânico.
 
-The `panic!` macro does just that, and it accepts a reference to a string slice as an argument, which can contain a message to panic with.
+A macro `panic!` faz isso. Ela aceita uma referência para o pedaço de string como argumento, que pode conter uma mensagem de pânico.
 
-Task: Panic from your code, when an invalid operator is used.
+Tarefa: crie pânico no seu código, quando um operador inválido é usado.
 
-You can see if you completed the lesson correctly by running:
+Você pode ver se você concluiu a lição corretamente executando:
 
 ```bash
     $ cargo test --bin calculator
@@ -1406,16 +1406,16 @@ mod tests {
 
 ### --tests--
 
-- There are no Node tests for this lesson
+- Não há testes de Node para esta lição
 - `null`
 
 ## 35
 
 ### --description--
 
-Instead of many `if...else` statements, you can improve your code's readability and usability with Rust's `match` control flow. The `match` operator is similar to many languages' `switch` statement. However, it allows pattern matching.
+Em vez de muitas declarações `if...else`, você pode melhorar a legibilidade e a usabilidade do seu código com o fluxo de controle `match` do Rust. O operador `match` é similar a declaração `switch` de outras linguagens. Porém, ele permite checar se um padrão corresponde a outro.
 
-A contrived example of an expression using the `match` operator:
+Um exemplo inventado de uma expressão usando o operador `match`:
 
 ```rust
     let some_variable = 't';
@@ -1426,11 +1426,11 @@ A contrived example of an expression using the `match` operator:
     }
 ```
 
-As `'t'` does not match `'a'` or `'b'`, the expression returns `'Z'`, following the base-case denoted by the underscore.
+Como `'t'` não corresponde a `'a'` ou `'b'`, a expressão retorna `'Z'`, seguindo o caso base denotado pela sublinha.
 
-Task: Convert the if/else logic within `operate` to use the `match` operator.
+Tarefa: converta a lógica de if/else dentro de `operate` para o operador `match`.
 
-You can see if you completed the lesson correctly by running:
+Você pode ver se você concluiu a lição corretamente executando:
 
 ```bash
     $ fcc test 35
@@ -1515,18 +1515,18 @@ mod tests {
 
 ### --tests--
 
-- You should use the `match` operator.
+- Você deve usar o operador `match`.
 - `match`
-- You should still pass all tests.
+- Você ainda deve passar nos testes.
 - `getTestOutput(7 passed)`
 
 ## 36
 
 ### --description--
 
-You should be able to use the calculator with an input like: `calculator 3 x 3`
+Você deve ser capaz de usar a calculadora com um valor de entrada assim: `calculator 3 x 3`
 
-A `match` pattern can be extended using bit-wise logic like this:
+Um padrão de `match` pode ser estendido usando uma lógica bit-wise como esta:
 
 ```rust
     match name {
@@ -1536,11 +1536,11 @@ A `match` pattern can be extended using bit-wise logic like this:
     }
 ```
 
-With a `name` of `"Nich"`, the second `match` _arm_ would be matched.
+Com `name` sendo `"Nich"`, o segundo `match` _arm_ terá correspondência.
 
-Task: Extend the multiplication arm in the `match` operator to match on `operator` values of `'x'` and `'X'`.
+Tarefa: extenda a multiplicação com o operador `match` para corresponder aos valores de `operator` `'x'` e `'X'`.
 
-You can see if you completed the lesson correctly by running:
+Você pode ver se você concluiu a lição corretamente executando:
 
 ```bash
     $ cargo test --bin calculator
@@ -1631,18 +1631,18 @@ mod tests {
 
 ### --tests--
 
-- You should use an `|` operator.
+- Você deve usar o operador `|`.
 - `|`
 
 ## 37
 
 ### --description--
 
-Currently, the `result` argument for `output` is hard-coded.
+Atualmente, o argumento `result` para `output` está dentro do código.
 
-Task: Within `main`, declare a new variable named `result`, and assign it a value of calling `operate` with the first three variables. Then, pass `result` as the fourth argument to `output`.
+Tarefa: dentro de `main`, declare uma nova variável nomeada `result` e atribua nela um valor chamado `operate` com as primeiras três variáveis. Então, passe `result` como o quarto argumento para `output`.
 
-You can see if you completed the lesson correctly by running:
+Você pode ver se você concluiu a lição corretamente executando:
 
 ```bash
     $ fcc test 37
@@ -1733,28 +1733,28 @@ mod tests {
 
 ### --tests--
 
-- You should declare a new variable `result`
+- Você deve declarar uma nova variável `result`
 - `let\s+result`
-- Your code should print `1 - 10 = -9` to the console.
+- O código deve mostrar `1 - 10 = -9` no console.
 - `getCommandOutput(1 - 10 = -9)`
 
 ## 38
 
 ### --description--
 
-You want this application to read values from command line arguments. Rust's standard library has an environment module which provides access to arguments passed through the CLI.
+Você quer que esta aplicação leia valores dos argumentos da linha de comando. A biblioteca padrão do Rust possui um módulo de ambiente que fornece acesso aos argumentos passados através da linha de comando.
 
-Modules in the standard library are accessed using the following syntax:
+Módulos na biblioteca padrão são acessados usando a seguinte sintaxe:
 
 ```rust
     use std::*;
 ```
 
-This imports all modules within the standard library. However, you only need one.
+Isso importará todos os módulos dentro da biblioteca padrão. No entanto, só é necessário um.
 
-Task: At the root of the script, use the above syntax to import only the env module from the standard library.
+Tarefa: na raíz do script, use a sintaxe acima para importar apenas o módulo env da biblioteca padrão.
 
-You can see if you completed the lesson correctly by running:
+Você pode ver se você concluiu a lição corretamente executando:
 
 ```bash
     $ fcc test 38
@@ -1849,20 +1849,20 @@ mod tests {
 
 ### --tests--
 
-- You should add `use std::env;` to the top of your script.
+- Você deve adicionar `use std::env;` ao topo do seu script.
 - `use\s+std::env\s*;`
 
 ## 39
 
 ### --description--
 
-Now that the `env` module has been brought into scope, you can reference its Structs, Enums, and Functions.
+Agora que o módulo `env` foi importado, você pode usar suas estruturas, enums e funções.
 
-Task: At the top of `main` declare a new variable named `args`, and assign it the value of calling the `args` function, which exists within the `env` module.
+Tarefa: na parte superior de `main`, declare uma nova variável chamada `args` e atribua o valor resultante da função `args`, que existe no módulo `env`.
 
-_HINT:_ Remember, accessing a function within a module uses the `'::'` syntax.
+_DICA:_ lembre-se de que, para acessar uma função dentro de um módulo, usamos a sintaxe `'::'`.
 
-You can see if you completed the lesson correctly by running:
+Você pode ver se você concluiu a lição corretamente executando:
 
 ```bash
     $ fcc test 39
@@ -1959,20 +1959,20 @@ mod tests {
 
 ### --tests--
 
-- You should declare a new variable named `args`
+- Você deve declarar uma nova variável chamada `args`
 - `let\s+args`
-- You should assign `args` a value of `env::args()`
+- Você deve atribuir para `args` um valor de `env::args()`
 - `=\s*env::args\(\)`
 
 ## 40
 
 ### --description--
 
-Task: To get an idea of what `args` contains, print its value to the console.
+Tarefa: para saber o que `args` contém, mostre seu valor no console.
 
-_HINT:_ Remember, follow the compiler's helpful advice, if you are struggling to print the value.
+_DICA:_ lembre-se de seguir os conselhos do compilador, se você estiver com dificuldades para mostrar o valor.
 
-You can see if you completed the lesson correctly by running:
+Você pode ver se você concluiu a lição corretamente executando:
 
 ```bash
     $ fcc test 40
@@ -2069,16 +2069,16 @@ mod tests {
 
 ### --tests--
 
-- Running `cargo run --bin calculator` should print: `Args { inner: ["target/debug/calculator"] }`
+- Executar `cargo run --bin calculator` deve mostrar: `Args { inner: ["target/debug/calculator"] }`
 - `getCommandOutput("target/debug/calculator")`
 
 ## 41
 
 ### --description--
 
-Without passing any arguments when running the crate, the value of `args` still contains one argument - the relative path of the binary.
+Sem passar nenhum argumento quando executar a crate, o valor de `args` ainda contém um argumento - o caminho do binário.
 
-Task: See the different values of `args` by running commands like:
+Tarefa: veja os diferentes valores de `args` executando comandos como:
 
 ```bash
     $ cargo run --bin calculator -- 1 + 2
@@ -2176,20 +2176,20 @@ mod tests {
 
 ### --tests--
 
-- There are no Node tests for this lesson.
+- Não há testes de Node para esta lição.
 - `null`
 
 ## 42
 
 ### --description--
 
-In order to access a specific argument in `args`, you can use the `nth` method. The `nth` method accepts one numeric argument (n) to access the next 'nth' argument - using 0-based indexing.
+Para acessar um argumento específico de `args`, você pode usar o método `nth`. O método `nth` aceita um argumento numérico (n) para acessar o próximo argumento 'nth' - usando uma indexação baseada em 0.
 
-Task: Change the `args` println to print the first argument to the console.
+Tarefa: altere o println de `args` para mostrar o primeiro argumento no console.
 
-_HINT:_ Remember to follow the compiler's helpful advice, if you get stuck.
+_DICA:_ lembre-se de seguir os conselhos do compilador, se você estiver com dificuldades.
 
-You can see if you completed the lesson correctly by running:
+Você pode ver se você concluiu a lição corretamente executando:
 
 ```bash
     $ fcc test 42
@@ -2287,20 +2287,20 @@ mod tests {
 
 ### --tests--
 
-- You should access the first (`0`) element of the `env::args()` iterator.
+- Você deve acessar o primeiro elemento (`0`) do iterador `env::args()`.
 - `args\.nth\(0\)`
-- You should declare `args` as mutable with `let mut args =...`
+- Você deve declarar `args` como mutável com `let mut args =...`
 - `let\s+mut\s+args`
 
 ## 43
 
 ### --description--
 
-If you followed the compiler's advice, in the previous lesson, you needed to declare `args` as mutable. This is because the `nth` method mutably iterates over the elements.
+Se você seguiu o conselho do compilador, na lição anterior, você precisava declarar `args` como mutável. O motivo é o método `nth` iterar de modo mutável pelos elementos.
 
-Task: Remove the println for 'args'. Then, change `first_number`, `operator`, and `second_number` to be equal to the first, second, and third `args` respectfully.
+Tarefa: remova o println de 'args'. Então, mude `first_number`, `operator` e `second_number` para que sejam iguais aos primeiro, segundo e terceiro `args`, respectivamente.
 
-You can see if you completed the lesson correctly by running:
+Você pode ver se você concluiu a lição corretamente executando:
 
 ```bash
     $ fcc test 43
@@ -2398,39 +2398,39 @@ mod tests {
 
 ### --tests--
 
-- You should assign `args.nth(0)` to `first_number`.
+- Você deve atribuir `args.nth(0)` a `first_number`.
 - `let\s+first_number\s*=\s*args\.nth\(0\)`
-- You should assign `args.nth(1)` to `operator`.
+- Você deve atribuir `args.nth(1)` a `operator`.
 - `let\s+operator\s*=\s*args\.nth\(1\)`
-- You should assign `args.nth(2)` to `second_number`.
+- Você deve atribuir `args.nth(2)` a `second_number`.
 - `let\s+second_number\s*=\s*args\.nth\(2\)`
 
 ## 44
 
 ### --description--
 
-Some code has been commented out, so that the program compiles.
+Uma parte do código foi comentada para que o programa seja compilado.
 
-If you run the code now, you will see the output contains:
+Se você executar o código agora, verá que o resultado contém:
 
 ```bash
     $ Some("target/debug/calculator"), None, None
 ```
 
-This is because `nth` does not return the value directly, but, instead, returns the value wrapped in an `Option`.
+Isso ocorre porque `nth` não retorna o valor diretamente. Em vez disso, é retornado o valor encapsulado em uma `Option`.
 
-An `Option` is a type that includes either `Some` wrapped around a value, or `None` if the value does not exist.
+Uma `Option` é um tipo que inclui `Some`, em torno de um valor, ou `None`, se o valor não existe.
 
-In order to use the value wrapped in `Some`, the `Option` can be _unwrapped:_
+Para usar o valor envolvido por `Some`, a `Option` pode estar _sem invólucro:_
 
 ```rust
     let my_option: Option<String> = env::args().nth(0);
     let my_value: String = my_option.unwrap();
 ```
 
-Task: Unwrap the `first_number`, `operator`, and `second_number` variables at their declaration, and run your code to see what happens.
+Tarefa: remova as variáveis `first_number`, `operator` e `second_number` do invólucro na declaração e execute seu código para ver o que acontece.
 
-You can see if you completed the lesson correctly by running:
+Você pode ver se você concluiu a lição corretamente executando:
 
 ```bash
     $ fcc test 44
@@ -2528,32 +2528,32 @@ mod tests {
 
 ### --tests--
 
-- You should unwrap `first_number` with `args.nth(0).unwrap()`.
+- Você deve remover `first_number` de seu invólucro, com `args.nth(0).unwrap()`.
 - `let\s+first_number\s*=\s*args\.nth\(0\)\.unwrap\(\)`
-- You should unwrap `operator` with `args.nth(1).unwrap()`.
+- Você deve remover `operator` de seu invólucro, com `args.nth(1).unwrap()`.
 - `let\s+operator\s*=\s*args\.nth\(1\)\.unwrap\(\)`
-- You should unwrap `second_number` with `args.nth(2).unwrap()`.
+- Você deve remover `second_number` de seu invólucro, com `args.nth(2).unwrap()`.
 - `let\s+second_number\s*=\s*args\.nth\(2\)\.unwrap\(\)`
 
 ## 45
 
 ### --description--
 
-Currently, running the application with:
+Atualmente, ao executar a aplicação com:
 
 ```bash
     $ cargo run --bin calculator
 ```
 
-Causes a panic. This is because trying to unwrapping a value where `None` exists is undefined behaviour.
+Causa um pânico. Isso é porque tentar remover o invólucro de um valor onde `None` existe é um comportamento indefinido.
 
-There are ways to handle errors more gracefully, but, for now, be sure to call your application with enough arguments:
+Existem maneiras de lidar com erros de forma mais tranquila. Por enquanto, certifique-se de chamar a aplicação com argumentos suficientes:
 
 ```bash
     $ cargo run --bin calculator -- 1 + 2
 ```
 
-Task: Run your code again, but keep adding arguments after the '--', until there is no panic.
+Tarefa: execute o código de novo, mas continue adicionando argumentos depois de '--', até não haver mais pânico.
 
 ### --seed--
 
@@ -2642,20 +2642,20 @@ mod tests {
 
 ### --tests--
 
-- There are no Node tests for this lesson.
+- Não há testes de Node para esta lição.
 - `null`
 
 ## 46
 
 ### --description--
 
-Currently, 5 arguments are needed, to prevent the application from panicking. It looks like you are only trying to unwrap the 3rd element, though?
+Atualmente, 5 argumentos são necessários para evitar a chamada de pânico. Parece que você só está tentando remover o terceiro elemento do invólucro?
 
-Actually, due to `nth` mutably iterating over `args`, after accessing the first element, it is removed. So, trying to access the second element afterwards is equivalent to having originally tried to access the third.
+Na verdade, devido ao `nth` iterar de modo mutável em `args`, depois de acessar o primeiro elemento, ele é removido. Então, tentar acessar o segundo elemento depois é equivalente a ter tentado acessar o terceiro.
 
-Task: Change the arguments passed to `nth` so that the correct elements are accessed. Running `cargo run --bin calculator -- 1 + 2` should output: "1", "+", "2"
+Tarefa: mude os argumentos passados para `nth`. Assim, os elementos corretos são acessados. Executar `cargo run --bin calculator -- 1 + 2` deve ter o resultado: "1", "+", "2"
 
-_HINT:_ Remember, the first element is the relative path to the binary - not the first_number.
+_DICA:_ lembre-se de que o primeiro elemento é o caminho relativo para o binário - não para first_number.
 
 ### --seed--
 
@@ -2744,24 +2744,24 @@ mod tests {
 
 ### --tests--
 
-- There are no Node tests for this lesson.
+- Não há testes de Node para esta lição.
 - `null`
 
 ## 47
 
 ### --description--
 
-It can be useful to explicitly annotate your variables' types. You have already seen examples of this, but here is one more:
+Pode ser útil anotar explicitamente os tipos das variáveis. Você já viu exemplos disso, mas aqui está mais um:
 
 ```rust
     let my_var: &str = "Mrugesh";
 ```
 
-Task: Type-annotate your `args`, `first_number`, `operator`, and `second_number` variables.
+Tarefa: anote os tipos das variáveis `args`, `first_number`, `operator` e `second_number`.
 
-_HINT:_ Give something the incorrect type, and follow the compiler's advice to correct it. You will need to import a type from the `env` module.
+_DICA:_ escreva o tipo incorreto em alguma e siga o conselho do compilador para corrigir. Você precisará importar um tipo do módulo `env`.
 
-You can see if you completed the lesson correctly by running:
+Você pode ver se você concluiu a lição corretamente executando:
 
 ```bash
     $ fcc test 47
@@ -2854,32 +2854,32 @@ mod tests {
 
 ### --tests--
 
-- You should import the `Args` struct from the `std::env` module with `use std::env::Args`.
+- Você deve importar a estrutura `Args` do módulo `std::env` com `use std::env::Args`.
 - `use\s+std::env::Args`
-- You should annotate `args` with the type `Args`.
+- Você deve anotar `args` com o tipo `Args`.
 - `let\s+mut\s+args:\s*Args`
-- You should annotate `first_number` with the type `String`.
+- Você deve anotar `first_number` com o tipo `String`.
 - `let\s+first_number:\s*String`
-- You should annotate `operator` with the type `String`.
+- Você deve anotar `operator` com o tipo `String`.
 - `let\s+operator:\s*String`
-- You should annotate `second_number` with the type `String`.
+- Você deve anotar `second_number` com o tipo `String`.
 - `let\s+second_number:\s*String`
 
 ## 48
 
 ### --description--
 
-Instead of writing unnecessary imports, you can combine them with the following syntax:
+Em vez de escrever importações desnecessárias, você pode combiná-las com a seguinte sintaxe:
 
 ```rust
     use std::env::{var, Vars};
 ```
 
-The above imports the `var` function, and the `Vars` struct from the `env` module, in the standard library.
+O código acima importa a função `var` e a estrutura `Vars` a partir do módulo `env` da biblioteca padrão.
 
-Task: Use one import statement to import both the `args` function, as well as the `Args` struct.
+Tarefa: use um comando de importação para importar tanto a função `args` como a estrutura `Args`.
 
-You can see if you completed the lesson correctly by running:
+Você pode ver se você concluiu a lição corretamente executando:
 
 ```bash
     $ fcc test 48
@@ -2973,18 +2973,18 @@ mod tests {
 
 ### --tests--
 
-- You should combine both imports into a single import statement with `use std::env::{args, Args};`.
+- Você deve combinar as duas importações em uma única declaração de importação com `use std::env::{args, Args};`.
 - `use\s+std::env::\{args, Args\};`
 
 ## 49
 
 ### --description--
 
-Now, you need to fix the issue of `operate` and `output` expecting `i32` and `&str` type inputs.
+Agora, você deve corrigir o problema de `operate` e `output`, esperando tipos de saída `i32` e `&str`.
 
-This can be acheived with the `parse` method, which exists on the `String` type.
+Isso pode ser feito com o método `parse`, que existe no tipo `String`.
 
-The `parse` method converts a `String` into a given type. The type can be given using _turbofish_ syntax:
+O método `parse` converte uma `String` em outro tipo. O tipo pode ser escrito usando a sintaxe _turbofish_:
 
 ```rust
     let my_string_number: String = String::from("Kris");
@@ -2992,9 +2992,9 @@ The `parse` method converts a `String` into a given type. The type can be given 
     let my_number: usize = my_number_option.unwrap();
 ```
 
-Task: Within `main`, declare two new variables - `first` and `second` - and use turbofish syntax to assign the parsed and unwrapped values of `first_number` and `second_number` respectfully. Then, replace `first_number` and `second_number` with `first` and `second` in the `println!` call.
+Tarefa: dentro de `main`, declare duas novas variáveis - `first` e `second` - e use a sintaxe turbofish para atribuir os valores convertidos e sem invólucro de `first_number` e `second_number`, respectivamente. Então, substitua `first_number` e `second_number` por `first` e `second` na chamada de `println!`.
 
-You can see if you completed the lesson correctly by running:
+Você pode ver se você concluiu a lição corretamente executando:
 
 ```bash
     $ fcc test 49
@@ -3089,26 +3089,26 @@ mod tests {
 
 ### --tests--
 
-- You should declare a variable named `first`.
+- Você deve declarar uma variável chamada `first`.
 - `let\s+first`
-- You should declare a variable named `second`.
+- Você deve declarar uma variável chamada `second`.
 - `let\s+second`
-- You should assign `first_number.parse::<i32>().unwrap()` to `first`.
+- Você deve atribuir `first_number.parse::<i32>().unwrap()` para `first`.
 - `first_number\.parse::<i32>\(\)\.unwrap\(\)`
-- You should assign `second_number.parse::<i32>().unwrap()` to `second`.
+- Você deve atribuir `second_number.parse::<i32>().unwrap()` para `second`.
 - `second_number\.parse::<i32>\(\)\.unwrap\(\)`
 
 ## 50
 
 ### --description--
 
-Currently, `operator` is of type `String` when it needs to be `char`. A `String` can be converted into a `char`, using the `chars` method, and unwrapping the first `Option` returned by calling the `next` method.
+Atualmente, `operator` é do tipo `String` e precisa ser `char`. Uma `String` pode ser convertida em `char` usando o método `chars` e removendo a primeira `Option` retornada do invólucro ao chamar o método `next`.
 
-Task: Uncomment the commented-out code, and make the necessary adjustments to allow the code to compile.
+Tarefa: descomente o código comentado e faça os ajustes necessários para permitir a compilação do código.
 
-Be sure to follow the compiler's hints to get the code compiling. Then, remove the first `println!` call so there is only one output.
+Certifique-se de seguir as dicas do compilador para fazer o código compilar. Então, remova o primeiro `println!`, para que haja apenas um resultado.
 
-You can ensure the output is correct by running:
+Você pode garantir que o resultado está correto executando:
 
 ```bash
     $ cargo run --bin calculator -- 1 + -1
@@ -3204,18 +3204,18 @@ mod tests {
 
 ### --tests--
 
-- There are no Node tests for this lesson.
+- Não há testes de Node para esta lição.
 - `null`
 
 ## 51
 
 ### --description--
 
-Currently, the calculator only accepts integers as inputs.
+Atualmente, a calculadora só aceita números inteiros como entrada.
 
-Task: Change all the necessary types to allow the calculator to accept floating point numbers as well.
+Tarefa: altere todos os tipos necessários para permitir que a calculadora aceite também números decimais.
 
-You can see if you completed the lesson correctly by running:
+Você pode ver se você concluiu a lição corretamente executando:
 
 ```bash
     $ cargo test --bin calculator
@@ -3320,22 +3320,22 @@ mod tests {
 
 ### --tests--
 
-- Hint: You should change the types from `i32` to `f32`.
+- Dica: você deve alterar os tipos de `i32` para `f32`.
 - `null`
 
 ## 52
 
 ### --description--
 
-You have completed the code for your binary. Now, you need to compile and ship it to be used.
+Você completou o código do binário. Agora, é necessário compilá-lo e entregá-lo para ser usado.
 
-Task: Run the following command to build your code into a binary:
+Tarefa: execute o seguinte comando para transformar o código em um binário:
 
 ```bash
     $ cargo build --bin calculator
 ```
 
-If you see no errors, you have successfully completed the lesson.
+Se não houver nenhum erro, você completou a lição com sucesso.
 
 ### --seed--
 
@@ -3436,22 +3436,22 @@ mod tests {
 
 ### --tests--
 
-- This is the final lesson. Congrats!
+- Esta é a lição final. Parabéns!
 - `null`
 
 ## 53
 
 ### --description--
 
-Cargo has just compiled your code into the `target/debug` directory.
+Cargo acabou de compilar o código na pasta `target/debug`.
 
-Task: Run your application, using the following command:
+Tarefa: execute a aplicação usando o seguinte comando:
 
 ```bash
     $ target/debug/calculator 1 + 2
 ```
 
-If you see the output `'1 + 2 = 3'` you have successfully completed the lesson.
+Se ver o resultado `'1 + 2 = 3'` você completou a lição com sucesso.
 
 ### --seed--
 
@@ -3552,22 +3552,22 @@ mod tests {
 
 ### --tests--
 
-- This is the final lesson. Congrats!
+- Esta é a lição final. Parabéns!
 - `null`
 
 ## 54
 
 ### --description--
 
-The Rust compiler often compiles with incredible optimisations. However, you need to specify for Cargo to build a _release_ build of your code, in order to get the most out of it.
+O compilador do Rust frequentemente compila com incríveis otimizações. No entanto, você precisa especificar para que Cargo crie uma _versão_ do código, para tirar o máximo proveito dele.
 
-Task: Rebuild your application, this time using the `release` flag:
+Tarefa: transforme a aplicação novamente. Desta vez, use o marcador `release`:
 
 ```bash
     $ cargo build --release --bin calculator
 ```
 
-You should be able to locate your optimised binary within the `target/release` directory.
+Você deve conseguir localizar seu binário otimizado na pasta `target/release`.
 
 ### --seed--
 
@@ -3668,18 +3668,18 @@ mod tests {
 
 ### --tests--
 
-- This is the final lesson. Congrats!
+- Esta é a lição final. Parabéns!
 - `null`
 
 ## 55
 
 ### --description--
 
-Congratulations. You have completed the `freeCodeCamp - Rust in Replit - CLI Calculator` project.
+Parabéns. Você completou o projeto `freeCodeCamp - Rust no Replit - Calculadora na Linha de Comando`.
 
-You are welcome to extend your current project - perhaps, to accept multiple operations...
+Encorajamos você a progredir no projeto atual - quem sabe aceitando múltiplas operações...
 
-Task: Run the following command to begin the next project:
+Tarefa: execute o seguinte comando para começar o próximo projeto:
 
 ```bash
     $ fcc switch combiner
@@ -3784,7 +3784,7 @@ mod tests {
 
 ### --tests--
 
-- This is the final lesson. Congrats!
+- Esta é a lição final. Parabéns!
 - `null`
 
 ## 56

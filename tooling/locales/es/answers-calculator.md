@@ -262,7 +262,7 @@ fn main() {
 
 El tipo de `first_name` es `&str`. `str` es un tipo primitivo, y el _ampersand (&)_ indica que el tipo es una _referencia._
 
-Un aspecto importante del lenguaje Rust es la propiedad. Es decir, el uso de memoria y la asignación. A lo largo de este curso surgirá el concepto de propiedad.
+An important aspect of the Rust language is ownership. Es decir, el uso de memoria y la asignación. A lo largo de este curso surgirá el concepto de propiedad.
 
 Otro tipo común es `String`. Este es un tipo útil, ya que se asigna automáticamente. Esto permite que su tamaño sea desconocido en tiempo de compilación.
 
@@ -1140,7 +1140,7 @@ mod tests {
 - `let second_number`
 - Debe declarar una variable llamada `operador`.
 - `let operator`
-- Debes llamar a `ouput` con las variables que acabas de declarar.
+- You should call `output` with the variables you just declared.
 - `output\(\s*first_number\s*,\s*operator\s*,\s*second_number`
 
 ## 32
@@ -1413,7 +1413,7 @@ mod tests {
 
 ### --description--
 
-En lugar de muchas sentencias `if...else`, puede mejorar la legibilidad y la usabilidad de su código con el flujo de control `match` de Rust. El operador `match` es similar a la instrucción `switch` de muchos lenguajes. Sin embargo, permite la coincidencia de patrones.
+Instead of many `if...else` statements, you can improve your code's readability and usability with Rust's `match` control flow. El operador `match` es similar a la instrucción `switch` de muchos lenguajes. Sin embargo, permite la coincidencia de patrones.
 
 Un ejemplo obtenido de una expresión usando el operador `match`:
 
@@ -1617,7 +1617,7 @@ mod tests {
     assert_eq!(op, -24);
   }
   #[test]
-  fn operate_handles_multiplcaiton_cap_x() {
+  fn operate_handles_multiplication_cap_x() {
     let op = operate('X', -12, 2);
     assert_eq!(op, -24);
   }
@@ -1719,7 +1719,7 @@ mod tests {
     assert_eq!(op, -24);
   }
   #[test]
-  fn operate_handles_multiplcaiton_cap_x() {
+  fn operate_handles_multiplication_cap_x() {
     let op = operate('X', -12, 2);
     assert_eq!(op, -24);
   }
@@ -1835,7 +1835,7 @@ mod tests {
     assert_eq!(op, -24);
   }
   #[test]
-  fn operate_handles_multiplcaiton_cap_x() {
+  fn operate_handles_multiplication_cap_x() {
     let op = operate('X', -12, 2);
     assert_eq!(op, -24);
   }
@@ -1945,7 +1945,7 @@ mod tests {
     assert_eq!(op, -24);
   }
   #[test]
-  fn operate_handles_multiplcaiton_cap_x() {
+  fn operate_handles_multiplication_cap_x() {
     let op = operate('X', -12, 2);
     assert_eq!(op, -24);
   }
@@ -2055,7 +2055,7 @@ mod tests {
     assert_eq!(op, -24);
   }
   #[test]
-  fn operate_handles_multiplcaiton_cap_x() {
+  fn operate_handles_multiplication_cap_x() {
     let op = operate('X', -12, 2);
     assert_eq!(op, -24);
   }
@@ -2162,7 +2162,7 @@ mod tests {
     assert_eq!(op, -24);
   }
   #[test]
-  fn operate_handles_multiplcaiton_cap_x() {
+  fn operate_handles_multiplication_cap_x() {
     let op = operate('X', -12, 2);
     assert_eq!(op, -24);
   }
@@ -2273,7 +2273,7 @@ mod tests {
     assert_eq!(op, -24);
   }
   #[test]
-  fn operate_handles_multiplcaiton_cap_x() {
+  fn operate_handles_multiplication_cap_x() {
     let op = operate('X', -12, 2);
     assert_eq!(op, -24);
   }
@@ -2296,7 +2296,7 @@ mod tests {
 
 ### --description--
 
-Si sigues el consejo del compilador, en la lección anterior, necesitaste delcare `args` como mutable. Esto se debe a que el método `nth` iterará mutablemente sobre los elementos.
+If you followed the compiler's advice, in the previous lesson, you needed to declare `args` as mutable. Esto se debe a que el método `nth` iterará mutablemente sobre los elementos.
 
 Tarea: Eliminar la println para 'args'. Luego, cambia `first_number`, `operator`, y `second_number` para ser igual al primer, segundo y tercero `args` con respeto.
 
@@ -2384,7 +2384,7 @@ mod tests {
     assert_eq!(op, -24);
   }
   #[test]
-  fn operate_handles_multiplcaiton_cap_x() {
+  fn operate_handles_multiplication_cap_x() {
     let op = operate('X', -12, 2);
     assert_eq!(op, -24);
   }
@@ -2514,7 +2514,7 @@ mod tests {
     assert_eq!(op, -24);
   }
   #[test]
-  fn operate_handles_multiplcaiton_cap_x() {
+  fn operate_handles_multiplication_cap_x() {
     let op = operate('X', -12, 2);
     assert_eq!(op, -24);
   }
@@ -2628,7 +2628,7 @@ mod tests {
     assert_eq!(op, -24);
   }
   #[test]
-  fn operate_handles_multiplcaiton_cap_x() {
+  fn operate_handles_multiplication_cap_x() {
     let op = operate('X', -12, 2);
     assert_eq!(op, -24);
   }
@@ -2730,7 +2730,7 @@ mod tests {
     assert_eq!(op, -24);
   }
   #[test]
-  fn operate_handles_multiplcaiton_cap_x() {
+  fn operate_handles_multiplication_cap_x() {
     let op = operate('X', -12, 2);
     assert_eq!(op, -24);
   }
@@ -2840,7 +2840,7 @@ mod tests {
     assert_eq!(op, -24);
   }
   #[test]
-  fn operate_handles_multiplcaiton_cap_x() {
+  fn operate_handles_multiplication_cap_x() {
     let op = operate('X', -12, 2);
     assert_eq!(op, -24);
   }
@@ -2869,7 +2869,7 @@ mod tests {
 
 ### --description--
 
-En lugar de escribir importaciones innecesarias, puede combinarlas con la siguiente sintaxis:
+Instead of writing unnecessary imports, you can combine them with the following syntax:
 
 ```rust
     use std::env::{var, Vars};
@@ -2959,7 +2959,7 @@ mod tests {
     assert_eq!(op, -24);
   }
   #[test]
-  fn operate_handles_multiplcaiton_cap_x() {
+  fn operate_handles_multiplication_cap_x() {
     let op = operate('X', -12, 2);
     assert_eq!(op, -24);
   }
@@ -3075,7 +3075,7 @@ mod tests {
     assert_eq!(op, -24);
   }
   #[test]
-  fn operate_handles_multiplcaiton_cap_x() {
+  fn operate_handles_multiplication_cap_x() {
     let op = operate('X', -12, 2);
     assert_eq!(op, -24);
   }
@@ -3190,7 +3190,7 @@ mod tests {
     assert_eq!(op, -24);
   }
   #[test]
-  fn operate_handles_multiplcaiton_cap_x() {
+  fn operate_handles_multiplication_cap_x() {
     let op = operate('X', -12, 2);
     assert_eq!(op, -24);
   }
@@ -3306,7 +3306,7 @@ mod tests {
     assert_eq!(op, -24.0);
   }
   #[test]
-  fn operate_handles_multiplcaiton_cap_x() {
+  fn operate_handles_multiplication_cap_x() {
     let op = operate('X', -12.0, 2.0);
     assert_eq!(op, -24.0);
   }
@@ -3422,7 +3422,7 @@ mod tests {
     assert_eq!(op, -24.0);
   }
   #[test]
-  fn operate_handles_multiplcaiton_cap_x() {
+  fn operate_handles_multiplication_cap_x() {
     let op = operate('X', -12.0, 2.0);
     assert_eq!(op, -24.0);
   }
@@ -3538,7 +3538,7 @@ mod tests {
     assert_eq!(op, -24.0);
   }
   #[test]
-  fn operate_handles_multiplcaiton_cap_x() {
+  fn operate_handles_multiplication_cap_x() {
     let op = operate('X', -12.0, 2.0);
     assert_eq!(op, -24.0);
   }
@@ -3654,7 +3654,7 @@ mod tests {
     assert_eq!(op, -24.0);
   }
   #[test]
-  fn operate_handles_multiplcaiton_cap_x() {
+  fn operate_handles_multiplication_cap_x() {
     let op = operate('X', -12.0, 2.0);
     assert_eq!(op, -24.0);
   }
@@ -3770,7 +3770,7 @@ mod tests {
     assert_eq!(op, -24.0);
   }
   #[test]
-  fn operate_handles_multiplcaiton_cap_x() {
+  fn operate_handles_multiplication_cap_x() {
     let op = operate('X', -12.0, 2.0);
     assert_eq!(op, -24.0);
   }
