@@ -1,9 +1,9 @@
-const locales = ["en", "es", "pt-BR"];
+const locales = ["en", "es", "pt"];
 
 const translatedLocales = {
   en: "English",
   es: "Español",
-  "pt-BR": "Português (Brasil)",
+  "pt": "Português (Brasil)",
 };
 
 module.exports = {
