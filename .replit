@@ -15,3 +15,6 @@ pattern = "**/*.rs"
 
 [languages.rust.languageServer]
 start = "rust-analyzer"
+
+[nix]
+channel = "stable-22_05"
