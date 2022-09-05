@@ -6154,7 +6154,7 @@ To handle errors more clearly, you can create an _enum_ to represent the possibl
 ```rust
     enum MyErrors {
       BrainTooTired,
-      TimeOfDay(String)
+      TimeOfDay(String),
       CoffeeCupEmpty,
     }
 
