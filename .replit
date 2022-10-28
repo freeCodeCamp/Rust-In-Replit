@@ -2,7 +2,9 @@ run = "chmod +x tooling/fcc && fcc welcome"
 language = "nix"
 
 [env]
+npm_config_prefix = "/home/runner/$REPL_SLUG/.config/npm/node_global"
 PATH = "/home/runner/${REPL_SLUG}/tooling${PATH}"
+XDG_CONFIG_HOME = "/home/runner/.config"
 
 [packager]
 language = "rust"
@@ -18,3 +20,9 @@ start = "rust-analyzer"
 
 [nix]
 channel = "stable-22_05"
+
+[debugger]
+support = false
+
+[gitHubImport]
+requiredFiles = [".replit", "replit.nix"]
