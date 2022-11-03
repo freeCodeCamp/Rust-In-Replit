@@ -262,7 +262,7 @@ fn main() {
 
 El tipo de `first_name` es `&str`. `str` es un tipo primitivo, y el _ampersand (&)_ indica que el tipo es una _referencia._
 
-An important aspect of the Rust language is ownership. Es decir, el uso de memoria y la asignación. A lo largo de este curso surgirá el concepto de propiedad.
+Un aspecto importante del lenguaje Rust es la propiedad. Es decir, el uso de memoria y la asignación. A lo largo de este curso surgirá el concepto de propiedad.
 
 Otro tipo común es `String`. Este es un tipo útil, ya que se asigna automáticamente. Esto permite que su tamaño sea desconocido en tiempo de compilación.
 
@@ -917,7 +917,7 @@ Con una salida como:
 Por ejemplo:
 
 ```bash
-    $ calcualtor 1 + 1
+    $ calculator 1 + 1
     $ 1 + 1 = 2
 ```
 
@@ -1140,7 +1140,7 @@ mod tests {
 - `let second_number`
 - Debe declarar una variable llamada `operador`.
 - `let operator`
-- You should call `output` with the variables you just declared.
+- Deberías llamar a `ouput` con las variables que acabas de declarar.
 - `output\(\s*first_number\s*,\s*operator\s*,\s*second_number`
 
 ## 32
@@ -1413,7 +1413,7 @@ mod tests {
 
 ### --description--
 
-Instead of many `if...else` statements, you can improve your code's readability and usability with Rust's `match` control flow. El operador `match` es similar a la instrucción `switch` de muchos lenguajes. Sin embargo, permite la coincidencia de patrones.
+En lugar de muchas sentencias de `if...else`, puedes mejorar la legibilidad y la usabilidad de tu código con el flujo de control `match` de Rust. El operador `match` es similar a la instrucción `switch` de muchos lenguajes. Sin embargo, permite la coincidencia de patrones.
 
 Un ejemplo obtenido de una expresión usando el operador `match`:
 
@@ -2296,7 +2296,7 @@ mod tests {
 
 ### --description--
 
-If you followed the compiler's advice, in the previous lesson, you needed to declare `args` as mutable. Esto se debe a que el método `nth` iterará mutablemente sobre los elementos.
+Si has seguido el consejo del compilador, en la lección anterior, necesitaste declarar `args` como mutable. Esto se debe a que el método `nth` iterará mutablemente sobre los elementos.
 
 Tarea: Eliminar la println para 'args'. Luego, cambia `first_number`, `operator`, y `second_number` para ser igual al primer, segundo y tercero `args` con respeto.
 
@@ -2869,7 +2869,7 @@ mod tests {
 
 ### --description--
 
-Instead of writing unnecessary imports, you can combine them with the following syntax:
+En lugar de escribir importaciones innecesarias, puede combinarlas con la siguiente sintaxis:
 
 ```rust
     use std::env::{var, Vars};

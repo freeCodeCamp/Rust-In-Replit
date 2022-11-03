@@ -913,7 +913,7 @@ Probar ahorra su aplicación con argumentos deberia imprimir la estructura de `A
 
 Tarea: Cambia la `println` en `main` para imprimir el valor de `args`.
 
-Ejecuta `cargo run --bin combiner first_arg second_arg third_arg`. Si ves lo siguiente, significa que has completado correctamente la tarea:
+Ejecuta `cargo run --bin combiner first_arg second_arg third_arg`. Si ves lo siguiente, has completado correctamente la tarea:
 
 ```bash
     Args { image_1: "first_arg", image_2: "second_arg", output: "third_arg" }
@@ -1428,7 +1428,7 @@ mod tests {
 
 ### --description--
 
-Tarea: Dentro de `main.rs`, has definido una función llamada `find_image_from_path` que toma una `String` como argumento.
+Tarea: Dentro de `main.rs`, define una función llamada `find_image_from_path` que toma un `String` como argumento.
 
 Ejecuta `cargo test --bin combiner` para ver si completaste correctamente la tarea.
 
@@ -1463,7 +1463,7 @@ mod tests {
 
 El compilador muestra una advertencia de que la función `find_image_from_path` no está siendo usada. Esto va a resultar molesto, a lo largo de este proyecto. Afortunadamente, puede habilitar atributos globales para suprimir la advertencia.
 
-Global attributes use the syntax `#![feature(feature_name)]`, and should be placed at the top of the file.
+Los atributos globales usan la sintaxis `#![feature(feature_name)]`y deberían colocarse en la parte superior del archivo.
 
 Misión: Dentro de `main.rs`, use la función `allow` para habilitar globalmente `unused_variables` y `dead_code`.
 
@@ -3194,7 +3194,7 @@ Ahora que tiene un tamaño de búfer, necesita crear un búfer de `Vec<u8>`. La 
 
 Tarea: En `new`, declarar una variable llamada `buffer,`, y asignarle el valor de llamar a la función `with_capacity` con `buffer_capacity`.
 
-_Hint:_ Follow the compiler's advice to explicitly type the `buffer` variable.
+_Pista:_ Sigue el consejo del compilador para escribir explícitamente la variable `buffer`.
 
 Ejecuta `cargo test --bin combiner` para ver si completaste correctamente la tarea.
 
@@ -5144,7 +5144,7 @@ mod tests {
 
 ### --description--
 
-Tienes un `Vec<u8>` de `0`, y dos `Vec<u8>`s de `0-255`. Para reemplazar una porción de un vector y con otra, puede utilizar el método `splice`:
+Tienes un `Vec<u8>` de `0`, y dos `Vec<u8>`s de `0-255`. Para reemplazar una porción de un vector por otra, puede utilizar el método `splice`:
 
 ```rust
     let original_vec = vec![0, 1, 2, 3];
@@ -5421,7 +5421,7 @@ mod tests {
 
 ### --description--
 
-Actualmente, `alternate_pixels` empalme cada RGBA establecido desde `vec_1` en `combined_data`. Sin embargo, quieres que cada segundo conjunto sea de `vec_2`. To achieve this, you can use the remainder operator:
+Actualmente, `alternate_pixels` empalme cada RGBA establecido desde `vec_1` en `combined_data`. Sin embargo, quieres que cada segundo conjunto sea de `vec_2`. Para lograr esto, puede utilizar el operador restante:
 
 ```rust
     let mut my_vec = vec![0u8; 6];
@@ -5888,7 +5888,7 @@ Hasta ahora, sólo ha implementado funciones en las estructuras. Los métodos se
 
 Como el valor de la instancia de `MyStructural` necesita ser cambiado, el método `change_name` toma una referencia mutable a la instancia como su primer argumento. _Tenga en cuenta que el método sigue siendo llamado solo con un argumento_.
 
-Task: Implement a method `set_data` on `FloatingImage` which takes a `Vec<u8>` as an argument.
+Tarea: Implementa un método `set_data` en `FloatingImage` que toma un `Vec<u8>` como argumento.
 
 Ejecuta `cargo test --bin combiner` para ver si completaste correctamente la tarea.
 
@@ -6154,7 +6154,7 @@ Para manejar los errores más claramente, puede crear un _enum_ para representar
 ```rust
     enum MyErrors {
       BrainTooTired,
-      TimeOfDay(String)
+      TimeOfDay(String),
       CoffeeCupEmpty,
     }
 
@@ -6171,7 +6171,7 @@ Para manejar los errores más claramente, puede crear un _enum_ para representar
 
 Los números pueden ser usados como valores así como como como tipos. Ya has encontrado la `Option`.
 
-Task: Create an `enum` called `ImageDataErrors`, and has two variants `BufferTooSmall` and `DifferentImageFormats`.
+Tarea: Crea un `enum` llamado `ImageDataErrors`, y que tiene dos variables `BufferTooSmall` y `DifferentImageFormats`.
 
 Ejecuta `cargo test --bin combiner` para ver si completaste correctamente la tarea.
 

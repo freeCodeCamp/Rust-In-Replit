@@ -1,5 +1,5 @@
 {
-  "greeting": "Welcome. This course is available in multiple languages. Type one from below:",
+  "greeting": "Welcome. This course is available in multiple languages. Type the corresponding number below:",
   "call-to-action": "The language {{locale}} is not yet supported. Help us translate this course: https://contribute.freecodecamp.org/",
   "task": "Task",
   "lesson": "LESSON",
@@ -32,6 +32,6 @@
   "project-not-exist": "Project {{project}} does not exist. Here are the available projects:",
   "invalid-argument": "Invalid argument",
   "welcome": "Welcome to the freeCodeCamp Rust in Replit course!\n\nYou will be using this console (or the Shell) to read majority of the instructions, throughout this course.\n\nTo get your first lesson, type the following in the prompt:\n\n\t$ fcc 1\n\nYou can click the Run button at any time to get back to this screen.\n\nOnce the course is set up, you can get help and see options by running:\n\n\t$ fcc help\n\n\nIf at any point you get stuck, you can either:\n\t- Reset your code with: $ fcc reset <n>\n\t- View the answer to the code with: $ fcc solution <n>",
-  "set-locale-success": "Successfully set the locale to {{locale}}",
+  "set-locale-success": "Successfully set the locale to {{loc}}",
   "set-locale-error": "An error occured trying to set the locale to {{locale}}"
 }
