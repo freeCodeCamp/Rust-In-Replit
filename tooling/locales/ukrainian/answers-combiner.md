@@ -1,12 +1,12 @@
-# freeCodeCamp - Rust in Replit - Image Combiner
+# freeCodeCamp - Rust на Replit - Комбінатор зображень
 
 ## 1
 
 ### --description--
 
-Start by creating a new project called `combiner`.
+Почніть зі створення нового проєкту під назвою `combiner`.
 
-Run `fcc test 1` to see if you correctly completed the task.
+Запустіть `fcc test 1`, щоб побачити, чи правильно ви виконали завдання.
 
 ### --seed--
 
@@ -19,24 +19,24 @@ fn main() {
 
 ### --tests--
 
-- You should see a new directory `combiner` created in the root.
+- Ви повинні побачити нову директорію `combiner`, створену в кореневій теці.
 - `Hello, world!`
 
 ## 2
 
 ### --description--
 
-In this project, you will be creating a CLI (combiner) which expects three arguments:
+У цьому проєкті ви створюватимете інтерфейс командного рядка (комбінатор), який приймає три аргументи:
 
 ```bash
     $ combiner image1.png image2.png output.png
 ```
 
-The first two arguments are the paths to the images you want to combine. The third argument is the path to the output image.
+Перші два аргументи – це шляхи до зображень, які потрібно об’єднати. Третій аргумент — це шлях до вихідного зображення.
 
-Task: Open `combiner/src/main.rs` and run `cargo run --bin combiner` to see if your application is correctly set up.
+Завдання: відкрийте `combiner/src/main.rs` та запустіть `cargo run --bin combiner`, щоб перевірити, чи правильно налаштовано вашу програму.
 
-You should see `Hello, world!` printed to the console.
+Ви повинні побачити `Hello, world!` надруковане на консолі.
 
 ### --seed--
 
@@ -49,18 +49,18 @@ fn main() {
 
 ### --tests--
 
-- Your code should output `Hello, world!`
+- Ваш коду повинен виводити `Hello, world!`
 - `getCommandOutput(Hello, world!)`
 
 ## 3
 
 ### --description--
 
-Task: Define a function called `get_nth_arg` which takes one `usize` argument.
+Завдання: визначте функцію під назвою `get_nth_arg`, яка приймає один аргумент `usize`.
 
-Remember to import as necessary.
+Не забудьте імпортувати за необхідністю.
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+Запустіть `cargo test --bin combiner`, щоб побачити, чи правильно ви виконали завдання.
 
 ### --seed--
 
@@ -87,27 +87,27 @@ mod tests {
 
 ### --tests--
 
-- Run `cargo test --bin combiner` to see if you correctly completed the task.
+- Запустіть `cargo test --bin combiner`, щоб побачити, чи правильно ви виконали завдання.
 - `null`
-- Hint: Remember to import the function into the `tests` module.
+- Підказка: не забудьте імпортувати функцію в модуль `tests`.
 - `null`
 
 ## 4
 
 ### --description--
 
-Upcoming tests make use of an external crate called `regex`.
+Майбутні тести використовують зовнішній ящик під назвою `regex`.
 
-Task: Open the `Cargo.toml` file in the root, and add the following lines:
+Завдання: відкрийте файл `Cargo.toml` у корені та додайте наступні рядки:
 
 ```rust
     [dependencies]
     regex = "1.5.4"
 ```
 
-This will install the `regex` crate into your project which is used in the `reg_with_con` function. You can find out more about this crate at: https://crates.io/crates/regex
+Це встановить ящик `regex` у ваш проєкт, який використовується у функції `reg_with_con`. Більше про цей ящик можна дізнатися тут: https://crates.io/crates/regex
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+Запустіть `cargo test --bin combiner`, щоб побачити, чи правильно ви виконали завдання.
 
 ### --seed--
 
@@ -146,18 +146,18 @@ mod tests {
 
 ### --tests--
 
-- Run `cargo test --bin combiner` to see if you correctly completed the task. No errors means you're done.
+- Запустіть `cargo test --bin combiner`, щоб побачити, чи правильно ви виконали завдання. Відсутність помилок означає, що ви закінчили.
 - `null`
 
 ## 5
 
 ### --description--
 
-To make use of command line arguments, you will need to use the `std::env` module.
+Щоб використовувати аргументи командного рядка, вам знадобиться використовувати модуль `std::env`.
 
-Task: Within `get_nth_arg`, return the unwrapped value of calling the `nth` method on the `args` function with the argument `n`.
+Завдання: у межах `get_nth_arg` поверніть розгорнуте значення виклику методу `nth` на функції `args` з аргументом `n`.
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+Запустіть `cargo test --bin combiner`, щоб побачити, чи правильно ви виконали завдання.
 
 ### --seed--
 
@@ -195,18 +195,18 @@ mod tests {
 
 ### --tests--
 
-- Run `cargo test --bin combiner` to see if you correctly completed the task. No errors means you're done.
+- Запустіть `cargo test --bin combiner`, щоб побачити, чи правильно ви виконали завдання. Відсутність помилок означає, що ви закінчили.
 - `null`
 
 ## 6
 
 ### --description--
 
-Ideally, you want to store only the command line arguments you are interested in in a single variable.
+В ідеалі вам потрібно зберігати лише ті аргументи командного рядка, які вас цікавлять, в одній змінній.
 
-Task: Within `main`, create a variable called `args`, and assign it the value of `Args {}`.
+Завдання: у межах `main` створіть змінну під назвою `args` та призначте їй значення `Args {}`.
 
-Run `fcc test 6` to see if you correctly completed the task.
+Запустіть `fcc test 6`, щоб побачити, чи правильно ви виконали завдання.
 
 ### --seed--
 
@@ -245,18 +245,18 @@ mod tests {
 
 ### --tests--
 
-- You should create a new variable called `args`.
+- Ви повинні створити нову змінну під назвою `args`.
 - `let args`
-- You should assign `args` the value of `Args {}`.
+- Ви повинні призначити значення `Args {}` до `args`.
 - `let\s+args\s*=\s*Args\s*\{\};`
 
 ## 7
 
 ### --description--
 
-The syntax `Args {}` is a constructor for a struct named `Args`. However, we have not defined the struct yet.
+Синтаксис `Args {}` є конструктором для структури під назвою `Args`. Однак ми ще не визначили структуру.
 
-Here is an example of a struct you have already used:
+Ось приклад структури, яку ви вже використовували:
 
 ```rust
     struct String {
@@ -264,13 +264,13 @@ Here is an example of a struct you have already used:
     }
 ```
 
-The `String` struct consists of a `vec` field, which is a `Vec` of `u8`s.
+Структура `String` складається з поля `vec`, яке є `Vec` типу `u8`.
 
-Task: At the global scope, define a struct named `Args`.
+Завдання: у глобальній області визначте структуру під назвою `Args`.
 
-Remember to import as necessary.
+Не забудьте імпортувати за необхідністю.
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+Запустіть `cargo test --bin combiner`, щоб побачити, чи правильно ви виконали завдання.
 
 ### --seed--
 
@@ -319,11 +319,11 @@ mod tests {
 
 ### --description--
 
-Instead of writing `use crate::` for every function or struct in the `tests` module, you can use the `super` keyword with the `*` wildcard selector to select everything in the current module.
+Замість написання `use crate::` для кожної функції чи структури в модулі `tests`, ви можете використовувати ключове слово `super` з селектором підставлення `* `, щоб вибрати все в поточному модулі.
 
-Task: Replace the `use crate::` calls with `use super::*`.
+Завдання: замініть виклики `use crate::` на `use super::*`.
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+Запустіть `cargo test --bin combiner`, щоб побачити, чи правильно ви виконали завдання.
 
 ### --seed--
 
@@ -389,18 +389,18 @@ mod tests {
 
 ### --tests--
 
-- Run `cargo test --bin combiner` to see if you correctly completed the task. No errors means you're done.
+- Запустіть `cargo test --bin combiner`, щоб побачити, чи правильно ви виконали завдання. Відсутність помилок означає, що ви закінчили.
 - `null`
 
 ## 9
 
 ### --description--
 
-Task: Add a field named `image_1` to the `Args` struct, and give it the correct type to pass the tests.
+Завдання: додайте поле з назвою `image_1` до структури `Args` та надайте йому правильний тип, щоб пройти тести.
 
-Remember to adjust the declaration in `main` as necessary.
+Не забудьте за потреби налаштувати декларацію в `main`.
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+Запустіть `cargo test --bin combiner`, щоб побачити, чи правильно ви виконали завдання.
 
 ### --seed--
 
@@ -434,11 +434,11 @@ mod tests {
 
 ### --description--
 
-Task: To get a better idea of the `Args` struct, print the value of `my_arg` in the `args_struct_has_image_1_field` test.
+Завдання: щоб краще зрозуміти структуру `Args`, надрукуйте значення `my_arg` у тесті `args_struct_has_image_1_field`.
 
-Run `cargo test --bin combiner -- --show-output`. If you see an error, you correctly completed the task.
+Запустіть `cargo test --bin combiner -- --show-output`. Якщо ви бачите помилку, ви правильно виконали завдання.
 
-The `--show-output` flag shows the stdout of the tests.
+Прапор `--show-output` показує stdout тестів.
 
 ### --seed--
 
@@ -475,11 +475,11 @@ mod tests {
 
 ### --description--
 
-Your code could not compile, because the `println!` macro does not know how to format the `Args` struct.
+Ваш код не вдалося скомпілювати, оскільки макрос `println!` не знає, як відформатувати структуру `Args`.
 
-Task: Follow the compiler's advice to extend the formatter within the `println!`.
+Завдання: дотримуйтесь порад компілятора, щоб розширити форматор у `println!`.
 
-Run `cargo test --bin combiner -- --show-output`. You should still see an error.
+Запустіть `cargo test --bin combiner -- --show-output`. Ви все ще повинні бачити помилку.
 
 ### --seed--
 
@@ -516,9 +516,9 @@ mod tests {
 
 ### --description--
 
-The compiler is telling you that you are trying to use the `println!` macro on a type that does not implement the `Debug` trait.
+Компілятор повідомляє вам, що ви намагаєтеся використати макрос `println!` для типу, який не реалізовує ознаку `Debug`.
 
-Usually, traits need to be implemented for a struct using the `impl` keyword. However, in this case, you can use the `derive` attribute to automatically implement the `Debug` trait for you:
+Зазвичай ознаки потрібно реалізувати для структури, використовуючи ключове слово `impl`. Однак у цьому разі ви можете використати атрибут `derive` для автоматичної реалізації ознаки `Debug`:
 
 ```rust
     #[derive(Debug)]
@@ -527,9 +527,9 @@ Usually, traits need to be implemented for a struct using the `impl` keyword. Ho
     }
 ```
 
-Task: Implement the `Debug` trait for your `Args` struct.
+Завдання: реалізуйте ознаку `Debug` для своєї структури `Args`.
 
-Run `cargo test --bin combiner -- --show-output`. You should see the `Args` struct printed to the console.
+Запустіть `cargo test --bin combiner -- --show-output`. Ви повинні побачити структуру `Args` надрукованою на консолі.
 
 ### --seed--
 
@@ -566,7 +566,7 @@ mod tests {
 
 ### --description--
 
-You may notice the `String::new()` used in `main`. The `new` function is a common constructor for structs. For `String`, it looks something like this:
+Ви можете помітити, що `String::new()` використовується у `main`. Функція `new` є загальним конструктором для структур. Для `String` це виглядає приблизно так:
 
 ```rust
     impl String {
@@ -576,11 +576,11 @@ You may notice the `String::new()` used in `main`. The `new` function is a commo
     }
 ```
 
-The above implements the `new` function for `String`. The return type is `Self`, which is the type of the struct.
+Вище реалізовано функцію `new` для `String`. Типом повернення є `Self`, що є типом структури.
 
-Task: Implement the `new` function for `Args`.
+Завдання: реалізуйте функцію `new` для `Args`.
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+Запустіть `cargo test --bin combiner`, щоб побачити, чи правильно ви виконали завдання.
 
 ### --seed--
 
@@ -621,9 +621,9 @@ mod tests {
 
 ### --description--
 
-Task: Instead of manually creating the `Args` struct in `main`, use the `new` function to create the struct.
+Завдання: замість того, щоб вручну створювати структуру `Args` в `main`, використайте функцію `new` для створення структури.
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+Запустіть `cargo test --bin combiner`, щоб побачити, чи правильно ви виконали завдання.
 
 ### --seed--
 
@@ -687,9 +687,9 @@ mod tests {
 
 ### --description--
 
-Task: Within `new`, instead of assigning an empty `String` to `image_1`, use the `get_nth_arg` function to assign the value of the first **valid** argument.
+Завдання: у межах `new` замість того, щоб призначати порожній `String` до `image_1`, використайте функцію `get_nth_arg`, щоб призначити значення першого **дійсного** аргументу.
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+Запустіть `cargo test --bin combiner`, щоб побачити, чи правильно ви виконали завдання.
 
 ### --seed--
 
@@ -755,11 +755,11 @@ mod tests {
 
 ### --description--
 
-Your application should expect three arguments: `image_1`, `image_2`, and `output`.
+Ваш застосунок повинен очікувати три аргументи: `image_1`, `image_2` та `output`.
 
-Task: Add the missing two fields to the `Args` struct. All of the fields should use the same type.
+Завдання: додайте два відсутні поля до структури `Args`. Всі поля повинні мати однаковий тип.
 
-Run `fcc test 16` to see if you correctly completed the task.
+Запустіть `fcc test 16`, щоб побачити, чи правильно ви виконали завдання.
 
 ### --seed--
 
@@ -821,20 +821,20 @@ mod tests {
 
 ### --tests--
 
-- You should define `Args` with an `image_1` field of type `String`.
+- Ви повинні визначити `Args` з полем `image_1` типу `String`.
 - `image_1:\s*String`
-- You should define `Args` with an `image_2` field of type `String`.
+- Ви повинні визначити `Args` з полем `image_2` типу `String`.
 - `image_2:\s*String`
-- You should define `Args` with an `output` field of type `String`.
+- Ви повинні визначити `Args` з полем `output` типу `String`.
 - `output:\s*String`
 
 ## 17
 
 ### --description--
 
-Task: Update the `new` function to assign valid values to all expected fields.
+Завдання: оновіть функцію `new`, щоб призначити дійсні значення всім очікуваним полям.
 
-Run `cargo test --bin combiner -- --show-output` to see if you correctly completed the task.
+Запустіть `cargo test --bin combiner -- --show-output`, щоб побачити, чи правильно ви виконали завдання.
 
 ### --seed--
 
@@ -909,11 +909,11 @@ mod tests {
 
 ### --description--
 
-Testing your application with arguments should now print out the `Args` struct with the arguments as values for the fields.
+Тестування вашої програми за допомогою аргументів тепер має вивести структуру `Args` з аргументами як значеннями для полів.
 
-Task: Change the `println` in `main` to print the value of `args`.
+Завдання: змініть `println` в `main`, щоб друкувалось значення `args`.
 
-Run `cargo run --bin combiner first_arg second_arg third_arg`. If you see the following, you correctly completed the task:
+Запустіть `cargo run --bin combiner first_arg second_arg third_arg`. Якщо ви бачите наступне, ви правильно виконали завдання:
 
 ```bash
     Args { image_1: "first_arg", image_2: "second_arg", output: "third_arg" }
@@ -981,11 +981,11 @@ mod tests {
 
 ### --description--
 
-Before your `main.rs` file gets too cluttered, you should move the argument logic to its own file.
+Перш ніж ваш файл `main.rs` стане надто засміченим, ви повинні перемістити логіку аргументів в окремий файл.
 
-Task: Create the file `combiner/src/args.rs`.
+Завдання: створіть файл `combiner/src/args.rs`.
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+Запустіть `cargo test --bin combiner`, щоб побачити, чи правильно ви виконали завдання.
 
 ### --seed--
 
@@ -1047,9 +1047,9 @@ mod tests {
 
 ### --description--
 
-Task: Move the `Args` struct and implementation, and the `get_nth_arg` function to the `args.rs` file. Then, comment out the content within the `main` function so your app compiles.
+Завдання: перемістіть структуру та реалізацію `Args`, а також функцію `get_nth_arg` у файл `args.rs`. Потім закоментуйте вміст у функції `main`, щоб ваша програма компілювалася.
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+Запустіть `cargo test --bin combiner`, щоб побачити, чи правильно ви виконали завдання.
 
 ### --seed--
 
@@ -1137,15 +1137,15 @@ mod tests {
 
 ### --description--
 
-In Rust, everything is private by default. So, in order to make a function or struct public, you can use the `pub` keyword:
+У Rust все приватно за замовчуванням. Щоб зробити функцію або структуру публічною, можна використати ключове слово `pub`:
 
 ```rust
     pub MyStruct {}
 ```
 
-Task: Within `args.rs` make the struct and the function public.
+Завдання: у межах `args.rs` зробіть структуру та функцію публічними.
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+Запустіть `cargo test --bin combiner`, щоб побачити, чи правильно ви виконали завдання.
 
 ### --seed--
 
@@ -1209,15 +1209,15 @@ mod tests {
 
 ### --description--
 
-In order to use the contents of an external file, it needs to be declared as a module:
+Щоб використовувати вміст зовнішнього файлу, його потрібно оголосити як модуль:
 
 ```rust
     mod my_file_name
 ```
 
-Task: At the top of `main.rs`, declare the `args.rs` file as a module.
+Завдання: у верхній частині `main.rs` оголосіть файл `args.rs` як модуль.
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+Запустіть `cargo test --bin combiner`, щоб побачити, чи правильно ви виконали завдання.
 
 ### --seed--
 
@@ -1286,11 +1286,11 @@ mod tests {
 
 ### --description--
 
-Now that `args` has been declared as a module for use within `main.rs`, you can use the `use` keyword to import the `Args` struct.
+Тепер, коли `args` оголошено як модуль для використання в `main.rs`, ви можете використати ключове слово `use` для імпорту структури `Args`.
 
-Task: Within `main.rs`, import the `Args` struct. Then, uncomment the commented out code in the `main` function.
+Завдання: у межах `main.rs` імпортуйте структуру `Args`. Потім розкоментуйте закоментований код у функції `main`.
 
-Run `cargo test --bin combiner`. You should see an error.
+Запустіть `cargo test --bin combiner`. Ви повинні бачити помилку.
 
 ### --seed--
 
@@ -1334,11 +1334,11 @@ mod tests {
 
 ### --description--
 
-The error comes about because the `new` function implemented for `Args` is not public.
+Помилка виникає через те, що функція `new`, реалізована для `Args`, не є публічною.
 
-Task: Within `args.rs` declare the `new` function as public.
+Завдання: у межах `args.rs` оголосіть функцію `new` публічною.
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+Запустіть `cargo test --bin combiner`, щоб побачити, чи правильно ви виконали завдання.
 
 ### --seed--
 
@@ -1389,15 +1389,15 @@ mod tests {
 
 ### --description--
 
-In order to encode and decode the images, you will use the `image` crate.
+Щоб кодувати та декодувати зображення, ви будете використовувати ящик `image`.
 
-Task: Within the root `Cargo.toml`, add the following to the `dependencies` section:
+Завдання: у кореневому `Cargo.toml` до розділу `dependencies` додайте наступне:
 
 ```rust
     image = "0.23.14"
 ```
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+Запустіть `cargo test --bin combiner`, щоб побачити, чи правильно ви виконали завдання.
 
 ### --seed--
 
@@ -1428,9 +1428,9 @@ mod tests {
 
 ### --description--
 
-Task: Within `main.rs`, define a function named `find_image_from_path` that takes a `String` as an argument.
+Завдання: у межах `main.rs` визначте функцію під назвою `find_image_from_path`, яка приймає `String` як аргумент.
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+Запустіть `cargo test --bin combiner`, щоб побачити, чи правильно ви виконали завдання.
 
 ### --seed--
 
@@ -1461,13 +1461,13 @@ mod tests {
 
 ### --description--
 
-The compiler is showing a warning that the `find_image_from_path` function is unused. This is going to become annoying, over the course of this project. Fortunately, you can enable global attributes to suppress the warning.
+Компілятор показує попередження про те, що функція `find_image_from_path` не використовується. Це надокучатиме протягом всього проєкту. На щастя, ви можете дозволити глобальні атрибути, щоб призупинити попередження.
 
-Global attributes use the syntax `#![feature(feature_name)]`, and should be placed at the top of the file.
+Глобальні атрибути використовують синтаксис `#![feature(feature_name)]` та мають розміщуватися у верхній частині файлу.
 
-Task: Within `main.rs`, use the `allow` feature to globally enable `unused_variables` and `dead_code`.
+Завдання: у межах `main.rs` використайте функцію `allow`, щоб глобально дозволити `unused_variables` та `dead_code`.
 
-Run `cargo test --bin combiner`. If you no longer see the warning, you have successfully completed this lesson.
+Запустіть `cargo test --bin combiner`. Якщо ви більше не бачите попередження, ви успішно завершили цей урок.
 
 ### --seed--
 
@@ -1501,11 +1501,11 @@ mod tests {
 
 ### --description--
 
-Task: Import the `Reader` struct from `image::io`, and, within `find_image_from_path`, assign the unwrapped value of the `Reader::open` function, passing `path` as the argument, to a variable named `image_reader`. Then, return `image_reader`.
+Завдання: імпортуйте структуру `Reader` з `image::io` та в межах `find_image_from_path` призначте розгорнуте значення функції `Reader::open`, передаючи `path` як аргумент до змінної під назвою `image_reader`. Потім поверніть `image_reader`.
 
-Hint: Follow the compiler's advice, and import the necessary types.
+Підказка: дотримуйтесь порад компілятора та імпортуйте необхідні типи.
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+Запустіть `cargo test --bin combiner`, щоб побачити, чи правильно ви виконали завдання.
 
 ### --seed--
 
@@ -1542,11 +1542,11 @@ mod tests {
 
 ### --description--
 
-Task: Within `find_image_from_path`, assign the unwrapped value of the `format` method on `image_reader` to a variable named `image_format`, and return it.
+Завдання: у межах `find_image_from_path` призначте розгорнуте значення методу `format` на `image_reader` до змінної під назвою `image_format` та поверніть її.
 
-Hint: Follow the compiler's advice, and import the necessary types.
+Підказка: дотримуйтесь порад компілятора та імпортуйте необхідні типи.
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+Запустіть `cargo test --bin combiner`, щоб побачити, чи правильно ви виконали завдання.
 
 ### --seed--
 
@@ -1611,9 +1611,9 @@ mod tests {
 
 ### --description--
 
-Task: Remove the unused imports from `main.rs`.
+Завдання: видаліть невикористані імпорти із `main.rs`.
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+Запустіть `cargo test --bin combiner`, щоб побачити, чи правильно ви виконали завдання.
 
 ### --seed--
 
@@ -1675,13 +1675,13 @@ mod tests {
 
 ### --description--
 
-So far, you have not decoded the image. The `Reader` has a `decode` method which returns a `DynamicImage` in a `Result`.
+Поки що ви не декодували зображення. `Reader` має метод `decode`, який повертає `DynamicImage` в `Result`.
 
-Task: Within `find_image_from_path`, assign the unwrapped value of the `decode` method on `image_reader` to a variable named `image`. Then, return `image`.
+Завдання: у межах `find_image_from_path` призначте розгорнуте значення методу `decode` на `image_reader` до змінної під назвою `image`. Потім поверніть `image`.
 
-_Hint:_ Follow the compiler's advice, and import the necessary types.
+_Підказка:_ дотримуйтесь порад компілятора та імпортуйте необхідні типи.
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+Запустіть `cargo test --bin combiner`, щоб побачити, чи правильно ви виконали завдання.
 
 ### --seed--
 
@@ -1741,7 +1741,7 @@ mod tests {
 
 ### --description--
 
-You have learnt about the empty tuple type `()`. Now, you will use a tuple to return multiple values. Unlike other types, a tuple can contain more than one type.
+Ви дізналися про порожній тип кортежу `()`. Тепер ви використовуватимете кортеж для повернення кількох значень. На відміну від інших типів, кортеж може містити більше одного типу.
 
 ```rust
     // The Vec type can only contain one type.
@@ -1750,9 +1750,9 @@ You have learnt about the empty tuple type `()`. Now, you will use a tuple to re
     let my_tuple = (1u8, 2u16, 3u32);
 ```
 
-Task: From `find_image_from_path`, return a tuple containing the `DynamicImage` and `ImageFormat` of the image, in that order.
+Завдання: з `find_image_from_path` поверніть кортеж, що містить `DynamicImage` та `ImageFormat` зображення, в такому порядку.
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+Запустіть `cargo test --bin combiner`, щоб побачити, чи правильно ви виконали завдання.
 
 ### --seed--
 
@@ -1795,15 +1795,15 @@ mod tests {
 
 ### --description--
 
-Tuples can be destructured into variables like this:
+Кортежі можна деструктурувати в змінні таким чином:
 
 ```rust
     let (x, y, z) = (1, 2, 3);
 ```
 
-Task: Within `main`, destructure the tuple returned from `find_image_from_path` into the variables `image_1` and `image_1_format`. You should call `find_image_from_path` with the value of the `image_1` field of `args`.
+Завдання: у межах `main` деструктуруйте кортеж, який повертається з `find_image_from_path`, в змінні `image_1` та `image_1_format`. Ви повинні викликати `find_image_from_path` зі значенням поля `image_1` з `args`.
 
-Run `cargo test --bin combiner`. You should see an error.
+Запустіть `cargo test --bin combiner`. Ви повинні бачити помилку.
 
 ### --seed--
 
@@ -1879,11 +1879,11 @@ mod tests {
 
 ### --description--
 
-Your code has an error, because the `image_1` field on `args` is not public. So, it may not be used across modules.
+У вашому коді є помилка, оскільки поле `image_1` на `args` не є публічним. Таким чином, його не можна використовувати між модулями.
 
-Task: Within `args.rs`, change all the `Args` struct's fields to be public.
+Завдання: у межах `args.rs` змініть всі поля структури `Args` на публічні.
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+Запустіть `cargo test --bin combiner`, щоб побачити, чи правильно ви виконали завдання.
 
 ### --seed--
 
@@ -1968,9 +1968,9 @@ mod tests {
 
 ### --description--
 
-Task: Within `main`, destructure the tuple returned from `find_image_from_path` into the variables `image_2` and `image_2_format`. You should call `find_image_from_path` with the value of the `image_2` field of `args`.
+Завдання: у межах `main` деструктуруйте кортеж, який повертається з `find_image_from_path`, в змінні `image_2` та `image_2_format`. Ви повинні викликати `find_image_from_path` зі значенням поля `image_2` з `args`.
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+Запустіть `cargo test --bin combiner`, щоб побачити, чи правильно ви виконали завдання.
 
 ### --seed--
 
@@ -2047,9 +2047,9 @@ mod tests {
 
 ### --description--
 
-So far, you have been dealt with a few functions which returned a `Result`. Now, you are going to create a new `Result`.
+Наразі ви мали справу з кількома функціями, які повертали `Result`. Тепер ви створите новий `Result`.
 
-A `Result` is a type that can either be `Ok` or `Err`. It is common to return an empty tuple when a function is successful, and return an error message when a function fails:
+`Result` – це тип, який може мати значення `Ok` або `Err`. Зазвичай повертають порожній кортеж, коли функція успішна, та повертають повідомлення про помилку, коли функція зазнає невдачу:
 
 ```rust
     fn function_returns_result() -> Result<(), String> {
@@ -2061,7 +2061,7 @@ A `Result` is a type that can either be `Ok` or `Err`. It is common to return an
     }
 ```
 
-Task: Within `main.rs`, convert the `main` function to return a `Result`. For now, just return an empty tuple on `Ok`, but set the return `Err` type to `String`.
+Завдання: у `main.rs` конвертуйте функцію `main`, щоб поверталось `Result`. Наразі просто поверніть порожній кортеж на `Ok`, але встановіть тип повернення `Err` на `String`.
 
 ### --seed--
 
@@ -2125,11 +2125,11 @@ mod tests {
 
 ### --description--
 
-Your application will only be able to combine two images of the same type.
+Ваш застосунок зможе поєднати лише два зображення одного типу.
 
-Task: As such, if `image_1_format` is not equal to `image_2_format`, return an error message.
+Завдання: якщо `image_1_format` не дорівнює `image_2_format`, поверніть повідомлення про помилку.
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+Запустіть `cargo test --bin combiner`, щоб побачити, чи правильно ви виконали завдання.
 
 ### --seed--
 
@@ -2204,11 +2204,11 @@ mod tests {
 
 ### --description--
 
-Another error that can occur is when the two images are not the same size. Fortunately, there is a function that can be used to resize the images.
+Ще одна помилка може виникнути, коли два зображення не однакового розміру. На щастя, є функція, за допомогою якої можна змінити розмір зображень.
 
-Task: Start by creating a function named `standardise_size` which takes `image_1` and `image_2` as parameters.
+Завдання: почніть зі створення функції під назвою `standardise_size`, яка приймає `image_1` та `image_2` як параметри.
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+Запустіть `cargo test --bin combiner`, щоб побачити, чи правильно ви виконали завдання.
 
 ### --seed--
 
@@ -2280,11 +2280,11 @@ mod tests {
 
 ### --description--
 
-To make combining the images simpler, you can resize the largest image to the size of the smallest image. In order to do this, you need to get the smallest dimensions of the two images.
+Щоб спростити поєднання зображень, ви можете змінити розмір найбільшого зображення до розміру найменшого. Для цього вам потрібно отримати найменші розміри двох зображень.
 
-Task: Create a function named `get_smallest_dimensions` which takes two tuples as parameters. Each tuple should take two elements, each of type `u32`.
+Завдання: створіть функцію під назвою `get_smallest_dimensions`, яка приймає два кортежі як параметри. Кожен кортеж повинен містити два елементи, кожен типу `u32`.
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+Запустіть `cargo test --bin combiner`, щоб побачити, чи правильно ви виконали завдання.
 
 ### --seed--
 
@@ -2358,13 +2358,13 @@ mod tests {
 
 ### --description--
 
-Within `get_smallest_dimensions`, you will need to return the dimensions with the smallest number of pixels. The number of pixels is the product of the width and height.
+В межах `get_smallest_dimensions` вам потрібно буде повернути розміри з найменшою кількістю пікселів. Кількість пікселів – це добуток ширини та висоти.
 
-Task: Return `dim_1` if the number of pixels in `dim_1` is less than the number of pixels in `dim_2`. Return `dim_2` otherwise.
+Завдання: поверніть `dim_1`, якщо кількість пікселів у `dim_1` менша за кількість пікселів у `dim_2`. Інакше поверніть `dim_2`.
 
-Remember, you can use dot notation to access the elements of a tuple.
+Пам’ятайте, що для доступу до елементів кортежу можна використовувати крапкову нотацію.
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+Запустіть `cargo test --bin combiner`, щоб побачити, чи правильно ви виконали завдання.
 
 ### --seed--
 
@@ -2449,11 +2449,11 @@ mod tests {
 
 ### --description--
 
-Task: Within `standardise_size`, destructure the tuple returned from `get_smallest_dimensions` into two variables `width` and `height`. Use the return of calling the `dimensions` method on each `DynamicImage` to pass as arguments for `get_smallest_dimensions`.
+Завдання: у межах `standardise_size` деструктуруйте кортеж, що повертається з `get_smallest_dimensions` у дві змінні `width` та `height`. Використайте результат виклику методу `dimensions` на кожному `DynamicImage`, щоб передати як аргументи для `get_smallest_dimensions`.
 
-_Hint:_ Follow the compiler's advice to get the dimensions of the images.
+_Підказка:_ дотримуйтесь порад компілятора, щоб отримати розміри зображень.
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+Запустіть `cargo test --bin combiner`, щоб побачити, чи правильно ви виконали завдання.
 
 ### --seed--
 
@@ -2544,9 +2544,9 @@ mod tests {
 
 ### --description--
 
-Task: Within `standardise_size`, print `width` and `height` to the console.
+Завдання: у межах `standardise_size` виведіть на консоль `width` та `height`.
 
-Run `cargo test --bin combiner -- --show-output`. If you see the `'width: 10, height: 10'` printed to the console, you have successfully completed the task.
+Запустіть `cargo test --bin combiner -- --show-output`. Якщо ви бачите на консолі `'width: 10, height: 10'`, ви успішно виконали завдання.
 
 ### --seed--
 
@@ -2621,9 +2621,9 @@ mod tests {
 
 ### --description--
 
-Task: Within `standardise_size`, write an `if` statement to check if `image_2`'s dimensions are equal to the previously determined smallest dimensions. If they are, return a tuple containing `image_1` and `image_2`. Otherwise, return the same tuple.
+Завдання: у межах `standardise_size` напишіть інструкцію `if`, щоб перевірити, чи розміри `image_2` дорівнюють попередньо визначеним найменшим розмірам. Якщо так, то поверніть кортеж, що містить `image_1` та `image_2`. В іншому випадку поверніть такий же кортеж.
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+Запустіть `cargo test --bin combiner`, щоб побачити, чи правильно ви виконали завдання.
 
 ### --seed--
 
@@ -2714,15 +2714,15 @@ mod tests {
 
 ### --description--
 
-Instead of returning the images unchanged, you should resize the larger image. You can use the `resize_exact` method which exists on the `DynamicImage` struct. The `resize_exact` method takes the form:
+Замість того, щоб повертати зображення без змін, ви повинні змінити розмір більшого зображення. Ви можете використати метод `resize_exact`, який існує на структурі `DynamicImage`. Метод `resize_exact` має такий вигляд:
 
 ```rust
     image_to_resize.resize_exact(new_width: u32, new_height: u32, filter: image::imageops::FilterType);
 ```
 
-Task: Within `standardise_size`, resize the correct image variable to the correct dimensions, using the `Triangle` filter.
+Завдання: у межах `standardise_size` змініть розмір змінної правильного зображення до правильних розмірів, використовуючи фільтр `Triangle`.
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+Запустіть `cargo test --bin combiner`, щоб побачити, чи правильно ви виконали завдання.
 
 ### --seed--
 
@@ -2799,9 +2799,9 @@ mod tests {
 
 ### --description--
 
-Task: Within `main` before the `Ok` return, use the `standardise_size` function to redeclare `image_1` and `image_2` as the correct size.
+Завдання: у межах `main` перед поверненням `Ok` скористайтеся функцією `standardise_size`, щоб повторно оголосити `image_1` та `image_2` як правильний розмір.
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+Запустіть `cargo test --bin combiner`, щоб побачити, чи правильно ви виконали завдання.
 
 ### --seed--
 
@@ -2895,9 +2895,9 @@ mod tests {
 
 ### --description--
 
-To handle the output, a temporary struct can be created to hold the meta data for the output image.
+Для обробки виводу можна створити тимчасову структуру для зберігання метаданих для вихідного зображення.
 
-Task: Create a struct called `FloatingImage` that has the following fields:
+Завдання: створіть структуру під назвою `FloatingImage`, яка має такі поля:
 
 ```rust
     width: u32,
@@ -2906,7 +2906,7 @@ Task: Create a struct called `FloatingImage` that has the following fields:
     name: String,
 ```
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+Запустіть `cargo test --bin combiner`, щоб побачити, чи правильно ви виконали завдання.
 
 ### --seed--
 
@@ -2986,9 +2986,9 @@ mod tests {
 
 ### --description--
 
-Task: Implement a function named `new` for `FloatingImage`. The `new` function should take three arguments: `width: u32`, `height: u32`, `name: String`.
+Завдання: реалізуйте функцію під назвою `new` для `FloatingImage`. Функція `new` повинна приймати три аргументи: `width: u32`, `height: u32`, `name: String`.
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+Запустіть `cargo test --bin combiner`, щоб побачити, чи правильно ви виконали завдання.
 
 ### --seed--
 
@@ -3065,18 +3065,18 @@ mod tests {
 
 ### --description--
 
-In order to efficiently write the combined image data to the output image, you need to create a buffer large enough to hold the data so no extra space needs to be allocated.
+Щоб ефективно записати об’єднані дані зображень у вихідне зображення, вам потрібно створити буфер, достатньо великий для зберігання даних, тому не потрібно виділяти додатковий простір.
 
-Large images can have a large amount of data, so you can take advantage of Rust's easy-to-read numbering, which separates the number into groups of three digits:
+Великі зображення можуть містити велику кількість даних, тому ви можете скористатися зручною для читання нумерацією Rust, яка розділяє число на групи з трьох цифр:
 
 ```rust
     let difficult_to_read_number = 1325364955;
     let easy_to_read_number = 1_325_364_955;
 ```
 
-Task: Within `new`, declare a variable named `buffer_capacity`, and assign it the value of `3655744` using the easy-to-read number.
+Завдання: у межах `new` оголосіть змінну під. назвою `buffer_capacity` та призначте їй значення `3655744`, використовуючи зручне для читання число.
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+Запустіть `cargo test --bin combiner`, щоб побачити, чи правильно ви виконали завдання.
 
 ### --seed--
 
@@ -3190,13 +3190,13 @@ mod tests {
 
 ### --description--
 
-Now that you have a buffer size, you need to create a buffer of `Vec<u8>`. The `Vec` struct implements a `with_capacity` function, which takes a capacity as an argument and returns a new `Vec` with that capacity.
+Тепер, коли у вас є розмір буфера, вам потрібно створити буфер `Vec<u8>`. Структура `Vec` реалізує функцію `with_capacity`, яка приймає місткість як аргумент та повертає новий `Vec` з цією місткістю.
 
-Task: Within `new`, declare a variable named `buffer`, and assign it the value of calling the `with_capacity` function with `buffer_capacity`.
+Завдання: у межах `new` оголосіть змінну під назвою `buffer` та призначте їй значення виклику функції `with_capacity` із `buffer_capacity`.
 
-_Hint:_ Follow the compiler's advice to explicitly type the `buffer` variable.
+_Підказка:_ дотримуйтесь порад компілятора, щоб чітко вказати тип змінної `buffer`.
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+Запустіть `cargo test --bin combiner`, щоб побачити, чи правильно ви виконали завдання.
 
 ### --seed--
 
@@ -3319,9 +3319,9 @@ mod tests {
 
 ### --description--
 
-Task: Within `new`, use the variables available to return an instance of the `FloatingImage` struct.
+Завдання: у межах `new` використайте доступні змінні, щоб повернути екземпляр структури `FloatingImage`.
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+Запустіть `cargo test --bin combiner`, щоб побачити, чи правильно ви виконали завдання.
 
 ### --seed--
 
@@ -3420,9 +3420,9 @@ mod tests {
 
 ### --description--
 
-Task: Within `main`, declare a new variable `output` using the `new` function of the `FloatingImage` struct. Use the `width` and `height` methods of the `image_1` variable for the first two arguments, and the `output` field of the `args` variable for the third argument.
+Завдання: у межах `main` оголосіть нову змінну `output`, використовуючи функцію `new` структури `FloatingImage`. Використайте методи `width` та `height` змінної `image_1` для перших двох аргументів та поле `output` змінної `args` для третього аргументу.
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+Запустіть `cargo test --bin combiner`, щоб побачити, чи правильно ви виконали завдання.
 
 ### --seed--
 
@@ -3551,9 +3551,9 @@ mod tests {
 
 ### --description--
 
-Task: Define a function named `combine_images` which takes two `DynamicImage`s as arguments.
+Завдання: визначте функцію під назвою `combine_images`, яка приймає два `DynamicImage` як аргументи.
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+Запустіть `cargo test --bin combiner`, щоб побачити, чи правильно ви виконали завдання.
 
 ### --seed--
 
@@ -3646,13 +3646,13 @@ mod tests {
 
 ### --description--
 
-In order to process the images, you will convert them into a vector of RGBA pixels. The pixels are stored as `u8`s, because their values are between 0 and 255.
+Щоб обробити зображення, ви конвертуєте їх у вектор пікселів RGBA. Пікселі зберігаються як `u8`, оскільки їхні значення знаходяться в діапазоні від 0 до 255.
 
-The `DynamicImage` struct implements the `to_rgba8` method, which returns an `ImageBuffer` containing a `Vec<u8>`, and the `ImageBuffer` implements the `into_vec` method, which returns the `Vec<u8>`.
+Структура `DynamicImage` реалізує метод `to_rgba8`, який повертає `ImageBuffer`, що містить `Vec<u8>`, та `ImageBuffer` реалізує метод `into_vec`, який повертає `Vec<u8>`.
 
-Task: Within `combine_images`, declare a variable `vec_1`, and use the above methods to assign the `Vec<u8>` to it. Return `vec_1`.
+Завдання: у межах `combine_images` оголосіть змінну `vec_1` та використайте наведені вище методи, щоб призначити їй `Vec<u8>`. Поверніть `vec_1`.
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+Запустіть `cargo test --bin combiner`, щоб побачити, чи правильно ви виконали завдання.
 
 ### --seed--
 
@@ -3752,9 +3752,9 @@ mod tests {
 
 ### --description--
 
-Task: Do the same as in the previous lesson, but on `image_2`, and return the new variable named `vec_2` instead of `vec_1`.
+Завдання: виконайте те саме, що й в попередньому уроці, але на `image_2` та поверніть нову змінну під назвою `vec_2`, а не `vec_1`.
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+Запустіть `cargo test --bin combiner`, щоб побачити, чи правильно ви виконали завдання.
 
 ### --seed--
 
@@ -3852,11 +3852,11 @@ mod tests {
 
 ### --description--
 
-Now that you have the pixel values of each image in `vec_1` and `vec_2`, you can combine them into a single image.
+Тепер, коли у вас є значення пікселів для кожного зображення в `vec_1` та `vec_2`, ви можете об’єднати їх в одне зображення.
 
-Task: Define a function named `alternate_pixels` which takes two `Vec<u8>`s as arguments.
+Завдання: визначте функцію під назвою `alternate_pixels`, яка приймає два `Vec<u8>` як аргументи.
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+Запустіть `cargo test --bin combiner`, щоб побачити, чи правильно ви виконали завдання.
 
 ### --seed--
 
@@ -3955,7 +3955,7 @@ mod tests {
 
 ### --description--
 
-You will need to store the combined image pixel data in a variable. To create this variable, you can use the `vec` macro, providing the type and length of the vector:
+Вам потрібно буде зберегти об’єднані піксельні дані зображення в змінну. Щоб створити цю змінну, ви можете використати макрос `vec`, надавши тип та довжину вектора:
 
 ```rust
     let my_vec = vec![10u8; 5];
@@ -3963,9 +3963,9 @@ You will need to store the combined image pixel data in a variable. To create th
     assert_eq!(my_vec, [10, 10, 10, 10, 10]);
 ```
 
-Task: Within `alternate_pixels`, declare a variable `combined_data`, and use the `vec` macro to create a `Vec<u8>` of `0` the same length as `vec_1`. Return `combined_data`.
+Завдання: у межах `alternate_pixels` оголосіть змінну `combined_data` та використайте макрос `vec`, щоб створити `Vec<u8>` з `0` такої ж довжини, як `vec_1`. Поверніть `combined_data`.
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+Запустіть `cargo test --bin combiner`, щоб побачити, чи правильно ви виконали завдання.
 
 ### --seed--
 
@@ -4073,7 +4073,7 @@ mod tests {
 
 ### --description--
 
-To iterate over the pixels in the vectors, you will use a `while` loop. A `while` loop follows this syntax:
+Щоб перебирати пікселі у векторах, ви скористаєтеся циклом `while`. Цикл `while` відповідає такому синтаксису:
 
 ```rust
     while condition {
@@ -4081,11 +4081,11 @@ To iterate over the pixels in the vectors, you will use a `while` loop. A `while
     }
 ```
 
-Where `condition` is a boolean expression that evaluates to `true` or `false`.
+Де `condition` – це логічний вираз, що оцінюється як `true` або `false`.
 
-Task: Within `alternate_pixels`, before returning `combined_data`, declare a variable `i`, and assign it the value of `0`. Then, declare a `while` loop that runs whilst `i` is less than the length of `vec_1`.
+Завдання: у межах `alternate_pixels`, перед поверненням `combined_data`, оголосіть змінну `i` та призначте їй значення `0`. Потім оголосіть цикл `while`, який виконується, поки `i` менше довжини `vec_1`.
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+Запустіть `cargo test --bin combiner`, щоб побачити, чи правильно ви виконали завдання.
 
 ### --seed--
 
@@ -4226,11 +4226,11 @@ mod tests {
 
 ### --description--
 
-In order to correctly set the RGBA pixel sets for the output vector, you will replace the `0u8` values with the correct values.
+Щоб правильно встановити набори пікселів RGBA для вихідного вектора, ви заміните значення `0u8` на правильні значення.
 
-Task: Define a function named `set_rgba` which takes 3 arguments: A `Vec<u8>`, and two `usize`.
+Завдання: визначте функцію під назвою `set_rgba`, яка приймає 3 аргументи: `Vec<u8>` та два `usize`.
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+Запустіть `cargo test --bin combiner`, щоб побачити, чи правильно ви виконали завдання.
 
 ### --seed--
 
@@ -4334,9 +4334,9 @@ mod tests {
 
 ### --description--
 
-Task: Within `set_rgba`, define a mutable variable named `rgba`, and assign it to be an empty `Vec<u8>`. Try to do this without the `vec` macro. Then, return `rgba`.
+Завдання: у межах `set_rgba` визначте мінливу змінну під назвою `rgba` та призначте так, щоб вона була порожнім `Vec<u8>`. Спробуйте зробити це без макросу `vec`. Потім поверніть `rgba`.
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+Запустіть `cargo test --bin combiner`, щоб побачити, чи правильно ви виконали завдання.
 
 ### --seed--
 
@@ -4466,7 +4466,7 @@ mod tests {
 
 ### --description--
 
-To iterate over a range of values, you can use a `for...in` loop with the _right-inclusive range literal_ operator:
+Щоб перебрати через межу значень, ви можете використати цикл `for...in` з оператором _літерала межі включно справа_:
 
 ```rust
     for i in 1..=5 {
@@ -4474,13 +4474,13 @@ To iterate over a range of values, you can use a `for...in` loop with the _right
     }
 ```
 
-The `=` within the range literal is the _right-inclusive_ range operator, meaning the end is included.
+`=` в літералі межі є оператором межі _включно справа_, тобто кінець включено.
 
-Task: Within `set_rgba`, before returning `rgba`, iterate over the range `start..=end`, and push each value in the range to `rgba`.
+Завдання: у межах `set_rgba`, перш ніж повертати `rgba`, переберіть через межу `start..=end` та надішліть кожне значення в межі до `rgba`.
 
-Hint: You will need to assert the correct type of the value being pushed to `rgba`.
+Підказка: вам потрібно буде підтвердити правильний тип значення, яке надсилається до `rgba`.
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+Запустіть `cargo test --bin combiner`, щоб побачити, чи правильно ви виконали завдання.
 
 ### --seed--
 
@@ -4592,7 +4592,7 @@ mod tests {
 
 ### --description--
 
-Sometimes, retrieving a value from within a vector causes a panic, because the index is out of bounds. To avoid this, you can use the `get` method on a vector:
+Іноді отримання значення з вектора викликає паніку, оскільки індекс виходить за межі. Щоб уникнути цього, ви можете використати метод `get` на векторі:
 
 ```rust
     let my_vec = vec![1, 2, 3];
@@ -4600,13 +4600,13 @@ Sometimes, retrieving a value from within a vector causes a panic, because the i
     assert_eq!(my_vec.get(3), None);
 ```
 
-The `get` method returns a reference to the value at the given index, or `None` if the index is out of bounds.
+Метод `get` повертає посилання на значення за заданим індексом або `None`, якщо індекс виходить за межі.
 
-Task: Within `set_rgba`, within the `for` loop, declare a variable `val` which is the `match` of the `get` method on `vec` using `i` as the argument.
+Завдання: у межах `set_rgba`, в межах циклу `for`, оголосіть змінну `val`, яка є `match` методу `get` на `vec`, використовуючи `i` як аргумент.
 
-On `Some`, assign the value to `val`. On `None`, return panic.
+У `Some` призначте значення до `val`. У `None` поверніть паніку.
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+Запустіть `cargo test --bin combiner`, щоб побачити, чи правильно ви виконали завдання.
 
 ### --seed--
 
@@ -4726,9 +4726,9 @@ mod tests {
 
 ### --description--
 
-Task: Within `set_rgba`, change the value pushed onto the `vec` to be `val`.
+Завдання: у межах `set_rgba` змініть значення, надіслане на `vec`, щоб воно було `val`.
 
-Run `cargo test --bin combiner`. You should see an error.
+Запустіть `cargo test --bin combiner`. Ви повинні бачити помилку.
 
 ### --seed--
 
@@ -4851,9 +4851,9 @@ mod tests {
 
 ### --description--
 
-The error comes about, because the type of `val` is `&u8` - a reference to an 8-bit unsigned integer. However, the type of `vec` should be `Vec<u8>`, not `Vec<&u8>`.
+Помилка виникає через те, що типом `val` є `&u8` – посилання на 8-розрядне ціле число без знаку. Однак, типом `vec` повинне бути `Vec<u8>`, а не `Vec<&u8>`.
 
-To fix this, the value returned from the `get` method can be _dereferenced_ . A dereference is done by annotating the value with `*`.:
+Щоб виправити це, можна _розкрити_ значення, яке повертає метод `get`. Розкриття виконується анотуванням значення з `*`.:
 
 ```rust
     let x = 5;
@@ -4863,9 +4863,9 @@ To fix this, the value returned from the `get` method can be _dereferenced_ . A 
     assert_eq!(5, *y);
 ```
 
-Task: Within `set_rgba`, dereference the value assigned to `val`.
+Завдання: у межах `set_rgba` розкрийте значення, присвоєне до `val`.
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+Запустіть `cargo test --bin combiner`, щоб побачити, чи правильно ви виконали завдання.
 
 ### --seed--
 
@@ -4988,7 +4988,7 @@ mod tests {
 
 ### --description--
 
-Currently, the `while` loop has the potential to run forever, when `vec` contains any elements. You can fix this by incrementing `i` on each iteration of the loop. Here are some common ways to increment an integer:
+Наразі цикл `while` може працювати вічно, якщо `vec` містить будь-які елементи. Ви можете виправити це, збільшуючи `i` на кожній ітерації циклу. Ось декілька поширених способів збільшення цілого числа:
 
 ```rust
     let mut a = 0;
@@ -4998,9 +4998,9 @@ Currently, the `while` loop has the potential to run forever, when `vec` contain
     assert_eq!(a, 3);
 ```
 
-Task: Within `alternate_pixels`, in the `while` loop, increment `i` by `4`.
+Завдання: у межах `alternate_pixels` в циклі `while` збільште `i` на `4`.
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+Запустіть `cargo test --bin combiner`, щоб побачити, чи правильно ви виконали завдання.
 
 ### --seed--
 
@@ -5144,7 +5144,7 @@ mod tests {
 
 ### --description--
 
-You have a `Vec<u8>` of `0`s, and two `Vec<u8>`s of `0-255`. To replace one slice of a vector with another, you can use the `splice` method:
+Ви маєте `Vec<u8>` від `0` та два `Vec<u8>` від `0-255`. Щоб замінити один зріз вектора іншим, ви можете використати метод `splice`:
 
 ```rust
     let original_vec = vec![0, 1, 2, 3];
@@ -5153,11 +5153,11 @@ You have a `Vec<u8>` of `0`s, and two `Vec<u8>`s of `0-255`. To replace one slic
     assert_eq!(vec_to_change, vec![0, 0, 2, 3]);
 ```
 
-The `splice` method takes two arguments: the range of the vector to replace, and the values to replace it with.
+Метод `splice` приймає два аргументи: межу вектора, який потрібно замінити, та значення, якими його потрібно замінити.
 
-Task: Within `alternate_pixels`, in the `while` loop, use the `splice` method on `combined_data` from `i` to `i+3`, and use the `set_rgba` function to insert the correct values from `vec_1`.
+Завдання: у межах `alternate_pixels` в циклі `while` використайте метод `splice` на `combined_data` з `i` до `i+3` та використайте функцію `set_rgba`, щоб вставити правильні значення з `vec_1`.
 
-Running `cargo test --bin combiner` should produce an error. Run `fcc test 65` to see if you correctly completed the task.
+Запуск `cargo test --bin combiner` повинен створити помилку. Запустіть `fcc test 65`, щоб побачити, чи правильно ви виконали завдання.
 
 ### --seed--
 
@@ -5272,24 +5272,24 @@ mod tests {
 
 ### --tests--
 
-- You should not change the `while` loop condition.
+- Ви не повинні змінювати умову циклу `while`.
 - `while\s+i\s*<\s*vec_1\.len\(\)\s*\{`
-- You should increment `i` by 4 at the end of the loop.
+- Ви повинні збільшити `i` на 4 в кінці циклу.
 - `i\s*\+=\s*4;\s*\}`
-- You should call the `splice` method on `combined_data`.
+- Ви повинні викликати метод `splice` на `combined_data`.
 - `combined_data\.splice\(`
-- You should either pass the range `i..i+4` or `i..=i+3` to the `splice` method's first argument.
+- Ви повинні передати межу `i..i+4` або `i..=i+3` до першого аргументу методу `splice`.
 - `splice\(\s*(i..i\s*\+\s*4)|(i..=i\s*\+\s*3)\s*,`
-- You should pass `set_rgba(vec_1, i, i+3)` as the second argument to `splice`.
+- Ви повинні передати `set_rgba(vec_1, i, i+3)` як другий аргумент до `splice`.
 - `splice\(\s*(i..i+4)|(i..=i\s*\+\s*3)\s*,\s*set_rgba\(\s*vec_1\s*,\s*i\s*,\s*i\s*\+\s*3\s*\)\s*\)`
 
 ## 66
 
 ### --description--
 
-The error is saying the `vec_1` value is moved into `set_rgba` on the first iteration of the loop. So, on the second iteration, when the `while` condition is supposed to evaluate `i < vec_1.len()`, `vec_1` is not in scope to be used.
+Помилка полягає в тому, що значення `vec_1` переміщується в `set_rgba` під час першої ітерації циклу. Отже, на другій ітерації, коли умова `while` має оцінити `i < vec_1.len()`, `vec_1` не входить до області видимості для використання.
 
-Task: Within `alternate_pixels`, fix the issue, by passing a reference to `vec_1` to `set_rgba`, and fix the necessary type annotations.
+Завдання: у межах `alternate_pixels` виправте проблему, передавши посилання на `vec_1` до `set_rgba`, та виправте необхідні анотації типу.
 
 ### --seed--
 
@@ -5421,7 +5421,7 @@ mod tests {
 
 ### --description--
 
-Currently, `alternate_pixels` is splicing every RGBA set from `vec_1` into `combined_data`. However, you want every second set to be from `vec_2`. To achieve this, you can use the remainder operator:
+Наразі `alternate_pixels` поєднує кожен набір RGBA з `vec_1` в `combined_data`. Однак хотілось би, щоб кожен другий набір був з `vec_2`. Щоб досягти цього, ви можете використати оператор остачі:
 
 ```rust
     let mut my_vec = vec![0u8; 6];
@@ -5435,9 +5435,9 @@ Currently, `alternate_pixels` is splicing every RGBA set from `vec_1` into `comb
     assert_eq!(my_vec, vec![2, 1, 2, 1, 2, 1]);
 ```
 
-Task: Within `alternate_pixels`, use the remainder operator to splice every second set of RGBA values from `vec_2` into `combined_data`.
+Завдання: у межах `alternate_pixels` використайте оператор остачі, щоб об'єднати кожен другий набір значень RGBA з `vec_2` в `combined_data`.
 
-Run `cargo test --bin combiner` to see if you correctly completed this task.
+Запустіть `cargo test --bin combiner`, щоб побачити, чи правильно ви виконали це завдання.
 
 ### --seed--
 
@@ -5569,9 +5569,9 @@ mod tests {
 
 ### --description--
 
-Task: Within `combine_images`, instead of returning `vec_2`, return the result of calling `alternate_pixels` with `vec_1` and `vec_2`.
+Завдання: у межах `combine_images` замість того, щоб повернути `vec_2`, поверніть результат виклику `alternate_pixels` з `vec_1` та ` vec_2`.
 
-Run `cargo test --bin combiner` to see if you correctly completed this task.
+Запустіть `cargo test --bin combiner`, щоб побачити, чи правильно ви виконали це завдання.
 
 ### --seed--
 
@@ -5714,9 +5714,9 @@ mod tests {
 
 ### --description--
 
-Task: Within `main`, declare a variable `combined_data`, and assign it the value of calling `combine_images` with `image_1` and `image_2`.
+Завдання: у межах `main` оголосіть змінну `combined_data` та призначте їй значення виклику `combine_images` з `image_1` та `image_2`.
 
-Run `cargo test --bin combiner` to see if you correctly completed this task.
+Запустіть `cargo test --bin combiner`, щоб побачити, чи правильно ви виконали це завдання.
 
 ### --seed--
 
@@ -5866,9 +5866,9 @@ mod tests {
 
 ### --description--
 
-Now, you want to set the data of `combined_data` into the `output` image. To do this, you are going to define a method on `FloatingImage` to set the `data` field of `output` to the value of `combined_data`.
+Тепер потрібно встановити дані `combined_data` в зображення `output`. Для цього ви визначите метод на `FloatingImage`, щоб встановити поле `data` від `output` на значення `combined_data`.
 
-So far, you have only implemented functions on structs. Methods are defined in a similar way, but they take an instance of the struct as their first argument:
+Поки що ви реалізували лише функції на структурах. Методи визначаються подібним чином, але вони беруть екземпляр структури як перший аргумент:
 
 ```rust
     struct MyStruct {
@@ -5886,11 +5886,11 @@ So far, you have only implemented functions on structs. Methods are defined in a
     assert_eq!(my_struct.name, "Tom".to_string);
 ```
 
-As the value of the instance of `MyStruct` needs to be changed, the method `change_name` takes a mutable reference to the instance as its first argument. _Notice the method is still only called with one argument_ .
+Оскільки значення екземпляра `MyStruct` потрібно змінити, метод `change_name` приймає мінливе посилання на екземпляр як перший аргумент. _Зверніть увагу, що метод досі викликається тільки одним аргументом_.
 
-Task: Implement a method `set_data` on `FloatingImage` which takes a `Vec<u8>` as an argument.
+Завдання: реалізуйте метод `set_data` для `FloatingImage`, який приймає `Vec<u8>` як аргумент.
 
-Run `cargo test --bin combiner` to see if you correctly completed this task.
+Запустіть `cargo test --bin combiner`, щоб побачити, чи правильно ви виконали це завдання.
 
 ### --seed--
 
@@ -6017,9 +6017,9 @@ mod tests {
 
 ### --description--
 
-Task: Within `set_data`, set the instance's `data` field to be equal to the value of the `data` argument. Then, return an `Ok` result with an empty tuple as a response.
+Завдання: у межах `set_data` встановіть значення поля `data` екземпляра, щоб воно дорівнювало значення аргументу `data`. Потім поверніть результат `Ok` з порожнім кортежем як відповідь.
 
-Run `cargo test --bin combiner` to see if you correctly completed this task.
+Запустіть `cargo test --bin combiner`, щоб побачити, чи правильно ви виконали це завдання.
 
 ### --seed--
 
@@ -6149,7 +6149,7 @@ mod tests {
 
 ### --description--
 
-To handle errors more clearly, you can create an _enum_ to represent the possible errors that can occur:
+Щоб чіткіше обробляти помилки, ви можете створити _перелік_, щоб представити можливі помилки, які можуть виникнути:
 
 ```rust
     enum MyErrors {
@@ -6169,11 +6169,11 @@ To handle errors more clearly, you can create an _enum_ to represent the possibl
     }
 ```
 
-Enums can be used as both values as well as types. You have already encountered the `Option` enum.
+Переліки можна використовувати як значення, так і типи. Ви вже стикалися з переліком `Option`.
 
-Task: Create an `enum` called `ImageDataErrors`, and has two variants `BufferTooSmall` and `DifferentImageFormats`.
+Завдання: створіть `enum` під назвою `ImageDataErrors`, який має два варіанти `BufferTooSmall` та `DifferentImageFormats`.
 
-Run `cargo test --bin combiner` to see if you correctly completed this task.
+Запустіть `cargo test --bin combiner`, щоб побачити, чи правильно ви виконали це завдання.
 
 ### --seed--
 
@@ -6304,9 +6304,9 @@ mod tests {
 
 ### --description--
 
-Task: Derive the `Debug` trait for the `ImageDataErrors` enum.
+Завдання: отримайте ознаку `Debug` для переліку `ImageDataErrors`.
 
-Run `cargo test --bin combiner -- --show-output`. You should see the following printed to the console:
+Запустіть `cargo test --bin combiner -- --show-output`. Ви повинні побачити наступне, надруковане на консолі:
 
 ```bash
     BufferTooSmall
@@ -6450,11 +6450,11 @@ mod tests {
 
 ### --description--
 
-Now you can use your enum to give more specific errors.
+Тепер ви можете використовувати свій перелік, щоб видавати конкретніші помилки.
 
-Task: Within `set_data`, return the appropriate error, if `data.len()` is greater than `self.data.capacity()`.
+Завдання: у межах `set_data` поверніть відповідну помилку, якщо `data.len()` більше, ніж `self.data.capacity()`.
 
-Run `cargo test --bin combiner` to see if you correctly completed this task.
+Запустіть `cargo test --bin combiner`, щоб побачити, чи правильно ви виконали це завдання.
 
 ### --seed--
 
@@ -6604,9 +6604,9 @@ mod tests {
 
 ### --description--
 
-Task: Within `main`, instead of returning an error `String`, use `ImageDataErrors` to return the appropriate error.
+Завдання: у межах `main` замість повернення помилки `String`, використайте `ImageDataErrors`, щоб повернути відповідну помилку.
 
-Run `cargo test --bin combiner` to see if you correctly completed this task.
+Запустіть `cargo test --bin combiner`, щоб побачити, чи правильно ви виконали це завдання.
 
 ### --seed--
 
@@ -6746,11 +6746,11 @@ mod tests {
 
 ### --description--
 
-Task: Within `main`, call `set_data` on `output` with `combined_data`.
+Завдання: у межах `main` викличте `set_data` на `output` із `combined_data`.
 
-_Hint:_ Follow the compiler's advice to get the code to compile
+_Підказка:_ дотримуйтесь порад компілятора, щоб код міг компілюватись
 
-Run `cargo test --bin combiner` to see if you correctly completed this task.
+Запустіть `cargo test --bin combiner`, щоб побачити, чи правильно ви виконали це завдання.
 
 ### --seed--
 
@@ -6919,7 +6919,7 @@ mod tests {
 
 ### --description--
 
-The compiler is giving you a warning that you are not using the `Result` returned from calling `set_data`. You could panic on the error using the `unwrap` method. However, as the error is being handled with an enum, you can propagate the error by using the _error propagation_ operator:
+Компілятор попереджає вас про те, що ви не використовуєте `Result`, отриманий з виклику `set_data`. Ви можете панікувати через помилку, використавши метод `unwrap`. Однак, оскільки помилка обробляється за допомогою переліку, ви можете поширити помилку за допомогою оператора _поширення помилки_:
 
 ```rust
     enum MyError {
@@ -6940,11 +6940,11 @@ The compiler is giving you a warning that you are not using the `Result` returne
     assert_eq!(last(), "Err".to_string());
 ```
 
-Using the `?` operator allows the `MyError` to propagate to the caller.
+Використання оператора `?` дозволяє поширювати `MyError` джерелу виклику.
 
-Task: Follow the compiler's advice in the warning to propagate the error.
+Завдання: дотримуйтесь порад компілятора в попередженні, щоб поширити помилку.
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+Запустіть `cargo test --bin combiner`, щоб побачити, чи правильно ви виконали завдання.
 
 ### --seed--
 
@@ -7110,17 +7110,17 @@ mod tests {
 
 ### --description--
 
-Finally, you can save the new image to a file. The `image` crate has a `save_buffer_with_format` function taking the following form:
+Нарешті! Ви можете зберегти нове зображення у файлі. Ящик `image` має функцію `save_buffer_with_format`, яка має таку форму:
 
 ```rust
     fn save_buffer_with_format(path: AsRef<Path>, buf: &[u8], width: u32, height: u32, color: image::ColorType, format: image::ImageFormat) -> image::ImageResult<()>;
 ```
 
-Seeing as `AsRef` is implemented for `String`, an argument of type `String` can be used for the `path`.
+Оскільки `AsRef` реалізовано для `String`, аргумент типу `String` можна використовувати для `path`.
 
-Task: Within `main`, use the correct `output` properties as the first four arguments, `Rgba8` as the colour argument, and `image_1_format` as the format argument. Unwrap the result of `save_buffer_with_format`.
+Завдання: у межах `main` використайте правильні властивості `output` як перші чотири аргументи, `Rgba8` як аргумент кольору та `image_1_format` як аргумент формату. Розгорніть результат `save_buffer_with_format`.
 
-Run `cargo run --bin combiner -- ./images/fcc_glyph.png ./images/pro.png example.png`. If the `example.png` file exists, and is a combination of my profile picture with the freeCodeCamp logo, you have completed the task.
+Запустіть `cargo run --bin combiner -- ./images/fcc_glyph.png ./images/pro.png example.png`. Якщо файл `example.png` існує та є поєднанням зображення мого профілю з логотипом freeCodeCamp, ви виконали завдання.
 
 ### --seed--
 
@@ -7263,9 +7263,9 @@ mod tests {
 
 ### --description--
 
-Task: Build a release version of your `combiner` CLI.
+Завдання: створіть робочу версію свого `combiner`.
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+Запустіть `cargo test --bin combiner`, щоб побачити, чи правильно ви виконали завдання.
 
 ### --seed--
 
@@ -7426,16 +7426,16 @@ mod tests {
 
 ### --tests--
 
-- You can use the `cargo build --bin combiner --release` command to build the binary.
+- Ви можете використати команду `cargo build --bin combiner --release`, щоб створити двійковий файл.
 - `null`
 
 ## 80
 
 ### --description--
 
-Congratulations on finishing the **Rust in Replit** course!
+Вітаємо із закінченням курсу **Rust на Replit**!
 
-You may now play around with your code and your new command line tool to make combined images of your own.
+Тепер ви можете практикуватись на своєму коді та новому інструменті командного рядка, щоб створити власні комбіновані зображення.
 
 ### --seed--
 
@@ -7573,7 +7573,7 @@ fn set_rgba(vec: &Vec<u8>, start: usize, end: usize) -> Vec<u8> {
 
 ### --tests--
 
-- This is the final lesson. Congrats!
+- Це останній урок. Вітання!
 - `null`
 
 ## 81
@@ -7588,5 +7588,5 @@ fn set_rgba(vec: &Vec<u8>, start: usize, end: usize) -> Vec<u8> {
 
 ### --tests--
 
-- Placeholder
+- Заповнювач
 - `null`

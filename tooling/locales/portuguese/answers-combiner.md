@@ -1428,7 +1428,7 @@ mod tests {
 
 ### --description--
 
-Tarefa: dentro de `main.rs`, defina uma função chamada `find_image_from_path` que recebe uma `String` como argumento.
+Tarefa: dentro de `main.rs`, defina uma função chamada `find_image_from_path`, que recebe uma `String` como argumento.
 
 Execute `cargo test --bin combiner` para ver se você completou a tarefa corretamente.
 
@@ -6154,7 +6154,7 @@ Para lidar com erros de forma mais clara, você pode criar um _enum_ para repres
 ```rust
     enum MyErrors {
       BrainTooTired,
-      TimeOfDay(String)
+      TimeOfDay(String),
       CoffeeCupEmpty,
     }
 

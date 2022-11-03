@@ -917,7 +917,7 @@ With an output like:
 Example:
 
 ```bash
-    $ calcualtor 1 + 1
+    $ calculator 1 + 1
     $ 1 + 1 = 2
 ```
 
