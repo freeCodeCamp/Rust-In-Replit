@@ -65,24 +65,13 @@ if (isNaN(Number(ARGS[2]))) {
       promptForLocale();
       break;
     case "locale":
-      if (
-        !Object.values(translatedLocales)?.some(
-          (x) => ARGS[3].toLowerCase() === x.toLowerCase()
-        )
-      ) {
-        console.log(`This course is not translated into ${
-          ARGS[3]
-        }, yet. Help us translate it!
-        https://contribute.freecodecamp.org/
-        
-Available locales:
-\t- ${Object.values(translatedLocales).join("\t\n- ")}`);
+      const lang = ARGS[3];
+      const selected = Object.entries(translatedLocales).find(([k, v], i) => lang == i);
+      if (selected) {
+        setLocale(selected[0]);
       } else {
-        setLocale(
-          Object.entries(translatedLocales)?.find(
-            ([_, val]) => val.toLowerCase() === ARGS[3].toLowerCase()
-          )?.[0]
-        );
+        console.log("ERR: INVALID INPUT")
+        console.log(`\n\t${Object.values(translatedLocales).map((v, i) => `${i}) ${v}`).join("\n\t")}`);
       }
       break;
     default:
@@ -117,7 +106,7 @@ function help() {
   fcc help             - ${t("fcc-help")}
   fcc switch <project> - ${t("fcc-switch-project")}
   fcc test <n>         - ${t("fcc-test-n")}
-  fcc locale <locale>  - ${t("fcc-locale")}
+  fcc locale <n>  - ${t("fcc-locale")}
 
   ---
 
@@ -138,7 +127,7 @@ function promptForLocale() {
   greetings.forEach((x) => console.log(x));
   console.log(`
   
-  \t- ${Object.values(translatedLocales).join("\n\t- ")}
+  \t${Object.values(translatedLocales).map((v, i) => `${i}) ${v}`).join("\n\t")}
   `);
   const readline = require("readline");
   const rl = readline.createInterface({
@@ -147,21 +136,13 @@ function promptForLocale() {
   });
 
   function getInput() {
-    rl.question(">>: ", (lang = "English") => {
-      const ling = lang === "" ? "English" : lang;
-      if (
-        !Object.values(translatedLocales)?.some(
-          (x) => ling.toLowerCase() === x.toLowerCase()
-        )
-      ) {
+    rl.question(">>: ", (lang = 0) => {
+      const selected = Object.entries(translatedLocales).find(([k, v], i) => lang == i);
+      if (!selected) {
         getInput();
       } else {
-        setLocale(
-          Object.entries(translatedLocales)?.find(
-            ([_, val]) => val.toLowerCase() === ling.toLowerCase()
-          )?.[0]
-        );
-        console.log(`Language set to ${ling}`);
+        setLocale(selected[0]);
+        console.log(`Language set to ${selected[1]}`);
         rl.close();
       }
     });

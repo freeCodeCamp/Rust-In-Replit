@@ -166,7 +166,7 @@ jobs:
           BRANCH: "i18n-sync"
           REPOSITORY: "freecodecamp/rust-in-replit"
           BASE: "main"
-          TITLE: "chore(i18n,docs): processed translations"
+          TITLE: "chore(i18n,curriculum): processed translations"
           BODY: "This PR was opened auto-magically by Crowdin."
           LABELS: "crowdin-sync"
           TEAM_REVIEWERS: "i18n"

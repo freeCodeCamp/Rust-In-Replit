@@ -6,7 +6,7 @@ function t(key, args = {}, forceLangToUse) {
   const loc = getProjectMeta().LOCALE;
   // Get key from ./locales/{locale}/comments.json
   // Read file and parse JSON
-  const locale = forceLangToUse ?? loc === "undefined" ? "en" : loc;
+  const locale = forceLangToUse ?? (loc === "undefined" ? "en" : loc);
   const comments = require(`./locales/${locale}/comments.json`);
 
   // Get value from JSON
@@ -25,7 +25,7 @@ function getProjectMeta() {
   const META_FILE = "tooling/.meta";
   let meta = {
     CURRENT_PROJECT: "calculator",
-    LOCALE: "en",
+    LOCALE: "english",
   };
   try {
     const META = fs.readFileSync(META_FILE, "utf8");

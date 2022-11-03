@@ -6,7 +6,7 @@ const { t } = require("./t");
 
 // Set alias based on project argv
 async function setLocale(locale) {
-  const loc = locale === "undefined" ? "en" : locale;
+  const loc = locale === "undefined" ? "english" : locale;
   try {
     const { stdout, stderr } = await execute(
       `echo '\nLOCALE=${loc}' >> ./tooling/.meta`
