@@ -1,9 +1,10 @@
-const locales = ["english", "spanish", "portuguese", "ukrainian"];
+const locales = ["english", "italian", "portuguese", "spanish", "ukrainian"];
 
 const translatedLocales = {
   english: "English",
-  spanish: "Español",
+  italian: "Italiano",
   portuguese: "Português (Brasil)",
+  spanish: "Español",
   ukrainian: "Українська",
 };
 
