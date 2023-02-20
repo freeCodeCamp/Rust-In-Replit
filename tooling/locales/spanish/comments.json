@@ -1,5 +1,5 @@
 {
-  "greeting": "Welcome. This course is available in multiple languages. Type the corresponding number below:",
+  "greeting": "Bienvenido(a). Este curso está disponible en varios idiomas. Escribe el número correspondiente a continuación:",
   "call-to-action": "El idioma {{locale}} aún no está soportado. Ayúdanos a traducir este curso: https://contribute.freecodecamp.org/",
   "task": "Tarea",
   "lesson": "LECCIÓN",
@@ -32,6 +32,6 @@
   "project-not-exist": "El proyecto {{project}} no existe. Aquí están los proyectos disponibles:",
   "invalid-argument": "Argumento inválido",
   "welcome": "Beinvenido o bienvenida a el curso de freeCodeCamp, Rust en Replit\n\nEstarás usando esta consola (o el Shell) para leer la mayoría de las instrucciones, a lo largo de este curso.\n\nPara obtener tu primera leccion, escribe lo siguiente en el indicador:\n\n\t$ fcc 1\n\nPuedes hacer clic el botón Run en cualquier momento para volver a esta pantalla.\n\nUna vez que el curso está configurado, puedes obtener ayuda y ver opciones ejecutando:\n\n\t$ fcc help\n\n\nSi en algún momento te quedas atascado puedes:\n\t- Restablecer tu código con: $ fcc reset <n>\n\t- Ver la respuesta al código con: $ fcc solution <n>",
-  "set-locale-success": "Successfully set the locale to {{loc}}",
+  "set-locale-success": "Se ha establecido con éxito la configuración regional en {{loc}}",
   "set-locale-error": "Se ha producido un error al intentar establecer la configuración regional en {{locale}}"
 }
