@@ -237,4 +237,4 @@ jobs:
           TITLE: "chore(i18n,curriculum): processed translations"
           BODY: "This PR was opened auto-magically by Crowdin."
           LABELS: "crowdin-sync"
-          TEAM_REVIEWERS: "i18n"
+          REVIEWERS: "ShaunSHamilton"
