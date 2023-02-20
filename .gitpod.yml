@@ -1,0 +1,3 @@
+tasks:
+  - init: export PATH=$PATH:/workspace/Rust-In-Replit/tooling
+  - command: fcc welcome
