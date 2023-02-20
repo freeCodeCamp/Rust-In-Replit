@@ -1,12 +1,12 @@
-# freeCodeCamp - Rust in Replit - Image Combiner
+# freeCodeCamp - Rust in Replit 课程 - 图像组合
 
 ## 1
 
 ### --description--
 
-Start by creating a new project called `combiner`.
+首先创建一个名为 `combiner` 的新项目。
 
-Run `fcc test 1` to see if you correctly completed the task.
+运行 `fcc test 1` 来查看你是否正确地完成了任务。
 
 ### --seed--
 
@@ -19,24 +19,24 @@ fn main() {
 
 ### --tests--
 
-- You should see a new directory `combiner` created in the root.
+- 你应该看到在 root 创建的新目录 `combiner`。
 - `Hello, world!`
 
 ## 2
 
 ### --description--
 
-In this project, you will be creating a CLI (combiner) which expects three arguments:
+在这个项目中，你将创建一个 CLI（组合程序），它需要三个参数：
 
 ```bash
     $ combiner image1.png image2.png output.png
 ```
 
-The first two arguments are the paths to the images you want to combine. The third argument is the path to the output image.
+前两个参数是你想要组合的图像路径。 第三个参数是输出图像的路径。
 
-Task: Open `combiner/src/main.rs` and run `cargo run --bin combiner` to see if your application is correctly set up.
+任务：打开 `combiner/src/main.rs` 并运行 `cargo run --bin combiner` 以查看你的应用程序是否正确设置。
 
-You should see `Hello, world!` printed to the console.
+你应该看到 `Hello, world!` 被打印到控制台。
 
 ### --seed--
 
@@ -49,18 +49,18 @@ fn main() {
 
 ### --tests--
 
-- Your code should output `Hello, world!`
+- 你的代码应该输出 `Hello, world!`
 - `getCommandOutput(Hello, world!)`
 
 ## 3
 
 ### --description--
 
-Task: Define a function called `get_nth_arg` which takes one `usize` argument.
+任务：定义一个名为 `get_nth_arg` 的函数，这个函数需要一个 `usize` 参数。
 
-Remember to import as necessary.
+请记住，必要时导入。
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+运行 `cargo test --bin combiner` 来查看你是否正确地完成了任务。
 
 ### --seed--
 
@@ -87,27 +87,27 @@ mod tests {
 
 ### --tests--
 
-- Run `cargo test --bin combiner` to see if you correctly completed the task.
+- 运行 `cargo test --bin combiner` 来查看你是否正确地完成了任务。
 - `null`
-- Hint: Remember to import the function into the `tests` module.
+- 提示：记住将函数导入到 `tests` 模块。
 - `null`
 
 ## 4
 
 ### --description--
 
-Upcoming tests make use of an external crate called `regex`.
+即将进行的测试使用了一个名为 `regex` 的外部 crate。
 
-Task: Open the `Cargo.toml` file in the root, and add the following lines:
+任务：在 root 中打开 `Cargo.toml` 文件，并添加以下代码：
 
 ```rust
     [dependencies]
     regex = "1.5.4"
 ```
 
-This will install the `regex` crate into your project which is used in the `reg_with_con` function. You can find out more about this crate at: https://crates.io/crates/regex
+这将安装 `regex` crate 到你的项目中，在 `reg_with_con` 函数中使用它。 你可以在 https://crates.io/crates/regex 了解关于这个 crate 的更多信息。
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+运行 `cargo test --bin combiner` 来查看你是否正确地完成了任务。
 
 ### --seed--
 
@@ -146,18 +146,18 @@ mod tests {
 
 ### --tests--
 
-- Run `cargo test --bin combiner` to see if you correctly completed the task. No errors means you're done.
+- 运行 `cargo test --bin combiner` 来查看你是否正确地完成了任务。 没有报错就说明你已经完成了。
 - `null`
 
 ## 5
 
 ### --description--
 
-To make use of command line arguments, you will need to use the `std::env` module.
+要使用命令行参数，你需要使用 `std::env` 模块。
 
-Task: Within `get_nth_arg`, return the unwrapped value of calling the `nth` method on the `args` function with the argument `n`.
+任务：在 `get_nth_arg` 中，返回在具有参数 `n` 的 `args` 函数上调用 `nth` 方法的展开的值。
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+运行 `cargo test --bin combiner` 来查看你是否正确地完成了任务。
 
 ### --seed--
 
@@ -195,18 +195,18 @@ mod tests {
 
 ### --tests--
 
-- Run `cargo test --bin combiner` to see if you correctly completed the task. No errors means you're done.
+- 运行 `cargo test --bin combiner` 来查看你是否正确地完成了任务。 没有报错就说明你已经完成了。
 - `null`
 
 ## 6
 
 ### --description--
 
-Ideally, you want to store only the command line arguments you are interested in in a single variable.
+理想的情况是，你想在一个变量中只存储你感兴趣的命令行参数。
 
-Task: Within `main`, create a variable called `args`, and assign it the value of `Args {}`.
+任务：在 `main`内，创建一个名为 `args`的变量，并给它赋值 `Args {}`。
 
-Run `fcc test 6` to see if you correctly completed the task.
+运行 `fcc test 6` 来查看你是否正确地完成了任务。
 
 ### --seed--
 
@@ -245,18 +245,18 @@ mod tests {
 
 ### --tests--
 
-- You should create a new variable called `args`.
+- 你应该创建一个新的变量 `args`。
 - `let args`
-- You should assign `args` the value of `Args {}`.
+- 你应该给 `args` 赋值 `Args {}`。
 - `let\s+args\s*=\s*Args\s*\{\};`
 
 ## 7
 
 ### --description--
 
-The syntax `Args {}` is a constructor for a struct named `Args`. However, we have not defined the struct yet.
+语法 `Args {}` 是一个名为 `Args` 的结构体的构造器。 然而，我们还没有定义结构体。
 
-Here is an example of a struct you have already used:
+这是一个你已经使用过的结构体的示例：
 
 ```rust
     struct String {
@@ -264,13 +264,13 @@ Here is an example of a struct you have already used:
     }
 ```
 
-The `String` struct consists of a `vec` field, which is a `Vec` of `u8`s.
+`String` 结构体包含一个 `vec` 字段，它是 `Vec` `u8`。
 
-Task: At the global scope, define a struct named `Args`.
+任务：在全局范围内，定义一个命名为 `Args` 的结构体。
 
-Remember to import as necessary.
+请记住，必要时导入。
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+运行 `cargo test --bin combiner` 来查看你是否正确地完成了任务。
 
 ### --seed--
 
@@ -319,11 +319,11 @@ mod tests {
 
 ### --description--
 
-Instead of writing `use crate::` for every function or struct in the `tests` module, you can use the `super` keyword with the `*` wildcard selector to select everything in the current module.
+不用为 `tests` 模块中的每个函数或结构体写 `use crate::`，你可以使用 `super` 关键词和 `*` 通配符选择器来选择当前模块中的所有内容。
 
-Task: Replace the `use crate::` calls with `use super::*`.
+任务：用 `use super::*` 替换 `use crate::` 调用。
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+运行 `cargo test --bin combiner` 来查看你是否正确地完成了任务。
 
 ### --seed--
 
@@ -389,18 +389,18 @@ mod tests {
 
 ### --tests--
 
-- Run `cargo test --bin combiner` to see if you correctly completed the task. No errors means you're done.
+- 运行 `cargo test --bin combiner` 来查看你是否正确地完成了任务。 没有报错就说明你已经完成了。
 - `null`
 
 ## 9
 
 ### --description--
 
-Task: Add a field named `image_1` to the `Args` struct, and give it the correct type to pass the tests.
+任务：添加一个名为 `image_1` 的字段到 `Args` 结构体，并给它一个正确的类型来通过测试。
 
-Remember to adjust the declaration in `main` as necessary.
+记得在需要时调整 `main` 中的声明。
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+运行 `cargo test --bin combiner` 来查看你是否正确地完成了任务。
 
 ### --seed--
 
@@ -434,11 +434,11 @@ mod tests {
 
 ### --description--
 
-Task: To get a better idea of the `Args` struct, print the value of `my_arg` in the `args_struct_has_image_1_field` test.
+任务：为了更好地了解 `Args` 结构体，在 `args_struct_has_image_1_field` 测试中打印 `my_arg` 的值。
 
-Run `cargo test --bin combiner -- --show-output`. If you see an error, you correctly completed the task.
+运行 `cargo test --bin combiner -- --show-output`。 如果你看到一个错误，你正确地完成了任务。
 
-The `--show-output` flag shows the stdout of the tests.
+`--show-output` 标志显示测试的标准输出结果。
 
 ### --seed--
 
@@ -475,11 +475,11 @@ mod tests {
 
 ### --description--
 
-Your code could not compile, because the `println!` macro does not know how to format the `Args` struct.
+你的代码无法编译，因为 `println!` 宏不知道如何格式化 `Args` 结构体。
 
-Task: Follow the compiler's advice to extend the formatter within the `println!`.
+任务：按照编译器的建议在 `println!` 中扩展格式化程序。
 
-Run `cargo test --bin combiner -- --show-output`. You should still see an error.
+运行 `cargo test --bin combiner -- --show-output`。 你仍然应该看到一个错误。
 
 ### --seed--
 
@@ -516,9 +516,9 @@ mod tests {
 
 ### --description--
 
-The compiler is telling you that you are trying to use the `println!` macro on a type that does not implement the `Debug` trait.
+编译器告诉你你正在尝试在一个不能实现 `Debug` 特性的类型上使用 `println!` 宏。
 
-Usually, traits need to be implemented for a struct using the `impl` keyword. However, in this case, you can use the `derive` attribute to automatically implement the `Debug` trait for you:
+通常，需要使用 `impl` 关键字在结构体实现特性。 然而，在这种情况下，你可以使用 `derive` 属性来自动实现 `Debug` 特性：
 
 ```rust
     #[derive(Debug)]
@@ -527,9 +527,9 @@ Usually, traits need to be implemented for a struct using the `impl` keyword. Ho
     }
 ```
 
-Task: Implement the `Debug` trait for your `Args` struct.
+任务：为你的 `Args` 结构体实现 `Debug` 特性。
 
-Run `cargo test --bin combiner -- --show-output`. You should see the `Args` struct printed to the console.
+运行 `cargo test --bin combiner -- --show-output`。 你应该看到控制台打印了 `Args` 结构体。
 
 ### --seed--
 
@@ -566,7 +566,7 @@ mod tests {
 
 ### --description--
 
-You may notice the `String::new()` used in `main`. The `new` function is a common constructor for structs. For `String`, it looks something like this:
+你可能注意到 `main` 中使用的 `String::new()`。 `new` 函数是结构体的常见构造函数。 对于 `String`，它看起来像这样：
 
 ```rust
     impl String {
@@ -576,11 +576,11 @@ You may notice the `String::new()` used in `main`. The `new` function is a commo
     }
 ```
 
-The above implements the `new` function for `String`. The return type is `Self`, which is the type of the struct.
+以上代码为 `String` 执行了 `new` 函数。 返回类型是 `Self`，是结构体类型。
 
-Task: Implement the `new` function for `Args`.
+任务：为 `Args` 执行 `new` 函数。
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+运行 `cargo test --bin combiner` 来查看你是否正确地完成了任务。
 
 ### --seed--
 
@@ -621,9 +621,9 @@ mod tests {
 
 ### --description--
 
-Task: Instead of manually creating the `Args` struct in `main`, use the `new` function to create the struct.
+任务：不要在 `main` 中手动创建 `Args` 结构体，使用 `new` 函数创建结构体。
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+运行 `cargo test --bin combiner` 来查看你是否正确地完成了任务。
 
 ### --seed--
 
@@ -687,9 +687,9 @@ mod tests {
 
 ### --description--
 
-Task: Within `new`, instead of assigning an empty `String` to `image_1`, use the `get_nth_arg` function to assign the value of the first **valid** argument.
+任务：在 `new` 里面，不要分配空的 `String` 给 `image_1`，而是使用 `get_nth_arg` 函数分配第一个**有效的**参数的值。
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+运行 `cargo test --bin combiner` 来查看你是否正确地完成了任务。
 
 ### --seed--
 
@@ -755,11 +755,11 @@ mod tests {
 
 ### --description--
 
-Your application should expect three arguments: `image_1`, `image_2`, and `output`.
+你的应用程序应该需要三个参数：`image_1`、`image_2` 和 `output`。
 
-Task: Add the missing two fields to the `Args` struct. All of the fields should use the same type.
+任务：将缺少的两个字段添加到 `Args` 结构体。 所有字段都应该使用相同的类型。
 
-Run `fcc test 16` to see if you correctly completed the task.
+运行 `fcc test 16` 来查看你是否正确地完成了任务。
 
 ### --seed--
 
@@ -821,20 +821,20 @@ mod tests {
 
 ### --tests--
 
-- You should define `Args` with an `image_1` field of type `String`.
+- 你应该定义 `Args` 有一个类型为 `String` 的 `image_1` 字段。
 - `image_1:\s*String`
-- You should define `Args` with an `image_2` field of type `String`.
+- 你应该定义 `Args` 有一个类型为 `String` 的 `image_2` 字段。
 - `image_2:\s*String`
-- You should define `Args` with an `output` field of type `String`.
+- 你应该定义 `Args` 有一个类型为 `String` 的 `output` 字段。
 - `output:\s*String`
 
 ## 17
 
 ### --description--
 
-Task: Update the `new` function to assign valid values to all expected fields.
+任务：更新 `new` 函数以分配有效的值给所有预期字段。
 
-Run `cargo test --bin combiner -- --show-output` to see if you correctly completed the task.
+运行 `cargo test --bin combiner -- --show-output` 来查看你是否正确地完成了任务。
 
 ### --seed--
 
@@ -909,11 +909,11 @@ mod tests {
 
 ### --description--
 
-Testing your application with arguments should now print out the `Args` struct with the arguments as values for the fields.
+用参数测试你的应用程序现在应该打印出 `Args` 结构体，参数是字段的值。
 
-Task: Change the `println` in `main` to print the value of `args`.
+任务：在 `main` 中更改 `println` 以打印 `args` 的值。
 
-Run `cargo run --bin combiner first_arg second_arg third_arg`. If you see the following, you correctly completed the task:
+运行 `cargo run --bin combiner first_arg second_arg third_arg`。 如果你看到以下代码，那你就正确地完成了任务：
 
 ```bash
     Args { image_1: "first_arg", image_2: "second_arg", output: "third_arg" }
@@ -981,11 +981,11 @@ mod tests {
 
 ### --description--
 
-Before your `main.rs` file gets too cluttered, you should move the argument logic to its own file.
+在你的 `main.rs` 文件过于混乱之前，你应该将参数逻辑移动到它自己的文件。
 
-Task: Create the file `combiner/src/args.rs`.
+任务：创建文件 `combiner/src/args.rs`。
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+运行 `cargo test --bin combiner` 来查看你是否正确地完成了任务。
 
 ### --seed--
 
@@ -1047,9 +1047,9 @@ mod tests {
 
 ### --description--
 
-Task: Move the `Args` struct and implementation, and the `get_nth_arg` function to the `args.rs` file. Then, comment out the content within the `main` function so your app compiles.
+任务：将 `Args` 结构体和实现以及 `get_nth_arg` 函数移动到 `args.rs` 文件。 然后，注释掉 `main` 函数中的内容，这样你的应用程序就可以编译了。
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+运行 `cargo test --bin combiner` 来查看你是否正确地完成了任务。
 
 ### --seed--
 
@@ -1137,15 +1137,15 @@ mod tests {
 
 ### --description--
 
-In Rust, everything is private by default. So, in order to make a function or struct public, you can use the `pub` keyword:
+在 Rust 中，默认情况下，一切都是私密的。 因此，为了使函数或结构体公开，你可以使用 `pub` 关键字：
 
 ```rust
     pub MyStruct {}
 ```
 
-Task: Within `args.rs` make the struct and the function public.
+任务：在 `args.rs` 内使结构体和函数公开。
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+运行 `cargo test --bin combiner` 来查看你是否正确地完成了任务。
 
 ### --seed--
 
@@ -1209,15 +1209,15 @@ mod tests {
 
 ### --description--
 
-In order to use the contents of an external file, it needs to be declared as a module:
+要使用外部文件的内容，需要声明它为模块：
 
 ```rust
     mod my_file_name
 ```
 
-Task: At the top of `main.rs`, declare the `args.rs` file as a module.
+任务：在 `main.rs` 的顶端，声明 `args.rs` 文件为一个模块。
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+运行 `cargo test --bin combiner` 来查看你是否正确地完成了任务。
 
 ### --seed--
 
@@ -1286,11 +1286,11 @@ mod tests {
 
 ### --description--
 
-Now that `args` has been declared as a module for use within `main.rs`, you can use the `use` keyword to import the `Args` struct.
+现在 `args` 已被声明为在 `main.rs` 内使用的模块，你可以使用 `use` 关键字导入 `Args` 结构体。
 
-Task: Within `main.rs`, import the `Args` struct. Then, uncomment the commented out code in the `main` function.
+任务：在 `main.rs` 内，导入 `Args` 结构体。 然后，在 `main` 函数内取消注释被注释掉的代码。
 
-Run `cargo test --bin combiner`. You should see an error.
+运行 `cargo test --bin combiner`。 你应该看到一个错误。
 
 ### --seed--
 
@@ -1334,11 +1334,11 @@ mod tests {
 
 ### --description--
 
-The error comes about because the `new` function implemented for `Args` is not public.
+发生错误是因为为 `Args` 执行的 `new` 函数不是公开的。
 
-Task: Within `args.rs` declare the `new` function as public.
+任务：在 `args.rs` 内声明 `new` 函数为公开的。
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+运行 `cargo test --bin combiner` 来查看你是否正确地完成了任务。
 
 ### --seed--
 
@@ -1389,15 +1389,15 @@ mod tests {
 
 ### --description--
 
-In order to encode and decode the images, you will use the `image` crate.
+为了对图像进行编码和解码，你将使用 `image` crate。
 
-Task: Within the root `Cargo.toml`, add the following to the `dependencies` section:
+任务：在 root `Cargo.toml` 内，添加以下代码到 `dependencies` 部分：
 
 ```rust
     image = "0.23.14"
 ```
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+运行 `cargo test --bin combiner` 来查看你是否正确地完成了任务。
 
 ### --seed--
 
@@ -1428,9 +1428,9 @@ mod tests {
 
 ### --description--
 
-Task: Within `main.rs`, define a function named `find_image_from_path` that takes a `String` as an argument.
+任务：在 `main.rs` 中，定义一个名为 `find_image_from_path` 的函数，以 `String` 作为一个参数。
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+运行 `cargo test --bin combiner` 来查看你是否正确地完成了任务。
 
 ### --seed--
 
@@ -1461,13 +1461,13 @@ mod tests {
 
 ### --description--
 
-The compiler is showing a warning that the `find_image_from_path` function is unused. This is going to become annoying, over the course of this project. Fortunately, you can enable global attributes to suppress the warning.
+编译器显示了一个警告，`find_image_from_path` 函数未被使用。 在这个项目的进行过程中，这将令人烦恼。 幸运的是，你可以启用全局属性来抑制警告。
 
-Global attributes use the syntax `#![feature(feature_name)]`, and should be placed at the top of the file.
+全局属性使用语法 `#![feature(feature_name)]`，并且应该被放在文件的顶部。
 
-Task: Within `main.rs`, use the `allow` feature to globally enable `unused_variables` and `dead_code`.
+任务：在 `main.rs`内，使用 `allow` 功能全局启用 `unused_variables` 和 `dead_code`。
 
-Run `cargo test --bin combiner`. If you no longer see the warning, you have successfully completed this lesson.
+运行 `cargo test --bin combiner`。 如果你没有看到警告，说明你已经成功地完成了这一节课程。
 
 ### --seed--
 
@@ -1501,11 +1501,11 @@ mod tests {
 
 ### --description--
 
-Task: Import the `Reader` struct from `image::io`, and, within `find_image_from_path`, assign the unwrapped value of the `Reader::open` function, passing `path` as the argument, to a variable named `image_reader`. Then, return `image_reader`.
+任务：从 `image::io` 导入 `Reader` 结构体，并在 `find_image_from_path` 内分配 `Reader::open` 函数展开的值，传递 `path` 作为参数，给一个名为 `image_reader` 的变量。 然后，返回 `image_reader`。
 
-Hint: Follow the compiler's advice, and import the necessary types.
+提示：遵循编译器的建议，并导入必要的类型。
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+运行 `cargo test --bin combiner` 来查看你是否正确地完成了任务。
 
 ### --seed--
 
@@ -1542,11 +1542,11 @@ mod tests {
 
 ### --description--
 
-Task: Within `find_image_from_path`, assign the unwrapped value of the `format` method on `image_reader` to a variable named `image_format`, and return it.
+任务：在 `find_image_from_path` 内，将 `image_reader` 上 `format` 方法的解包的值分配给一个名为 `image_format` 的变量，并返回它。
 
-Hint: Follow the compiler's advice, and import the necessary types.
+提示：遵循编译器的建议，并导入必要的类型。
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+运行 `cargo test --bin combiner` 来查看你是否正确地完成了任务。
 
 ### --seed--
 
@@ -1611,9 +1611,9 @@ mod tests {
 
 ### --description--
 
-Task: Remove the unused imports from `main.rs`.
+任务：从 `main.rs` 中删除未使用的导入。
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+运行 `cargo test --bin combiner` 来查看你是否正确地完成了任务。
 
 ### --seed--
 
@@ -1675,13 +1675,13 @@ mod tests {
 
 ### --description--
 
-So far, you have not decoded the image. The `Reader` has a `decode` method which returns a `DynamicImage` in a `Result`.
+到目前为止，你还没有解码图像。 `Reader` 有一个 `decode` 方法，在 `Result` 中返回一个 `DynamicImage`。
 
-Task: Within `find_image_from_path`, assign the unwrapped value of the `decode` method on `image_reader` to a variable named `image`. Then, return `image`.
+任务：在 `find_image_from_path` 内，将 `image_reader` 上 `decode` 方法的解包的值分配给一个名为 `image` 的变量。 然后，返回 `image`。
 
-_Hint:_ Follow the compiler's advice, and import the necessary types.
+_提示：_遵循编译器的建议，并导入必要的类型。
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+运行 `cargo test --bin combiner` 来查看你是否正确地完成了任务。
 
 ### --seed--
 
@@ -1741,7 +1741,7 @@ mod tests {
 
 ### --description--
 
-You have learnt about the empty tuple type `()`. Now, you will use a tuple to return multiple values. Unlike other types, a tuple can contain more than one type.
+你已经学习了空元组类型 `()`。 现在，你将使用元组返回多个值。 与其他类型不同，元组可以包含多个类型。
 
 ```rust
     // The Vec type can only contain one type.
@@ -1750,9 +1750,9 @@ You have learnt about the empty tuple type `()`. Now, you will use a tuple to re
     let my_tuple = (1u8, 2u16, 3u32);
 ```
 
-Task: From `find_image_from_path`, return a tuple containing the `DynamicImage` and `ImageFormat` of the image, in that order.
+任务：从 `find_image_from_path` 返回一个包含 `DynamicImage` 和 `ImageFormat` 的元组，按该顺序排列。
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+运行 `cargo test --bin combiner` 来查看你是否正确地完成了任务。
 
 ### --seed--
 
@@ -1795,15 +1795,15 @@ mod tests {
 
 ### --description--
 
-Tuples can be destructured into variables like this:
+元组可以被解构为这样的变量：
 
 ```rust
     let (x, y, z) = (1, 2, 3);
 ```
 
-Task: Within `main`, destructure the tuple returned from `find_image_from_path` into the variables `image_1` and `image_1_format`. You should call `find_image_from_path` with the value of the `image_1` field of `args`.
+任务：在 `main` 内，解构从 `find_image_from_path` 返回的元组为变量 `image_1` 和 `image_1_format`。 你应该调用 `find_image_from_path`，传入 `args` 的 `image_1` 字段的值。
 
-Run `cargo test --bin combiner`. You should see an error.
+运行 `cargo test --bin combiner`。 你应该看到一个错误。
 
 ### --seed--
 
@@ -1879,11 +1879,11 @@ mod tests {
 
 ### --description--
 
-Your code has an error, because the `image_1` field on `args` is not public. So, it may not be used across modules.
+你的代码有一个错误，因为 `args` 的 `image_1` 字段不是公开的。 因此，它可能不会被用于不同模块。
 
-Task: Within `args.rs`, change all the `Args` struct's fields to be public.
+任务：在 `args.rs` 内，更改所有 `Args` 结构体的字段为公开。
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+运行 `cargo test --bin combiner` 来查看你是否正确地完成了任务。
 
 ### --seed--
 
@@ -1968,9 +1968,9 @@ mod tests {
 
 ### --description--
 
-Task: Within `main`, destructure the tuple returned from `find_image_from_path` into the variables `image_2` and `image_2_format`. You should call `find_image_from_path` with the value of the `image_2` field of `args`.
+任务：在 `main` 内，解构从 `find_image_from_path` 返回的元组为变量 `image_2` 和 `image_2_format`。 你应该调用 `find_image_from_path`，传入 `args` 的 `image_2` 字段的值。
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+运行 `cargo test --bin combiner` 来查看你是否正确地完成了任务。
 
 ### --seed--
 
@@ -2047,9 +2047,9 @@ mod tests {
 
 ### --description--
 
-So far, you have been dealt with a few functions which returned a `Result`. Now, you are going to create a new `Result`.
+到目前为止，你已经处理过一些返回一个 `Result` 的函数。 现在，你将创建一个新的 `Result`。
 
-A `Result` is a type that can either be `Ok` or `Err`. It is common to return an empty tuple when a function is successful, and return an error message when a function fails:
+`Result` 是一种类型，可以是 `Ok` 或者 `Err`。 通常在函数运行成功时返回一个空元组，并在函数运行失败时返回一个错误信息：
 
 ```rust
     fn function_returns_result() -> Result<(), String> {
@@ -2061,7 +2061,7 @@ A `Result` is a type that can either be `Ok` or `Err`. It is common to return an
     }
 ```
 
-Task: Within `main.rs`, convert the `main` function to return a `Result`. For now, just return an empty tuple on `Ok`, but set the return `Err` type to `String`.
+任务：在 `main.rs` 中，转换 `main` 函数返回一个 `Result`。 对于 `Ok` 上返回一个空元组，而对于 `Err` 类型返回 `String`。
 
 ### --seed--
 
@@ -2125,11 +2125,11 @@ mod tests {
 
 ### --description--
 
-Your application will only be able to combine two images of the same type.
+你的应用程序将只能合并两个同样类型的图像。
 
-Task: As such, if `image_1_format` is not equal to `image_2_format`, return an error message.
+任务：如果 `image_1_format` 不等于 `image_2_format`，则返回一个错误消息。
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+运行 `cargo test --bin combiner` 来查看你是否正确地完成了任务。
 
 ### --seed--
 
@@ -2204,11 +2204,11 @@ mod tests {
 
 ### --description--
 
-Another error that can occur is when the two images are not the same size. Fortunately, there is a function that can be used to resize the images.
+当两张图像大小不同时，可能发生另一个错误。 幸运的是，有一个能够用来调整图像大小的函数。
 
-Task: Start by creating a function named `standardise_size` which takes `image_1` and `image_2` as parameters.
+任务：先创建一个名为 `standardise_size` 的函数，这个函数以 `image_1` 和 `image_2` 作为参数。
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+运行 `cargo test --bin combiner` 来查看你是否正确地完成了任务。
 
 ### --seed--
 
@@ -2280,11 +2280,11 @@ mod tests {
 
 ### --description--
 
-To make combining the images simpler, you can resize the largest image to the size of the smallest image. In order to do this, you need to get the smallest dimensions of the two images.
+为了更简单地合并图像，你可以将最大的图像缩放到最小图像的大小。 为了做到这一点，你需要得到两个图像中最小的尺寸。
 
-Task: Create a function named `get_smallest_dimensions` which takes two tuples as parameters. Each tuple should take two elements, each of type `u32`.
+任务：创建一个名为 `get_smallest_dimensions` 的函数，这个函数需要两个元组作为参数。 每个元组应该包含两个元素，类型为 `u32`。
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+运行 `cargo test --bin combiner` 来查看你是否正确地完成了任务。
 
 ### --seed--
 
@@ -2358,13 +2358,13 @@ mod tests {
 
 ### --description--
 
-Within `get_smallest_dimensions`, you will need to return the dimensions with the smallest number of pixels. The number of pixels is the product of the width and height.
+在 `get_smallest_dimensions` 内，你需要返回最小像素数的尺寸。 像素数量是宽度和高度的结合。
 
-Task: Return `dim_1` if the number of pixels in `dim_1` is less than the number of pixels in `dim_2`. Return `dim_2` otherwise.
+任务：如果 `dim_1` 中的像素数小于 `dim_2` 中的像素数，则返回 `dim_1`。 否则返回 `dim_2`。
 
-Remember, you can use dot notation to access the elements of a tuple.
+请记住，你可以使用点符号来访问元组的元素。
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+运行 `cargo test --bin combiner` 来查看你是否正确地完成了任务。
 
 ### --seed--
 
@@ -2449,11 +2449,11 @@ mod tests {
 
 ### --description--
 
-Task: Within `standardise_size`, destructure the tuple returned from `get_smallest_dimensions` into two variables `width` and `height`. Use the return of calling the `dimensions` method on each `DynamicImage` to pass as arguments for `get_smallest_dimensions`.
+任务：在 `standardise_size` 内，解构从 `get_smallest_dimensions` 返回的元组为两个变量 `width` 和 `height`。 使用在每个 `DynamicImage` 上调用 `dimensions` 的返回值，作为参数传递给 `get_smallest_dimensions`。
 
-_Hint:_ Follow the compiler's advice to get the dimensions of the images.
+_提示：_遵循编译器的建议，以获取图像的尺寸。
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+运行 `cargo test --bin combiner` 来查看你是否正确地完成了任务。
 
 ### --seed--
 
@@ -2544,9 +2544,9 @@ mod tests {
 
 ### --description--
 
-Task: Within `standardise_size`, print `width` and `height` to the console.
+任务：在 `standardise_size` 内，打印 `width` 和 `height` 到控制台。
 
-Run `cargo test --bin combiner -- --show-output`. If you see the `'width: 10, height: 10'` printed to the console, you have successfully completed the task.
+运行 `cargo test --bin combiner -- --show-output`。 如果你看到 `'width: 10, height: 10'` 打印到控制台，就说明你已经成功完成了任务。
 
 ### --seed--
 
@@ -2621,9 +2621,9 @@ mod tests {
 
 ### --description--
 
-Task: Within `standardise_size`, write an `if` statement to check if `image_2`'s dimensions are equal to the previously determined smallest dimensions. If they are, return a tuple containing `image_1` and `image_2`. Otherwise, return the same tuple.
+任务：在 `standardise_size` 内， 写一个 `if` 语句来检查 `image_2` 的尺寸是否等于先前确定的最小尺寸。 如果等于，返回一个包含 `image_1` 和 `image_2` 的元组。 否则，返回相同的元组。
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+运行 `cargo test --bin combiner` 来查看你是否正确地完成了任务。
 
 ### --seed--
 
@@ -2714,15 +2714,15 @@ mod tests {
 
 ### --description--
 
-Instead of returning the images unchanged, you should resize the larger image. You can use the `resize_exact` method which exists on the `DynamicImage` struct. The `resize_exact` method takes the form:
+你应该调整较大的图像的大小，而不是返回图像不作改变。 你可以使用 `DynamicImage` 结构体上的 `resize_exact` 方法。 `resize_exact` 方法的形式如下：
 
 ```rust
     image_to_resize.resize_exact(new_width: u32, new_height: u32, filter: image::imageops::FilterType);
 ```
 
-Task: Within `standardise_size`, resize the correct image variable to the correct dimensions, using the `Triangle` filter.
+任务：在 `standardise_size` 内，使用 `Triangle` 过滤器将正确的图像变量调整为正确的尺寸。
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+运行 `cargo test --bin combiner` 来查看你是否正确地完成了任务。
 
 ### --seed--
 
@@ -2799,9 +2799,9 @@ mod tests {
 
 ### --description--
 
-Task: Within `main` before the `Ok` return, use the `standardise_size` function to redeclare `image_1` and `image_2` as the correct size.
+任务：在 `main` 内，在 `Ok` 返回之前，使用 `standardise_size` 函数重新声明 `image_1` 和 `image_2` 为正确的大小。
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+运行 `cargo test --bin combiner` 来查看你是否正确地完成了任务。
 
 ### --seed--
 
@@ -2895,9 +2895,9 @@ mod tests {
 
 ### --description--
 
-To handle the output, a temporary struct can be created to hold the meta data for the output image.
+为了处理输出，可以创建一个临时的结构体来保存输出图像的元数据。
 
-Task: Create a struct called `FloatingImage` that has the following fields:
+任务：创建一个名为 `FloatingImage` 的结构体，其中包含以下字段：
 
 ```rust
     width: u32,
@@ -2906,7 +2906,7 @@ Task: Create a struct called `FloatingImage` that has the following fields:
     name: String,
 ```
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+运行 `cargo test --bin combiner` 来查看你是否正确地完成了任务。
 
 ### --seed--
 
@@ -2986,9 +2986,9 @@ mod tests {
 
 ### --description--
 
-Task: Implement a function named `new` for `FloatingImage`. The `new` function should take three arguments: `width: u32`, `height: u32`, `name: String`.
+任务：为 `FloatingImage` 写一个名为 `new` 的函数。 `new` 函数应该有三个参数：`width: u32`、`height: u32`、`name: String`。
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+运行 `cargo test --bin combiner` 来查看你是否正确地完成了任务。
 
 ### --seed--
 
@@ -3065,18 +3065,18 @@ mod tests {
 
 ### --description--
 
-In order to efficiently write the combined image data to the output image, you need to create a buffer large enough to hold the data so no extra space needs to be allocated.
+为了有效地将合并图像的数据写入输出图像， 你需要创建一个足够大的缓冲区来保存数据，因此不需要分配额外的空间。
 
-Large images can have a large amount of data, so you can take advantage of Rust's easy-to-read numbering, which separates the number into groups of three digits:
+大图像可能有大量的数据，因此你可以利用 Rust 的易读编号， 它将数字分成每三个数字为一组：
 
 ```rust
     let difficult_to_read_number = 1325364955;
     let easy_to_read_number = 1_325_364_955;
 ```
 
-Task: Within `new`, declare a variable named `buffer_capacity`, and assign it the value of `3655744` using the easy-to-read number.
+任务：在 `new` 内，声明一个名为 `buffer_capacity` 的变量，并使用易读号码分配值 `3655744` 给它。
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+运行 `cargo test --bin combiner` 来查看你是否正确地完成了任务。
 
 ### --seed--
 
@@ -3190,13 +3190,13 @@ mod tests {
 
 ### --description--
 
-Now that you have a buffer size, you need to create a buffer of `Vec<u8>`. The `Vec` struct implements a `with_capacity` function, which takes a capacity as an argument and returns a new `Vec` with that capacity.
+现在你有一个缓冲尺寸了，你需要创建一个 `Vec<u8>` 的缓冲区。 `Vec` 结构体实现了一个 `with_capacity` 函数。它接收一个容量作为参数，并返回一个具有该容量的新 `Vec`。
 
-Task: Within `new`, declare a variable named `buffer`, and assign it the value of calling the `with_capacity` function with `buffer_capacity`.
+任务：在 `new` 里面，声明一个名为 `buffer` 的变量，并将传入 `buffer_capacity` 调用 `with_capacity` 函数的值赋给它。
 
-_Hint:_ Follow the compiler's advice to explicitly type the `buffer` variable.
+_提示：_遵循编译器的建议，键入 `buffer` 变量。
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+运行 `cargo test --bin combiner` 来查看你是否正确地完成了任务。
 
 ### --seed--
 
@@ -3319,9 +3319,9 @@ mod tests {
 
 ### --description--
 
-Task: Within `new`, use the variables available to return an instance of the `FloatingImage` struct.
+任务：在 `new` 里面，使用可用的变量返回 `FloatingImage` 结构体的实例。
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+运行 `cargo test --bin combiner` 来查看你是否正确地完成了任务。
 
 ### --seed--
 
@@ -3420,9 +3420,9 @@ mod tests {
 
 ### --description--
 
-Task: Within `main`, declare a new variable `output` using the `new` function of the `FloatingImage` struct. Use the `width` and `height` methods of the `image_1` variable for the first two arguments, and the `output` field of the `args` variable for the third argument.
+任务：在 `main` 里面，声明一个新变量 `output`，使用 `FloatingImage` 结构体的 `new` 函数。 使用 `image_1` 变量的 `width` 和 `height` 方法作为前两个参数，`args` 变量的 `output` 字段作为第三个参数。
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+运行 `cargo test --bin combiner` 来查看你是否正确地完成了任务。
 
 ### --seed--
 
@@ -3551,9 +3551,9 @@ mod tests {
 
 ### --description--
 
-Task: Define a function named `combine_images` which takes two `DynamicImage`s as arguments.
+任务：定义一个名为 `combine_images` 的函数，这个函数以两个 `DynamicImage` 作为参数。
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+运行 `cargo test --bin combiner` 来查看你是否正确地完成了任务。
 
 ### --seed--
 
@@ -3646,13 +3646,13 @@ mod tests {
 
 ### --description--
 
-In order to process the images, you will convert them into a vector of RGBA pixels. The pixels are stored as `u8`s, because their values are between 0 and 255.
+为了处理图像，你将把它们转换成 RGBA 像素的矢量。 像素储存为 `u8`，因为它们的值在 0 到 255 之间。
 
-The `DynamicImage` struct implements the `to_rgba8` method, which returns an `ImageBuffer` containing a `Vec<u8>`, and the `ImageBuffer` implements the `into_vec` method, which returns the `Vec<u8>`.
+`DynamicImage` 结构体执行 `to_rgba8` 方法，返回一个 `ImageBuffer`，其中包含 `Vec<u8>`， `ImageBuffer` 执行 `into_vec` 方法，返回 `Vec<u8>`。
 
-Task: Within `combine_images`, declare a variable `vec_1`, and use the above methods to assign the `Vec<u8>` to it. Return `vec_1`.
+任务：在 `combine_images` 里面，声明一个变量 `vec_1`，并使用上述方法给它分配 `Vec<u8>`。 返回 `vec_1`。
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+运行 `cargo test --bin combiner` 来查看你是否正确地完成了任务。
 
 ### --seed--
 
@@ -3752,9 +3752,9 @@ mod tests {
 
 ### --description--
 
-Task: Do the same as in the previous lesson, but on `image_2`, and return the new variable named `vec_2` instead of `vec_1`.
+任务：与上一节课相同，但是在 `image_2` 上操作，返回名为 `vec_2` 而不是 `vec_1` 的新变量。
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+运行 `cargo test --bin combiner` 来查看你是否正确地完成了任务。
 
 ### --seed--
 
@@ -3852,11 +3852,11 @@ mod tests {
 
 ### --description--
 
-Now that you have the pixel values of each image in `vec_1` and `vec_2`, you can combine them into a single image.
+现在你有了在 `vec_1` 和 `vec_2` 中每个图像的像素值，你可以将它们合并为一个图像。
 
-Task: Define a function named `alternate_pixels` which takes two `Vec<u8>`s as arguments.
+任务：定义一个名为 `alternate_pixels` 的函数，这个函数以两个 `Vec<u8>` 作为参数。
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+运行 `cargo test --bin combiner` 来查看你是否正确地完成了任务。
 
 ### --seed--
 
@@ -3955,7 +3955,7 @@ mod tests {
 
 ### --description--
 
-You will need to store the combined image pixel data in a variable. To create this variable, you can use the `vec` macro, providing the type and length of the vector:
+你需要将合并的图像像素数据存储在一个变量中。 要创建此变量，你可以使用 `vec` 宏，提供矢量的类型和长度：
 
 ```rust
     let my_vec = vec![10u8; 5];
@@ -3963,9 +3963,9 @@ You will need to store the combined image pixel data in a variable. To create th
     assert_eq!(my_vec, [10, 10, 10, 10, 10]);
 ```
 
-Task: Within `alternate_pixels`, declare a variable `combined_data`, and use the `vec` macro to create a `Vec<u8>` of `0` the same length as `vec_1`. Return `combined_data`.
+任务：在 `alternate_pixels` 里面，声明一个变量 `combined_data`，并使用 `vec` 宏创建一个 `Vec<u8>` 为 `0`，与 `vec_1` 长度相同。 返回 `combined_data`。
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+运行 `cargo test --bin combiner` 来查看你是否正确地完成了任务。
 
 ### --seed--
 
@@ -4073,7 +4073,7 @@ mod tests {
 
 ### --description--
 
-To iterate over the pixels in the vectors, you will use a `while` loop. A `while` loop follows this syntax:
+要在矢量中遍历像素，你将使用 `while` 循环。 `while` 循环的语法是：
 
 ```rust
     while condition {
@@ -4081,11 +4081,11 @@ To iterate over the pixels in the vectors, you will use a `while` loop. A `while
     }
 ```
 
-Where `condition` is a boolean expression that evaluates to `true` or `false`.
+`condition` 是一个布尔表达式，它能评估 `true` 或 `false`。
 
-Task: Within `alternate_pixels`, before returning `combined_data`, declare a variable `i`, and assign it the value of `0`. Then, declare a `while` loop that runs whilst `i` is less than the length of `vec_1`.
+任务：在 `alternate_pixels` 内，返回 `combined_data` 之前，声明一个变量 `i`，并为它分配值 `0`。 然后，声明一个 `while` 循环，在 `i` 小于 `vec_1` 长度时运行。
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+运行 `cargo test --bin combiner` 来查看你是否正确地完成了任务。
 
 ### --seed--
 
@@ -4226,11 +4226,11 @@ mod tests {
 
 ### --description--
 
-In order to correctly set the RGBA pixel sets for the output vector, you will replace the `0u8` values with the correct values.
+为了正确设置输出向量的 RGBA 像素集，你将用正确的值替换 `0u8` 值。
 
-Task: Define a function named `set_rgba` which takes 3 arguments: A `Vec<u8>`, and two `usize`.
+任务：定义一个名为 `set_rgba` 的函数，这个函数接收 3 个参数：一个 `Vec<u8>` 和两个 `usize`。
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+运行 `cargo test --bin combiner` 来查看你是否正确地完成了任务。
 
 ### --seed--
 
@@ -4334,9 +4334,9 @@ mod tests {
 
 ### --description--
 
-Task: Within `set_rgba`, define a mutable variable named `rgba`, and assign it to be an empty `Vec<u8>`. Try to do this without the `vec` macro. Then, return `rgba`.
+任务：在 `set_rgba` 内，定义一个可变变量，名为 `rgba`，并将其分配为空的 `Vec<u8>`。 试着不使用 `vec` 宏来实现它。 然后，返回 `rgba`。
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+运行 `cargo test --bin combiner` 来查看你是否正确地完成了任务。
 
 ### --seed--
 
@@ -4466,7 +4466,7 @@ mod tests {
 
 ### --description--
 
-To iterate over a range of values, you can use a `for...in` loop with the _right-inclusive range literal_ operator:
+要对一个范围的值进行迭代，你可以使用 `for...in` 循环，使用_右包含_运算符：
 
 ```rust
     for i in 1..=5 {
@@ -4474,13 +4474,13 @@ To iterate over a range of values, you can use a `for...in` loop with the _right
     }
 ```
 
-The `=` within the range literal is the _right-inclusive_ range operator, meaning the end is included.
+在范围内的 `=` 是_右包含_运算符，这意味着末尾会被包含在内。
 
-Task: Within `set_rgba`, before returning `rgba`, iterate over the range `start..=end`, and push each value in the range to `rgba`.
+任务：在 `set_rgba` 内，返回 `rgba` 之前，遍历范围 `start..=end`，并将范围内的每个值推到 `rgba`。
 
-Hint: You will need to assert the correct type of the value being pushed to `rgba`.
+提示：你将需要断言被推到 `rgba` 的值的正确类型。
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+运行 `cargo test --bin combiner` 来查看你是否正确地完成了任务。
 
 ### --seed--
 
@@ -4592,7 +4592,7 @@ mod tests {
 
 ### --description--
 
-Sometimes, retrieving a value from within a vector causes a panic, because the index is out of bounds. To avoid this, you can use the `get` method on a vector:
+有时候从矢量内部检索值会引起 panic，因为索引超出范围。 为了避免这种情况，你可以在矢量上使用 `get` 方法：
 
 ```rust
     let my_vec = vec![1, 2, 3];
@@ -4600,13 +4600,13 @@ Sometimes, retrieving a value from within a vector causes a panic, because the i
     assert_eq!(my_vec.get(3), None);
 ```
 
-The `get` method returns a reference to the value at the given index, or `None` if the index is out of bounds.
+`get` 方法返回对给定索引的值的引用，如果索引超出范围，则返回 `None`。
 
-Task: Within `set_rgba`, within the `for` loop, declare a variable `val` which is the `match` of the `get` method on `vec` using `i` as the argument.
+任务：在 `set_rgba` 内，在 `for` 循环中，声明一个变量 `val`，为 `vec` 上的 `get` 方法的 `match`，使用 `i` 作为参数。
 
-On `Some`, assign the value to `val`. On `None`, return panic.
+对于 `Some`，赋值 `val`。 对于 `None`，返回 panic。
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+运行 `cargo test --bin combiner` 来查看你是否正确地完成了任务。
 
 ### --seed--
 
@@ -4726,9 +4726,9 @@ mod tests {
 
 ### --description--
 
-Task: Within `set_rgba`, change the value pushed onto the `vec` to be `val`.
+任务：在 `set_rgba` 中，更改推到 `vec` 的值为 `val`。
 
-Run `cargo test --bin combiner`. You should see an error.
+运行 `cargo test --bin combiner`。 你应该看到一个错误。
 
 ### --seed--
 
@@ -4851,9 +4851,9 @@ mod tests {
 
 ### --description--
 
-The error comes about, because the type of `val` is `&u8` - a reference to an 8-bit unsigned integer. However, the type of `vec` should be `Vec<u8>`, not `Vec<&u8>`.
+出现错误是因为 `val` 的类型是 `&u8` - 引用 8 位无符号整数。 然而， `vec` 的类型应该是 `Vec<u8>`，而不是 `Vec<&u8>`。
 
-To fix this, the value returned from the `get` method can be _dereferenced_ . A dereference is done by annotating the value with `*`.:
+要解决这个问题，从 `get` 方法返回的值可以_解引用_。 通过给值加上 `*` 来解引用：
 
 ```rust
     let x = 5;
@@ -4863,9 +4863,9 @@ To fix this, the value returned from the `get` method can be _dereferenced_ . A 
     assert_eq!(5, *y);
 ```
 
-Task: Within `set_rgba`, dereference the value assigned to `val`.
+任务：在 `set_rgba` 内，解引用分配给 `val` 的值。
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+运行 `cargo test --bin combiner` 来查看你是否正确地完成了任务。
 
 ### --seed--
 
@@ -4988,7 +4988,7 @@ mod tests {
 
 ### --description--
 
-Currently, the `while` loop has the potential to run forever, when `vec` contains any elements. You can fix this by incrementing `i` on each iteration of the loop. Here are some common ways to increment an integer:
+现在，当 `vec` 包含有元素时，`while` 循环有可能永久运行下去。 你可以通过在每次迭代时递增 `i` 来修复这个问题。 下面是一些常见的递增整数的方式：
 
 ```rust
     let mut a = 0;
@@ -4998,9 +4998,9 @@ Currently, the `while` loop has the potential to run forever, when `vec` contain
     assert_eq!(a, 3);
 ```
 
-Task: Within `alternate_pixels`, in the `while` loop, increment `i` by `4`.
+任务：在 `alternate_pixels` 内，在 `while` 循环中，给 `i` 递增 `4`。
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+运行 `cargo test --bin combiner` 来查看你是否正确地完成了任务。
 
 ### --seed--
 
@@ -5144,7 +5144,7 @@ mod tests {
 
 ### --description--
 
-You have a `Vec<u8>` of `0`s, and two `Vec<u8>`s of `0-255`. To replace one slice of a vector with another, you can use the `splice` method:
+你有一个 `Vec<u8>` `0` 和两个 `Vec<u8>` `0-255`。 要将矢量的一个切片替换为另一个切片，你可以使用 `splice` 方法：
 
 ```rust
     let original_vec = vec![0, 1, 2, 3];
@@ -5153,11 +5153,11 @@ You have a `Vec<u8>` of `0`s, and two `Vec<u8>`s of `0-255`. To replace one slic
     assert_eq!(vec_to_change, vec![0, 0, 2, 3]);
 ```
 
-The `splice` method takes two arguments: the range of the vector to replace, and the values to replace it with.
+`splice` 方法需要两个参数：要替换的矢量范围和替换后的值。
 
-Task: Within `alternate_pixels`, in the `while` loop, use the `splice` method on `combined_data` from `i` to `i+3`, and use the `set_rgba` function to insert the correct values from `vec_1`.
+任务：在 `alternate_pixels` 内，在 `while` 循环中，对 `combined_data` 使用 `splice` 方法，从 `i` 到 `i+3`，使用 `set_rgba` 函数从 `vec_1` 插入正确的值。
 
-Running `cargo test --bin combiner` should produce an error. Run `fcc test 65` to see if you correctly completed the task.
+运行 `cargo test --bin combiner` 应该产生一个错误。 运行 `fcc test 65` 来查看你是否正确地完成了任务。
 
 ### --seed--
 
@@ -5272,24 +5272,24 @@ mod tests {
 
 ### --tests--
 
-- You should not change the `while` loop condition.
+- 你不应更改 `while` 循环条件。
 - `while\s+i\s*<\s*vec_1\.len\(\)\s*\{`
-- You should increment `i` by 4 at the end of the loop.
+- 你应该在循环结束时给 `i` 递增 4。
 - `i\s*\+=\s*4;\s*\}`
-- You should call the `splice` method on `combined_data`.
+- 你应该在 `combined_data` 调用 `splice` 方法。
 - `combined_data\.splice\(`
-- You should either pass the range `i..i+4` or `i..=i+3` to the `splice` method's first argument.
+- 你应该将范围 `i..i+4` 或 `i..=i+3` 传递给 `splice` 方法的第一个参数。
 - `splice\(\s*(i..i\s*\+\s*4)|(i..=i\s*\+\s*3)\s*,`
-- You should pass `set_rgba(vec_1, i, i+3)` as the second argument to `splice`.
+- 你应该将 `set_rgba(vec_1, i, i+3)` 传递给 `splice` 作为第二个参数。
 - `splice\(\s*(i..i+4)|(i..=i\s*\+\s*3)\s*,\s*set_rgba\(\s*vec_1\s*,\s*i\s*,\s*i\s*\+\s*3\s*\)\s*\)`
 
 ## 66
 
 ### --description--
 
-The error is saying the `vec_1` value is moved into `set_rgba` on the first iteration of the loop. So, on the second iteration, when the `while` condition is supposed to evaluate `i < vec_1.len()`, `vec_1` is not in scope to be used.
+错误是说 `vec_1` 值在循环第一次迭代时被移动到 `set_rgba`。 所以，在第二次迭代时，当 `while` 条件应该计算 `i < vec_1.len()` 时，`vec_1` 不在使用范围内。
 
-Task: Within `alternate_pixels`, fix the issue, by passing a reference to `vec_1` to `set_rgba`, and fix the necessary type annotations.
+任务：在 `alternate_pixels` 内，修复问题，通过传递一个 `vec_1` 的引用到 `set_rgba`，并修复必要的类型注释。
 
 ### --seed--
 
@@ -5421,7 +5421,7 @@ mod tests {
 
 ### --description--
 
-Currently, `alternate_pixels` is splicing every RGBA set from `vec_1` into `combined_data`. However, you want every second set to be from `vec_2`. To achieve this, you can use the remainder operator:
+目前，`alternate_pixels` 正在将每一个 RGBA 集从 `vec_1` 切片到 `combined_data`。 然而，你想要每个第二个集合是来自 `vec_2`。 要实现这一点，你可以使用取模运算符：
 
 ```rust
     let mut my_vec = vec![0u8; 6];
@@ -5435,9 +5435,9 @@ Currently, `alternate_pixels` is splicing every RGBA set from `vec_1` into `comb
     assert_eq!(my_vec, vec![2, 1, 2, 1, 2, 1]);
 ```
 
-Task: Within `alternate_pixels`, use the remainder operator to splice every second set of RGBA values from `vec_2` into `combined_data`.
+任务：在 `alternate_pixels` 内，使用取模运算符将 RGBA 值的每一个第二个集合从 `vec_2` 切片到 `combined_data`。
 
-Run `cargo test --bin combiner` to see if you correctly completed this task.
+运行 `cargo test --bin combiner` 来查看你是否正确地完成了任务。
 
 ### --seed--
 
@@ -5569,9 +5569,9 @@ mod tests {
 
 ### --description--
 
-Task: Within `combine_images`, instead of returning `vec_2`, return the result of calling `alternate_pixels` with `vec_1` and `vec_2`.
+任务：在 `combine_images` 内，不返回 `vec_2`，而是返回调用 `alternate_pixels` 并传入 `vec_1` 和 `vec_2` 的结果。
 
-Run `cargo test --bin combiner` to see if you correctly completed this task.
+运行 `cargo test --bin combiner` 来查看你是否正确地完成了任务。
 
 ### --seed--
 
@@ -5714,9 +5714,9 @@ mod tests {
 
 ### --description--
 
-Task: Within `main`, declare a variable `combined_data`, and assign it the value of calling `combine_images` with `image_1` and `image_2`.
+任务：在 `main` 内，声明一个变量 `combined_data`，把调用 `combine_images` 并传入 `image_1` 和 `image_2` 的值赋值给它。
 
-Run `cargo test --bin combiner` to see if you correctly completed this task.
+运行 `cargo test --bin combiner` 来查看你是否正确地完成了任务。
 
 ### --seed--
 
@@ -5866,9 +5866,9 @@ mod tests {
 
 ### --description--
 
-Now, you want to set the data of `combined_data` into the `output` image. To do this, you are going to define a method on `FloatingImage` to set the `data` field of `output` to the value of `combined_data`.
+现在，你想要将 `combined_data` 的数据设置为 `output` 图像。 要做到这一点，你将在 `FloatingImage` 上定义一个方法来设置 `output` 的 `data` 字段为 `combined_data` 的值。
 
-So far, you have only implemented functions on structs. Methods are defined in a similar way, but they take an instance of the struct as their first argument:
+到目前为止，你只在结构体上执行了函数。 方法也是通过类似方法定义的，但它们将结构体的一个实例作为它们的第一个参数：
 
 ```rust
     struct MyStruct {
@@ -5886,11 +5886,11 @@ So far, you have only implemented functions on structs. Methods are defined in a
     assert_eq!(my_struct.name, "Tom".to_string);
 ```
 
-As the value of the instance of `MyStruct` needs to be changed, the method `change_name` takes a mutable reference to the instance as its first argument. _Notice the method is still only called with one argument_ .
+因为 `MyStruct` 实例的值需要修改，方法 `change_name` 接收实例的可变引用作为它的第一个参数。 _注意这个方法在调用时仍然只有一个参数_。
 
-Task: Implement a method `set_data` on `FloatingImage` which takes a `Vec<u8>` as an argument.
+任务：在 `FloatingImage` 上执行一个 `set_data` 方法，它需要一个 `Vec<u8>` 作为参数。
 
-Run `cargo test --bin combiner` to see if you correctly completed this task.
+运行 `cargo test --bin combiner` 来查看你是否正确地完成了任务。
 
 ### --seed--
 
@@ -6017,9 +6017,9 @@ mod tests {
 
 ### --description--
 
-Task: Within `set_data`, set the instance's `data` field to be equal to the value of the `data` argument. Then, return an `Ok` result with an empty tuple as a response.
+任务：在 `set_data` 中，设置实例的 `data` 字段等于 `data` 参数的值。 然后，返回一个 `Ok` 结果和一个元组。
 
-Run `cargo test --bin combiner` to see if you correctly completed this task.
+运行 `cargo test --bin combiner` 来查看你是否正确地完成了任务。
 
 ### --seed--
 
@@ -6149,7 +6149,7 @@ mod tests {
 
 ### --description--
 
-To handle errors more clearly, you can create an _enum_ to represent the possible errors that can occur:
+要更清楚地处理错误，你可以创建_枚举_来表示可能发生的错误：
 
 ```rust
     enum MyErrors {
@@ -6169,11 +6169,11 @@ To handle errors more clearly, you can create an _enum_ to represent the possibl
     }
 ```
 
-Enums can be used as both values as well as types. You have already encountered the `Option` enum.
+枚举既可以作为值，也可以作为类型。 你已经遇到了 `Option` 枚举。
 
-Task: Create an `enum` called `ImageDataErrors`, and has two variants `BufferTooSmall` and `DifferentImageFormats`.
+任务：创建一个名为 `ImageDataErrors` 的 `enum`，有两个变体 `BufferTooSmall` 和 `DifferentImageFormats`。
 
-Run `cargo test --bin combiner` to see if you correctly completed this task.
+运行 `cargo test --bin combiner` 来查看你是否正确地完成了任务。
 
 ### --seed--
 
@@ -6304,9 +6304,9 @@ mod tests {
 
 ### --description--
 
-Task: Derive the `Debug` trait for the `ImageDataErrors` enum.
+任务：为 `ImageDataErrors` 枚举添加 `Debug` 特性。
 
-Run `cargo test --bin combiner -- --show-output`. You should see the following printed to the console:
+运行 `cargo test --bin combiner -- --show-output`。 你应该看到控制台打印了以下内容：
 
 ```bash
     BufferTooSmall
@@ -6450,11 +6450,11 @@ mod tests {
 
 ### --description--
 
-Now you can use your enum to give more specific errors.
+现在你可以使用你的枚举来给出更多的特定错误。
 
-Task: Within `set_data`, return the appropriate error, if `data.len()` is greater than `self.data.capacity()`.
+任务：在 `set_data` 内，如果 `data.len()` 大于 `self.data.capacity()`，返回适当的错误。
 
-Run `cargo test --bin combiner` to see if you correctly completed this task.
+运行 `cargo test --bin combiner` 来查看你是否正确地完成了任务。
 
 ### --seed--
 
@@ -6604,9 +6604,9 @@ mod tests {
 
 ### --description--
 
-Task: Within `main`, instead of returning an error `String`, use `ImageDataErrors` to return the appropriate error.
+任务：在 `main` 中，使用 `ImageDataErrors` 返回适当的错误，而不是返回一个错误 `String`。
 
-Run `cargo test --bin combiner` to see if you correctly completed this task.
+运行 `cargo test --bin combiner` 来查看你是否正确地完成了任务。
 
 ### --seed--
 
@@ -6746,11 +6746,11 @@ mod tests {
 
 ### --description--
 
-Task: Within `main`, call `set_data` on `output` with `combined_data`.
+任务：在 `main` 里面，在 `output` 上调用 `set_data`，并传入 `combined_data`。
 
-_Hint:_ Follow the compiler's advice to get the code to compile
+_提示：_遵循编译器的建议，以编译代码。
 
-Run `cargo test --bin combiner` to see if you correctly completed this task.
+运行 `cargo test --bin combiner` 来查看你是否正确地完成了任务。
 
 ### --seed--
 
@@ -6919,7 +6919,7 @@ mod tests {
 
 ### --description--
 
-The compiler is giving you a warning that you are not using the `Result` returned from calling `set_data`. You could panic on the error using the `unwrap` method. However, as the error is being handled with an enum, you can propagate the error by using the _error propagation_ operator:
+编译器正在向你发出警告，你没有使用调用 `set_data` 返回的 `Result`。 使用 `unwrap` 方法，你可能引起 panic。 然而，由于错误是用枚举处理的，因此你可以通过使用_错误传播_运算符来传播错误：
 
 ```rust
     enum MyError {
@@ -6940,11 +6940,11 @@ The compiler is giving you a warning that you are not using the `Result` returne
     assert_eq!(last(), "Err".to_string());
 ```
 
-Using the `?` operator allows the `MyError` to propagate to the caller.
+使用 `?` 运算符允许 `MyError` 传播到调用者。
 
-Task: Follow the compiler's advice in the warning to propagate the error.
+任务：遵循编译器警告中的建议传播错误。
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+运行 `cargo test --bin combiner` 来查看你是否正确地完成了任务。
 
 ### --seed--
 
@@ -7110,17 +7110,17 @@ mod tests {
 
 ### --description--
 
-Finally, you can save the new image to a file. The `image` crate has a `save_buffer_with_format` function taking the following form:
+最后，你可以将新图像保存到一个文件。 `image` crate 有一个 `save_buffer_with_format` 函数采用以下形式：
 
 ```rust
     fn save_buffer_with_format(path: AsRef<Path>, buf: &[u8], width: u32, height: u32, color: image::ColorType, format: image::ImageFormat) -> image::ImageResult<()>;
 ```
 
-Seeing as `AsRef` is implemented for `String`, an argument of type `String` can be used for the `path`.
+因为对 `String` 应用了 `AsRef`，一个类型为 `String` 的参数可以被用于 `path`。
 
-Task: Within `main`, use the correct `output` properties as the first four arguments, `Rgba8` as the colour argument, and `image_1_format` as the format argument. Unwrap the result of `save_buffer_with_format`.
+任务：在 `main` 中，使用正确的 `output` 属性作为前四个参数、`Rgba8` 为颜色参数、`image_1_format` 为格式参数。 解包 `save_buffer_with_format` 的结果。
 
-Run `cargo run --bin combiner -- ./images/fcc_glyph.png ./images/pro.png example.png`. If the `example.png` file exists, and is a combination of my profile picture with the freeCodeCamp logo, you have completed the task.
+运行 `cargo run --bin combiner -- ./images/fcc_glyph.png ./images/pro.png example.png`。 如果 `example.png` 文件存在，并且是我的个人资料图片与 freeCodeCamp 标志的组合，就说明你已经完成了这项任务。
 
 ### --seed--
 
@@ -7263,9 +7263,9 @@ mod tests {
 
 ### --description--
 
-Task: Build a release version of your `combiner` CLI.
+任务：构建你的 `combiner` CLI 的发行版本。
 
-Run `cargo test --bin combiner` to see if you correctly completed the task.
+运行 `cargo test --bin combiner` 来查看你是否正确地完成了任务。
 
 ### --seed--
 
@@ -7426,16 +7426,16 @@ mod tests {
 
 ### --tests--
 
-- You can use the `cargo build --bin combiner --release` command to build the binary.
+- 你可以使用 `cargo build --bin combiner --release` 命令来构建二进制。
 - `null`
 
 ## 80
 
 ### --description--
 
-Congratulations on finishing the **Rust in Replit** course!
+恭喜你完成了 **Rust in Replit** 课程！
 
-You may now play around with your code and your new command line tool to make combined images of your own.
+你现在可以自己写代码，并使用你的新的命令行工具来制作你自己的组合图像。
 
 ### --seed--
 
@@ -7573,7 +7573,7 @@ fn set_rgba(vec: &Vec<u8>, start: usize, end: usize) -> Vec<u8> {
 
 ### --tests--
 
-- This is the final lesson. Congrats!
+- 这是最后一节课程。 祝贺你！
 - `null`
 
 ## 81
