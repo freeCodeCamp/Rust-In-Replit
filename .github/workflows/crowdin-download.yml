@@ -12,12 +12,12 @@ jobs:
 
     steps:
       - name: Checkout Source Files
-        uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3.6.0
+        uses: actions/checkout@a37ce9120846195fa4ece8f58b268e6043cb2f26 # v3.7.0
         with:
           token: ${{ secrets.CROWDIN_CAMPERBOT_PAT }}
 
       - name: Generate Crowdin Config
-        uses: freecodecamp/crowdin-action@main
+        uses: freecodecamp/crowdin-action@36a78cbf92f5a6c05a3a32dc8bf434a19a7c59e2 # main
         env:
           CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_CAMPERBOT_SERVICE_TOKEN }}
           CROWDIN_API_URL: "https://freecodecamp.crowdin.com/api/v2/"
@@ -208,7 +208,7 @@ jobs:
 
       # Create Commit
       - name: Commit Changes
-        uses: freecodecamp/crowdin-action@main
+        uses: freecodecamp/crowdin-action@36a78cbf92f5a6c05a3a32dc8bf434a19a7c59e2 # main
         env:
           CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_CAMPERBOT_SERVICE_TOKEN }}
           CROWDIN_API_URL: "https://freecodecamp.crowdin.com/api/v2/"
@@ -223,7 +223,7 @@ jobs:
       # All languages should go ABOVE this. #
 
       - name: Create PR
-        uses: freecodecamp/crowdin-action@main
+        uses: freecodecamp/crowdin-action@36a78cbf92f5a6c05a3a32dc8bf434a19a7c59e2 # main
         env:
           CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_CAMPERBOT_SERVICE_TOKEN }}
           CROWDIN_API_URL: "https://freecodecamp.crowdin.com/api/v2/"
