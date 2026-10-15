@@ -1,5 +1,8 @@
 # freeCodeCamp - Rust in Replit Course
 
+> [!IMPORTANT]
+> ARCHIVED. This repository is archived.
+
 ## Getting Started
 
 Clone this boilerplate into a new Replit REPL, by clicking the following button:
